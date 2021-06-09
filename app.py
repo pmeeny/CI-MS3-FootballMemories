@@ -13,9 +13,13 @@ app.config["MONGO_DBNAME"] = os.environ.get("MONGO_DBNAME")
 app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
 app.secret_key = os.environ.get("SECRET_KEY")
 
+mongo = PyMongo(app)
+
 @app.route("/")
-def hello():
-    return "Hello World ... again!"
+@app.route("/get_memories")
+def get_memories():
+    memories = mongo.db.memories.find()
+    return render_template("memories.html", memories=memories)
 
 
 if __name__ == "__main__":
