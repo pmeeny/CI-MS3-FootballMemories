@@ -12,7 +12,36 @@
     <title>Memories</title>
 </head>
 <body>
-
+    <!-- Navigation Bar -->
+    <header>
+        <nav>
+            <div class="nav-wrapper teal lighten-2">
+                <a href="#!" class="brand-logo">Logo</a>
+                <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="fas fa-bars"></i></a>
+                <ul class="right hide-on-med-and-down">
+					<li><a href="{{ url_for('get_memories') }}">Home</a></li>
+					<li><a href="#">Profile</a></li>
+					<li><a href="#">New Task</a></li>
+					<li><a href="#">Manage Categories</a></li>
+					<li><a href="#">Log Out</a></li>
+					<li><a href="#">Log In</a></li>
+					<li><a href="#">Register</a></li>
+                </ul>
+            </div>
+        </nav>
+        <!-- Mobile side navigation bar -->
+		<ul class="sidenav" id="mobile-demo">
+            <li><h4 class="center-align">Memory Manager</h4></li>
+            <li><a href="{{ url_for('get_memories') }}">Home</a></li>
+            <li><a href="#">Profile</a></li>
+            <li><a href="#">New Task</a></li>
+            <li><a href="#">Manage Categories</a></li>
+            <li><a href="#">Log Out</a></li>
+            <li><a href="#">Log In</a></li>
+            <li><a href="#">Register</a></li>
+		</ul>
+    </header>
+  
     {% block content %}
     {% endblock %}
 
@@ -22,5 +51,7 @@
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
     {% block scripts %}
     {% endblock %}
+     <!-- FontAwesome -->
+    <script src="https://kit.fontawesome.com/9e31b09f8c.js" crossorigin="anonymous"></script>
 </body>
 </html>
