@@ -48,6 +48,19 @@
 		</ul>
     </header>
   
+    <section>
+        <!-- flash messages -->
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="row flashes">
+                        <h4 class="light-blue lighten-4 center-align">{{ message }}</h4>
+                    </div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+    </section>
+
     <main class="container">
         {% block content %}
         {% endblock %}
