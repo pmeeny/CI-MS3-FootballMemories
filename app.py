@@ -89,10 +89,35 @@ def logout():
     session.pop("user")
     return redirect(url_for("login"))
 
-@app.route("/get_categories")
-def get_categories():
-    categories = list(mongo.db.categories.find().sort("category_name", 1))
-    return render_template("categories.html", categories=categories)
+@app.route("/get_tournaments")
+def get_tournaments():
+    tournaments = list(mongo.db.tournaments.find().sort("tournament_name", 1))
+    return render_template("tournament.html", tournaments=tournaments)
+
+@app.route("/add_tournament", methods=["GET", "POST"])
+def add_tournament():
+    if request.method == "POST":
+        tournament = {
+            "tournament_name": request.form.get("tournament_name")
+        }
+        mongo.db.tournaments.insert_one(tournament)
+        flash("New tournament Added")
+        return redirect(url_for("get_tournaments"))
+
+    return render_template("add_tournament.html")
+
+@app.route("/edit_tournament/<tournament_id>", methods=["GET", "POST"])
+def edit_tournament(tournament_id):
+    if request.method == "POST":
+        submit = {
+            "tournament_name": request.form.get("tournament_name")
+        }
+        mongo.db.tournaments.update({"_id": ObjectId(tournament_id)}, submit)
+        flash("Tournament Successfully Updated")
+        return redirect(url_for("get_tournaments"))
+
+    category = mongo.db.tournaments.find_one({"_id": ObjectId(tournament_id)})
+    return render_template("edit_tourament.html", tournament=tournament)
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
