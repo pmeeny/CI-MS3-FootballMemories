@@ -93,7 +93,7 @@ def logout():
 def get_tournaments():
     tournaments = list(mongo.db.tournaments.find().sort("tournament_name", 1))
     return render_template("tournament.html", tournaments=tournaments)
-
+    
 @app.route("/add_tournament", methods=["GET", "POST"])
 def add_tournament():
     if request.method == "POST":
@@ -124,6 +124,22 @@ def delete_tournament(tournament_id):
     mongo.db.tournaments.remove({"_id": ObjectId(tournament_id)})
     flash("Tournament Successfully Deleted")
     return redirect(url_for("get_tournaments"))
+
+@app.route("/add_memory", methods=["GET", "POST"])
+def add_memory():
+    if request.method == "POST":
+        memory = {
+            "tournament_name": request.form.get("tournament_name"),
+            "memory_name": request.form.get("memory_name"),
+            "memory_description": request.form.get("memory_description"),
+            "created_by": session["user"]
+        }
+        mongo.db.memories.insert_one(memory)
+        flash("Memory Successfully Added")
+        return redirect(url_for("get_memories"))
+
+    tournaments = mongo.db.tournaments.find().sort("tournament_name", 1)
+    return render_template("add_memory.html", tournaments=tournaments)
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
