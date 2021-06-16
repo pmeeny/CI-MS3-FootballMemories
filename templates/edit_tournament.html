@@ -5,24 +5,24 @@
     <h3 class="light-blue-text text-darken-4 center-align">Edit Tourament</h3>
 
     <div class="row card-panel grey lighten-5">
-        <form class="col s12" method="POST" action="{{ url_for('edit_tournament', category_id=category._id) }}">
-            <!-- category name -->
+        <form class="col s12" method="POST" action="{{ url_for('edit_tournament', tournament_id=tournament._id) }}">
+            <!-- tournament name -->
             <div class="row">
                 <div class="input-field col s12">
                     <i class="fas fa-folder-open prefix light-blue-text text-darken-4"></i>
-                    <input id="category_name" name="category_name" minlength="3" maxlength="25"
-                        type="text" value="{{ category.category_name }}" class="validate" required>
-                    <label for="category_name">Category Name</label>
+                    <input id="tournament_name" name="tournament_name" minlength="3" maxlength="25"
+                        type="text" value="{{ tournament.tournament_name }}" class="validate" required>
+                    <label for="tournament_name">Tournament Name</label>
                 </div>
             </div>
             <!-- submit button -->
             <div class="row">
                 <div class="col s12 center-align">
-                    <a href="{{ url_for('get_categories') }}" class="btn-large red text-shadow">
+                    <a href="{{ url_for('get_tournaments') }}" class="btn-large red text-shadow">
                         Cancel <i class="fas fa-times-circle right"></i>
                     </a>
                     <button type="submit" class="btn-large light-blue darken-1 text-shadow">
-                        Edit Category <i class="fas fa-edit right"></i>
+                        Edit tournament <i class="fas fa-edit right"></i>
                     </button>
                 </div>
             </div>
