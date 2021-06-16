@@ -19,8 +19,8 @@
                         <span class="card-title">{{ tournament.tournament_name }}</span>
                     </div>
                     <div class="card-action">
-                        <a href="#" class="btn green accent-4">Edit</a>
-                        <a href="#" class="btn light-blue lighten-1">Delete</a>
+                        <a href="{{ url_for('edit_tournament', tournament_id=tournament._id) }}" class="btn green accent-4">Edit</a>
+                        <a href="" class="btn light-blue lighten-1">Delete</a>
                     </div>
                 </div>
             </div>
