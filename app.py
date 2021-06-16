@@ -119,6 +119,12 @@ def edit_tournament(tournament_id):
     tournament = mongo.db.tournaments.find_one({"_id": ObjectId(tournament_id)})
     return render_template("edit_tournament.html", tournament=tournament)
 
+@app.route("/delete_tournament/<tournament_id>")
+def delete_tournament(tournament_id):
+    mongo.db.tournaments.remove({"_id": ObjectId(tournament_id)})
+    flash("Tournament Successfully Deleted")
+    return redirect(url_for("get_tournaments"))
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
