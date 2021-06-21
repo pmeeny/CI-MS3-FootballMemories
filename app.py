@@ -30,6 +30,11 @@ def get_memories():
     memories = mongo.db.memories.find()
     return render_template("memories.html", memories=memories)
 
+@app.route("/get_memory/<id>")
+def get_memory(id):
+    memory = mongo.db.memories.find_one({"_id": ObjectId(id)})
+    return render_template("memory.html", memory=memory)
+
 @app.route("/register", methods=["GET", "POST"])
 def register():
     if request.method == "POST":
