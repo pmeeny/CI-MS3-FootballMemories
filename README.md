@@ -84,6 +84,12 @@ The project uses a number of API's and the Cypress testing framework, below are 
 
 # Content
 
+Couintry list taken from https://www.technicalkeeda.com/html-tutorials/all-countries-drop-down-list-in-html
+
+photo gallery   https://bootstrapious.com/p/bootstrap-photo-gallery
+
+password validation: https://www.w3schools.com/howto/howto_js_password_validation.asp
+
 <br>
 
 # Media
