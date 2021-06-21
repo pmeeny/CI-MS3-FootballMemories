@@ -5,14 +5,22 @@ from flask import (
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
+from werkzeug.utils import secure_filename
 if os.path.exists("env.py"):
     import env
 
 app = Flask(__name__)
 
+UPLOAD_FOLDER = '/workspace/CI-MS3-FootballMemories/static/images'
+IMAGE_PATH = '/static/images/'
+ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg', 'gif'])
+
 app.config["MONGO_DBNAME"] = os.environ.get("MONGO_DBNAME")
 app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
 app.secret_key = os.environ.get("SECRET_KEY")
+
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+app.config['IMAGE_PATH'] = IMAGE_PATH
 
 mongo = PyMongo(app)
 
@@ -128,7 +136,14 @@ def delete_tournament(tournament_id):
 @app.route("/add_memory", methods=["GET", "POST"])
 def add_memory():
     if request.method == "POST":
+        image = request.files['image']
+        filename = secure_filename(image.filename)
+        image.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+        path_to_image = (os.path.join(
+        app.config['IMAGE_PATH'], filename))
+
         memory = {
+            "image": path_to_image,
             "tournament_name": request.form.get("tournament_name"),
             "memory_name": request.form.get("memory_name"),
             "memory_description": request.form.get("memory_description"),
@@ -140,6 +155,7 @@ def add_memory():
 
     tournaments = mongo.db.tournaments.find().sort("tournament_name", 1)
     return render_template("add_memory.html", tournaments=tournaments)
+
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),

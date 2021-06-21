@@ -2,7 +2,12 @@
 {% block content %}
 
     {% for memory in memories %}
+        <h3>Memory Details</h3>
+        <img src="{{ memory.image }}" alt="User Image" width="300" height="200">
+        {{ memory.tournament_name }}<br>
         {{ memory.memory_name }}<br>
+        {{ memory.memory_description }}<br>
+        {{ memory.created_by }}<br>
     {% endfor %}
 
 {% endblock %}

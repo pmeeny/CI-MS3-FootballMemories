@@ -4,7 +4,7 @@
     <h3 class="teal text-darken-4 center-align">Add Memory</h3>
 
     <div class="row card-panel grey lighten-5">
-        <form class="col s12" method="POST" action="{{ url_for('add_memory') }}">
+        <form class="col s12" method="POST"  enctype="multipart/form-data" action="{{ url_for('add_memory') }}">
             <!-- Tournament selection -->
 			<div class="row">
 				<div class="input-field col s12">
@@ -17,6 +17,10 @@
                     </select>
 					<label for="tournament_name">Tournament</label>
 				</div>
+            </div>
+            <div class="row">
+                <label for="file" class="form-label">Select image to upload</label>
+                <input class="form-control validate" type="file" id="image" name="image" required>
             </div>
             <!-- memory name -->
             <div class="row">
