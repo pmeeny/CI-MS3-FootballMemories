@@ -1,0 +1,61 @@
+/* ----- Google Fonts import ----- */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+/* ----- Font ----- */
+
+* {
+    font-family: 'Poppins', sans-serif;
+}
+
+body, html {
+    height: 100%;
+}
+
+/* The hero image */
+.hero-image {
+  /* Use "linear-gradient" to add a darken background effect to the image (photographer.jpg). This will make the text easier to read */
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/static/images/registerBackground.jpg");
+
+  /* Set a specific height */
+  height: 50%;
+
+  /* Position and center the image to scale nicely on all screens */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+
+/* Register */
+.reg-holder {
+    background-color: white;
+    padding: 50px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    border-radius: 25px;
+    max-width: 680px;
+}
+
+#register_text {
+    margin-bottom: 30px;
+}
+
+#submit_holder {
+    margin-top: 30px;
+}
+
+.input_field{
+    padding: 10px;
+}
+
+/* Login */
+.login-holder {
+    background-color: white;
+    padding: 50px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    border-radius: 25px;
+    max-width: 680px;
+}
