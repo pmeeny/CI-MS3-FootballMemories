@@ -1,7 +1,20 @@
 {% extends "base.html" %}
 {% block content %}
 
-    <div class="container">
+    <div class="container" id="memory-list">
+        <!-- Search form -->
+        <div class="row">
+            <div class="col-6">
+                <div id="myBtnContainer">
+                    <button class="btn active" onclick="filterSelection('all')"> Show all</button>
+                    <button class="btn" onclick="filterSelection('cars')"> My Memories</button>
+                </div>
+            </div>  
+            <div class="col-6">
+                <input class="form-control" type="text" placeholder="Search" aria-label="Search">
+            </div>  
+            </div>
+    </div>    
         <div class="row">
         <!-- Gallery item -->
         {% for memory in memories %}
