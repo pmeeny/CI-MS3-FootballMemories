@@ -19,8 +19,11 @@
         <!-- Gallery item -->
         {% for memory in memories %}
         <div class="col-lg-4 col-md-6 mb-4">
-            <div class="bg-white rounded shadow-sm"><img src="/static/images/1200px-Panorama_of_Anfield_with_new_main_stand_29676137824.jpg" alt="" class="img-fluid card-img-top">
-            <div class="p-4">
+            <div class="bg-white rounded shadow-sm">
+                <a href="/get_memory/{{ memory._id }}">
+                <img src="/static/images/1200px-Panorama_of_Anfield_with_new_main_stand_29676137824.jpg" alt="" class="img-fluid card-img-top"">
+                </a>
+                <div class="p-4">
                 <h5> <a href="#" class="text-dark">Red paint cup</a></h5>
                 <p class="small text-muted mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
                 <p class="small text-muted mb-0">Tournament: {{ memory.tournament_name }}</p>
