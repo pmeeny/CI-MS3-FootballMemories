@@ -13,16 +13,14 @@
 
     <div class="row">
         {% for tournament in tournaments %}
-            <div class="col s12 m3">
-                <div class="card teal lighten-2 center-align">
-                    <div class="card-content white-text">
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body">
                         <span class="card-title">{{ tournament.tournament_name }}</span>
                     </div>
                     <div class="card-action">
-                        <a href="{{ url_for('edit_tournament', tournament_id=tournament._id) }}" class="btn green accent-4">Edit</a>
-                        <a href="{{ url_for('delete_tournament', tournament_id=tournament._id) }}" class="btn light-blue lighten-1">Delete</a>
+                        <a href="{{ url_for('edit_tournament', tournament_id=tournament._id) }}" class="btn btn-primary">Edit</a>
+                        <a href="{{ url_for('delete_tournament', tournament_id=tournament._id) }}" class="btn btn-primary">Delete</a>
                     </div>
-                </div>
             </div>
         {% endfor %}
     </div>
