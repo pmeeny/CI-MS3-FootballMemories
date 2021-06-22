@@ -6,6 +6,11 @@ from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
 from werkzeug.utils import secure_filename
+from datetime import datetime
+
+from flask import Blueprint
+from flask_paginate import Pagination, get_page_parameter
+
 if os.path.exists("env.py"):
     import env
 
@@ -33,7 +38,9 @@ def get_memories():
 @app.route("/get_memory/<id>")
 def get_memory(id):
     memory = mongo.db.memories.find_one({"_id": ObjectId(id)})
-    return render_template("memory.html", memory=memory)
+    print(id)
+    comments = mongo.db.comments.find({"memory_id":  id})
+    return render_template("memory.html", memory=memory, comments=comments)
 
 @app.route("/register", methods=["GET", "POST"])
 def register():
@@ -108,8 +115,16 @@ def logout():
 
 @app.route("/get_tournaments")
 def get_tournaments():
+    search = False
+    q = request.args.get('q')
+    if q:
+        search = True
+
+    page = request.args.get(get_page_parameter(), type=int, default=1)
+
     tournaments = list(mongo.db.tournaments.find().sort("tournament_name", 1))
-    return render_template("tournament.html", tournaments=tournaments)
+    pagination = Pagination(page=page, total=5, search=search, record_name='tournament_name')
+    return render_template("tournament.html", tournaments=tournaments, pagination=pagination)
     
 @app.route("/add_tournament", methods=["GET", "POST"])
 def add_tournament():
@@ -165,6 +180,23 @@ def add_memory():
     tournaments = mongo.db.tournaments.find().sort("tournament_name", 1)
     return render_template("add_memory.html", tournaments=tournaments)
 
+@app.route("/add_comment/<memory>/<id>", methods=["POST"])
+def add_comment(memory, id):
+    now = datetime.now() # current date and time
+    year = now.strftime("%Y")
+    month = now.strftime("%m")
+    print(session)
+    comment = {
+        "memory_id": id,
+        "comment_text": request.form.get("comment"),
+        "comment_date": month + "-" + year,
+        "created_by": session["user"]
+    }
+    mongo.db.comments.insert_one(comment)
+    flash("Comment Successfully Added")
+    comments = mongo.db.comments.find({"memory_id":  id})
+
+    return render_template("memory.html", memory=memory, comments=comments)
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
