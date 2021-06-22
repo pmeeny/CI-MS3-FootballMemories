@@ -76,3 +76,13 @@ body, html {
     bottom: 0;
     width: 100%;
 }
+
+/* Add Memory Page */
+.memory-holder {
+    background-color: white;
+    padding: 50px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    border-radius: 25px;
+    max-width: 680px;
+}
