@@ -12,17 +12,21 @@
     </div>
 
     <div class="row">
+        {{ pagination.info }}
+        {{ pagination.links }}
         {% for tournament in tournaments %}
                 <div class="card" style="width: 18rem;">
                     <div class="card-body">
                         <span class="card-title">{{ tournament.tournament_name }}</span>
                     </div>
                     <div class="card-action">
+                        <td>{{ loop.index + pagination.skip }}</td>
                         <a href="{{ url_for('edit_tournament', tournament_id=tournament._id) }}" class="btn btn-primary">Edit</a>
                         <a href="{{ url_for('delete_tournament', tournament_id=tournament._id) }}" class="btn btn-primary">Delete</a>
                     </div>
             </div>
         {% endfor %}
+        {{ pagination.links }}
     </div>
 
 {% endblock %}
