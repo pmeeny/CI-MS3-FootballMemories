@@ -1,54 +1,50 @@
 {% extends "base.html" %}
 {% block content %}
 
-    <h3 class="teal text-darken-4 center-align">Add Memory</h3>
+<body class="hero-image">
+ <div class="container memory-holder">
+        <h3 class="center-align">Add Memory</h3>
 
-    <div class="row card-panel grey lighten-5">
-        <form class="col s12" method="POST"  enctype="multipart/form-data" action="{{ url_for('add_memory') }}">
-            <!-- Tournament selection -->
-			<div class="row">
-				<div class="input-field col s12">
-                    <i class="fas fa-folder-open prefix light-blue-text text-darken-4"></i>
-					<select id="tournament_name" name="tournament_name" class="validate" required>
-                        <option value="" disabled selected>Choose Tournament</option>
+        <div class="row">
+            <form method="POST" enctype="multipart/form-data" action="{{ url_for('add_memory') }}" class="needs-validation" novalidate>
+
+                <div class="col-6">
+                <label for="tournament_name" class="form-label">Tournament Name</label>
+                <select id="tournament_name" name="tournament_name" class="validate" required>
+                 <option value="" disabled selected>Choose Tournament</option>
                         {% for tournament in tournaments %}
                             <option value="{{ tournament.tournament_name }}">{{ tournament.tournament_name }}</option>
                         {% endfor %}
-                    </select>
-					<label for="tournament_name">Tournament</label>
-				</div>
-            </div>
-            <div class="row">
-                <label for="file" class="form-label">Select image to upload</label>
-                <input class="form-control validate" type="file" id="image" name="image" required>
-            </div>
-            <!-- memory name -->
-            <div class="row">
-                <div class="input-field col s12">
-                    <i class="fas fa-pencil-alt prefix light-blue-text text-darken-4"></i>
-                    <input id="memory_name" name="memory_name" minlength="5" maxlength="50"
-                        type="text" class="validate" required>
-                    <label for="memory_name">Memory Name</label>
+                </select>
                 </div>
-            </div>
-            <!-- memory description -->
-            <div class="row">
-                <div class="input-field col s12">
-                    <i class="fas fa-align-left prefix light-blue-text text-darken-4"></i>
-                    <textarea id="memory_description" name="memory_description" minlength="5"
-                        maxlength="200" class="materialize-textarea validate" required></textarea>
-                    <label for="memory_description">Memory Description</label>
-                </div>
-            </div>
-            <!-- submit button -->
-            <div class="row">
-                <div class="col s12 center-align">
-                    <button type="submit" class="btn-large light-blue darken-1 text-shadow">
-                        Add Memory <i class="fas fa-plus-square right"></i>
-                    </button>
-                </div>
-            </div>
-        </form>
-    </div>
 
+               <div class="col-6">
+                    <label for="file" class="form-label">Memory Image</label>
+                    <input class="form-control validate" type="file" id="image" name="image" required>
+                </div>
+
+                <div class="col-6">
+                    <label for="exampleInputEmail1" class="form-label">Memory Name</label>
+                    <input class="form-control" id="memory_name" name="username" type="text" aria-describedby="emailHelp" required>
+                    <div class="valid-feedback">
+                    Looks good!
+                    </div>
+                    <div class="invalid-feedback">
+                    Please enter a memory name
+                    </div>
+                </div>
+                <div class="col-6">
+                    <label for="exampleInputPassword1" class="form-label">Memory Description</label>
+                    <input class="form-control" id="memory_description" name="memory_description" type="text" required>
+                    <div class="valid-feedback">
+                    Looks good!
+                    </div>
+                    <div class="invalid-feedback">
+                    Please enter a memory description
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary">Add Memory</button>
+            </form>
+        </div>
+</body>        
 {% endblock %}
