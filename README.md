@@ -90,6 +90,9 @@ photo gallery   https://bootstrapious.com/p/bootstrap-photo-gallery
 
 password validation: https://www.w3schools.com/howto/howto_js_password_validation.asp
 
+Pagination: https://gist.github.com/mozillazg/69fb40067ae6d80386e10e105e6803c9
+https://pythonhosted.org/Flask-paginate/
+
 <br>
 
 # Media
