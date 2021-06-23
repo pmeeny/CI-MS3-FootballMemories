@@ -103,3 +103,12 @@ body, html {
     padding: .1em .25em;
     font-size: 150%;
 }
+.pagination ul {
+    display:flex;  
+  list-style:none;
+}
+
+.pagination ul li {
+    padding: 20px;
+}
+
