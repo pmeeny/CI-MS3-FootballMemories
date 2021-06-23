@@ -14,7 +14,7 @@
         <div class="col-md-8">
             <div class="d-flex flex-column comment-section">
                 <div class="bg-white p-2">
-
+                <h4 class="light-blue-text text-darken-4 center-align">Newsest comments are didplayed at the top of the comments list</h4>
                         {% for comment in comments %}
                          <div class="d-flex flex-row user-info">
                             <div class="d-flex flex-column justify-content-start ml-2"><span class="d-block font-weight-bold name">Posted by: {{ comment.created_by }}</span><span class="date text-black-50">Date: {{ comment.comment_date }}</span></div>
@@ -23,6 +23,9 @@
                         {{ comment.comment_text }}
                         </div> 
                         {% endfor %}
+
+                        {{ pagination.links }}
+                         {{ pagination.info }}
 
 <!--
                     <div class="d-flex flex-row user-info">
