@@ -9,12 +9,13 @@ from werkzeug.utils import secure_filename
 from datetime import datetime
 
 from flask import Blueprint
-from flask_paginate import Pagination, get_page_parameter
+from flask_paginate import Pagination, get_page_args
 
 if os.path.exists("env.py"):
     import env
 
 app = Flask(__name__)
+
 
 UPLOAD_FOLDER = '/workspace/CI-MS3-FootballMemories/static/images'
 IMAGE_PATH = '/static/images/'
@@ -32,15 +33,48 @@ mongo = PyMongo(app)
 @app.route("/")
 @app.route("/get_memories")
 def get_memories():
+
+    page, per_page, offset = get_page_args(
+        page_parameter='page', per_page_parameter='per_page',
+        offset_parameter='offset')
+
+    per_page = 3
+    offset = (page - 1) * 3
+
+    total_memories = mongo.db.memories.find().count()
     memories = mongo.db.memories.find()
-    return render_template("memories.html", memories=memories)
+    memories_paginated = memories[offset: offset + per_page]
+    pagination = Pagination(page=page, per_page=per_page,
+                            total=total_memories, css_framework='bootstrap')
+
+    return render_template("memories.html", memories=memories_paginated,
+                           page=page,
+                           per_page=per_page,
+                           pagination=pagination)
+
 
 @app.route("/get_memory/<id>")
 def get_memory(id):
+
+    page, per_page, offset = get_page_args(
+    page_parameter='page', per_page_parameter='per_page',
+    offset_parameter='offset')
+
+    per_page = 6
+    offset = (page - 1) * 6
+
     memory = mongo.db.memories.find_one({"_id": ObjectId(id)})
-    print(id)
+
     comments = mongo.db.comments.find({"memory_id":  id})
-    return render_template("memory.html", memory=memory, comments=comments)
+    total_comments = mongo.db.comments.find({"memory_id":  id}).count()
+    comments_paginated = comments[offset: offset + per_page]
+
+    pagination = Pagination(page=page, per_page=per_page,
+                            total=total_comments, css_framework='bootstrap')
+
+    return render_template("memory.html", memory=memory, comments=comments_paginated, page=page,
+                           per_page=per_page,
+                           pagination=pagination)
 
 @app.route("/register", methods=["GET", "POST"])
 def register():
@@ -115,16 +149,24 @@ def logout():
 
 @app.route("/get_tournaments")
 def get_tournaments():
-    search = False
-    q = request.args.get('q')
-    if q:
-        search = True
 
-    page = request.args.get(get_page_parameter(), type=int, default=1)
+    page, per_page, offset = get_page_args(
+        page_parameter='page', per_page_parameter='per_page',
+        offset_parameter='offset')
 
+    per_page = 3
+    offset = (page - 1) * 3
+
+    total_tournaments = mongo.db.tournaments.find().count()
     tournaments = list(mongo.db.tournaments.find().sort("tournament_name", 1))
-    pagination = Pagination(page=page, total=5, search=search, record_name='tournament_name')
-    return render_template("tournament.html", tournaments=tournaments, pagination=pagination)
+    tournaments_paginated = tournaments[offset: offset + per_page]
+    pagination = Pagination(page=page, per_page=per_page,
+                            total=total_tournaments, css_framework='bootstrap')
+
+    return render_template("tournament.html", tournaments=tournaments_paginated,
+                           page=page,
+                           per_page=per_page,
+                           pagination=pagination)
     
 @app.route("/add_tournament", methods=["GET", "POST"])
 def add_tournament():
@@ -194,9 +236,28 @@ def add_comment(memory, id):
     }
     mongo.db.comments.insert_one(comment)
     flash("Comment Successfully Added")
-    comments = mongo.db.comments.find({"memory_id":  id})
 
-    return render_template("memory.html", memory=memory, comments=comments)
+    page, per_page, offset = get_page_args(
+    page_parameter='page', per_page_parameter='per_page',
+    offset_parameter='offset')
+
+    per_page = 6
+    offset = (page - 1) * 6
+
+    memory = mongo.db.memories.find_one({"_id": ObjectId(id)})
+
+    comments = mongo.db.comments.find({"memory_id":  id})
+    total_comments = mongo.db.comments.find({"memory_id":  id}).count()
+    comments_paginated = comments[offset: offset + per_page]
+
+    pagination = Pagination(page=page, per_page=per_page,
+                            total=total_comments, css_framework='bootstrap')
+
+    return render_template("memory.html", memory=memory, comments=comments_paginated, page=page,
+                           per_page=per_page,
+                           pagination=pagination)
+
+
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
