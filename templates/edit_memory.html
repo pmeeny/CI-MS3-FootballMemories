@@ -6,15 +6,22 @@
         <h3 class="center-align">Edit Memory</h3>
 
         <div class="row">
-            <form method="POST" enctype="multipart/form-data" action="{{ url_for('edit_memory', memory_id=id) }}" class="needs-validation" novalidate>                                                              
+            <form method="POST" enctype="multipart/form-data" action="{{ url_for('edit_memory', memory_id=memory._id) }}" class="needs-validation" novalidate>                                                              
 
                 <div class="col-6">
                 <label for="tournament_name" class="form-label">Tournament Name</label>
                 <select id="tournament_name" name="tournament_name" class="validate" required>
                  <option value="" disabled selected>Choose Tournament</option>
                         {% for tournament in tournaments %}
-                            <option value="{{ tournament.tournament_name }}">{{ tournament.tournament_name }}</option>
-                        {% endfor %}
+
+                            {% if tournament.tournament_name == memory.tournament_name %}
+                                <option value="{{ tournament.tournament_name }}" selected>{{ tournament.tournament_name }}</option>
+                            {% else %}
+                                <option value="{{ tournament.tournament_name }}">{{ tournament.tournament_name }}</option>
+                            {% endif %}
+                        
+                        
+                            {% endfor %}
                 </select>
                 </div>
 
@@ -25,7 +32,7 @@
 
                 <div class="col-6">
                     <label for="exampleInputEmail1" class="form-label">Memory Name</label>
-                    <input class="form-control" id="memory_name" name="username" type="text" value="{{ memory.memory_name }}" aria-describedby="emailHelp" required>
+                    <input class="form-control" id="memory_name" name="memory_name" type="text" value="{{ memory.memory_name }}" aria-describedby="emailHelp" required>
                     <div class="valid-feedback">
                     Looks good!
                     </div>
