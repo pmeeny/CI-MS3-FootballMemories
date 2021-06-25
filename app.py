@@ -53,6 +53,29 @@ def get_memories():
                            pagination=pagination)
 
 
+@app.route("/get_user_memories")
+def get_user_memories():
+    page, per_page, offset = get_page_args(
+        page_parameter='page', per_page_parameter='per_page',
+        offset_parameter='offset')
+
+    per_page = 3
+    offset = (page - 1) * 3
+
+    username = session["user"]
+
+    total_user_memories = mongo.db.memories.find({"created_by": username}).count()
+    user_memories = mongo.db.memories.find({"created_by": username})
+    user_memories_paginated = user_memories[offset: offset + per_page]
+    pagination = Pagination(page=page, per_page=per_page,
+                            total=total_user_memories, css_framework='bootstrap')
+
+    return render_template("memories.html", memories=user_memories_paginated,
+                           page=page,
+                           per_page=per_page,
+                           pagination=pagination)
+
+
 @app.route("/get_memory/<id>")
 def get_memory(id):
 
@@ -227,7 +250,6 @@ def add_comment(memory, id):
     now = datetime.now() # current date and time
     year = now.strftime("%Y")
     month = now.strftime("%m")
-    print(session)
     comment = {
         "memory_id": id,
         "comment_text": request.form.get("comment"),
