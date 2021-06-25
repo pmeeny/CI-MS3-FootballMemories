@@ -310,6 +310,11 @@ def add_comment(memory, id):
                            per_page=per_page,
                            pagination=pagination)
 
+@app.route("/search", methods=["GET", "POST"])
+def search():
+    query = request.form.get("query")
+    memories = list(mongo.db.memories.find({"$text": {"$search": query}}))
+    return render_template("memories.html", memories=memories)
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
