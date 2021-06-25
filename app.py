@@ -236,6 +236,8 @@ def add_memory():
             "tournament_name": request.form.get("tournament_name"),
             "memory_name": request.form.get("memory_name"),
             "memory_description": request.form.get("memory_description"),
+            "date": request.form.get("date"),
+            "stadium": request.form.get("stadium"),
             "created_by": session["user"]
         }
         mongo.db.memories.insert_one(memory)
@@ -259,6 +261,8 @@ def edit_memory(memory_id):
             "tournament_name": request.form.get("tournament_name"),
             "memory_name": request.form.get("memory_name"),
             "memory_description": request.form.get("memory_description"),
+            "date": request.form.get("date"),
+            "stadium": request.form.get("stadium"),
             "created_by": session["user"]
         }
         mongo.db.memories.update({"_id": ObjectId(memory_id)}, memory_to_update)
