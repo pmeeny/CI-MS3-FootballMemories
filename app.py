@@ -247,7 +247,13 @@ def add_memory():
 
 @app.route("/edit_memory/<memory_id>", methods=["GET", "POST"])
 def edit_memory(memory_id):
+    
     if request.method == "POST":
+        image = request.files['image']
+        filename = secure_filename(image.filename)
+        image.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+        path_to_image = (os.path.join(
+        app.config['IMAGE_PATH'], filename))
         memory_to_update = {
             "image": path_to_image,
             "tournament_name": request.form.get("tournament_name"),
@@ -257,6 +263,7 @@ def edit_memory(memory_id):
         }
         mongo.db.memories.update({"_id": ObjectId(memory_id)}, memory_to_update)
         flash("Memory Successfully Updated")
+        return redirect(url_for("get_user_memories"))
 
     memory = mongo.db.memories.find_one({"_id": ObjectId(memory_id)})
     tournaments = mongo.db.tournaments.find().sort("tournament_name", 1)
@@ -302,7 +309,6 @@ def add_comment(memory, id):
     return render_template("memory.html", memory=memory, comments=comments_paginated, page=page,
                            per_page=per_page,
                            pagination=pagination)
-
 
 
 if __name__ == "__main__":
