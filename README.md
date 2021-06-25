@@ -63,6 +63,8 @@ The website has five webpages consisting of seven distinct features and they are
 
 # Testing
 The testing information and results for this project are documented in [TESTING.md](TESTING.md)
+Bug 1: add_memory , the memroy name was being stored as null in database
+fix: the name field was missing from the form field
 
 # Deployment
 
