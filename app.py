@@ -245,6 +245,12 @@ def add_memory():
     tournaments = mongo.db.tournaments.find().sort("tournament_name", 1)
     return render_template("add_memory.html", tournaments=tournaments)
 
+@app.route("/delete_memory/<memory_id>")
+def delete_memory(memory_id):
+    mongo.db.memories.remove({"_id": ObjectId(memory_id)})
+    flash("Memory Successfully Deleted")
+    return redirect(url_for("get_memories"))
+
 @app.route("/add_comment/<memory>/<id>", methods=["POST"])
 def add_comment(memory, id):
     now = datetime.now() # current date and time
