@@ -245,6 +245,24 @@ def add_memory():
     tournaments = mongo.db.tournaments.find().sort("tournament_name", 1)
     return render_template("add_memory.html", tournaments=tournaments)
 
+@app.route("/edit_memory/<memory_id>", methods=["GET", "POST"])
+def edit_memory(memory_id):
+    if request.method == "POST":
+        memory_to_update = {
+            "image": path_to_image,
+            "tournament_name": request.form.get("tournament_name"),
+            "memory_name": request.form.get("memory_name"),
+            "memory_description": request.form.get("memory_description"),
+            "created_by": session["user"]
+        }
+        mongo.db.memories.update({"_id": ObjectId(memory_id)}, memory_to_update)
+        flash("Memory Successfully Updated")
+
+    memory = mongo.db.memories.find_one({"_id": ObjectId(memory_id)})
+    tournaments = mongo.db.tournaments.find().sort("tournament_name", 1)
+    return render_template("edit_memory.html", memory=memory, tournaments=tournaments)
+
+
 @app.route("/delete_memory/<memory_id>")
 def delete_memory(memory_id):
     mongo.db.memories.remove({"_id": ObjectId(memory_id)})

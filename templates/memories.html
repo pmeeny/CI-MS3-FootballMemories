@@ -37,7 +37,7 @@
                 <div class="badge badge-danger px-3 rounded-pill font-weight-normal">New</div>
                 </div>
                 {% if session.user|lower == memory.created_by|lower %}
-                    <button type="button" class="btn btn-success">Edit Memory</button>
+                    <a type="button" class="btn btn-success" href="{{ url_for('edit_memory', memory_id=memory._id) }}">Edit Memory</a>
                     <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">Delete Memory</button>
                 {% endif %}
 
