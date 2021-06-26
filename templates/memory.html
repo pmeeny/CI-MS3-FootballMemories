@@ -46,7 +46,7 @@
                         <div class="like p-2 cursor"><i class="fa fa-share"></i><span class="ml-1">Share</span></div>
                     </div>
                 </div>-->  
-                <form method="POST" enctype="multipart/form-data" action="{{ url_for('add_comment', memory=memory, id=memory['_id'] ) }}" class="needs-validation" novalidate>
+                <form method="POST" enctype="multipart/form-data" action="{{ url_for('add_comment', id=memory['_id'] ) }}" class="needs-validation" novalidate>
                 <div class="bg-light p-2">
                     <div class="d-flex flex-row align-items-start">
                         <!--<img class="rounded-circle" src="https://i.imgur.com/RpzrMR2.jpg" width="40">-->
