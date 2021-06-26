@@ -66,6 +66,9 @@ The testing information and results for this project are documented in [TESTING.
 Bug 1: add_memory , the memroy name was being stored as null in database
 fix: the name field was missing from the form field
 
+Bug2: Add comment was throwing a 404 error. 
+Form in memory.html file updated to send in id only, and not memory, that was not required
+
 # Deployment
 
 
