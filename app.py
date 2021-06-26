@@ -324,6 +324,16 @@ def search():
 def dashboard():
     return render_template("dashboard.html")
 
+# 404 error page
+@app.errorhandler(404)
+def error_404(error):
+    return render_template('errors/404.html', error=error), 404
+
+# 500 error page
+@app.errorhandler(500)
+def error_500(error):
+    return render_template('errors/500.html', error=error), 500
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
