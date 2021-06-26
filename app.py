@@ -280,8 +280,8 @@ def delete_memory(memory_id):
     flash("Memory Successfully Deleted")
     return redirect(url_for("get_memories"))
 
-@app.route("/add_comment/<memory>/<id>", methods=["POST"])
-def add_comment(memory, id):
+@app.route("/add_comment/<id>", methods=["POST"])
+def add_comment(id):
     now = datetime.now() # current date and time
     year = now.strftime("%Y")
     month = now.strftime("%m")
