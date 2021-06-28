@@ -184,6 +184,10 @@ h1 {
     padding: 20px;
 }
 
+.pagination-page-info:first-letter {
+    text-transform: uppercase;
+}
+
 /* footer https://jsfiddle.net/bootstrapious/c7ash30w/ */
 
 i {
@@ -214,4 +218,8 @@ i {
     margin-bottom: 30px;
     border-radius: 25px;
 
+}
+
+.footer-font {
+    font-size: 0.9rem;
 }
