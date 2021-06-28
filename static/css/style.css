@@ -166,7 +166,7 @@ h1 {
     width: 40em;
     margin: .5em;
     margin-left: 0;
-    font-size: 12px;
+    font-size: 15px;
 }
 .pagination-page-info b {
     color: black;
@@ -206,3 +206,12 @@ i {
        margin: 30px;
 }
 
+/* Tournaments page */
+.tournament-holder {
+    background-color: white;
+    padding: 50px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    border-radius: 25px;
+
+}
