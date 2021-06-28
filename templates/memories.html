@@ -39,15 +39,15 @@
                 </div>
                 {% if session.user|lower == memory.created_by|lower %}
                     <a type="button" class="btn btn-success" href="{{ url_for('edit_memory', memory_id=memory._id) }}">Edit Memory</a>
-                    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">Delete Memory</button>
+                    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteMemoryModal">Delete Memory</button>
                 {% endif %}
 
                 <!-- Modal -->
-                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal fade" id="deleteMemoryModal" tabindex="-1" aria-labelledby="deleteMemoryLabel" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Delete Memory</h5>
+                        <h5 class="modal-title" id="deleteMemoryLabel">Delete Memory</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
