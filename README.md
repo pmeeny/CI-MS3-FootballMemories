@@ -98,6 +98,9 @@ password validation: https://www.w3schools.com/howto/howto_js_password_validatio
 Pagination: https://gist.github.com/mozillazg/69fb40067ae6d80386e10e105e6803c9
 https://pythonhosted.org/Flask-paginate/
 
+Footer sticks to bottom of page:
+https://stackoverflow.com/questions/4575826/how-to-push-a-footer-to-the-bottom-of-page-when-content-is-short-or-missing#:~:text=Just%20wrap%20your%20.,will%20move%20to%20the%20bottom.
+
 <br>
 
 # Media
