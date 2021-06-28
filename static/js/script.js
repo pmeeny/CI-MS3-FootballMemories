@@ -13,3 +13,7 @@
         form.classList.add('was-validated')
       }, false)
     })
+
+function emptyCommentField() {
+    document.getElementById("comment").value = ''
+}
