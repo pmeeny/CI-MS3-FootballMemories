@@ -12,6 +12,29 @@ body, html {
     height: 100%;
 }
 
+h1 {
+    font-size: 1.75rem;
+    color: green;
+}
+
+.btn-primary {
+    background-color: green;
+    border-color: green;
+    font-size: 1.2rem;
+}
+
+.btn-primary:hover {
+    background-color: green;
+    border-color: green;
+    text-decoration: underline;
+}
+
+.btn-primary:focus{
+    background-color: green;
+    border-color: green;
+}
+
+
 /* The hero image */
 .hero-image {
   /* Use "linear-gradient" to add a darken background effect to the image (photographer.jpg). This will make the text easier to read */
@@ -31,7 +54,7 @@ body, html {
 /* Register */
 .reg-holder {
     background-color: white;
-    padding: 50px;
+    padding: 30px;
     margin-top: 30px;
     margin-bottom: 30px;
     border-radius: 25px;
@@ -39,15 +62,27 @@ body, html {
 }
 
 #register_text {
-    margin-bottom: 30px;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+#reg-form{
+    margin-top: 25px;
 }
 
 #submit_holder {
-    margin-top: 30px;
+    margin-top: 25px;
+    text-align: right;
 }
+
+
 
 .input_field{
     padding: 10px;
+}
+
+.reg-body {
+    border-top: 1px solid grey;
 }
 
 /* Login */
@@ -126,7 +161,7 @@ body {
 }
 
 i {
-  color: #ffc371;
+  color: green;
 }
 
 .form-control::placeholder {
