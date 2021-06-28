@@ -1,10 +1,10 @@
 {% extends "base.html" %}
 {% block content %}
 
-<body class="hero-image">
+<body class="hero-image flex-wrapper">
     <div class="container-fluid reg-holder">
         <div class="reg-header">   
-            <h1 class="center-align" id="register_text">Register</h1>
+            <h1 id="register_text">Register</h1>
         </div> 
         <div class="reg-body">
             <form method="POST" action="{{ url_for('register') }}" class="needs-validation" id="reg-form" novalidate>
@@ -316,8 +316,8 @@
                             </datalist>
                         </div>    
                 </div> 
-                <div id="submit_holder">
-                    <button type="submit" class="btn btn-primary">Register</button> 
+                <div class="submit-holder">
+                    <button type="submit" class="btn btn-primary btn-account">Register</button> 
                 </div>                
             </form> 
         </div>           
