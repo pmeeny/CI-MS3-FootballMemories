@@ -1,32 +1,39 @@
 {% extends "base.html" %}
 {% block content %}
-<body class="hero-image">
+<body class="hero-image flex-wrapper">
     <div class="container login-holder">
-        <h3 class="center-align">Log In</h3>
-
-        <div class="row">
+        <div id="login-header">   
+            <h1>Log In</h1>
+        </div>
+        <div class="reg-body">
             <form method="POST" action="{{ url_for('login') }}" class="needs-validation" novalidate>
-                <div class="col-6">
-                    <label for="exampleInputEmail1" class="form-label">Username</label>
-                    <input class="form-control" id="username" name="username" type="text" aria-describedby="emailHelp" required>
-                    <div class="valid-feedback">
-                    Looks good!
-                    </div>
-                    <div class="invalid-feedback">
-                    Please enter a username
-                    </div>
+                <div class="row mt-3 form group">
+                    <label for="username" class="form-label col-4">Username</label>
+                    <div class="col-8">
+                        <input class="form-control" id="username" name="username" type="text" aria-describedby="emailHelp" required>
+                        <div class="valid-feedback">
+                        Looks good!
+                        </div>
+                        <div class="invalid-feedback">
+                        Please enter a username
+                        </div>
+                    </div>    
                 </div>
-                <div class="col-6">
-                    <label for="exampleInputPassword1" class="form-label">Password</label>
-                    <input type="password" class="form-control" id="password" name="password" type="password" required>
-                    <div class="valid-feedback">
-                    Looks good!
-                    </div>
-                    <div class="invalid-feedback">
-                    Please enter a password
-                    </div>
+                <div class="row mt-3 form group">
+                    <label for="password" class="form-label col-4">Password</label>
+                    <div class="col-8">
+                        <input type="password" class="form-control" id="password" name="password" type="password" required>
+                        <div class="valid-feedback">
+                        Looks good!
+                        </div>
+                        <div class="invalid-feedback">
+                        Please enter a password
+                        </div>
+                    </div>    
                 </div>
-                <button type="submit" class="btn btn-primary">Log In</button>
+                <div class="submit-holder">
+                    <button type="submit" class="btn btn-primary btn-account">Log In</button>
+                </div>
             </form>
         </div>
 
