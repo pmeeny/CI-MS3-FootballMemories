@@ -2,55 +2,70 @@
 {% block content %}
 
 <body class="hero-image">
-    <div class="container reg-holder">
-        <h3 class="center-align" id="register_text">Register</h3>
-            <form method="POST" action="{{ url_for('register') }}" class="needs-validation" novalidate>
-                <div class="row">
-                    <div class="col-md-6 col-sm-12 input_field">
-                        <label for="username" class="form-label">Username</label>
+    <div class="container-fluid reg-holder">
+        <div class="reg-header">   
+            <h1 class="center-align" id="register_text">Register</h1>
+        </div> 
+        <div class="reg-body">
+            <form method="POST" action="{{ url_for('register') }}" class="needs-validation" id="reg-form" novalidate>
+                <div class="row mt-3 form group">
+                        <label for="username" class="form-label col-4">Username</label>
+                        <div class="col-8">
                         <input class="form-control" id="username" name="username" type="text" aria-describedby="username" required>
-                        <div class="valid-feedback">
-                        Looks good!
+                            <div id="username_help" class="form-text">
+                            Your username must be tbd.
+                            </div>
+                            <div class="valid-feedback">
+                            Looks good!
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-6 col-sm-12 input_field">
-                        <label for="password" class="form-label">Password</label>
-                        <input type="password" class="form-control" id="password" name="password">
-                        <div id="passwordHelpBlock" class="form-text">
-                        Your password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.
-                        </div>
-                    </div>
                 </div>
-                <div class="row">
-                    <div class="col-md-6 col-sm-12 input_field">
-                        <label for="exampleInputEmail1" class="form-label">First Name</label>
-                        <input class="form-control" id="first_name" name="first_name" type="text" required>
-                        <div class="valid-feedback">
-                        Looks good!
+                <div class="row mt-3 form-group">
+                        <label for="password" class="form-label col-4">Password</label>
+                        <div class="col-8">
+                            <input type="password" class="form-control" id="password" name="password">
+                            <div id="password_help" class="form-text">
+                            Your password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.
+                            </div>
+                            <div class="valid-feedback">
+                            Looks good!
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-6 col-sm-12 input_field">
-                        <label for="last_name" class="form-label">Last Name</label>
-                        <input type="text" class="form-control" id="last_name" name="last_name" required>
-                        <div class="valid-feedback">
-                        Looks good!
-                        </div>
-                    </div>
                 </div>    
-                <div class="row">
-                    <div class="col-md-6 col-sm-12 input_field">
-                        <label for="favourite_team" class="form-label">Favourite Team</label>
-                        <input class="form-control" id="favourite_team" name="favourite_team" type="text" aria-describedby="favourite_team" required>
+                <div class="row mt-3 form group">
+                        <label for="first_name" class="form-label col-4">First Name</label>
+                        <div class="col-8">
+                            <input class="form-control" id="first_name" name="first_name" type="text" required>
+                            <div class="valid-feedback">
+                            Looks good!
+                            </div>
+                        </div>    
+                </div>
+                <div class="row mt-3 form group">
+                        <label for="last_name" class="form-label col-4">Last Name</label>
+                        <div class="col-8">
+                            <input type="text" class="form-control" id="last_name" name="last_name" required>
+                            <div class="valid-feedback">
+                            Looks good!
+                            </div>
+                        </div>    
+                </div>
+                <div class="row mt-3 form group">
+                        <label for="favourite_team" class="form-label col-4">Favourite Team</label>
+                        <div class="col-8">
+                            <input class="form-control" id="favourite_team" name="favourite_team" type="text" aria-describedby="favourite_team" required>
+                            <div class="valid-feedback">
+                            Looks good!
+                            </div>
+                        </div>    
+                </div>
+                <div class="row mt-3 form group">
+                    <label for="country" class="form-label col-4">Your Country</label>
+                    <div class="col-8">
+                        <input class="form-control" name="country" id="country" list="countryOptions" placeholder="Type to search....." required>
                         <div class="valid-feedback">
-                        Looks good!
+                                Looks good!
                         </div>
-                    </div>
-                    <div class="col-md-6 col-sm-12 input_field">
-                            <label for="country" class="form-label">Your Country</label>
-                            <input class="form-control" name="country" id="country" list="countryOptions" placeholder="Type to search...">
-                                <div class="valid-feedback">
-                                    Looks good!
-                                    </div>
                             <datalist id="countryOptions">
                                 <option value="Afganistan">Afganistan</option>
                                 <option value="Albania">Albania</option>
@@ -299,12 +314,13 @@
                                 <option value="Zambia">Zambia</option>
                                 <option value="Zimbabwe">Zimbabwe</option>
                             </datalist>
-                    </div>
-                </div>
+                        </div>    
+                </div> 
                 <div id="submit_holder">
                     <button type="submit" class="btn btn-primary">Register</button> 
                 </div>                
-            </form>        
+            </form> 
+        </div>           
     </div>
 </body>
 {% endblock %}
