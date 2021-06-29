@@ -16,7 +16,7 @@
     <header>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">
-            <a class="navbar-brand" href="#">Football Memories</a>
+            <a class="navbar-brand" href="#"><img src="/static/images/logo/website_logo_grey.png" alt="website logo" width="180"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
             </button>
@@ -25,19 +25,19 @@
 
                     {% if session.user %}
                         <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="{{ url_for('get_memories') }}">Memories</a>
+                        <a class="nav-link nav-font" aria-current="page" href="{{ url_for('get_memories') }}">Memories</a>
                         </li>
-                        <li class="nav-item"><a href="{{ url_for('profile', username=session['user']) }}" class="nav-link" aria-current="page">Profile</a></li>
-                        <li class="nav-item"><a href="{{ url_for('add_memory') }}" class="nav-link" aria-current="page">Add Memory</a></li>
-                        <li class="nav-item"><a href="{{ url_for('get_tournaments') }}" class="nav-link" aria-current="page">Manage Tournaments</a></li>
-                        <li class="nav-item"><a href="{{ url_for('dashboard') }}" class="nav-link" aria-current="page">Dashboard</a></li>
-                        <li class="nav-item"><a href="{{ url_for('logout') }}" class="nav-link" aria-current="page">Log Out</a></li>
+                        <li class="nav-item nav-font"><a href="{{ url_for('profile', username=session['user']) }}" class="nav-link" aria-current="page">Profile</a></li>
+                        <li class="nav-item nav-font"><a href="{{ url_for('add_memory') }}" class="nav-link" aria-current="page">Add Memory</a></li>
+                        <li class="nav-item nav-font"><a href="{{ url_for('get_tournaments') }}" class="nav-link" aria-current="page">Manage Tournaments</a></li>
+                        <li class="nav-item nav-font"><a href="{{ url_for('dashboard') }}" class="nav-link" aria-current="page">Dashboard</a></li>
+                        <li class="nav-item nav-font"><a href="{{ url_for('logout') }}" class="nav-link" aria-current="page">Log Out</a></li>
                     {% else %}
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="">Home</a>
+                        <a class="nav-link nav-font" aria-current="page" href="">Home</a>
                     </li>
-                        <li class="nav-item"><a href="{{ url_for('login') }}" class="nav-link" aria-current="page">Log In</a></li>
-                        <li class="nav-item"><a href="{{ url_for('register') }}" class="nav-link" aria-current="page">Register</a></li>
+                        <li class="nav-item nav-font"><a href="{{ url_for('login') }}" class="nav-link" aria-current="page">Log In</a></li>
+                        <li class="nav-item nav-font"><a href="{{ url_for('register') }}" class="nav-link" aria-current="page">Register</a></li>
                     {% endif %}
                 </ul>
             </div>
@@ -69,7 +69,7 @@
   <footer class="bg-white">
     <div class="container">
       <div class="row py-3">
-        <div class="col-lg-4 col-md-4 mb-4 mb-lg-0"><img src="img/logo.png" alt="" width="180" class="mb-3">
+        <div class="col-lg-4 col-md-4 mb-4 mb-lg-0"><img src="/static/images/logo/website_logo_white.png" alt="" width="180" class="mb-3">
           <p class="font-italic text-muted footer-font">Football memories is a website for sharing your football memories.</p>
           <ul class="list-inline mt-4">
             <li class="list-inline-item"><a href="http://www.twitter.com" target="_blank" rel="noreferrer" aria-label="Go to our twitter page (opens in new tab)" title="twitter"><i class="fa fa-twitter"></i></a></li>
