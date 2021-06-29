@@ -160,7 +160,7 @@ def login():
 def profile(username):
     # grab the session user's details from db
     user = mongo.db.users.find_one({"username": username})
-    return render_template("profile.html", user=user)
+    return render_template("profile.html", username=session['user'], user=user)
 
 @app.route("/logout")
 def logout():
