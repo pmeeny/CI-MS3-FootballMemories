@@ -55,6 +55,10 @@ h1 {
     text-decoration: underline;
 }
 
+.card {
+    width: 17rem;
+}
+
 
 /* The hero image */
 .hero-image {
@@ -111,6 +115,10 @@ h1 {
     margin-top: 30px;
     margin-bottom: 30px;
     border-radius: 25px;
+}
+
+.common-holder-width {
+    max-width: 680px;
 }
 
 
