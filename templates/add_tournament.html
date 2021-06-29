@@ -1,29 +1,31 @@
   
 {% extends "base.html" %}
 {% block content %}
-
-    <h3 class="teal text-darken-4 center-align">Add Tournament</h3>
-
-    <div class="row card-panel grey lighten-5">
-        <form class="col s12" method="POST" action="{{ url_for('add_tournament') }}">
-            <!-- tournament name -->
-            <div class="row">
-                <div class="input-field col s12">
-                    <i class="fas fa-folder-open prefix light-blue-text text-darken-4"></i>
-                    <input id="tournament_name" name="tournament_name" minlength="3" maxlength="25"
-                        type="text" class="validate" required>
-                    <label for="tournament_name">Tournament Name</label>
+<body class="hero-image flex-wrapper">
+    <div class="container common-holder">
+        <div class="h1-header">   
+            <h1>Add Tournament</h1>
+        </div>
+        <div class="common-body">
+            <form  method="POST" action="{{ url_for('add_tournament') }}"  class="needs-validation" novalidate>
+                <div class="row mt-3 form-group">
+                    <label for="tournament_name" class="form-label col-4">Tournament Name</label>
+                    <div class="col-8">
+                    <input class="form-control" id="tournament_name" name="tournament_name" type="text" aria-describedby="tournament_name" required>
+                    <div class="invalid-feedback">
+                        Please enter a tournament name
+                    </div>
+                    <div class="valid-feedback">
+                        Looks good!
+                        </div>
+                    </div>
+                </div>              
+                <!-- submit button -->
+                <div class="submit-holder">
+                    <button type="submit" class="btn btn-primary btn-account">Add Tournament</button>
                 </div>
-            </div>
-            <!-- submit button -->
-            <div class="row">
-                <div class="col s12 center-align">
-                    <button type="submit" class="btn-large light-blue darken-1 text-shadow">
-                        Add Tournament <i class="fas fa-plus-square right"></i>
-                    </button>
-                </div>
-            </div>
-        </form>
+            </form>
+        </div>
     </div>
-
+</body>
 {% endblock %}
