@@ -333,6 +333,14 @@ def error_404(error):
 def error_500(error):
     return render_template('errors/500.html', error=error), 500
 
+@app.route("/terms_and_conditions")
+def terms_and_conditions():
+    return render_template("terms_and_conditions.html")
+
+@app.route("/privacy_policy")
+def privacy_policy():
+    return render_template("privacy_policy.html")
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
