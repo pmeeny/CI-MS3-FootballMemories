@@ -45,6 +45,13 @@
         </nav>
     </header>
   
+
+
+    <main class="container">
+        {% block content %}
+        {% endblock %}
+    </main>
+
     <section>
         <!-- flash messages -->
         {% with messages = get_flashed_messages() %}
@@ -57,11 +64,6 @@
             {% endif %}
         {% endwith %}
     </section>
-
-    <main class="container">
-        {% block content %}
-        {% endblock %}
-    </main>
 
   <!-- Footer -->
   <footer class="bg-white">
