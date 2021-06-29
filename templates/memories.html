@@ -9,15 +9,16 @@
         <div class="container" id="memory-list">
             <!-- Search form -->
             <div class="row">
-                <div class="col-6">
+                <div class="col-4">
                     <div id="myBtnContainer">
                         <a id="get_memories" type="button" class="btn btn-primary" href="{{ url_for('get_memories') }}""> Show all</a>
                         <a id="get_user_memories" type="button" class="btn btn-light" href="{{ url_for('get_user_memories') }}""> My Memories</a>
-                        <a id="get_memory" type="button" class="btn btn-light" href="{{ url_for('add_memory') }}""> Add Memory</a
                     </div>
-
                 </div>  
-                <div class="col-6">
+                <div class="col-4">
+                        <a id="get_memory" type="button" class="btn btn-light" href="{{ url_for('add_memory') }}""> Add Memory</a>
+                </div>
+                <div class="col-4">
                     <input class="form-control" type="text" placeholder="Search" aria-label="Search">
                 </div>  
             </div>
@@ -67,10 +68,17 @@
                 </div>
             </div>
             {% endfor %}
-            {{ pagination.links }}
-            {{ pagination.info }}
+            <div class="container">
+                <div class="row">
+                    <div class="col-6">
+                        {{ pagination.links }} 
+                    </div>
+                    <div class="col-6" id="pagin-info">
+                        {{ pagination.info }}  
+                    </div>
+                </div>
+            </div>
         </div>
-
     </div>
 </body>
 {% endblock %}
