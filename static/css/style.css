@@ -200,8 +200,20 @@ h1 {
     padding: 20px;
 }
 
+.pagination ul li a {
+    color: green;
+}
+
 .pagination-page-info:first-letter {
     text-transform: uppercase;
+}
+
+.pagination row{
+    width: 50%;
+}
+
+#pagin-info{
+    text-align: right;
 }
 
 /* footer https://jsfiddle.net/bootstrapious/c7ash30w/ */
