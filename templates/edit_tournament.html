@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 <body class="hero-image flex-wrapper">
-    <div class="container common-holder">
+    <div class="container common-holder common-holder-width">
         <div class="h1-header">   
             <h1>Edit Tournament</h1>
         </div>
@@ -22,7 +22,7 @@
                 <div class="row mt-3 form-group">
                     <label for="tournament_image" class="form-label col-4">Tournament Image</label>
                     <div class="col-8">
-                    <input type="file" class="form-control-file" id="tournament_image" name="tournament_image" aria-describedby="tournament_image" required value="{{ tournament.tournament_image }}">
+                    <input type="file" class="form-control validate id="tournament_image" name="tournament_image" aria-describedby="tournament_image" required value="{{ tournament.tournament_image }}">
                     <div class="invalid-feedback">
                         Please upload a tournament image
                     </div>

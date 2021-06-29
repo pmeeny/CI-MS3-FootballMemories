@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 <body class="hero-image flex-wrapper">
-    <div class="container common-holder">
+    <div class="container common-holder common-holder-width">
         <div class="h1-header">   
             <h1>Edit Memory</h1>
         </div>
@@ -10,7 +10,7 @@
                 <div class="row mt-3 form-group">
                     <label for="tournament_name" class="form-label col-4">Tournament Name</label>
                     <div class="col-8">
-                        <select id="tournament_name" name="tournament_name" class="validate" required>
+                        <select id="tournament_name" name="tournament_name" class="validate form-control" required>
                             <option value="" disabled selected>Choose Tournament</option>
                                 {% for tournament in tournaments %}
                                     {% if tournament.tournament_name == memory.tournament_name %}
@@ -49,7 +49,7 @@
                 <div class="row mt-3 form-group">
                     <label for="memory_description" class="form-label col-4">Memory Description</label>
                     <div class="col-8">
-                        <input class="form-control" id="memory_description" name="memory_description" type="text" value="{{ memory['memory_description'] }}" required>
+                        <textarea class="form-control" id="memory_description" name="memory_description" rows="3" required>{{ memory['memory_description'] }}</textarea>
                         <div class="valid-feedback">
                         Looks good!
                         </div>
@@ -89,5 +89,6 @@
                 </div>
             </form>
         </div>
+    </div>    
 </body>        
 {% endblock %}
