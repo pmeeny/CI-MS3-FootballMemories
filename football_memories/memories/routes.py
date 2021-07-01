@@ -1,3 +1,4 @@
+import os
 from flask import (
     Flask, flash, render_template,
     redirect, request, session, url_for, Blueprint, session,abort)
@@ -6,6 +7,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from werkzeug.utils import secure_filename
+from datetime import datetime
 from flask import current_app
 
 from flask_paginate import Pagination, get_page_args
@@ -86,9 +88,9 @@ def add_memory():
     if request.method == "POST":
         image = request.files['image']
         filename = secure_filename(image.filename)
-        image.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+        image.save(os.path.join(memories.config['UPLOAD_FOLDER'], filename))
         path_to_image = (os.path.join(
-        app.config['IMAGE_PATH'], filename))
+        memories.config['IMAGE_PATH'], filename))
 
         memory = {
             "image": path_to_image,
@@ -112,9 +114,9 @@ def edit_memory(memory_id):
     if request.method == "POST":
         image = request.files['image']
         filename = secure_filename(image.filename)
-        image.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+        image.save(os.path.join(memories.config['UPLOAD_FOLDER'], filename))
         path_to_image = (os.path.join(
-        app.config['IMAGE_PATH'], filename))
+        memories.config['IMAGE_PATH'], filename))
         memory_to_update = {
             "image": path_to_image,
             "tournament_name": request.form.get("tournament_name"),
