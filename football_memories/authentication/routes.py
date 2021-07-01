@@ -6,7 +6,6 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from flask import current_app
-
 from football_memories import mongo
 
 authentication = Blueprint('authentication', __name__)
@@ -31,12 +30,12 @@ def register():
             "favourite_team": request.form.get("favourite_team"), 
             "country": request.form.get("country")                     
         }
-        current_app.mongo.db.users.insert_one(register)
+        mongo.db.users.insert_one(register)
 
         # put the new user into 'session' cookie
         session["user"] = request.form.get("username").lower()
         flash("Registration Successful!")
-        return redirect(url_for("authentication.profile", username=session["user"]))
+        return redirect(url_for("memories.get_memories", username=session["user"]))
 
     return render_template("authentication/register.html")
 
