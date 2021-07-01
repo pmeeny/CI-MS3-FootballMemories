@@ -1,0 +1,90 @@
+{% extends "base.html" %}
+{% block content %}
+<body class="hero-image flex-wrapper">
+    <div class="container common-holder common-holder-width">
+        <div class="h1-header">   
+            <h1>Add Memory</h1>
+        </div>
+        <div class="common-body">
+            <form method="POST" enctype="multipart/form-data" action="{{ url_for('memories.add_memory') }}" class="needs-validation" novalidate>
+                <div class="row mt-3 form-group">
+                    <label for="tournament_name" class="form-label col-4">Tournament Name</label>
+                    <div class="col-8">
+                        <select id="tournament_name" name="tournament_name" class="form-control validate" required>
+                        <option value="" disabled selected>Choose Tournament</option>
+                                {% for tournament in tournaments %}
+                                    <option value="{{ tournament.tournament_name }}">{{ tournament.tournament_name }}</option>
+                                {% endfor %}
+                        </select>
+                    </div>    
+                </div>
+               <div class="row mt-3 form-group">
+                    <label for="file" class="form-label col-4">Memory Image</label>
+                    <div class="col-8">
+                        <input class="form-control validate" type="file" id="image" name="image" required>
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>
+                        <div class="invalid-feedback">
+                            Please upload a memory image
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-3 form-group">
+                    <label for="memory_name" class="form-label col-4">Memory Name</label>
+                    <div class="col-8">
+                        <input class="form-control" id="memory_name" name="memory_name" type="text" aria-describedby="memory_name" required>
+                            <div class="valid-feedback">
+                            Looks good!
+                            </div>
+                            <div class="invalid-feedback">
+                            Please enter a memory name
+                            </div>
+                    </div>
+                </div>
+                <div class="row mt-3 form-group">
+                    <label for="memory_description" class="form-label col-4">Memory Description</label>
+                    <div class="col-8">
+                        <textarea class="form-control" id="memory_description" name="memory_description" rows="3" required></textarea>
+                            <div class="valid-feedback">
+                            Looks good!
+                            </div>
+                            <div class="invalid-feedback">
+                            Please enter a memory description
+                            </div>
+                    </div>
+                </div>
+                <div class="row mt-3 form-group">
+                    <label for="date" class="col-4 col-form-label">Date</label>
+                    <div class="col-8">
+                    <input class="form-control" type="date" id="date" name="booking_date" required> 
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>
+                        <div class="invalid-feedback">
+                            Please enter a memory date
+                        </div>
+                    </div>
+                </div>              
+                <div class="row mt-3 form-group">
+                    <label for="stadium" class="col-4 col-form-label">Stadium</label>
+                    <div class="col-8">
+                        <input class="form-control" name="stadium" type="text" id="stadium" required>
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>
+                        <div class="invalid-feedback">
+                            Please enter a stadium
+                        </div>
+                    </div>
+                </div>
+                <!-- submit button -->
+                <div class="submit-holder">
+                    <a href="{{ url_for('memories.get_memories') }}" class="btn btn-danger">Cancel</a>
+                    <button type="submit" class="btn btn-primary">Add Memory</button>
+                </div>
+            </form>
+        </div>
+    </div>    
+</body>        
+{% endblock %}

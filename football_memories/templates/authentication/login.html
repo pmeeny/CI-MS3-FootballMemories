@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% block content %}
+<body class="hero-image flex-wrapper">
+    <div class="container login-holder">
+        <div class="h1-header">   
+            <h1>Log In</h1>
+        </div>
+        <div class="common-body">
+            <form method="POST" action="{{ url_for('authentication.login') }}" class="needs-validation" novalidate>
+                <div class="row mt-3 form group">
+                    <label for="username" class="form-label col-4">Username</label>
+                    <div class="col-8">
+                        <input class="form-control" id="username" name="username" type="text" aria-describedby="emailHelp" required>
+                        <div class="valid-feedback">
+                        Looks good!
+                        </div>
+                        <div class="invalid-feedback">
+                        Please enter a username
+                        </div>
+                    </div>    
+                </div>
+                <div class="row mt-3 form group">
+                    <label for="password" class="form-label col-4">Password</label>
+                    <div class="col-8">
+                        <input type="password" class="form-control" id="password" name="password" type="password" required>
+                        <div class="valid-feedback">
+                        Looks good!
+                        </div>
+                        <div class="invalid-feedback">
+                        Please enter a password
+                        </div>
+                    </div>    
+                </div>
+                <div class="submit-holder">
+                    <button type="submit" class="btn btn-primary btn-account">Log In</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="row">
+            <div class="col s12">
+                <p class="center-align">
+                    New Here?
+                    <a href="{{ url_for('authentication.register') }}" class="light-blue-text text-darken-4">Register Account</a>
+                </p>
+            </div>
+        </div>
+    </div>    
+</body>
+{% endblock %}

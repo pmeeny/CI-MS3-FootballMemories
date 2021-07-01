@@ -1,0 +1,124 @@
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css"
+        integrity="sha512-xA6Hp6oezhjd6LiLZynuukm80f8BoZ3OpcEYaqKoCV3HKQDrYjDE1Gu8ocxgxoXmwmSzM4iqPvCsOkQNiu41GA==" crossorigin="anonymous" type="text/css">
+    {% block styles %}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css">
+    {% endblock %}
+    <title>Memories</title>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <a class="navbar-brand" href="#"><img src="/static/images/logo/website_logo_grey.png" alt="website logo" width="180"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+                    {% if session.user %}
+                        <li class="nav-item">
+                        <a class="nav-link nav-font" aria-current="page" href="{{ url_for('memories.get_memories') }}">Memories</a>
+                        </li>
+                        <li class="nav-item nav-font"><a href="{{ url_for('authentication.profile', username=session['user']) }}" class="nav-link" aria-current="page">Profile</a></li>
+                        <li class="nav-item nav-font"><a href="{{ url_for('memories.add_memory') }}" class="nav-link" aria-current="page">Add Memory</a></li>
+                        <li class="nav-item nav-font"><a href="{{ url_for('tournaments.get_tournaments') }}" class="nav-link" aria-current="page">Manage Tournaments</a></li>
+                        <li class="nav-item nav-font"><a href="{{ url_for('administration.dashboard') }}" class="nav-link" aria-current="page">Dashboard</a></li>
+                        <li class="nav-item nav-font"><a href="{{ url_for('authentication.logout') }}" class="nav-link" aria-current="page">Log Out</a></li>   
+                    {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link nav-font" aria-current="page" href="">Home</a>
+                    </li>
+                        <li class="nav-item nav-font"><a href="{{ url_for('authentication.login') }}" class="nav-link" aria-current="page">Log In</a></li>
+                        <li class="nav-item nav-font"><a href="{{ url_for('authentication.register') }}" class="nav-link" aria-current="page">Register</a></li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+        </nav>
+    </header>
+  
+
+
+    <main class="container">
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <section>
+        <!-- flash messages -->
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="row flashes">
+                        <h4 class="light-blue lighten-4 center-align">{{ message }}</h4>
+                    </div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+    </section>
+
+  <!-- Footer -->
+  <footer class="bg-white">
+    <div class="container">
+      <div class="row py-3">
+        <div class="col-lg-4 col-md-4 mb-4 mb-lg-0"><img src="/static/images/logo/website_logo_white.png" alt="" width="180" class="mb-3">
+          <p class="font-italic text-muted footer-font">Football memories is a website for sharing your football memories.</p>
+          <ul class="list-inline mt-4">
+            <li class="list-inline-item"><a href="http://www.twitter.com" target="_blank" rel="noreferrer" aria-label="Go to our twitter page (opens in new tab)" title="twitter"><i class="fa fa-twitter"></i></a></li>
+            <li class="list-inline-item"><a href="http://www.facebook.com" target="_blank" rel="noreferrer" aria-label="Go to our facebook page (opens in new tab)" title="facebook"><i class="fa fa-facebook"></i></a></li>
+            <li class="list-inline-item"><a href="http://www.instagram.com" target="_blank" rel="noreferrer" aria-label="Go to our instagram page (opens in new tab)" title="instagram"><i class="fa fa-instagram"></i></a></li>
+            <li class="list-inline-item"><a href="http://www.pinterest.com" target="_blank" rel="noreferrer" aria-label="Go to our pinterest page (opens in new tab)" title="pinterest"><i class="fa fa-pinterest"></i></a></li>
+            <li class="list-inline-item"><a href="http://www.snapchat.com" target="_blank" rel="noreferrer" aria-label="Go to our snapchat page (opens in new tab)" title="snapchat"><i class="fa fa-snapchat"></i></a></li>
+          </ul>
+        </div>
+        <div class="col-lg-4 col-md-4 mb-4 mb-lg-0">
+          <h6 class="text-uppercase font-weight-bold mb-4 footer-font">Website</h6>
+          <ul class="list-unstyled mb-0">
+            <li class="mb-2"><a href="#" class="text-muted footer-font">About</a></li>
+            <li class="mb-2"><a href="{{ url_for('administration.terms_and_conditions') }}" class="text-muted footer-font">Terms and Conditions</a></li>
+            <li class="mb-2"><a href="{{ url_for('administration.privacy_policy') }}" class="text-muted footer-font">Privacy Policy</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-4 col-md-4 mb-lg-0">
+          <h6 class="text-uppercase font-weight-bold mb-4 footer-font">Newsletter</h6>
+          <p class="text-muted mb-4 footer-font">Fill in your email address below to receive our monthly newsletter.</p>
+          <div class="p-1 rounded border">
+            <div class="input-group">
+              <input type="email" placeholder="Email address" aria-describedby="newsletter" class="form-control border-0 shadow-0 footer-font">
+              <div class="input-group-append">
+                <button id="newsletter" type="submit" class="btn btn-link"><i class="fa fa-paper-plane"></i></button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Copyrights -->
+    <div class="bg-light py-1">
+      <div class="container text-center">
+        <p class="text-muted mb-0 py-2 footer-font">© 2021 All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+  <!-- End -->
+    {% block scripts %}
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js"
+        integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+        <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    {% endblock %}
+    <!-- FontAwesome -->
+    <script src="https://kit.fontawesome.com/9e31b09f8c.js" crossorigin="anonymous"></script>
+    <!-- Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+</body>
+</html>
