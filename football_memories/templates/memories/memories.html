@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
-<body class="hero-image flex-wrapper">
+<body class="hero-image flex-wrapper-auth">
     <div class="container common-holder">
         <div class="h1-header">   
             <h1>Memories</h1>
@@ -9,18 +9,20 @@
         <div class="container" id="memory-list">
             <!-- Search form -->
             <div class="row">
-                <div class="col-4">
+                <div class="col-6">
                     <div id="myBtnContainer">
                         <a id="get_memories" type="button" class="btn btn-primary" href="{{ url_for('memories.get_memories') }}""> Show all</a>
                         <a id="get_user_memories" type="button" class="btn btn-light" href="{{ url_for('memories.get_user_memories') }}""> My Memories</a>
                     </div>
                 </div>  
-                <div class="col-4">
+                <div class="col-6">
                         <a id="get_memory" type="button" class="btn btn-light" href="{{ url_for('memories.add_memory') }}""> Add Memory</a>
                 </div>
-                <div class="col-4">
+            <div class="row" id="search-area">    
+                <div class="col-12">
                     <input class="form-control" type="text" placeholder="Search" aria-label="Search">
                 </div>  
+            </div>  
             </div>
         </div>    
         <div class="row">
@@ -41,8 +43,14 @@
                     <div class="badge badge-danger px-3 rounded-pill font-weight-normal">New</div>
                     </div>
                     {% if session.user|lower == memory.created_by|lower %}
-                        <a type="button" class="btn btn-success" href="{{ url_for('memories.edit_memory', memory_id=memory._id) }}">Edit Memory</a>
-                        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteMemoryModal">Delete Memory</button>
+                    <div class="row" id="edit_and_delete_memory_buttons">
+                        <div class="col-sm-12 center-div">
+                            <a type="submit" id="edit_memory_button" class="btn btn-success" href="{{ url_for('memories.edit_memory', memory_id=memory._id) }}">Edit Memory</a>
+                        </div>
+                        <div class="col-sm-12 center-div">
+                            <button type="submit" id="delete_memory_button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteMemoryModal">Delete Memory</button>
+                        </div>
+                    </div>
                     {% endif %}
 
                     <!-- Modal -->
@@ -70,10 +78,10 @@
             {% endfor %}
             <div class="container">
                 <div class="row">
-                    <div class="col-6">
+                    <div class="col-md-6 col-sm-12">
                         {{ pagination.links }} 
                     </div>
-                    <div class="col-6" id="pagin-info">
+                    <div class="col-md-6 col-sm-12" id="pagin-info">
                         {{ pagination.info }}  
                     </div>
                 </div>
