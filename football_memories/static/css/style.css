@@ -73,12 +73,9 @@ h1 {
     background-position: center center;
     background-repeat: no-repeat;
   /* Set a specific height */
-    min-height 600px;
+    min-height: 600px;
     height: auto !important;
   /* Position and center the image to scale nicely on all screens */
-  background-position: center;
-  background-repeat: no-repeat;
-  position: relative;
 }
 
 /* Flash message */
