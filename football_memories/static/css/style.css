@@ -6,10 +6,12 @@
 
 * {
     font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
 }
 
 body, html {
-    height: 100%;
+
 }
 
 h1 {
@@ -17,6 +19,9 @@ h1 {
     color: green;
 }
 
+.btn{
+    margin-top: 5px;
+}
 
 .btn-primary {
     background-color: green;
@@ -64,13 +69,28 @@ h1 {
 .hero-image {
   /* Use "linear-gradient" to add a darken background effect to the image (photographer.jpg). This will make the text easier to read */
   background-image: url("/static/images/registerBackground.jpg");
-
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
   /* Set a specific height */
- 
+    min-height 600px;
+    height: auto !important;
   /* Position and center the image to scale nicely on all screens */
   background-position: center;
   background-repeat: no-repeat;
   position: relative;
+}
+
+/* Flash message */
+.flashes {
+    border-top: 5px;
+    max-width: 400px;
+    text-align: center;
+    margin: 0 auto;
+}
+
+#flash-messages {
+    text-align: center;
 }
 
 
@@ -82,6 +102,7 @@ h1 {
     margin-bottom: 30px;
     border-radius: 25px;
     max-width: 680px;
+    height: 100%;
 }
 
 #register_text {
@@ -111,7 +132,7 @@ h1 {
 /* Common holder/generic */
 .common-holder {
     background-color: white;
-    padding: 50px;
+    padding: 40px;
     margin-top: 30px;
     margin-bottom: 30px;
     border-radius: 25px;
@@ -148,6 +169,18 @@ h1 {
   justify-content: space-between;
 }
 
+.main-content{
+    min-height: 700px;
+    height: auto !important;
+}
+
+.flex-wrapper-auth {
+   position: relative;
+}
+
+#new-here-section {
+    margin-top: 5px;
+}
 
 /** Memories page  */
 #memory-list{
@@ -155,15 +188,36 @@ h1 {
     padding-bottom: 20px;
 }
 
+.center-div{
+    margin: 0 auto;
+    text-align: center;
+}
+
+#edit_and_delete_memory_buttons{
+    margin: 0 auto;
+}
+
+#edit_memory_button {
+    margin: 5px;
+}
+
+#delete_memory_button {
+    margin: 5px; 
+}
+
+#search-area {
+    margin-top: 5px;
+}
 
 /** Footer */
 #site-footer {
     background-color: white;
-    position: fixed;
-    left: 0;
+        left: 0;
     bottom: 0;
     width: 100%;
+
 }
+
 
 /* Add Memory Page */
 .memory-holder {
@@ -181,14 +235,12 @@ h1 {
     padding-left: 0;
     margin: .5em;
     margin-left: 0;
-    font-size: 15px;
 }
 .pagination-page-info b {
     color: black;
     background: green;
     padding-left: 2px;
     padding: .1em .25em;
-    font-size: 150%;
 }
 .pagination ul {
     display:flex;  
@@ -255,3 +307,62 @@ i {
 .nav-font {
     font-size: 1.1rem;
 }
+
+#tournament-image{
+    width: 100%;
+    height: 100%;
+}
+
+
+/* ----- Media Queries ----- */
+/* X-SMALL SCREEN */
+@media screen and (max-width: 768px) {
+
+    .footer-font {
+        font-size: 0.8rem;
+    }
+
+    .pagination {
+        font-size: 0.8rem;
+    }
+
+    .pagination-page-info {
+        font-size: 0.8rem;
+    }    
+
+    .common-body {
+        font-size: 0.8rem; 
+    }
+    .form-control {
+        font-size: 0.8rem; 
+    }
+}  
+
+/* X-SMALL SCREEN */
+@media screen and (max-width: 481px) {
+    .common-holder {
+        padding: 20px;
+    }
+
+}    
+
+
+/* X-SMALL SCREEN */
+@media screen and (max-width: 320px) {
+
+    .footer-font {
+        font-size: 0.8rem;
+    }
+
+    .submit-holder {
+        text-align: center;
+    }
+
+    #reg-form {
+        font-size: 0.8rem;  
+    }
+
+    #new-here-section {
+        font-size: 0.8rem;   
+    }
+}   
