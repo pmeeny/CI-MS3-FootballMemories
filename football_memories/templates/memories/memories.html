@@ -7,20 +7,19 @@
             <h1>Memories</h1>
         </div>
         <div class="container" id="memory-list">
-            <!-- Search form -->
             <div class="row">
                 <div class="col-6">
                     <div id="myBtnContainer">
-                        <a id="get_memories" type="button" class="btn btn-primary" href="{{ url_for('memories.get_memories') }}""> Show all</a>
-                        <a id="get_user_memories" type="button" class="btn btn-light" href="{{ url_for('memories.get_user_memories') }}""> My Memories</a>
+                        <a id="get_memories" type="button" class="btn btn-primary phone-font" href="{{ url_for('memories.get_memories') }}""> Show all</a>
+                        <a id="get_user_memories" type="button" class="btn btn-light phone-font" href="{{ url_for('memories.get_user_memories') }}""> My Memories</a>
                     </div>
                 </div>  
                 <div class="col-6">
-                        <a id="get_memory" type="button" class="btn btn-light" href="{{ url_for('memories.add_memory') }}""> Add Memory</a>
+                        <a id="get_memory" type="button" class="btn btn-light phone-font" href="{{ url_for('memories.add_memory') }}""> Add Memory</a>
                 </div>
-            <div class="row" id="search-area">    
-                <div class="col-12">
-                    <input class="form-control" type="text" placeholder="Search" aria-label="Search">
+                <div class="row" id="search-area">    
+                    <div class="col-12">
+                        <input class="form-control" type="text" placeholder="Search" aria-label="Search">
                 </div>  
             </div>  
             </div>
