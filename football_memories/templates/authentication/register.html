@@ -7,7 +7,7 @@
             <h1 id="register_text">Register</h1>
         </div> 
         <div class="common-body">
-            <form method="POST" action="{{ url_for('authentication.register') }}" class="needs-validation" id="reg-form" novalidate>
+            <form method="POST" action="{{ url_for('authentication.register') }}" class="needs-validation" id="reg-form"  oninput="checkPassword(this)" novalidate>
                 <div class="row mt-3 form-group">
                         <label for="username" class="form-label col-4">Username</label>
                         <div class="col-8">
@@ -18,29 +18,35 @@
                             <div class="valid-feedback">
                             Looks good!
                             </div>
+                            <div class="invalid-feedback">
+                                Please enter a username
+                            </div>
                         </div>
                 </div>
                 <div class="row mt-3 form-group">
                         <label for="password" class="form-label col-4">Password</label>
                         <div class="col-8">
-                            <input type="password" class="form-control" id="password" name="password">
+                            <input type="password" class="form-control" id="password" name="password" required>
                             <div id="password_help" class="form-text">
                             Your password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.
                             </div>
                             <div class="valid-feedback">
                             Looks good!
                             </div>
+                            <div class="invalid-feedback">
+                                Please enter a password
+                            </div>
                         </div>
                 </div>   
                 <div class="row mt-3 form-group">
                         <label for="confirm-password" class="form-label col-4">Confirm Password</label>
                         <div class="col-8">
-                            <input type="password" class="form-control" id="confirm-password" name="confirm-password">
-                            <div id="confirm-password-help" class="form-text">
-                            Your passwords must match
-                            </div>
-                            <div class="valid-feedback">
+                            <input type="password" class="form-control" id="confirm-password" name="confirm-password" required>
+                            <!--<div class="valid-feedback">
                             Looks good!
+                            </div> -->
+                            <div class="invalid-feedback">
+                                Passswords must match
                             </div>
                         </div>
                 </div>  
@@ -51,6 +57,9 @@
                             <div class="valid-feedback">
                             Looks good!
                             </div>
+                            <div class="invalid-feedback">
+                                Please enter a first name
+                            </div>
                         </div>    
                 </div>
                 <div class="row mt-3 form group">
@@ -58,7 +67,10 @@
                         <div class="col-8">
                             <input type="text" class="form-control" id="last_name" name="last_name" required>
                             <div class="valid-feedback">
-                            Looks good!
+                                Looks good!
+                            </div>
+                            <div class="invalid-feedback">
+                                Please enter a last name
                             </div>
                         </div>    
                 </div>
@@ -69,6 +81,9 @@
                             <div class="valid-feedback">
                             Looks good!
                             </div>
+                            <div class="invalid-feedback">
+                                Please enter a favourite team
+                            </div>
                         </div>    
                 </div>
                 <div class="row mt-3 form group">
@@ -77,6 +92,9 @@
                         <input class="form-control" name="country" id="country" list="countryOptions" placeholder="Type to search....." required>
                         <div class="valid-feedback">
                                 Looks good!
+                        </div>
+                        <div class="invalid-feedback">
+                            Please enter a country
                         </div>
                             <datalist id="countryOptions">
                                 <option value="Afganistan">Afganistan</option>
