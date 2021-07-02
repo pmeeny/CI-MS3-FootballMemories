@@ -315,7 +315,7 @@ i {
 
 
 /* ----- Media Queries ----- */
-/* X-SMALL SCREEN */
+/* --- Medium Screen --- */
 @media screen and (max-width: 768px) {
 
     .footer-font {
@@ -338,14 +338,16 @@ i {
     }
 }  
 
-/* X-SMALL SCREEN */
+/* SMALL SCREEN */
 @media screen and (max-width: 481px) {
     .common-holder {
         padding: 20px;
     }
 
+    .phone-font {
+        font-size: 0.9rem;
+    }
 }    
-
 
 /* X-SMALL SCREEN */
 @media screen and (max-width: 320px) {
