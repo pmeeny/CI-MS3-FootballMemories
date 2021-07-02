@@ -45,28 +45,29 @@
         </nav>
     </header>
   
+    <div class="container">
+      <!-- flash messages -->
+      {% with messages = get_flashed_messages() %}
+          {% if messages %}
+              {% for message in messages %}
+                  <div id="flash-messages">
+                    <div class="row flashes">
+                        <div class="alert alert-success" role="alert">{{ message }}</h4>
+                    </div>
+                  </div>  
+              {% endfor %}
+          {% endif %}
+      {% endwith %}
+      </div>
+    </div>
+    <main class="container main-content">
 
-
-    <main class="container">
         {% block content %}
         {% endblock %}
     </main>
 
-    <section>
-        <!-- flash messages -->
-        {% with messages = get_flashed_messages() %}
-            {% if messages %}
-                {% for message in messages %}
-                    <div class="row flashes">
-                        <h4 class="light-blue lighten-4 center-align">{{ message }}</h4>
-                    </div>
-                {% endfor %}
-            {% endif %}
-        {% endwith %}
-    </section>
-
   <!-- Footer -->
-  <footer class="bg-white">
+  <footer class="bg-white" id="site-footer">
     <div class="container">
       <div class="row py-3">
         <div class="col-lg-4 col-md-4 mb-4 mb-lg-0"><img src="/static/images/logo/website_logo_white.png" alt="" width="180" class="mb-3">
