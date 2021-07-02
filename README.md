@@ -101,6 +101,12 @@ https://pythonhosted.org/Flask-paginate/
 Footer sticks to bottom of page:
 https://stackoverflow.com/questions/4575826/how-to-push-a-footer-to-the-bottom-of-page-when-content-is-short-or-missing#:~:text=Just%20wrap%20your%20.,will%20move%20to%20the%20bottom.
 
+Bluprints
+schafers youtuibe and github
+
+Password calidation
+https://stackoverflow.com/questions/9142527/can-you-require-two-form-fields-to-match-with-html5
+
 <br>
 
 # Media
