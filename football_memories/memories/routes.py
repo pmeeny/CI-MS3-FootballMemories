@@ -52,6 +52,15 @@ def get_memory(id):
 
     comments = mongo.db.comments.find({"memory_id":  id})
     total_comments = mongo.db.comments.find({"memory_id":  id}).count()
+
+    view_count = memory['view_count']
+    view_count1 = view_count+1
+
+    submit = {
+        "view_count": view_count1
+    }
+    mongo.db.memories.update({"_id": ObjectId(id)}, submit)
+
     comments_paginated = comments[offset: offset + per_page]
 
     pagination = Pagination(page=page, per_page=per_page,
@@ -86,24 +95,25 @@ def get_user_memories():
 @memories.route("/add_memory", methods=["GET", "POST"])
 def add_memory():
     if request.method == "POST":
-        image = request.files['image']
-        filename = secure_filename(image.filename)
-        image.save(os.path.join(memories.config['UPLOAD_FOLDER'], filename))
-        path_to_image = (os.path.join(
-        memories.config['IMAGE_PATH'], filename))
+        #image = request.files['image']
+        #filename = secure_filename(image.filename)
+        #image.save(os.path.join(memories.config['UPLOAD_FOLDER'], filename))
+        #path_to_image = (os.path.join(
+        #memories.config['IMAGE_PATH'], filename))
 
         memory = {
-            "image": path_to_image,
+            #"image": path_to_image,
             "tournament_name": request.form.get("tournament_name"),
             "memory_name": request.form.get("memory_name"),
             "memory_description": request.form.get("memory_description"),
             "date": request.form.get("date"),
             "stadium": request.form.get("stadium"),
+            "view_count" : (0),
             "created_by": session["user"]
         }
         mongo.db.memories.insert_one(memory)
         flash("Memory Successfully Added")
-        return redirect(url_for("get_memories"))
+        return redirect(url_for("memories.get_memories"))
 
     tournaments = mongo.db.tournaments.find().sort("tournament_name", 1)
     return render_template("memories/add_memory.html", tournaments=tournaments)
@@ -128,7 +138,7 @@ def edit_memory(memory_id):
         }
         mongo.db.memories.update({"_id": ObjectId(memory_id)}, memory_to_update)
         flash("Memory Successfully Updated")
-        return redirect(url_for("get_user_memories"))
+        return redirect(url_for("memories.get_user_memories"))
 
     memory = mongo.db.memories.find_one({"_id": ObjectId(memory_id)})
     tournaments = mongo.db.tournaments.find().sort("tournament_name", 1)
@@ -139,7 +149,7 @@ def delete_memory(memory_id):
 
     mongo.db.memories.remove({"_id": ObjectId(memory_id)})
     flash("Memory Successfully Deleted")
-    return redirect(url_for("get_memories"))
+    return redirect(url_for("memories.get_memories"))
 
 @memories.route("/search", methods=["GET", "POST"])
 def search():
