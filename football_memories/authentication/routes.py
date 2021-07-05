@@ -75,6 +75,11 @@ def logout():
 
 @authentication.route("/profile/<username>", methods=["GET", "POST"])
 def profile(username):
-    # grab the session user's details from db
+    user = mongo.db.users.find_one({"username": username})
+    return render_template("authentication/profile.html", username=session['user'], user=user)
+
+
+@authentication.route("/profile/<username>", methods=["GET", "POST"])
+def update_profile(username):
     user = mongo.db.users.find_one({"username": username})
     return render_template("authentication/profile.html", username=session['user'], user=user)    
