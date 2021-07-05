@@ -10,7 +10,6 @@ from football_memories import mongo
 
 authentication = Blueprint('authentication', __name__)
 
-@authentication.route("/")
 @authentication.route("/register", methods=["GET", "POST"])
 def register():
     if request.method == "POST":
@@ -72,7 +71,7 @@ def logout():
     # remove user from session cookie
     flash("You have been logged out")
     session.pop("user")
-    return redirect(url_for("authentication.login"))
+    return redirect(url_for("administration.home"))
 
 @authentication.route("/profile/<username>", methods=["GET", "POST"])
 def profile(username):
