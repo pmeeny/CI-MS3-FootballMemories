@@ -5,7 +5,8 @@
 
     <tr>
          <td> Memory Description: {{ memory['memory_description'] }}</td>  
-         <td>View Count: {{ memory['view_count'] }}</td>    
+         <td>View Count: {{ memory['view_count'] }}</td>   
+         <td>Average Rating: {{ average_rating }}</td> 
     </tr>
 
     <img src="/static/images/1200px-Panorama_of_Anfield_with_new_main_stand_29676137824.jpg"  width="300px" height="300px" alt="" >
@@ -39,7 +40,23 @@
 
 
 
-                </div><!--
+                </div>
+                
+                <div id="ratings">
+                    <h2>Add a rating</h2>
+                    <form method="POST" action="{{ url_for('memories.add_rating', id=memory['_id'] ) }}">
+                        <select class="form-select" aria-label="select a memory rating" name="rating" id="rating">
+                            <option value="5">5</option>
+                            <option value="4">4</option>
+                            <option value="3">3</option>
+                            <option value="2">2</option>
+                            <option value="1">1</option>
+                          </select>
+                          <button class="btn btn-primary" type="submit">Submit Rating</button>
+                    </form>
+                </div>
+                
+                <!--
                 <div class="bg-white">
                     <div class="d-flex flex-row fs-12">
                         <div class="like p-2 cursor"><i class="fa fa-thumbs-o-up"></i><span class="ml-1">Like</span></div>
@@ -47,6 +64,8 @@
                         <div class="like p-2 cursor"><i class="fa fa-share"></i><span class="ml-1">Share</span></div>
                     </div>
                 </div>-->  
+                <br><br>
+                <h2>Comments:</h2>
                 <form method="POST" enctype="multipart/form-data" action="{{ url_for('memories.add_comment', id=memory['_id'] ) }}" class="needs-validation" novalidate>
                 <div class="bg-light p-2">
                     <div class="d-flex flex-row align-items-start">

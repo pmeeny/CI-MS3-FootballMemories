@@ -41,6 +41,27 @@ def get_memories():
 @memories.route("/get_memory/<id>")
 def get_memory(id):
 
+    ratings = mongo.db.ratings.find({"memory_id":  id})
+    ratings_count = mongo.db.ratings.find({"memory_id":  id})
+    print (ratings_count)
+    round_av_rating = 0
+    total = 0
+    i=0
+
+    for rating in ratings:
+        i=i+1
+        total = total + rating.get("rating_value")
+        
+    print ("Total count is")    
+    print (total)
+    print ("Number of ratings")
+    print (i)
+
+    print ("av rating")
+    if i > 0:
+        av_rating = total/i
+        round_av_rating = (round((av_rating), 2))
+
     page, per_page, offset = get_page_args(
     page_parameter='page', per_page_parameter='per_page',
     offset_parameter='offset')
@@ -56,10 +77,7 @@ def get_memory(id):
     view_count = memory['view_count']
     view_count1 = view_count+1
 
-    submit = {
-        "view_count": view_count1
-    }
-    mongo.db.memories.update({"_id": ObjectId(id)}, submit)
+    mongo.db.memories.update({"_id": ObjectId(id)},  {"$set": {"view_count": view_count1}})
 
     comments_paginated = comments[offset: offset + per_page]
 
@@ -68,7 +86,7 @@ def get_memory(id):
 
     return render_template("memories/memory.html", memory=memory, comments=comments_paginated, page=page,
                            per_page=per_page,
-                           pagination=pagination)
+                           pagination=pagination, average_rating=round_av_rating)
 
 @memories.route("/get_user_memories")
 def get_user_memories():
@@ -191,7 +209,18 @@ def add_comment(id):
                            per_page=per_page,
                            pagination=pagination)
 
+@memories.route("/add_rating/<id>", methods=["POST"])
+def add_rating(id):
 
-    query = request.form.get("query")
-    memories = list(mongo.db.memories.find({"$text": {"$search": query}}))
-    return render_template("memories/memories.html", memories=memories)
+    rating = {
+        "memory_id": id,
+        "rating_value": int(request.form.get("rating")),
+        "created_by": session["user"]
+    }  
+
+    mongo.db.ratings.insert_one(rating)
+    flash("Rating Successfully Added")
+    return redirect(url_for("memories.get_memory", id=id))  
+
+
+   
