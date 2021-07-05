@@ -90,6 +90,12 @@ h1 {
     text-align: center;
 }
 
+/* Index */
+#latest_memories {
+    background-color: white;
+
+}
+
 
 /* Register */
 .reg-holder {
