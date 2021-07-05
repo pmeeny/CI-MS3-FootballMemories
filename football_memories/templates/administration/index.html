@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block content %}
+<body class="flex-wrapper">
+    <div class="r hero-image">
+        <div class="h1-header">   
+            <h1>Home</h1>
+        </div>
+        <div class="">
+            <a href="{{ url_for('authentication.login') }}" class="btn btn-primary">Login</a>
+
+            <a href="{{ url_for('authentication.register') }}" class="btn btn-primary">Register</a>
+        </div>
+    </div>
+  
+        <div class="container" id="latest_memories">
+            <h1>Latest Memories:</h1>
+
+
+            {% for memory in memories %}
+                <h5>{{ memory.memory_name }}</h5>
+            {% endfor %}    
+        </div>
+
+</body>   
+{% endblock %}
