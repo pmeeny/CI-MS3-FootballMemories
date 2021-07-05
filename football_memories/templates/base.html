@@ -34,7 +34,7 @@
                         <li class="nav-item nav-font"><a href="{{ url_for('authentication.logout') }}" class="nav-link" aria-current="page">Log Out</a></li>   
                     {% else %}
                     <li class="nav-item">
-                        <a class="nav-link nav-font" aria-current="page" href="">Home</a>
+                        <a class="nav-link nav-font" aria-current="page" href="index.html">Home</a>
                     </li>
                         <li class="nav-item nav-font"><a href="{{ url_for('authentication.login') }}" class="nav-link" aria-current="page">Log In</a></li>
                         <li class="nav-item nav-font"><a href="{{ url_for('authentication.register') }}" class="nav-link" aria-current="page">Register</a></li>
@@ -60,7 +60,7 @@
       {% endwith %}
       </div>
     </div>
-    <main class="container main-content">
+    <main class="main-content">
 
         {% block content %}
         {% endblock %}
