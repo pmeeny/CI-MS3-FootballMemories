@@ -15,6 +15,15 @@ from football_memories import mongo
 
 administration = Blueprint('administration', __name__)
 
+
+@administration.route("/")
+@administration.route("/home")
+def home():
+    three_latest_memories = list(mongo.db.memories.find().sort("_id", -1).limit(3))
+    print ("latest memories")
+    print (three_latest_memories)
+    return render_template("administration/index.html", memories=three_latest_memories)    
+
 @administration.route("/terms_and_conditions")
 def terms_and_conditions():
     return render_template("administration/terms_and_conditions.html")
