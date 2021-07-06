@@ -107,6 +107,10 @@ schafers youtuibe and github
 Password calidation
 https://stackoverflow.com/questions/9142527/can-you-require-two-form-fields-to-match-with-html5
 
+aws buckets, public facing and allowing public access to files in the bucket
+https://www.youtube.com/watch?v=s1Tu0yKmDKU
+https://stackoverflow.com/questions/44228422/s3-bucket-action-doesnt-apply-to-any-resources
+
 <br>
 
 # Media
