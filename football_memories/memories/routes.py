@@ -10,11 +10,20 @@ from werkzeug.utils import secure_filename
 from datetime import datetime
 from flask import current_app
 
+import boto3
+from botocore.exceptions import NoCredentialsError
+import requests
+import mimetypes
+
 from flask_paginate import Pagination, get_page_args
 
 from football_memories import mongo
 
 memories = Blueprint('memories', __name__)
+
+ACCESS_KEY_ID = "AKIAQOVIDFLKESNJE3X5"
+
+SECRET_ACCESS_KEY = "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"
 
 @memories.route("/get_memories")
 def get_memories():
@@ -99,8 +108,8 @@ def get_user_memories():
 
     username = session["user"]
 
-    total_user_memories = mongo.db.memories.find({"created_by": username}).count()
-    user_memories = mongo.db.memories.find({"created_by": username})
+    total_user_memories = mongo.db.memories.find({"memory_created_by": username}).count()
+    user_memories = mongo.db.memories.find({"memory_created_by": username})
     user_memories_paginated = user_memories[offset: offset + per_page]
     pagination = Pagination(page=page, per_page=per_page,
                             total=total_user_memories, css_framework='bootstrap')
@@ -112,22 +121,27 @@ def get_user_memories():
 
 @memories.route("/add_memory", methods=["GET", "POST"])
 def add_memory():
+
     if request.method == "POST":
-        #image = request.files['image']
-        #filename = secure_filename(image.filename)
-        #image.save(os.path.join(memories.config['UPLOAD_FOLDER'], filename))
-        #path_to_image = (os.path.join(
-        #memories.config['IMAGE_PATH'], filename))
+        image = request.files['memory_image']
+        image_file = secure_filename(image.filename)
+        image.save(image_file)
+        now = datetime.now()
+        timestamp=now.strftime("%Y_%m_%d_%H_%M_%S_")
+        image_to_upload = timestamp + image_file
+        client = boto3.client('s3', aws_access_key_id=ACCESS_KEY_ID, aws_secret_access_key=SECRET_ACCESS_KEY)
+        client.upload_file(image_file, 'ci-ms3-football-memories', image_to_upload)
+        image_url = "https://ci-ms3-football-memories.s3.eu-west-1.amazonaws.com/" + image_to_upload
 
         memory = {
-            #"image": path_to_image,
+            "memory_image": image_url,
             "tournament_name": request.form.get("tournament_name"),
             "memory_name": request.form.get("memory_name"),
             "memory_description": request.form.get("memory_description"),
-            "date": request.form.get("date"),
-            "stadium": request.form.get("stadium"),
-            "view_count" : (0),
-            "created_by": session["user"]
+            "memory_date": request.form.get("memory_date"),
+            "memory_stadium": request.form.get("memory_stadium"),
+            "memory_view_count" : (0),
+            "memory_created_by": session["user"]
         }
         mongo.db.memories.insert_one(memory)
         flash("Memory Successfully Added")
@@ -140,19 +154,25 @@ def add_memory():
 def edit_memory(memory_id):
     
     if request.method == "POST":
-        image = request.files['image']
-        filename = secure_filename(image.filename)
-        image.save(os.path.join(memories.config['UPLOAD_FOLDER'], filename))
-        path_to_image = (os.path.join(
-        memories.config['IMAGE_PATH'], filename))
+        image = request.files['memory_image']
+        image_file = secure_filename(image.filename)
+        image.save(image_file)
+        now = datetime.now()
+        timestamp=now.strftime("%Y_%m_%d_%H_%M_%S_")
+        image_to_upload = timestamp + image_file
+        client = boto3.client('s3', aws_access_key_id=ACCESS_KEY_ID, aws_secret_access_key=SECRET_ACCESS_KEY)
+        client.upload_file(image_file, 'ci-ms3-football-memories', image_to_upload)
+        image_url = "https://ci-ms3-football-memories.s3.eu-west-1.amazonaws.com/" + image_to_upload
+
         memory_to_update = {
-            "image": path_to_image,
+            "memory_image": image_url,
             "tournament_name": request.form.get("tournament_name"),
             "memory_name": request.form.get("memory_name"),
             "memory_description": request.form.get("memory_description"),
-            "date": request.form.get("date"),
-            "stadium": request.form.get("stadium"),
-            "created_by": session["user"]
+            "memory_date": request.form.get("memory_date"),
+            "memory_stadium": request.form.get("memory_stadium"),
+            "memory_created_by": session["user"],
+            "memory_view_count" : (0)
         }
         mongo.db.memories.update({"_id": ObjectId(memory_id)}, memory_to_update)
         flash("Memory Successfully Updated")
@@ -184,7 +204,7 @@ def add_comment(id):
         "memory_id": id,
         "comment_text": request.form.get("comment"),
         "comment_date": month + "-" + year,
-        "created_by": session["user"]
+        "comment_created_by": session["user"]
     }
     mongo.db.comments.insert_one(comment)
     flash("Comment Successfully Added")
@@ -215,7 +235,7 @@ def add_rating(id):
     rating = {
         "memory_id": id,
         "rating_value": int(request.form.get("rating")),
-        "created_by": session["user"]
+        "rating_created_by": session["user"]
     }  
 
     mongo.db.ratings.insert_one(rating)
