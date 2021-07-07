@@ -12,8 +12,6 @@ from flask import current_app
 
 import boto3
 from botocore.exceptions import NoCredentialsError
-import requests
-import mimetypes
 if os.path.exists("env.py"):
     import env
 
