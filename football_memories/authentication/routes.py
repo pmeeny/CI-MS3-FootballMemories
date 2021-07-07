@@ -22,6 +22,7 @@ def register():
             return redirect(url_for("authentication.register"))
 
         register = {
+            "user_type": "regular_user",
             "username": request.form.get("username").lower(),
             "password": generate_password_hash(request.form.get("password")),
             "first_name": request.form.get("first_name"),
@@ -83,6 +84,7 @@ def profile(username):
 def update_profile(username):
     if request.method == "POST":
         update_profile = {
+            "user_type": "regular_user",
             "username": session['user'],
             "password": generate_password_hash(request.form.get("password")),
             "first_name": request.form.get("first_name"),
