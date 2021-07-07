@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 <body class="hero-image flex-wrapper">
+    
     <div class="container common-holder">
         <div class="h1-header">   
             <h1>Reporting Dashboard</h1>
@@ -8,7 +9,7 @@
         <div class="row">
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title">Number of users</h5>
+                    <h5 class="card-title"><i class="fas fa-users"></i> Number of users</h5>
                 </div>
                 <div class="card-action">
                     <h5 class="card-title">{{number_of_users}}</h5>
@@ -16,7 +17,7 @@
             </div>
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title">Number of memories</h5>
+                    <h5 class="card-title"><i class="fas fa-images"></i> Number of memories</h5>
                 </div>
                 <div class="card-action">
                     <h5 class="card-title">{{number_of_memories}}</h5>
@@ -24,7 +25,7 @@
             </div>
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title">Number of comments</h5>
+                    <h5 class="card-title"><i class="fas fa-comments"></i> Number of comments</h5>
                 </div>
                 <div class="card-action">
                     <h5 class="card-title">{{number_of_comments}}</h5>
