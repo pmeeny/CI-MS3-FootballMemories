@@ -212,6 +212,13 @@ h1 {
     margin-top: 5px;
 }
 
+/* Mmory Page */
+#map {
+    height: 250px;
+    width: 250px;
+    margin: auto;
+}
+
 /** Footer */
 #site-footer {
     background-color: white;
