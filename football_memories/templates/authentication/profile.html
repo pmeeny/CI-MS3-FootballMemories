@@ -6,7 +6,7 @@
             <h1 id="register_text">Edit Profile</h1>
         </div> 
         <div class="reg-body">
-            <form method="POST" action="{{ url_for('authentication.profile', username=username) }}" class="needs-validation" id="reg-form" novalidate>
+            <form method="POST" action="{{ url_for('authentication.update_profile', username=username) }}" class="needs-validation" id="reg-form" novalidate>
 
                 <div class="row mt-3 form-group">
                         <label for="password" class="form-label col-4">Password</label>

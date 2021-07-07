@@ -79,7 +79,19 @@ def profile(username):
     return render_template("authentication/profile.html", username=session['user'], user=user)
 
 
-@authentication.route("/profile/<username>", methods=["GET", "POST"])
+@authentication.route("/update_profile/<username>", methods=["GET", "POST"])
 def update_profile(username):
-    user = mongo.db.users.find_one({"username": username})
-    return render_template("authentication/profile.html", username=session['user'], user=user)    
+    if request.method == "POST":
+        update_profile = {
+            "username": session['user'],
+            "password": generate_password_hash(request.form.get("password")),
+            "first_name": request.form.get("first_name"),
+            "last_name": request.form.get("last_name"),
+            "favourite_team": request.form.get("favourite_team"), 
+            "country": request.form.get("country")     
+        }
+        mongo.db.users.update({"username": username}, update_profile)
+        flash("User Profile Successfully Updated")
+
+    user = mongo.db.users.find_one({"username": username})    
+    return render_template("authentication/profile.html", username=session['user'], user=user)   
