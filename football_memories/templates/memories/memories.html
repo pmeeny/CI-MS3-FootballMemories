@@ -27,18 +27,20 @@
             <div class="col-lg-4 col-md-6 mb-4">
                 <div class="bg-white rounded shadow-sm">
                     <a href="/get_memory/{{ memory._id }}">
-                    <img src="/static/images/1200px-Panorama_of_Anfield_with_new_main_stand_29676137824.jpg" alt="" class="img-fluid card-img-top"">
+                    <img src="{{ memory.memory_image }}" alt="" class="img-fluid card-img-top"">
                     </a>
                     <div class="p-4">
                     <h5> <a href="#" class="text-dark">{{ memory.memory_name }}</a></h5>
                     <p class="small text-muted mb-0">Tournament: {{ memory.tournament_name }}</p>
                     <p class="small text-muted mb-0">Description: {{ memory.memory_description }}</p>
-                    <p class="small text-muted mb-0">Uploaded By: {{ memory.created_by }}</p>
+                    <p class="small text-muted mb-0">Description: {{ memory.memory_stadium }}</p>
+                    <p class="small text-muted mb-0">Date: {{ memory.memory_date }}</p>
+                    <p class="small text-muted mb-0">Uploaded By: {{ memory.memory_created_by }}</p>
                     <div class="d-flex align-items-center justify-content-between rounded-pill bg-light px-3 py-2 mt-4">
                     <p class="small mb-0"><i class="fa fa-picture-o mr-2"></i><span class="font-weight-bold">JPG</span></p>
                     <div class="badge badge-danger px-3 rounded-pill font-weight-normal">New</div>
                     </div>
-                    {% if session.user|lower == memory.created_by|lower %}
+                    {% if session.user|lower == memory.memory_created_by|lower %}
                     <div class="row" id="edit_and_delete_memory_buttons">
                         <div class="col-sm-12 center-div">
                             <a type="submit" id="edit_memory_button" class="btn btn-success" href="{{ url_for('memories.edit_memory', memory_id=memory._id) }}">Edit Memory</a>
