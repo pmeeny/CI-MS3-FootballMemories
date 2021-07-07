@@ -7,14 +7,14 @@
 <body>
     <h3 class="light-blue-text text-darken-4 center-align">This is a memory</h3>
 
-    <div id="stadium">{{ memory['stadium'] }}</div> 
+    <div id="stadium">{{ memory['memory_stadium'] }}</div> 
 
     <div class="container">
         <div id="map" aria-hidden="true"></div>
     </div>
 
     <p> Memory Description: {{ memory['memory_description'] }}</p>  
-    <p>View Count: {{ memory['view_count'] }}</p>   
+    <p>View Count: {{ memory['memory_view_count'] }}</p>   
     <p>Average Rating: {{ average_rating }}</p> 
     
     <img src="{{ memory.memory_image }}"  width="300px" height="300px" alt="" >
