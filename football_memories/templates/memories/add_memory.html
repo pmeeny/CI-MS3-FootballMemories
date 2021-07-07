@@ -12,9 +12,9 @@
                     <div class="col-8">
                         <select id="tournament_name" name="tournament_name" class="form-control validate" required>
                         <option value="" disabled selected>Choose Tournament</option>
-                                {% for tournament in tournaments %}
-                                    <option value="{{ tournament.tournament_name }}">{{ tournament.tournament_name }}</option>
-                                {% endfor %}
+                            {% for tournament in tournaments %}
+                                <option value="{{ tournament.tournament_name }}">{{ tournament.tournament_name }}</option>
+                            {% endfor %}
                         </select>
                     </div>    
                 </div> 
@@ -35,10 +35,10 @@
                     <div class="col-8">
                         <input class="form-control" id="memory_name" name="memory_name" type="text" aria-describedby="memory_name" required>
                             <div class="valid-feedback">
-                            Looks good!
+                                Looks good!
                             </div>
                             <div class="invalid-feedback">
-                            Please enter a memory name
+                                Please enter a memory name
                             </div>
                     </div>
                 </div> 
@@ -47,10 +47,10 @@
                     <div class="col-8">
                         <textarea class="form-control" id="memory_description" name="memory_description" rows="3" required></textarea>
                             <div class="valid-feedback">
-                            Looks good!
+                                Looks good!
                             </div>
                             <div class="invalid-feedback">
-                            Please enter a memory description
+                                Please enter a memory description
                             </div>
                     </div>
                 </div>
@@ -86,6 +86,5 @@
             </form>
         </div>
     </div>    
-
 </body>     
 {% endblock %}
