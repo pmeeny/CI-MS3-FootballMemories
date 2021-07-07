@@ -1,3 +1,6 @@
+boto==2.49.0
+boto3==1.17.105
+botocore==1.20.105
 click==8.0.1
 dnspython==2.1.0
 Flask==2.0.1
@@ -5,6 +8,8 @@ flask-paginate==0.8.1
 Flask-PyMongo==2.3.0
 itsdangerous==2.0.1
 Jinja2==3.0.1
+jmespath==0.10.0
 MarkupSafe==2.0.1
 pymongo==3.11.4
+s3transfer==0.4.2
 Werkzeug==2.0.1
