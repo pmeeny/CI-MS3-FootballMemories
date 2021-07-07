@@ -17,11 +17,11 @@
                                 {% endfor %}
                         </select>
                     </div>    
-                </div>
+                </div> 
                <div class="row mt-3 form-group">
-                    <label for="file" class="form-label col-4">Memory Image</label>
+                    <label for="memory_image" class="form-label col-4">Memory Image</label>
                     <div class="col-8">
-                        <input class="form-control validate" type="file" id="image" name="image" required>
+                        <input class="form-control validate" type="file" id="memory_image" name="memory_image" value="file" required>
                         <div class="valid-feedback">
                             Looks good!
                         </div>
@@ -41,7 +41,7 @@
                             Please enter a memory name
                             </div>
                     </div>
-                </div>
+                </div> 
                 <div class="row mt-3 form-group">
                     <label for="memory_description" class="form-label col-4">Memory Description</label>
                     <div class="col-8">
@@ -57,7 +57,7 @@
                 <div class="row mt-3 form-group">
                     <label for="date" class="col-4 col-form-label">Date</label>
                     <div class="col-8">
-                    <input class="form-control" type="date" id="date" name="booking_date" required> 
+                    <input class="form-control" type="date" id="memory_date" name="memory_date" required> 
                         <div class="valid-feedback">
                             Looks good!
                         </div>
@@ -69,7 +69,7 @@
                 <div class="row mt-3 form-group">
                     <label for="stadium" class="col-4 col-form-label">Stadium</label>
                     <div class="col-8">
-                        <input class="form-control" name="stadium" type="text" id="stadium" required>
+                        <input class="form-control" name="memory_stadium" type="text" id="memory_stadium" required>
                         <div class="valid-feedback">
                             Looks good!
                         </div>
@@ -77,7 +77,7 @@
                             Please enter a stadium
                         </div>
                     </div>
-                </div>
+                </div> 
                 <!-- submit button -->
                 <div class="submit-holder">
                     <a href="{{ url_for('memories.get_memories') }}" class="btn btn-danger">Cancel</a>
@@ -86,5 +86,6 @@
             </form>
         </div>
     </div>    
-</body>        
+
+</body>     
 {% endblock %}
