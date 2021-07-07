@@ -64,6 +64,11 @@ h1 {
     width: 17rem;
 }
 
+/* Footer */
+.footer-font {
+    color: green;
+}
+
 
 /* The hero image */
 .hero-image {
