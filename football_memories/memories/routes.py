@@ -14,16 +14,14 @@ import boto3
 from botocore.exceptions import NoCredentialsError
 import requests
 import mimetypes
+if os.path.exists("env.py"):
+    import env
 
 from flask_paginate import Pagination, get_page_args
-
 from football_memories import mongo
 
+client = boto3.client('s3', aws_access_key_id=os.environ.get("AWS_ACCESS_KEY_ID"), aws_secret_access_key=os.environ.get("AWS_SECRET_ACCESS_KEY"))
 memories = Blueprint('memories', __name__)
-
-ACCESS_KEY_ID = "AKIAQOVIDFLKESNJE3X5"
-
-SECRET_ACCESS_KEY = "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"
 
 @memories.route("/get_memories")
 def get_memories():
@@ -129,7 +127,7 @@ def add_memory():
         now = datetime.now()
         timestamp=now.strftime("%Y_%m_%d_%H_%M_%S_")
         image_to_upload = timestamp + image_file
-        client = boto3.client('s3', aws_access_key_id=ACCESS_KEY_ID, aws_secret_access_key=SECRET_ACCESS_KEY)
+        
         client.upload_file(image_file, 'ci-ms3-football-memories', image_to_upload)
         image_url = "https://ci-ms3-football-memories.s3.eu-west-1.amazonaws.com/" + image_to_upload
 
@@ -160,7 +158,6 @@ def edit_memory(memory_id):
         now = datetime.now()
         timestamp=now.strftime("%Y_%m_%d_%H_%M_%S_")
         image_to_upload = timestamp + image_file
-        client = boto3.client('s3', aws_access_key_id=ACCESS_KEY_ID, aws_secret_access_key=SECRET_ACCESS_KEY)
         client.upload_file(image_file, 'ci-ms3-football-memories', image_to_upload)
         image_url = "https://ci-ms3-football-memories.s3.eu-west-1.amazonaws.com/" + image_to_upload
 
