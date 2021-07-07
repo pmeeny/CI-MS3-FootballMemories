@@ -83,10 +83,10 @@ def get_memory(id):
     comments = mongo.db.comments.find({"memory_id":  id})
     total_comments = mongo.db.comments.find({"memory_id":  id}).count()
 
-    view_count = memory['view_count']
+    view_count = memory['memory_view_count']
     view_count1 = view_count+1
 
-    mongo.db.memories.update({"_id": ObjectId(id)},  {"$set": {"view_count": view_count1}})
+    mongo.db.memories.update({"_id": ObjectId(id)},  {"$set": {"memory_view_count": view_count1}})
 
     comments_paginated = comments[offset: offset + per_page]
 
