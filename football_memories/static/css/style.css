@@ -83,6 +83,10 @@ h1 {
   /* Position and center the image to scale nicely on all screens */
 }
 
+.bg-color{
+    background-color: var(--color);
+}
+
 /* Flash message */
 .flashes {
     border-top: 5px;
@@ -215,6 +219,14 @@ h1 {
 
 #search-area {
     margin-top: 5px;
+}
+
+#search-bar {
+    padding-right: 0px;
+}
+
+#search-button {
+    padding-left: 0px;
 }
 
 /* Mmory Page */
