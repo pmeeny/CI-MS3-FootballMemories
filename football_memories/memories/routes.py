@@ -189,9 +189,28 @@ def delete_memory(memory_id):
 
 @memories.route("/search", methods=["GET", "POST"])
 def search():
+    page, per_page, offset = get_page_args(
+        page_parameter='page', per_page_parameter='per_page',
+        offset_parameter='offset')
+
+    per_page = 3
+    offset = (page - 1) * 3
+
+    username = session["user"]
+    user = mongo.db.users.find_one({"username": username})
+
     query = request.form.get("query")
     memories = list(mongo.db.memories.find({"$text": {"$search": query}}))
-    return render_template("memories/memories.html", memories=memories)
+    memories_count = mongo.db.memories.find({"$text": {"$search": query}}).count()
+
+    memories_paginated = memories[offset: offset + per_page]
+    pagination = Pagination(page=page, per_page=per_page,
+                            total=memories_count, css_framework='bootstrap')
+    return render_template("memories/memories.html", memories=memories_paginated,
+                           page=page,
+                           per_page=per_page,
+                           pagination=pagination, user=user)
+
 
 @memories.route("/add_comment/<id>", methods=["POST"])
 def add_comment(id):
