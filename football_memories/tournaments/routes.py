@@ -3,14 +3,20 @@ from flask import (
     Flask, flash, render_template,
     redirect, request, session, url_for, Blueprint, session,abort)
 from werkzeug.security import generate_password_hash, check_password_hash
+from werkzeug.utils import secure_filename
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from flask import current_app
-
+from datetime import datetime
+import boto3
+from botocore.exceptions import NoCredentialsError
 from flask_paginate import Pagination, get_page_args
-
 from football_memories import mongo
 
+if os.path.exists("env.py"):
+    import env
+
+client = boto3.client('s3', aws_access_key_id=os.environ.get("AWS_ACCESS_KEY_ID"), aws_secret_access_key=os.environ.get("AWS_SECRET_ACCESS_KEY"))
 tournaments = Blueprint('tournaments', __name__)
 
 @tournaments.route("/get_tournaments")
@@ -39,9 +45,20 @@ def get_tournaments():
     
 @tournaments.route("/add_tournament", methods=["GET", "POST"])
 def add_tournament():
+
     if request.method == "POST":
+        image = request.files['tournament_image']
+        image_file = secure_filename(image.filename)
+        image.save(image_file)
+        now = datetime.now()
+        timestamp=now.strftime("%Y_%m_%d_%H_%M_%S_")
+        image_to_upload = timestamp + image_file
+        client.upload_file(image_file, 'ci-ms3-football-memories', image_to_upload)
+        image_url = "https://ci-ms3-football-memories.s3.eu-west-1.amazonaws.com/" + image_to_upload
+
         tournament = {
-            "tournament_name": request.form.get("tournament_name")
+            "tournament_name": request.form.get("tournament_name"),
+            "tournament_image": image_url
         }
         mongo.db.tournaments.insert_one(tournament)
         flash("New tournament Added")
@@ -52,8 +69,18 @@ def add_tournament():
 @tournaments.route("/edit_tournament/<tournament_id>", methods=["GET", "POST"])
 def edit_tournament(tournament_id):
     if request.method == "POST":
+        image = request.files['tournament_image']
+        image_file = secure_filename(image.filename)
+        image.save(image_file)
+        now = datetime.now()
+        timestamp=now.strftime("%Y_%m_%d_%H_%M_%S_")
+        image_to_upload = timestamp + image_file
+        client.upload_file(image_file, 'ci-ms3-football-memories', image_to_upload)
+        image_url = "https://ci-ms3-football-memories.s3.eu-west-1.amazonaws.com/" + image_to_upload
+
         submit = {
-            "tournament_name": request.form.get("tournament_name")
+            "tournament_name": request.form.get("tournament_name"),
+            "tournament_image": image_url
         }
         mongo.db.tournaments.update({"_id": ObjectId(tournament_id)}, submit)
         flash("Tournament Successfully Updated")

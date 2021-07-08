@@ -6,7 +6,7 @@
             <h1>Edit Tournament</h1>
         </div>
         <div class="common-body">
-            <form method="POST" action="{{ url_for('tournaments.edit_tournament', tournament_id=tournament._id) }}"  class="needs-validation" novalidate>
+            <form method="POST" enctype="multipart/form-data"  action="{{ url_for('tournaments.edit_tournament', tournament_id=tournament._id) }}"  class="needs-validation" novalidate>
                <div class="row mt-3 form-group">
                     <label for="tournament_name" class="form-label col-4">Tournament Name</label>
                     <div class="col-8">
