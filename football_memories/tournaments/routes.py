@@ -23,6 +23,9 @@ def get_tournaments():
     per_page = 3
     offset = (page - 1) * 3
 
+    username = session["user"]
+    user = mongo.db.users.find_one({"username": username})
+
     total_tournaments = mongo.db.tournaments.find().count()
     tournaments = list(mongo.db.tournaments.find().sort("tournament_name", 1))
     tournaments_paginated = tournaments[offset: offset + per_page]
@@ -32,7 +35,7 @@ def get_tournaments():
     return render_template("tournaments/tournament.html", tournaments=tournaments_paginated,
                            page=page,
                            per_page=per_page,
-                           pagination=pagination)
+                           pagination=pagination, user=user)
     
 @tournaments.route("/add_tournament", methods=["GET", "POST"])
 def add_tournament():

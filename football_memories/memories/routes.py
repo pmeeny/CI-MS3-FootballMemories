@@ -31,6 +31,9 @@ def get_memories():
     per_page = 3
     offset = (page - 1) * 3
 
+    username = session["user"]
+    user = mongo.db.users.find_one({"username": username})
+
     total_memories = mongo.db.memories.find().count()
     memories = mongo.db.memories.find()
     memories_paginated = memories[offset: offset + per_page]
@@ -40,7 +43,7 @@ def get_memories():
     return render_template("memories/memories.html", memories=memories_paginated,
                            page=page,
                            per_page=per_page,
-                           pagination=pagination)
+                           pagination=pagination, user=user)
 
 
 @memories.route("/get_memory/<id>")
