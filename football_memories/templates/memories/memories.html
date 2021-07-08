@@ -40,7 +40,7 @@
                     <p class="small mb-0"><i class="fa fa-picture-o mr-2"></i><span class="font-weight-bold">JPG</span></p>
                     <div class="badge badge-danger px-3 rounded-pill font-weight-normal">New</div>
                     </div>
-                    {% if session.user|lower == memory.memory_created_by|lower %}
+                    {% if (session.user|lower == memory.memory_created_by|lower) or (user.user_type == "admin_user") %}
                     <div class="row" id="edit_and_delete_memory_buttons">
                         <div class="col-sm-12 center-div">
                             <a type="submit" id="edit_memory_button" class="btn btn-success" href="{{ url_for('memories.edit_memory', memory_id=memory._id) }}">Edit Memory</a>
