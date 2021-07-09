@@ -14,11 +14,21 @@
   
         <div class="container" id="latest_memories">
             <h1>Latest Memories:</h1>
-
-
+            <div class="row">
             {% for memory in memories %}
-                <h5>{{ memory.memory_name }}</h5>
-            {% endfor %}    
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="bg-white rounded shadow-sm">
+                        <a href="/get_memory/{{ memory._id }}">
+                            <img src="{{ memory.memory_image }}" alt="" class="img-fluid card-img-top"">
+                        </a>
+                        <div class="p-4">
+                            <h5> <a href="#" class="text-dark">{{ memory.memory_name }}</a></h5>
+                            <p class="small text-muted mb-0">Tournament: {{ memory.tournament_name }}</p>
+                        </div>
+                    </div>
+                </div>    
+            {% endfor %}  
+            </div>   
         </div>
 
 </body>   
