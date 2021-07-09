@@ -35,7 +35,7 @@ def get_memories():
     user = mongo.db.users.find_one({"username": username})
 
     total_memories = mongo.db.memories.find().count()
-    memories = mongo.db.memories.find()
+    memories = mongo.db.memories.find().sort ("memory_created_by", 1)
     memories_paginated = memories[offset: offset + per_page]
     pagination = Pagination(page=page, per_page=per_page,
                             total=total_memories, css_framework='bootstrap')
@@ -43,7 +43,7 @@ def get_memories():
     return render_template("memories/memories.html", memories=memories_paginated,
                            page=page,
                            per_page=per_page,
-                           pagination=pagination, user=user)
+                           pagination=pagination, user=user, selected="get_memories")
 
 
 @memories.route("/get_memory/<id>")
@@ -51,7 +51,6 @@ def get_memory(id):
 
     ratings = mongo.db.ratings.find({"memory_id":  id})
     ratings_count = mongo.db.ratings.find({"memory_id":  id})
-    print (ratings_count)
     round_av_rating = 0
     total = 0
     i=0
@@ -60,12 +59,6 @@ def get_memory(id):
         i=i+1
         total = total + rating.get("rating_value")
         
-    print ("Total count is")    
-    print (total)
-    print ("Number of ratings")
-    print (i)
-
-    print ("av rating")
     if i > 0:
         av_rating = total/i
         round_av_rating = (round((av_rating), 2))
@@ -116,7 +109,7 @@ def get_user_memories():
     return render_template("memories/memories.html", memories=user_memories_paginated,
                            page=page,
                            per_page=per_page,
-                           pagination=pagination)
+                           pagination=pagination, selected="get_user_memories")
 
 @memories.route("/add_memory", methods=["GET", "POST"])
 def add_memory():
