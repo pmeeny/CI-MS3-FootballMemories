@@ -1,14 +1,20 @@
 {% extends "base.html" %}
 {% block content %}
-<body class="flex-wrapper">
-    <div class="r hero-image">
-        <div class="h1-header">   
-            <h1>Home</h1>
-        </div>
-        <div class="">
-            <a href="{{ url_for('authentication.login') }}" class="btn btn-primary">Login</a>
-
-            <a href="{{ url_for('authentication.register') }}" class="btn btn-primary">Register</a>
+<body class="">
+    <div class="hero-image container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <div class="container" id="hero-message">
+                    <h1 id="hero-message-text">Welcome to Football Memories</h1>
+                    <p>Football memories is a site that allows fans add, comment and rate football memories.</p>
+                    <p>If you a are a new user click Register. Existing users can login by clicking the Login button</p>
+                    <div class="">
+                        <a href="{{ url_for('authentication.login') }}" class="btn btn-primary">Login</a>
+            
+                        <a href="{{ url_for('authentication.register') }}" class="btn btn-primary">Register</a>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
   
