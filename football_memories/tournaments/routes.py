@@ -21,14 +21,11 @@ tournaments = Blueprint('tournaments', __name__)
 
 @tournaments.route("/get_tournaments")
 def get_tournaments():
-
     page, per_page, offset = get_page_args(
-        page_parameter='page', per_page_parameter='per_page',
-        offset_parameter='offset')
-
+    page_parameter='page', per_page_parameter='per_page',
+    offset_parameter='offset')
     per_page = 3
     offset = (page - 1) * 3
-
     username = session["user"]
     user = mongo.db.users.find_one({"username": username})
 
@@ -94,7 +91,6 @@ def delete_tournament(tournament_id):
     tournament = mongo.db.tournaments.find_one({"_id": ObjectId(tournament_id)})
     number_of_memories = mongo.db.memories.find({"tournament_name" : tournament['tournament_name']}).count()
 
-    print (number_of_memories)
     if(number_of_memories > 0):
         flash("A tournament than contains memories cannot be deleted")
     else:
