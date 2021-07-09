@@ -89,8 +89,16 @@ def edit_tournament(tournament_id):
     tournament = mongo.db.tournaments.find_one({"_id": ObjectId(tournament_id)})
     return render_template("tournaments/edit_tournament.html", tournament=tournament)
 
-@tournaments.route("/delete_tournament/<tournament_id>")
+@tournaments.route("/delete_tournament/<tournament_id>", methods=["GET", "POST"])
 def delete_tournament(tournament_id):
-    mongo.db.tournaments.remove({"_id": ObjectId(tournament_id)})
-    flash("Tournament Successfully Deleted")
+    tournament = mongo.db.tournaments.find_one({"_id": ObjectId(tournament_id)})
+    number_of_memories = mongo.db.memories.find({"tournament_name" : tournament['tournament_name']}).count()
+
+    print (number_of_memories)
+    if(number_of_memories > 0):
+        flash("A tournament than contains memories cannot be deleted")
+    else:
+        mongo.db.tournaments.remove({"_id": ObjectId(tournament_id)})
+        flash("Tournament Successfully Deleted")
+
     return redirect(url_for("tournaments.get_tournaments"))

@@ -26,12 +26,12 @@
                             {% if (user.user_type == "admin_user") %}
                             <div class="card-action">
                                 <a href="{{ url_for('tournaments.edit_tournament', tournament_id=tournament._id) }}" class="btn btn-primary">Edit</a>
-                                <a class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteTournamentModal">Delete</a>
+                                <a class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteTournamentModal{{tournament._id}}">Delete</a>
                             </div>
                             {% endif %}
                         </div>
                                         <!-- Modal -->
-                <div class="modal fade" id="deleteTournamentModal" tabindex="-1" aria-labelledby="deleteTournamentLabel" aria-hidden="true">
+                <div class="modal fade" id="deleteTournamentModal{{tournament._id}}" tabindex="-1" aria-labelledby="deleteTournamentLabel" aria-hidden="true">
                     <div class="modal-dialog">
                         <div class="modal-content">
                         <div class="modal-header">
