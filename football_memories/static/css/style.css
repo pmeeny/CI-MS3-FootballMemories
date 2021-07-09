@@ -14,6 +14,14 @@ body, html {
 
 }
 
+.text-muted {
+    color: #525252!important;
+}
+
+p {
+    color: white;
+}
+
 h1 {
     font-size: 1.75rem;
     color: green;
@@ -91,6 +99,37 @@ h1 {
     height: auto !important;
   /* Position and center the image to scale nicely on all screens */
 }
+
+#hero-message-text {
+    color: #ffffff;
+    padding-top: 20px;
+ }
+
+#hero-message {
+   background-color: rgba(232, 232, 232, 0.3);
+}
+
+ #hero-message small {
+    color: #ffffff;
+}
+
+#hero-message {
+    margin-top: 50px;
+    width: 100%;
+    height: 450px;
+    max-width: 800px;
+    margin: 50px auto;
+    text-align: center;
+ }
+ 
+ #hero-message  h3,p {
+     margin-bottom: 25px;
+  }
+ 
+  #hero-message small {
+     font-size: 80%;
+     font-style: italic;
+ }
 
 .bg-color{
     background-color: var(--color);
