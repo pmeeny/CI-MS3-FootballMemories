@@ -20,7 +20,7 @@ h1 {
 }
 
 .btn{
-    margin-top: 5px;
+
 }
 
 .btn-primary {
@@ -69,6 +69,15 @@ h1 {
     color: green;
 }
 
+#selected {
+    background-color: green;
+    color: white; 
+}
+
+#not_selected{
+    background-color: black;
+    color: white; 
+}
 
 /* The hero image */
 .hero-image {
@@ -101,8 +110,15 @@ h1 {
 
 /* Index */
 #latest_memories {
+    padding-top: 10px;
+    padding-bottom: 10px;
     background-color: white;
 
+}
+
+.img-fluid {
+    height: 300px;
+    width: 100%;
 }
 
 
@@ -170,6 +186,22 @@ h1 {
     margin-bottom: 15px;
 }
 
+.h2-header {
+    font-size: 1.3rem;
+}
+
+#filters {
+    padding-bottom: 15px;
+}
+
+#query {
+    margin-bottom: 5px;
+}
+
+#search-and-reset {
+    margin-bottom: 10px;
+}
+
 #login-body {
     border-top: 1px solid grey;
 }
@@ -203,6 +235,9 @@ h1 {
 .center-div{
     margin: 0 auto;
     text-align: center;
+    padding-top: 5px;
+    padding-left: 1px;
+    padding-right: 1px;
 }
 
 #edit_and_delete_memory_buttons{
@@ -218,7 +253,7 @@ h1 {
 }
 
 #search-area {
-    margin-top: 5px;
+    margin-top:5px;
 }
 
 #search-bar {
@@ -239,10 +274,9 @@ h1 {
 /** Footer */
 #site-footer {
     background-color: white;
-        left: 0;
+    left: 0;
     bottom: 0;
     width: 100%;
-
 }
 
 
