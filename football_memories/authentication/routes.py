@@ -35,7 +35,7 @@ def register():
         # put the new user into 'session' cookie
         session["user"] = request.form.get("username").lower()
         flash("Registration Successful!")
-        return redirect(url_for("memories.get_memories", username=session["user"]))
+        return redirect(url_for("memories.get_user_memories", username=session["user"]))
 
     return render_template("authentication/register.html")
 
@@ -54,7 +54,7 @@ def login():
                         flash("Welcome, {}".format(
                             request.form.get("username")))
                         return redirect(url_for(
-                            "memories.get_memories", username=session["user"]))
+                            "memories.get_user_memories", username=session["user"]))
             else:
                 # invalid password match
                 flash("Incorrect Username and/or Password")

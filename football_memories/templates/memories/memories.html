@@ -13,8 +13,8 @@
                             <h2 class="h2-header">Filters:</h2>
                         </div>
                         <div class="col-lg-11">
-                            <a type="button" class="btn btn-light phone-font"  {% if selected == "get_memories" %} id="selected" {% endif %} href="{{ url_for('memories.get_memories') }}"> Show all</a>
                             <a type="button" class="btn btn-light phone-font" {% if selected == "get_user_memories" %} id="selected" {% endif %} href="{{ url_for('memories.get_user_memories') }}"> My Memories</a>
+                            <a type="button" class="btn btn-light phone-font"  {% if selected == "get_memories" %} id="selected" {% endif %} href="{{ url_for('memories.get_memories') }}"> All Memories</a>
                         </div>
                     </div>      
                 <div class="row">
