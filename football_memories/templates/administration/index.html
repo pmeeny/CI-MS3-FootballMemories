@@ -11,16 +11,16 @@
                     <p>Football memories is a site that allows fans add, comment and rate football memories.</p>
                     <p>If you a are a new user click Register. Existing users can login by clicking the Login button</p>
                     <!-- Login and Register buttons -->
-                    <div class="">
-                        <a href="{{ url_for('authentication.login') }}" class="btn btn-primary">Login</a>        
-                        <a href="{{ url_for('authentication.register') }}" class="btn btn-primary">Register</a>
+                    <div class=""> 
+                        <a href="{{ url_for('authentication.register') }}" class="btn btn-primary btn-account dark-green-one-btn">Register</a>
+                        <a href="{{ url_for('authentication.login') }}"  class="btn btn-primary btn-account light-green-one-btn">Login</a>    
                     </div>
                 </div>
             </div>
         </div>
     </div>
     <!-- Latest memories -->
-    <div id="latest_memories">
+    <div id="latest-memories">
         <div class="container">
             <h1>Latest Memories:</h1>
             <div class="row">
@@ -33,7 +33,7 @@
                             </a>
                             <!-- Memory text -->
                             <div class="p-4">
-                                <h2 class="text-dark">{{ memory.memory_name }}</h2>
+                                <h2>{{ memory.memory_name }}</h2>
                                 <p class="small text-muted mb-0">Tournament: {{ memory.tournament_name }}</p>
                             </div>
                         </div>
