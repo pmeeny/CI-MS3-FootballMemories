@@ -1,118 +1,178 @@
 /* ----- Google Fonts import ----- */
-
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
-
 /* ----- Font ----- */
-
 * {
     font-family: 'Poppins', sans-serif;
+}
+/* --- Global styling --- */
+* {
     margin: 0;
     padding: 0;
 }
-
-body, html {
-
+h1 {
+    font-size: 1.75rem;
 }
-
+h2 {
+    font-size: 1.5rem;
+}
+.h1-header {
+    text-align: center;
+    margin-bottom: 15px;
+}
+.h2-header {
+    font-size: 1.3rem;
+}
+.btn-account {
+    font-size: 1.2rem;
+}
+.common-holder {
+    padding: 40px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    border-radius: 25px;
+}
+.common-holder-width {
+    max-width: 680px;
+}
+.footer-font {
+    font-size: 0.9rem;
+}
+/* ----- Start of Color palette ----- */
+/* --- Global --- */
 .text-muted {
     color: #525252!important;
 }
-
 p {
     color: white;
 }
-
+.p-dark{
+    color:#212529
+}
 h1 {
-    font-size: 1.75rem;
-    color: green;
+    color: #264653;
 }
-
-.btn{
-
+h2 {
+    color: #006400;
 }
-
-.btn-primary {
-    background-color: green;
-    border-color: green;
+i {
+    color: #264653;
+} 
+.common-body {
+    border-top: 1px solid grey;
 }
-
-.btn-primary:hover {
-    background-color: green;
-    border-color: green;
+.light-green-one-text-link {
+    color: #006400;
+}
+.light-green-one-text-link:hover {
+    color: #264653;
+}
+.dark-green-one-btn {
+    background-color: #264653;
+    border-color: #264653;
+}
+.light-green-one-btn {
+    background-color: #006400;
+    border-color: #006400; 
+}
+.dark-green-one-btn:hover {
+    background-color: #264653;
+    border-color: #264653;
     text-decoration: underline;
 }
-
-.btn-primary:focus{
-    background-color: green;
-    border-color: green;
+.dark-green-one-btn:focus{
+    background-color: #264653;
+    border-color: #264653;
 }
-
-.btn-account {
-    background-color: green;
-    border-color: green;
-    font-size: 1.2rem;
-}
-
-.btn-account:hover {
-    background-color: green;
-    border-color: green;
+.light-green-one-btn:hover {
+    background-color: #006400;
+    border-color: #006400; 
     text-decoration: underline;
 }
-
-.btn-account:focus{
-    background-color: green;
-    border-color: green;
+.light-green-one-btn:focus{
+    background-color: #006400;
+    border-color: #006400; 
+}  
+.common-holder {
+    background-color: white;
 }
-
-.btn-danger:hover {
-    text-decoration: underline;
+.alert-success{
+    color: white;
+    background-color: #264653;
+    border-color: #264653;
 }
-
-.card {
-    width: 17rem;
+/* --- Hero image and text --- */
+#hero-message-text {
+    color: #ffffff;
+ }
+#hero-message {
+    background-color: rgba(232, 232, 232, 0.3);
+ }
+#hero-message small {
+    color: #ffffff;
 }
-
-/* Footer */
+/* --- Index page colors --- */
+#latest-memories {
+    background-color: white;
+}
+/* --- Footer page colors --- */
 .footer-font {
-    color: green;
+    color: #264653;
 }
-
+/* ---  Registration Page --- */
+.reg-holder {
+    background-color: white;
+}
+/* ---  Login Page --- */
+#login-body {
+    border-top: 1px solid grey;
+}
+.login-holder {
+    background-color: white;
+}
+/* --- Memories page colors --- */
 #selected {
-    background-color: green;
+    background-color: #264653;
     color: white; 
 }
-
 #not_selected{
     background-color: black;
     color: white; 
 }
-
-/* The hero image */
+/* --- Memory page colors --- */
+.memory-holder {
+    background-color: white;
+}
+/* ---  Pagination --- */
+.pagination-page-info b {
+    color: black;
+}
+.pagination ul li a {
+    color: #264653;
+}
+/* ---  Tournament Page --- */
+.tournament-holder {
+    background-color: white;
+}
+/* ----- End of Color palette ----- */
+/* ----- Navigation bar ----- */
+.nav-font {
+    font-size: 1.2rem;
+}
+.card {
+    width: 17rem;
+}
+/* ----- Hero Image and text ----- */
 .hero-image {
-  /* Use "linear-gradient" to add a darken background effect to the image (photographer.jpg). This will make the text easier to read */
-  background-image: url("/static/images/registerBackground.jpg");
+    background-image: url("/static/images/registerBackground.jpg");
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
-  /* Set a specific height */
     min-height: 600px;
     height: auto !important;
-  /* Position and center the image to scale nicely on all screens */
 }
-
 #hero-message-text {
-    color: #ffffff;
     padding-top: 20px;
  }
-
-#hero-message {
-   background-color: rgba(232, 232, 232, 0.3);
-}
-
- #hero-message small {
-    color: #ffffff;
-}
-
 #hero-message {
     margin-top: 50px;
     width: 100%;
@@ -120,50 +180,35 @@ h1 {
     max-width: 800px;
     margin: 50px auto;
     text-align: center;
- }
- 
- #hero-message  h3,p {
-     margin-bottom: 25px;
-  }
- 
-  #hero-message small {
-     font-size: 80%;
-     font-style: italic;
- }
-
-.bg-color{
-    background-color: var(--color);
 }
-
-/* Flash message */
+#hero-message  h3,p {
+    margin-bottom: 25px;
+}
+#hero-message small {
+    font-size: 80%;
+    font-style: italic;
+}
+/* --- Flash messages --- */
 .flashes {
     border-top: 5px;
     max-width: 400px;
     text-align: center;
     margin: 0 auto;
 }
-
 #flash-messages {
     text-align: center;
 }
-
-/* Index */
-#latest_memories {
-    padding-top: 10px;
-    padding-bottom: 10px;
-    background-color: white;
-
+/* ---  Index Page --- */
+#latest-memories {
+    padding-top: 15px;
+    padding-bottom: 15px;
 }
-
 .img-fluid {
     height: 300px;
     width: 100%;
 }
-
-
-/* Register */
+/* ---  Registration Page --- */
 .reg-holder {
-    background-color: white;
     padding: 20px;
     margin-top: 30px;
     margin-bottom: 30px;
@@ -171,106 +216,46 @@ h1 {
     max-width: 680px;
     height: 100%;
 }
-
 #register_text {
     text-align: center;
     margin-bottom: 15px;
 }
-
 #reg-form{
     margin-top: 25px;
 }
-
 .submit-holder {
     margin-top: 25px;
     text-align: right;
 }
-
-
-
-.input_field{
-    padding: 10px;
-}
-
-.common-body {
-    border-top: 1px solid grey;
-}
-
-/* Common holder/generic */
-.common-holder {
-    background-color: white;
-    padding: 40px;
-    margin-top: 30px;
-    margin-bottom: 30px;
-    border-radius: 25px;
-}
-
-.common-holder-width {
-    max-width: 680px;
-}
-
-
-/* Login */
+/* ---  Login Page --- */
 .login-holder {
-    background-color: white;
     padding: 30px;
     margin-top: 30px;
     margin-bottom: 30px;
     border-radius: 25px;
     max-width: 680px;
 }
-
-.h1-header {
-    text-align: center;
-    margin-bottom: 15px;
-}
-
-.h2-header {
-    font-size: 1.3rem;
-}
-
-#filters {
-    padding-bottom: 15px;
-}
-
-#query {
-    margin-bottom: 5px;
-}
-
-#search-and-reset {
-    margin-bottom: 10px;
-}
-
-#login-body {
-    border-top: 1px solid grey;
-}
-
 .flex-wrapper {
   display: flex;
   min-height: 110vh;
   flex-direction: column;
   justify-content: space-between;
 }
-
 .main-content{
     min-height: 700px;
     height: auto !important;
 }
-
 .flex-wrapper-auth {
    position: relative;
 }
-
 #new-here-section {
     margin-top: 5px;
 }
-
-/** Memories page  */
+/* ---  Memories Page --- */
 #memory-list{
     padding-top: 20px;
     padding-bottom: 20px;
 }
-
 .center-div{
     margin: 0 auto;
     text-align: center;
@@ -278,58 +263,66 @@ h1 {
     padding-left: 1px;
     padding-right: 1px;
 }
-
 #edit_and_delete_memory_buttons{
     margin: 0 auto;
 }
-
 #edit_memory_button {
     margin: 5px;
 }
-
 #delete_memory_button {
     margin: 5px; 
 }
-
 #search-area {
     margin-top:5px;
 }
-
 #search-bar {
     padding-right: 0px;
 }
-
 #search-button {
     padding-left: 0px;
 }
-
-/* Mmory Page */
+#filters {
+    padding-bottom: 15px;
+}
+#query {
+    margin-bottom: 5px;
+}
+#search-and-reset {
+    margin-bottom: 10px;
+}
+/* ---  Memory Page --- */
 #map {
     height: 250px;
     width: 250px;
     margin: auto;
 }
-
-/** Footer */
+/* ---  Dashboard Page --- */
+.card-title{
+    text-align: center;
+}
+/* ---  Footer Page --- */
 #site-footer {
-    background-color: white;
     left: 0;
     bottom: 0;
     width: 100%;
 }
-
-
-/* Add Memory Page */
+.form-control::placeholder {
+    font-size: 0.95rem;
+    color: #aaa;
+    font-style: italic;
+}
+.form-control.shadow-0:focus {
+    box-shadow: none;
+}
+/* ---  Add Memory Page --- */
 .memory-holder {
-    background-color: white;
     padding: 50px;
     margin-top: 30px;
     margin-bottom: 30px;
     border-radius: 25px;
     max-width: 680px;
 }
-
-/* Pagination */
+/* ---  Pagination --- */
 .pagination-page-info {
     padding: .6em;
     padding-left: 0;
@@ -337,8 +330,6 @@ h1 {
     margin-left: 0;
 }
 .pagination-page-info b {
-    color: black;
-    background: green;
     padding-left: 2px;
     padding: .1em .25em;
 }
@@ -346,90 +337,45 @@ h1 {
     display:flex;  
   list-style:none;
 }
-
 .pagination ul li {
     padding: 20px;
 }
-
-.pagination ul li a {
-    color: green;
-}
-
 .pagination-page-info:first-letter {
     text-transform: uppercase;
 }
-
 .pagination row{
     width: 50%;
 }
-
 #pagin-info{
     text-align: right;
 }
-
-/* footer https://jsfiddle.net/bootstrapious/c7ash30w/ */
-
-i {
-  color: green;
-}
-
-.form-control::placeholder {
-  font-size: 0.95rem;
-  color: #aaa;
-  font-style: italic;
-}
-
-.form-control.shadow-0:focus {
-  box-shadow: none;
-}
-
-/* Tournament page */
+/* ---  Tournament Page --- */
 .card {
     padding: 10px; 
     margin: 20px;
 }
-
-/* Tournaments page */
 .tournament-holder {
-    background-color: white;
     padding: 50px;
     margin-top: 30px;
     margin-bottom: 30px;
     border-radius: 25px;
-
 }
-
-.footer-font {
-    font-size: 0.9rem;
-}
-
-/* Nav bar */
-.nav-font {
-    font-size: 1.1rem;
-}
-
 #tournament-image{
     width: 100%;
     height: 100%;
 }
-
-
 /* ----- Media Queries ----- */
 /* --- Medium Screen --- */
 @media screen and (max-width: 768px) {
-
     .footer-font {
         font-size: 0.8rem;
     }
-
     .pagination {
         font-size: 0.8rem;
     }
-
     .pagination-page-info {
         font-size: 0.8rem;
     }    
-
     .common-body {
         font-size: 0.8rem; 
     }
@@ -437,33 +383,26 @@ i {
         font-size: 0.8rem; 
     }
 }  
-
 /* SMALL SCREEN */
 @media screen and (max-width: 481px) {
     .common-holder {
         padding: 20px;
     }
-
     .phone-font {
         font-size: 0.9rem;
     }
 }    
-
 /* X-SMALL SCREEN */
 @media screen and (max-width: 320px) {
-
     .footer-font {
         font-size: 0.8rem;
     }
-
     .submit-holder {
         text-align: center;
     }
-
     #reg-form {
         font-size: 0.8rem;  
     }
-
     #new-here-section {
         font-size: 0.8rem;   
     }
