@@ -18,18 +18,14 @@ if os.path.exists("env.py"):
 from flask_paginate import Pagination, get_page_args
 from football_memories import mongo
 
+aws_s3_bucket = "https://ci-ms3-football-memories.s3.eu-west-1.amazonaws.com/"
 client = boto3.client('s3', aws_access_key_id=os.environ.get("AWS_ACCESS_KEY_ID"), aws_secret_access_key=os.environ.get("AWS_SECRET_ACCESS_KEY"))
 memories = Blueprint('memories', __name__)
 
 @memories.route("/get_memories")
 def get_memories():
 
-    page, per_page, offset = get_page_args(
-        page_parameter='page', per_page_parameter='per_page',
-        offset_parameter='offset')
-
-    per_page = 3
-    offset = (page - 1) * 3
+    offset, per_page, page = setupPagination()
 
     username = session["user"]
     user = mongo.db.users.find_one({"username": username})
@@ -49,26 +45,9 @@ def get_memories():
 @memories.route("/get_memory/<id>")
 def get_memory(id):
 
-    ratings = mongo.db.ratings.find({"memory_id":  id})
-    ratings_count = mongo.db.ratings.find({"memory_id":  id})
-    round_av_rating = 0
-    total = 0
-    i=0
+    round_av_rating = calculateAverageRating(id)
 
-    for rating in ratings:
-        i=i+1
-        total = total + rating.get("rating_value")
-        
-    if i > 0:
-        av_rating = total/i
-        round_av_rating = (round((av_rating), 2))
-
-    page, per_page, offset = get_page_args(
-    page_parameter='page', per_page_parameter='per_page',
-    offset_parameter='offset')
-
-    per_page = 6
-    offset = (page - 1) * 6
+    offset, per_page, page = setupPagination()
 
     memory = mongo.db.memories.find_one({"_id": ObjectId(id)})
 
@@ -89,14 +68,12 @@ def get_memory(id):
                            per_page=per_page,
                            pagination=pagination, average_rating=round_av_rating)
 
+
+
 @memories.route("/get_user_memories")
 def get_user_memories():
-    page, per_page, offset = get_page_args(
-        page_parameter='page', per_page_parameter='per_page',
-        offset_parameter='offset')
-
-    per_page = 3
-    offset = (page - 1) * 3
+    
+    offset, per_page, page = setupPagination()
 
     username = session["user"]
 
@@ -123,7 +100,8 @@ def add_memory():
         image_to_upload = timestamp + image_file
         
         client.upload_file(image_file, 'ci-ms3-football-memories', image_to_upload)
-        image_url = "https://ci-ms3-football-memories.s3.eu-west-1.amazonaws.com/" + image_to_upload
+
+        image_url = aws_s3_bucket + image_to_upload
 
         memory = {
             "memory_image": image_url,
@@ -146,14 +124,7 @@ def add_memory():
 def edit_memory(memory_id):
     
     if request.method == "POST":
-        image = request.files['memory_image']
-        image_file = secure_filename(image.filename)
-        image.save(image_file)
-        now = datetime.now()
-        timestamp=now.strftime("%Y_%m_%d_%H_%M_%S_")
-        image_to_upload = timestamp + image_file
-        client.upload_file(image_file, 'ci-ms3-football-memories', image_to_upload)
-        image_url = "https://ci-ms3-football-memories.s3.eu-west-1.amazonaws.com/" + image_to_upload
+        image_url = storeImageAWSS3Bucket()
 
         memory_to_update = {
             "memory_image": image_url,
@@ -182,12 +153,8 @@ def delete_memory(memory_id):
 
 @memories.route("/search", methods=["GET", "POST"])
 def search():
-    page, per_page, offset = get_page_args(
-        page_parameter='page', per_page_parameter='per_page',
-        offset_parameter='offset')
 
-    per_page = 3
-    offset = (page - 1) * 3
+    offset, per_page, page = setupPagination()
 
     username = session["user"]
     user = mongo.db.users.find_one({"username": username})
@@ -207,9 +174,7 @@ def search():
 
 @memories.route("/add_comment/<id>", methods=["POST"])
 def add_comment(id):
-    now = datetime.now() # current date and time
-    year = now.strftime("%Y")
-    month = now.strftime("%m")
+    month, year = getMonthAndYear()
     comment = {
         "memory_id": id,
         "comment_text": request.form.get("comment"),
@@ -219,12 +184,7 @@ def add_comment(id):
     mongo.db.comments.insert_one(comment)
     flash("Comment Successfully Added")
 
-    page, per_page, offset = get_page_args(
-    page_parameter='page', per_page_parameter='per_page',
-    offset_parameter='offset')
-
-    per_page = 6
-    offset = (page - 1) * 6
+    offset, per_page, page = setupPagination()
 
     memory = mongo.db.memories.find_one({"_id": ObjectId(id)})
 
@@ -252,5 +212,47 @@ def add_rating(id):
     flash("Rating Successfully Added")
     return redirect(url_for("memories.get_memory", id=id))  
 
+
+def setupPagination():
+    page, per_page, offset = get_page_args(
+    page_parameter='page', per_page_parameter='per_page',
+    offset_parameter='offset')
+
+    per_page = 3
+    offset = (page - 1) * 3
+    return offset, per_page, page
+
+def getMonthAndYear():
+    now = datetime.now() # current date and time
+    year = now.strftime("%Y")
+    month = now.strftime("%m")
+    return month, year
+
+def storeImageAWSS3Bucket():
+    image = request.files['memory_image']
+    image_file = secure_filename(image.filename)
+    image.save(image_file)
+    now = datetime.now()
+    timestamp=now.strftime("%Y_%m_%d_%H_%M_%S_")
+    image_to_upload = timestamp + image_file
+    client.upload_file(image_file, 'ci-ms3-football-memories', image_to_upload)
+    image_url = "https://ci-ms3-football-memories.s3.eu-west-1.amazonaws.com/" + image_to_upload
+    return image_url
+
+def calculateAverageRating(id):
+    ratings = mongo.db.ratings.find({"memory_id":  id})
+
+    round_av_rating = 0
+    total = 0
+    i=0
+
+    for rating in ratings:
+        i=i+1
+        total = total + rating.get("rating_value")
+
+    if i > 0:
+        av_rating = total/i
+        round_av_rating = (round((av_rating), 2))
+    return round_av_rating
 
    
