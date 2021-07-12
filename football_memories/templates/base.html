@@ -33,7 +33,7 @@
                           <li class="nav-item nav-font"><a href="{{ url_for('authentication.logout') }}" class="nav-link" aria-current="page">Log Out</a></li>   
                           {% else %}
                       <li class="nav-item">
-                          <a class="nav-link nav-font" aria-current="page" href="index.html">Home</a>
+                          <a class="nav-link nav-font" aria-current="page" href="{{ url_for('administration.home') }}">Home</a>
                       </li>
                           <li class="nav-item nav-font"><a href="{{ url_for('authentication.login') }}" class="nav-link" aria-current="page">Log In</a></li>
                           <li class="nav-item nav-font"><a href="{{ url_for('authentication.register') }}" class="nav-link" aria-current="page">Register</a></li>
@@ -88,10 +88,11 @@
             <p class="text-muted mb-4 footer-font">Fill in your email address below to receive our monthly newsletter.</p>
             <div class="p-1 rounded border" id="mailing-list">
               <form id="mailinglistform" onsubmit="return sendMail(this);">
-                <div class="input-group">        
+                <div class="input-group">       
+                  <label for="email_address" hidden>Email Address:</label> 
                   <input type="email" placeholder="Email address" id="email_address" name="email_address" aria-describedby="newsletter" class="form-control border-0 shadow-0 footer-font">
                   <div class="input-group-append">
-                    <button id="newsletter" type="submit" class="btn btn-link"><i class="fa fa-paper-plane"></i></button>
+                    <button id="newsletter" type="submit" class="btn btn-link" value="newsletter"><i class="fa fa-paper-plane"></i></button>
                   </div>
                 </div>
               </form>
