@@ -18,10 +18,9 @@
             <div class="row">
                 {% for tournament in tournaments %}
                         <div class="card">
-                            <img id="tournament-image" img src="/static/images/premier-league-trophy.jpg"  alt="...">
-                            
+                            <img id="tournament-image" img src="/static/images/premier-league-trophy.jpg"  alt="...">           
                             <div class="card-body">
-                                <h5 class="card-title">{{ tournament.tournament_name }}</h5>
+                                <h2 class="card-title">{{ tournament.tournament_name }}</h2>
                             </div>
                             {% if (user.user_type == "admin_user") %}
                             <div class="card-action">
@@ -35,7 +34,7 @@
                     <div class="modal-dialog">
                         <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="deleteTournamentLabel">Delete Tournament</h5>
+                            <h2 class="modal-title" id="deleteTournamentLabel">Delete Tournament</h2>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
@@ -51,9 +50,10 @@
                 {% endfor %}
             </div>
 
-
-            {{ pagination.links }}
-            {{ pagination.info }}
+            <div class="d-flex align-items-center justify-content-between rounded-pill bg-light px-3 py-2 mt-4">
+                {{ pagination.links }}
+                {{ pagination.info }}
+             </div>   
         </div>
     </div>
 </body>

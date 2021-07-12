@@ -55,7 +55,7 @@
                     </div>
                 </div>
                 <div class="row mt-3 form-group">
-                    <label for="date" class="col-4 col-form-label">Date</label>
+                    <label for="memory_date" class="col-4 col-form-label">Date</label>
                     <div class="col-8">
                     <input class="form-control" type="date" id="memory_date" name="memory_date" required> 
                         <div class="valid-feedback">
@@ -67,7 +67,7 @@
                     </div>
                 </div>              
                 <div class="row mt-3 form-group">
-                    <label for="stadium" class="col-4 col-form-label">Stadium</label>
+                    <label for="memory_stadium" class="col-4 col-form-label">Stadium</label>
                     <div class="col-8">
                         <input class="form-control" name="memory_stadium" type="text" id="memory_stadium" required>
                         <div class="valid-feedback">
@@ -80,7 +80,7 @@
                 </div> 
                 <!-- submit button -->
                 <div class="submit-holder">
-                    <a href="{{ url_for('memories.get_memories') }}" class="btn btn-danger">Cancel</a>
+                    <a href="{{ url_for('memories.get_user_memories') }}" class="btn btn-danger">Cancel</a>
                     <button type="submit" class="btn btn-primary light-green-one-btn">Add Memory</button>
                 </div>
             </form>

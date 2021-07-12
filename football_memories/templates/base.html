@@ -76,14 +76,14 @@
             </ul>
           </div>
           <div class="col-lg-4 col-md-4 mb-4 mb-lg-0">
-            <h6 class="text-uppercase font-weight-bold mb-4 footer-font">Website</h6>
+            <h2 class="text-uppercase font-weight-bold mb-4 footer-font">Website</h2>
             <ul class="list-unstyled mb-0">
               <li class="mb-2"><a href="{{ url_for('administration.terms_and_conditions') }}" class="text-muted footer-font">Terms and Conditions</a></li>
               <li class="mb-2"><a href="{{ url_for('administration.privacy_policy') }}" class="text-muted footer-font">Privacy Policy</a></li>
             </ul>
           </div>
           <div class="col-lg-4 col-md-4 mb-lg-0">
-            <h6 class="text-uppercase font-weight-bold mb-4 footer-font">Newsletter</h6>
+            <h2 class="text-uppercase font-weight-bold mb-4 footer-font">Newsletter</h2>
             <p class="text-muted mb-4 footer-font">Fill in your email address below to receive our monthly newsletter.</p>
             <div class="p-1 rounded border" id="mailing-list">
               <form id="mailinglistform" onsubmit="return sendMail(this);">
@@ -91,7 +91,7 @@
                   <label for="email_address" hidden>Email Address:</label> 
                   <input type="email" placeholder="Email address" id="email_address" name="email_address" aria-describedby="newsletter" class="form-control border-0 shadow-0 footer-font">
                   <div class="input-group-append">
-                    <button id="newsletter" type="submit" class="btn btn-link" value="newsletter"><i class="fa fa-paper-plane"></i></button>
+                    <button class="btn btn-primary light-green-one-btn" id="newsletter" type="submit" class="btn btn-link" value="newsletter" alt="newsletter signup">Signup</button>
                   </div>
                 </div>
               </form>
