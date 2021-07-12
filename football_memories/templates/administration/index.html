@@ -1,41 +1,46 @@
 {% extends "base.html" %}
 {% block content %}
-<body class="">
-    <div class="hero-image container-fluid">
+<!-- Hero image -->
+<body class="hero-image">
+    <div class="container-fluid">
         <div class="row">
             <div class="col-12">
+                <!-- Hero message text -->
                 <div class="container" id="hero-message">
                     <h1 id="hero-message-text">Welcome to Football Memories</h1>
                     <p>Football memories is a site that allows fans add, comment and rate football memories.</p>
                     <p>If you a are a new user click Register. Existing users can login by clicking the Login button</p>
+                    <!-- Login and Register buttons -->
                     <div class="">
-                        <a href="{{ url_for('authentication.login') }}" class="btn btn-primary">Login</a>
-            
+                        <a href="{{ url_for('authentication.login') }}" class="btn btn-primary">Login</a>        
                         <a href="{{ url_for('authentication.register') }}" class="btn btn-primary">Register</a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-  
-        <div class="container" id="latest_memories">
+    <!-- Latest memories -->
+    <div id="latest_memories">
+        <div class="container">
             <h1>Latest Memories:</h1>
             <div class="row">
-            {% for memory in memories %}
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="bg-white rounded shadow-sm">
-                        <a href="/get_memory/{{ memory._id }}">
-                            <img src="{{ memory.memory_image }}" alt="" class="img-fluid card-img-top"">
-                        </a>
-                        <div class="p-4">
-                            <h5> <a href="#" class="text-dark">{{ memory.memory_name }}</a></h5>
-                            <p class="small text-muted mb-0">Tournament: {{ memory.tournament_name }}</p>
+                {% for memory in memories %}
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="bg-white rounded shadow-sm">
+                            <!-- Memory image -->
+                            <a href="/get_memory/{{ memory._id }}">
+                                <img src="{{ memory.memory_image }}" alt="latest memories" class="img-fluid card-img-top"">
+                            </a>
+                            <!-- Memory text -->
+                            <div class="p-4">
+                                <h2 class="text-dark">{{ memory.memory_name }}</h2>
+                                <p class="small text-muted mb-0">Tournament: {{ memory.tournament_name }}</p>
+                            </div>
                         </div>
-                    </div>
-                </div>    
-            {% endfor %}  
+                    </div>    
+                {% endfor %}  
             </div>   
         </div>
-
+    </div>    
 </body>   
 {% endblock %}
