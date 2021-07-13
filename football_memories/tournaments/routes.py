@@ -18,9 +18,9 @@ if os.path.exists("env.py"):
 
 s3_bucket_name = "ci-ms3-football-memories"
 s3_bucket_url = "https://ci-ms3-football-memories.s3.eu-west-1.amazonaws.com/"
-client = boto3.client('s3',
-                      os.environ.get("AWS_ACCESS_KEY_ID"),
-                      os.environ.get("AWS_SECRET_ACCESS_KEY"))
+client = boto3.client('s3', 
+                aws_access_key_id=os.environ.get("AWS_ACCESS_KEY_ID"),
+                aws_secret_access_key=os.environ.get("AWS_SECRET_ACCESS_KEY"))
 tournaments = Blueprint('tournaments', __name__)
 
 
