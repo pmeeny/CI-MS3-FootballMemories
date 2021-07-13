@@ -23,7 +23,9 @@ mongo.init_app(app)
 
 
 def create_app():
-
+    """
+    TBC
+    """
     from football_memories.administration.routes import administration
     from football_memories.authentication.routes import authentication
     from football_memories.errors.routes import errors
