@@ -28,18 +28,18 @@
               <div class="collapse navbar-collapse" id="navbarSupportedContent">
                   <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                       {% if session.user %}
-                          <li class="nav-item nav-font"><a href="{{ url_for('memories.get_user_memories') }}" class="nav-link" aria-current="page">Memories</a></li>
-                          <li class="nav-item nav-font"><a href="{{ url_for('authentication.profile', username=session['user']) }}" class="nav-link" aria-current="page">Profile</a></li>
-                          <li class="nav-item nav-font"><a href="{{ url_for('memories.add_memory') }}" class="nav-link" aria-current="page">Add Memory</a></li>
-                          <li class="nav-item nav-font"><a href="{{ url_for('tournaments.get_tournaments') }}" class="nav-link" aria-current="page">Tournaments</a></li>
-                          <li class="nav-item nav-font"><a href="{{ url_for('administration.dashboard') }}" class="nav-link" aria-current="page">Dashboard</a></li>
-                          <li class="nav-item nav-font"><a href="{{ url_for('authentication.logout') }}" class="nav-link" aria-current="page">Log Out</a></li>   
+                          <li class="nav-item nav-font"><a href="{{ url_for('memories.get_user_memories') }}" class="nav-link {% block nav_get_user_memories %}{% endblock %}" aria-current="page">Memories</a></li>
+                          <li class="nav-item nav-font"><a href="{{ url_for('authentication.profile', username=session['user']) }}" class="nav-link {% block nav_profile %}{% endblock %}" aria-current="page">Profile</a></li>
+                          <li class="nav-item nav-font"><a href="{{ url_for('memories.add_memory') }}" class="nav-link {% block nav_add_memory %}{% endblock %}" aria-current="page">Add Memory</a></li>
+                          <li class="nav-item nav-font"><a href="{{ url_for('tournaments.get_tournaments') }}" class="nav-link {% block nav_tournaments %}{% endblock %}" aria-current="page">Tournaments</a></li>
+                          <li class="nav-item nav-font"><a href="{{ url_for('administration.dashboard') }}" class="nav-link {% block nav_dashboard %}{% endblock %}" aria-current="page">Dashboard</a></li>
+                          <li class="nav-item nav-font"><a href="{{ url_for('authentication.logout') }}" class="nav-link  {% block nav_logout %}{% endblock %}" aria-current="page">Log Out</a></li>   
                           {% else %}
                       <li class="nav-item">
-                          <a class="nav-link nav-font" aria-current="page" href="{{ url_for('administration.home') }}">Home</a>
+                          <a class="nav-link nav-font {% block nav_home %}{% endblock %}" aria-current="page" href="{{ url_for('administration.home') }}">Home</a>
                       </li>
-                          <li class="nav-item nav-font"><a href="{{ url_for('authentication.login') }}" class="nav-link" aria-current="page">Log In</a></li>
-                          <li class="nav-item nav-font"><a href="{{ url_for('authentication.register') }}" class="nav-link" aria-current="page">Register</a></li>
+                          <li class="nav-item nav-font"><a href="{{ url_for('authentication.login') }}" class="nav-link {% block nav_login %}{% endblock %}" aria-current="page">Log In</a></li>
+                          <li class="nav-item nav-font"><a href="{{ url_for('authentication.register') }}" class="nav-link {% block nav_register %}{% endblock %}" aria-current="page">Register</a></li>
                       {% endif %}
                   </ul>
               </div>
