@@ -9,30 +9,47 @@
             <h1>Reporting Dashboard</h1>
         </div>
         <div class="row">
-            <div class="card">
-                <div class="card-body">
-                    <h2 class="card-title"><i class="fas fa-users"></i> Number of users</h2>
-                </div>
-                <div class="card-action">
-                    <h3 class="card-title">{{number_of_users}}</h3>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-body">
-                    <h2 class="card-title"><i class="fas fa-images"></i> Number of memories</h2>
-                </div>
-                <div class="card-action">
-                    <h3 class="card-title">{{number_of_memories}}</h3>
+            <p class="p-dark text-align-center">Here are some statistics regarding the number of users, memories and comments</p>
+            <div class="col col-lg-4 col-md-6 mb-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h2 class="card-title"><i class="fas fa-users"></i> Number of users</h2>
+                    </div>
+                    <div class="card-action">
+                        <h3 class="card-title">{{number_of_users}}</h3>
+                    </div>
                 </div>
             </div>
-            <div class="card">
-                <div class="card-body">
-                    <h2 class="card-title"><i class="fas fa-comments"></i> Number of comments</h2>
+            <div class="col col-lg-4 col-md-6 mb-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h2 class="card-title"><i class="fas fa-trophy"></i> Number of tournaments</h2>
+                    </div>
+                    <div class="card-action">
+                        <h3 class="card-title">{{number_of_tournaments}}</h3>
+                    </div>
                 </div>
-                <div class="card-action">
-                    <h3 class="card-title">{{number_of_comments}}</h3>
+            </div>   
+            <div class="col col-lg-4 col-md-6 mb-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h2 class="card-title"><i class="fas fa-images"></i> Number of memories</h2>
+                    </div>
+                    <div class="card-action">
+                        <h3 class="card-title">{{number_of_memories}}</h3>
+                    </div>
                 </div>
             </div>
+            <div class="col col-lg-4 col-md-6 mb-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h2 class="card-title"><i class="fas fa-comments"></i> Number of comments</h2>
+                    </div>
+                    <div class="card-action">
+                        <h3 class="card-title">{{number_of_comments}}</h3>
+                    </div>
+                </div>
+            </div>    
         </div>
     </div>
 </body>
