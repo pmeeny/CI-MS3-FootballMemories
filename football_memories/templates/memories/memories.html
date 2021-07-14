@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-
+{% block title %}Memories{% endblock %}
 {% block content %}
 <body class="hero-image flex-wrapper-auth">
     <div class="container common-holder">
@@ -28,7 +28,7 @@
                                         <button type="submit" class="light-blue darken-1 btn text-shadow">
                                             <i class="fas fa-search left"></i> Search
                                         </button>
-                                        <a type="submit" class="btn btn-light phone-font" href="{{ url_for('memories.get_memories') }}">Reset</a>
+                                        <a type="submit" class="btn btn-light phone-font" href="{{ url_for('memories.get_user_memories') }}">Reset</a>
                                     </div>    
                                 </form>
                             </div> 
@@ -43,10 +43,10 @@
                 <div class="col col-lg-4 col-md-6 mb-4">
                     <div class="bg-white rounded shadow-sm" id="full-card">
                         <a href="/get_memory/{{ memory._id }}">
-                        <img src="{{ memory.memory_image }}" alt="memory picture" class="img-fluid card-img-top"">
+                        <img src="{{ memory.memory_image }}" alt="{{ memory.memory_name }}" class="img-fluid card-img-top"">
                         </a>
                         <div class="p-4 memory-details">
-                        <h2> <a href="#" class="text-dark">{{ memory.memory_name }}</a></h2>
+                        <h2> <a href="/get_memory/{{ memory._id }}" class="text-dark">{{ memory.memory_name }}</a></h2>
                         <p class="small text-muted mb-0">Tournament: {{ memory.tournament_name }}</p>
                         <p class="small text-muted mb-0">Description: {{ memory.memory_description }}</p>
                         <p class="small text-muted mb-0">Description: {{ memory.memory_stadium }}</p>
