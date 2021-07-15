@@ -57,6 +57,17 @@ Bug 4: comments not ordered by date on memory page
 bug 5: Whe add image to s3, it also stores the file locally
 Fix was to use a different method 
 
+Bug 6: A memory on the landing page is a clicable link into the memory
+A user should only be able to see this infroamtion if they are logged in
+Fix: Update index.html to remove ahref link
+
+Bug 7, an admin can edit a memory, if an admin edits a memory, it then becomes the uploaded by of the memory
+This is a bug, an admin should be allowed delete a memeory, but not edit.
+Only the memory creator should be allowed to edit a memory
+The code was updated to fix this
+
+Bug8, routing not working after adding a comment
+Fix in add_comment(id): in toute.py
 
 # Code Validators and Website Analysis
 The website's pages were run against the following validators:
