@@ -52,6 +52,14 @@ def add_tournament():
     TBC
     """
     if request.method == "POST":
+        # check if tournament name already exists in db
+        existing_tournament = mongo.db.tournaments.find_one(
+            {"tournament_name": request.form.get("tournament_name")})
+
+        if existing_tournament:
+            flash("Tournament name already exists")
+            return redirect(url_for("tournaments.get_tournaments"))
+        
         image_url = storeImageAWSS3Bucket()
 
         tournament = {
@@ -124,12 +132,19 @@ def storeImageAWSS3Bucket():
     """
     TBC
     """
+    timestamp = generateTimestamp()
     image = request.files['tournament_image']
     image_file = secure_filename(image.filename)
-    image.save(image_file)
-    now = datetime.now()
-    timestamp = now.strftime("%Y_%m_%d_%H_%M_%S_")
     image_to_upload = timestamp + image_file
-    client.upload_file(image_file, s3_bucket_name, image_to_upload)
+    s3 = boto3.resource('s3')
+    s3.Bucket(s3_bucket_name).put_object(Key=image_to_upload, Body=image)
     image_url = s3_bucket_url + image_to_upload
     return image_url
+
+def generateTimestamp():
+    """
+    TBC
+    """
+    now = datetime.now()
+    timestamp = now.strftime("%Y_%m_%d_%H_%M_%S_")
+    return timestamp
