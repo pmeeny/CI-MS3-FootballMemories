@@ -1,6 +1,6 @@
 from flask import (
     Flask, flash, render_template,
-    redirect, request, session, url_for, Blueprint, session, abort)
+    redirect, request, session, url_for, Blueprint, abort)
 
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_pymongo import PyMongo
@@ -94,6 +94,9 @@ def profile(username):
     """
     TBC
     """
+    if 'user' not in session:
+        return redirect(url_for("administration.home"))
+    
     user = mongo.db.users.find_one({"username": username})
     return render_template("authentication/profile.html",
                            username=session['user'], user=user)

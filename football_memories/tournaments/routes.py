@@ -29,6 +29,9 @@ def get_tournaments():
     """
     TBC
     """
+    if 'user' not in session:
+        return redirect(url_for("administration.home"))
+    
     offset, per_page, page = setupPagination()
     username = session["user"]
     user = mongo.db.users.find_one({"username": username})
@@ -51,6 +54,9 @@ def add_tournament():
     """
     TBC
     """
+    if 'user' not in session:
+        return redirect(url_for("administration.home"))
+    
     if request.method == "POST":
         # check if tournament name already exists in db
         existing_tournament = mongo.db.tournaments.find_one(
@@ -78,6 +84,9 @@ def edit_tournament(tournament_id):
     """
     TBC
     """
+    if 'user' not in session:
+        return redirect(url_for("administration.home"))
+    
     if request.method == "POST":
         # check if tournament name already exists in db
         existing_tournament = mongo.db.tournaments.find_one(
