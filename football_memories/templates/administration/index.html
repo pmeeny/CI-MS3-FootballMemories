@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% block title %}Landing Page{% endblock %}
+{% block title %}Home{% endblock %}
 {% block nav_home %}active{% endblock %}
 {% block content %}
 <!-- Hero image -->
@@ -31,9 +31,7 @@
                     <div class="col-lg-4 col-md-6 mb-4">
                         <div class="bg-white rounded shadow-sm">
                             <!-- Memory image -->
-                            <a href="/get_memory/{{ memory._id }}">
-                                <img src="{{ memory.memory_image }}" alt="{{ memory.memory_name }}" class="img-fluid card-img-top"">
-                            </a>
+                            <img src="{{ memory.memory_image }}" alt="{{ memory.memory_name }}" class="img-fluid card-img-top"">
                             <!-- Memory text -->
                             <div class="p-4">
                                 <h2>{{ memory.memory_name }}</h2>
