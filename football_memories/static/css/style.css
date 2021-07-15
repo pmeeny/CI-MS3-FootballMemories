@@ -40,7 +40,7 @@ h3{
 .footer-font {
     font-size: 0.9rem;
 }
-.text-align-center{
+.text-align-center {
     text-align: center;
 }
 
@@ -265,7 +265,6 @@ i {
     padding-bottom: 20px;
 }
 .center-div{
-    margin: 0 auto;
     text-align: center;
     padding-top: 5px;
     padding-left: 1px;
@@ -410,6 +409,9 @@ i {
     }
     .phone-font {
         font-size: 0.9rem;
+    }
+    .card {
+        width: 90%;
     }
 }    
 /* X-SMALL SCREEN */
