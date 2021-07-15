@@ -28,6 +28,9 @@ def get_memories():
     """
     TBC
     """
+    if 'user' not in session:
+        return redirect(url_for("administration.home"))    
+
     offset, per_page, page = setupPagination()
 
     username = session["user"]
@@ -52,6 +55,9 @@ def get_memory(id):
     """
     TBC
     """
+    if 'user' not in session:
+        return redirect(url_for("administration.home"))
+    
     round_av_rating = calculateAverageRating(id)
 
     offset, per_page, page = setupPagination()
@@ -84,6 +90,9 @@ def get_user_memories():
     """
     TBC
     """
+    if 'user' not in session:
+        return redirect(url_for("administration.home"))
+        
     offset, per_page, page = setupPagination()
 
     username = session["user"]
@@ -109,6 +118,9 @@ def add_memory():
     """
     TBC
     """
+    if 'user' not in session:
+        return redirect(url_for("administration.home"))
+    
     if request.method == "POST":
         image = request.files['memory_image']
         image_file = secure_filename(image.filename)
@@ -146,6 +158,8 @@ def edit_memory(memory_id):
     """
     TBC
     """
+    if 'user' not in session:
+        return redirect(url_for("administration.home"))
     if request.method == "POST":
         image_url = storeImageAWSS3Bucket()
 
@@ -212,6 +226,9 @@ def add_comment(id):
     """
     TBC
     """
+    if 'user' not in session:
+        return redirect(url_for("administration.home"))
+    
     month, year = getMonthAndYear()
     comment = {
         "memory_id": id,
@@ -221,22 +238,7 @@ def add_comment(id):
     }
     mongo.db.comments.insert_one(comment)
     flash("Comment Successfully Added")
-
-    offset, per_page, page = setupPagination()
-
-    memory = mongo.db.memories.find_one({"_id": ObjectId(id)})
-
-    comments = mongo.db.comments.find({"memory_id":  id}).sort("_id", -1)
-    total_comments = mongo.db.comments.find({"memory_id":  id}).count()
-    comments_paginated = comments[offset: offset + per_page]
-
-    pagination = Pagination(page=page, per_page=per_page,
-                            total=total_comments, css_framework='bootstrap')
-
-    return render_template("memories/memory.html", memory=memory,
-                           comments=comments_paginated, page=page,
-                           per_page=per_page,
-                           pagination=pagination)
+    return redirect(url_for("memories.get_memory", id=id))
 
 
 @memories.route("/add_rating/<id>", methods=["POST"])
@@ -244,6 +246,9 @@ def add_rating(id):
     """
     TBC
     """
+    if 'user' not in session:
+        return redirect(url_for("administration.home"))
+    
     rating = {
         "memory_id": id,
         "rating_value": int(request.form.get("rating")),
