@@ -8,8 +8,8 @@
             <h1>Tournaments</h1>
         </div>
         {% if (user.user_type == "admin_user") %}
-        <div class="row">
-            <div class="col s12 center-align">
+        <div class="row" id="add_tournament">
+            <div class="col-12">
                 <a href="{{ url_for('tournaments.add_tournament') }}" class="btn btn-primary light-green-one-btn">Add Tournament</i>
                 </a>
             </div>
@@ -19,10 +19,11 @@
         <div class="container">
             <div class="row">
                 {% for tournament in tournaments %}
+                <div class="col col-lg-4 col-md-6 mb-4">
                         <div class="card">
-                            <img id="tournament-image" img src="/static/images/premier-league-trophy.jpg"  alt="...">           
+                            <img id="tournament-image" src={{tournament.tournament_image}}  alt="{{ tournament.tournament_name }}">           
                             <div class="card-body">
-                                <h2 class="card-title">Name: {{ tournament.tournament_name }}</h2>
+                                <h2 class="card-title">{{ tournament.tournament_name }}</h2>
                             </div>
                             {% if (user.user_type == "admin_user") %}
                             <div class="card-action">
@@ -31,6 +32,7 @@
                             </div>
                             {% endif %}
                         </div>
+                    </div>    
                                         <!-- Modal -->
                 <div class="modal fade" id="deleteTournamentModal{{tournament._id}}" tabindex="-1" aria-labelledby="deleteTournamentLabel" aria-hidden="true">
                     <div class="modal-dialog">
@@ -53,8 +55,7 @@
             </div>
 
             <div class="container">
-                <div class="row">
-                    <div class="d-flex align-items-center justify-content-between rounded-pill bg-light px-3 py-2 mt-4">
+                    <div class="row d-flex align-items-center justify-content-between rounded-pill bg-light py-2 mt-4">
                         <div class="col-md-6 col-sm-12">
                             {{ pagination.links }} 
                         </div>
@@ -62,7 +63,6 @@
                             {{ pagination.info }}  
                         </div>
                     </div>
-                </div>
             </div>
         </div>
     </div>
