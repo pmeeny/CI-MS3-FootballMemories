@@ -59,10 +59,12 @@
                         {% if (session.user|lower == memory.memory_created_by|lower) or (user.user_type == "admin_user") %}
                         <div class="d-flex align-items-center justify-content-between rounded-pill bg-light px-3 py-2 mt-4">
                             <div class="row" id="edit_and_delete_memory_buttons">
-                                <div class="col-md-5 col-sm-12 center-div">
+                                {% if (session.user|lower == memory.memory_created_by|lower) %}
+                                <div class="col-md-6 col-sm-12 center-div">
                                     <a type="submit" id="edit_memory_button" class="btn btn-success light-green-one-btn" href="{{ url_for('memories.edit_memory', memory_id=memory._id) }}">Edit</a>
                                 </div>
-                                <div class="col-md-7 col-sm-12 center-div">
+                                {% endif %}
+                                <div class="col-md-6 col-sm-12 center-div">
                                     <button type="submit" id="delete_memory_button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteMemoryModal">Delete</button>
                                 </div>
                             </div>
