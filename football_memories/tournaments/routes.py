@@ -79,6 +79,14 @@ def edit_tournament(tournament_id):
     TBC
     """
     if request.method == "POST":
+        # check if tournament name already exists in db
+        existing_tournament = mongo.db.tournaments.find_one(
+            {"tournament_name": request.form.get("tournament_name")})
+
+        if existing_tournament:
+            flash("Tournament name already exists")
+            return redirect(url_for("tournaments.get_tournaments"))
+        
         image_url = storeImageAWSS3Bucket()
 
         submit = {
