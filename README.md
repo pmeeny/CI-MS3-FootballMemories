@@ -36,7 +36,7 @@ I have structured the website into XXX pages, each with clear, concise structure
 8. Edit Memory: This page allows a user to edit a memory they have created
 9. Delete Memory: This button allows a user to delete a memory they have created
 10. Profile: This page displays user information and allows the user to update their profile
-11. Dashboard: This page displays statistics about the number of users, memories, comments
+11. Dashboard: This page displays statistics about the number of users, tournaments memories, comments
 12. Tournaments: This page displays the tournaments that have been created by the admin user. An admin user can add/edit or delete a tournament
 13. Add Tournament: This page allows an admin user to add a football tournament
 14. Edit Tournament: This page allows an admin user to edit a football tournament
@@ -76,6 +76,8 @@ There are four colours in the color palette with a
 - #0062CC - Blue colour for buttons and links
 - rgba(255,255,255,.5) - Grey colour for not selected navbar icons and text
 
+https://coolors.co/264653-2a9d8f-e9c46a-f4a261-e76f51
+
 ### Typography
 
 # Features
@@ -83,16 +85,87 @@ The website has five webpages consisting of seven distinct features and they are
 ## Existing Features
 ### Feature 1 Navigation Bar
 #### Description
-
-
 #### User Stories
 
 
 ### Feature 2 Footer
 #### Description
-
-
 #### User Stories
+
+### Feature 2 Footer
+#### Description
+#### User Stories
+
+### Feature 2 Tournamnets
+#### Description
+Text
+#### User Stories
+2.1 As a regular user/admin user I can view a list of tournaments created with the tournament name and tournament image displayed
+2.1 As a regular user/admin user the list of tournaments is displayed with three per page, and pagination if displayed if there are more than 3 tournaments
+2.2 As an admin user I can add a new tournament with a tournament name and tournament image 
+2.2 As an admin user I can edit an existing tournament with a tournament name and tournament image
+2.4 As an admin user I can delete an existing tournament, once I have confirmed that it is ok to delete the tournament
+2.5 As an admin user if a tournament has memories associated with it, the tournament cannot be deleted and a message is displayed
+
+
+### Feature 2 Dashboard
+#### Description
+#### User Stories
+2.1 As a regular user/admin user I can view a dashboard to see the number of users, tournaments, memories and comments added on the site
+
+
+### Feature 2 Profile
+#### Description
+#### User Stories
+2.1 As a regular user/admin user I can view my profile details: First Name, Last Name, Favourite Team and Country
+2.1 As a regular user/admin user I can update my profile password
+2.1 As a regular user/admin user I can update my profile details: First Name, Last Name, Favourite Team and Country
+
+### Feature 2 Memories
+#### Description
+#### User Stories
+
+### Feature 2 Login/Register/Logout administration
+#### Description
+#### User Stories
+2.1 As a regular user/admin user I can login to my account by providing my username and password. A username and password must be provided
+2.2 As a regular user/admin user I can logout from my account
+
+### Feature 2 Nav Bar, Landing page, footer
+#### Description
+#### User Stories
+2.1 As a regular user/admin user I can view the footers social icons(twitter, facebook, instagram, pinterest, snapchat) and the website opens in a new tab whcn clicked
+2.1 As a regular user/admin user I can view the websites terms and conditions by clicking on the link in the footer
+2.1 As a regular user/admin user I can view the websites privacy policy by clicking on the link in the footer
+
+The landing page displays a hero image, login, registe rbuttons and the last 3 memories added
+The footer is consistent acrosss all screens
+footer social icons
+on mobiel its a burger menu
+The navr bar is consistent acroess all pages
+Email subscription
+
+
+### Feature 2 Memories Page
+#### Description
+#### User Stories
+
+
+### Feature 2 Memory Page
+#### Description
+#### User Stories
+
+
+### Feature 2 Add/Edit/Delete memory Page
+#### Description
+#### User Stories
+
+
+
+
+
+
+
 
 
 
@@ -106,6 +179,8 @@ The website has five webpages consisting of seven distinct features and they are
     - The project uses CSS to style the relevant pages
 - Javascript (https://www.javascript.com/)
     - Javascript was used for all scripting on the site
+- Python (https://www.python.org/)
+    - Python was used for server side coding on the project
 
 ## Libraries and other resources
 - Bootstrap 5.0 (https://getbootstrap.com/docs/5.0)
@@ -121,7 +196,7 @@ The website has five webpages consisting of seven distinct features and they are
 - Font Awesome (https://fontawesome.com/)
     - Font awesome was used to provide the relevant fonts/icons for the website
 - JQuery (https://jquery.com)
-    - JQuery was used throughout in several of the javascript files fro DOM manipulation
+    - JQuery was used in some of the javascript files for DOM manipulation
 - TinyPNG (https://tinypng.com/)
     - TinyPNG was used to compress images
  - CSS Validation Service (https://jigsaw.w3.org/css-validator/)
@@ -140,23 +215,18 @@ The website has five webpages consisting of seven distinct features and they are
     - Used for generating a table of contents for this README
 - Cypress (https://www.cypress.io)
     - Cypress was used for automated e2e testing of all pages 
-
 - Google Maps api (https://developers.google.com/maps)
     - The google maps api is used to display the stadium information on the memory page
 - Google maps geocode API (https://developers.google.com/maps/documentation/geocoding/start)
-    - The google maps geocode api is used to translate the event name returned from the memory stadium name value and translate to a the google maps location on the memory page
+    - The google maps geocode api is used to translate the event name returned from the memory stadium name value and translate to a google maps location on the memory page
 - Gofullpage chrome plugin  (https://chrome.google.com/webstore/detail/gofullpage-full-page-scre)
     - This plugin was used to take full page screenshots for testing images
 - Python online interpreter (https://www.programiz.com/python-programming/online-compiler/)
-    - For testign python code snippets
+    - For testing python code snippets
 
 # Testing
 The testing information and results for this project are documented in [TESTING.md](TESTING.md)
-Bug 1: add_memory , the memroy name was being stored as null in database
-fix: the name field was missing from the form field
 
-Bug2: Add comment was throwing a 404 error. 
-Form in memory.html file updated to send in id only, and not memory, that was not required
 
 # Deployment
 
@@ -167,17 +237,24 @@ The project uses a number of API's and the Cypress testing framework, below are 
 
 
 ## Google Maps API
-
+1. Create an account at https://console.developers.google.com
+2. Create an API key and setup the account as requested by google, for example billing information
+3. Configure 2 API's, Maps JavaScript API and Geocoding API
+3. In the credentials screen, set the web restrictions url referrer to the urls of where the site will be hosted as well as your local development environment
+4. In the API restrictions section in the credentials screen, limit to 2 API's: Maps JavaScript API and Geocoding API
+5. In the memory.html file under the footer, update the google maps script src to include your API key
 
 ## Email JS
+1. Create an account at emailjs.com 
+2. In the integration screen in the emailjs dashboard, note your userid
+3. Create an email service in the Email Services section and note the id
+4. Create an email template in the Email templates section and note the id
+5. Update the script sendEmail.js, method sendMail with your user id, email service id and email template id
 
 ## Cypress Testing framework.
 
 
 # Credits
-
-# Content
-
 Couintry list taken from https://www.technicalkeeda.com/html-tutorials/all-countries-drop-down-list-in-html
 
 photo gallery   https://bootstrapious.com/p/bootstrap-photo-gallery
@@ -192,6 +269,8 @@ https://stackoverflow.com/questions/4575826/how-to-push-a-footer-to-the-bottom-o
 
 Bluprints
 schafers youtuibe and github
+https://www.youtube.com/watch?v=Wfx4YBzg16s&list=PL-osiE80TeTs4UjLw5MM6OjgkjFeUxCYH&index=11 
+https://github.com/CoreyMSchafer/code_snippets/tree/master/Python/Flask_Blog 
 
 Password calidation
 https://stackoverflow.com/questions/9142527/can-you-require-two-form-fields-to-match-with-html5
@@ -200,14 +279,46 @@ aws buckets, public facing and allowing public access to files in the bucket
 https://www.youtube.com/watch?v=s1Tu0yKmDKU
 https://stackoverflow.com/questions/44228422/s3-bucket-action-doesnt-apply-to-any-resources
 
+
+aws s3 put object example
+https://www.youtube.com/watch?v=7gqvV4tUxmY 
+
 jquery documentation:
 https://api.jquery.com/replacewith/
+
+
+footer cedit
+/* footer https://jsfiddle.net/bootstrapious/c7ash30w/ */
+
+username/password validation
+// https://bootsnipp.com/snippets/67OaM
+// https://learncodeweb.com/bootstrap-framework/registration-form-with-validation-in-bootstrap-4/
+// https://getbootstrap.com/docs/5.0/forms/validation/
+
+# Content
+
+
+
+- Font Awesome (http://fontawesome.com)    
+    - The fonts on the footer and header are from font awesome
+
+- Fonts (http://https://fonts.google.com/)    
+    - The text font(Lato) is from google fonts
+
+- Google Maps
 
 <br>
 
 # Media
+- Flikr ()
+    - The images on the home page, a and background on events, quiz and about pages are from pixabay
+
 
 
  <br>
 
+ <br>
+
 # Acknowledgements
+- I would like to thank my fiancee Mary for her help, constant support and ideas for the website, my son Liam, and also to my dog Lily for her company during development of the website.
+- I would like to thank my mentor Mo Shami for his input, help and feedback.
