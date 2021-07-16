@@ -191,6 +191,8 @@ def delete_memory(memory_id):
     TBC
     """
     mongo.db.memories.remove({"_id": ObjectId(memory_id)})
+    mongo.db.comments.remove({"memory_id": memory_id})
+    mongo.db.ratings.remove({"memory_id": memory_id})
     flash("Memory Successfully Deleted")
     return redirect(url_for("memories.get_memories"))
 
