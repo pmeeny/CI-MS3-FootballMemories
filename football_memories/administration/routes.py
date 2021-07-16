@@ -46,9 +46,11 @@ def dashboard():
     number_of_tournaments = mongo.db.tournaments.count()
     number_of_memories = mongo.db.memories.count()
     number_of_comments = mongo.db.comments.count()
+    number_of_ratings = mongo.db.ratings.count()
     return render_template("administration/dashboard.html",
                            number_of_users=number_of_users,
                            number_of_tournaments=number_of_tournaments,
                            number_of_memories=number_of_memories,
-                           number_of_comments=number_of_comments)
+                           number_of_comments=number_of_comments,
+                           number_of_ratings=number_of_ratings)
 
