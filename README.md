@@ -69,14 +69,16 @@ The user stories for the website owner(admin user) are described as follows:
 
 ## Surface
 ### Color Palette
-I have gone for a simple and minimal design for the website, with black and white font colours over a large hero image on all pages
-There are four colours in the color palette with a 
-- #FFFFFF - White colour for text on background images
-- #000000 - Black colour for text on a white background
-- #0062CC - Blue colour for buttons and links
-- rgba(255,255,255,.5) - Grey colour for not selected navbar icons and text
+I have gone for a simple and minimal design for the website, with predominatly green font colours over a large hero image on all pages
+There are five colours in the color palette
+- #264653 - Dark green colour for some of the button and text colours
+- #006400 - Light green colour for some of the button and text colours
+- #000000 - Black color for some of the text
+- #F8F9FA - Light grey colour for the header and footer and panel backgrounds
+- #DC3545 - Red colour for some of the buttons, cancel and delete buttons
 
-https://coolors.co/264653-2a9d8f-e9c46a-f4a261-e76f51
+I feel the colours complement each other very well, and I choose those colours after testing a number of palettes while making sure the colour palette met accessibility standards.
+![Palette](/football_memories/static/images/readme/color_palette.PNG)
 
 ### Typography
 
@@ -170,6 +172,14 @@ Email subscription
 
 
 ##  Features Left to Implement
+- I am content with what was implemented. The site is a feature rich site using a number of linked namespaces in a mongodb collection.
+- However here are some additional "nice to have" features that could be added to the site
+
+# | Feature  
+ ------------ | -------
+1 | Social sharing of a memory on facebook, twitter
+2 | The image type(jpg, png) is read and the memory displays a different image based on it
+3 | Tags functionality and search by tags
 
 # Technologies Used
 ## Languages 
