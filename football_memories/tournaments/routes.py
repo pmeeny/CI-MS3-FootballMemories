@@ -1,26 +1,15 @@
 import os
-from flask import (
-    Flask, flash, render_template,
-    redirect, request, session, url_for, Blueprint, session, abort)
-from werkzeug.security import generate_password_hash, check_password_hash
-from werkzeug.utils import secure_filename
-from flask_pymongo import PyMongo
+from flask import (flash, render_template,
+    redirect, request, url_for, Blueprint, session, abort)
 from bson.objectid import ObjectId
-from flask import current_app
 from datetime import datetime
-import boto3
-from botocore.exceptions import NoCredentialsError
 from flask_paginate import Pagination, get_page_args
 from football_memories import mongo
+from football_memories.util import util
 
 if os.path.exists("env.py"):
     import env
 
-s3_bucket_name = "ci-ms3-football-memories"
-s3_bucket_url = "https://ci-ms3-football-memories.s3.eu-west-1.amazonaws.com/"
-client = boto3.client('s3', 
-                aws_access_key_id=os.environ.get("AWS_ACCESS_KEY_ID"),
-                aws_secret_access_key=os.environ.get("AWS_SECRET_ACCESS_KEY"))
 tournaments = Blueprint('tournaments', __name__)
 
 
@@ -32,7 +21,7 @@ def get_tournaments():
     if 'user' not in session:
         return redirect(url_for("administration.home"))
     
-    offset, per_page, page = setupPagination()
+    offset, per_page, page = util.setupPagination()
     username = session["user"]
     user = mongo.db.users.find_one({"username": username})
 
@@ -66,7 +55,7 @@ def add_tournament():
             flash("Tournament name already exists")
             return redirect(url_for("tournaments.get_tournaments"))
         
-        image_url = storeImageAWSS3Bucket()
+        image_url = util.storeImageAWSS3Bucket('tournament_image')
 
         tournament = {
             "tournament_name": request.form.get("tournament_name"),
@@ -96,7 +85,7 @@ def edit_tournament(tournament_id):
             flash("Tournament name already exists")
             return redirect(url_for("tournaments.get_tournaments"))
         
-        image_url = storeImageAWSS3Bucket()
+        image_url = util.storeImageAWSS3Bucket('tournament_image')
 
         submit = {
             "tournament_name": request.form.get("tournament_name"),
@@ -120,7 +109,7 @@ def delete_tournament(tournament_id):
     TBC
     """
     tournament = mongo.db.tournaments.find_one(
-                {"_id": ObjectId(tournament_id)})
+               {"_id": ObjectId(tournament_id)})
     number_of_memories = mongo.db.memories.find(
                 {"tournament_name": tournament['tournament_name']}).count()
 
@@ -131,37 +120,3 @@ def delete_tournament(tournament_id):
         flash("Tournament Successfully Deleted")
 
     return redirect(url_for("tournaments.get_tournaments"))
-
-
-def setupPagination():
-    """
-    TBC
-    """
-    page, per_page, offset = get_page_args(
-        page_parameter='page', per_page_parameter='per_page',
-        offset_parameter='offset')
-    per_page = 3
-    offset = (page - 1) * 3
-    return offset, per_page, page
-
-
-def storeImageAWSS3Bucket():
-    """
-    TBC
-    """
-    timestamp = generateTimestamp()
-    image = request.files['tournament_image']
-    image_file = secure_filename(image.filename)
-    image_to_upload = timestamp + image_file
-    s3 = boto3.resource('s3')
-    s3.Bucket(s3_bucket_name).put_object(Key=image_to_upload, Body=image)
-    image_url = s3_bucket_url + image_to_upload
-    return image_url
-
-def generateTimestamp():
-    """
-    TBC
-    """
-    now = datetime.now()
-    timestamp = now.strftime("%Y_%m_%d_%H_%M_%S_")
-    return timestamp

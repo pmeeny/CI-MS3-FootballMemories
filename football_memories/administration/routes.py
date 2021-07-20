@@ -1,14 +1,5 @@
-import os
-from flask import (
-    Flask, flash, render_template,
-    redirect, request, session, url_for, Blueprint, session, abort)
-
-from werkzeug.security import generate_password_hash, check_password_hash
-from flask_pymongo import PyMongo
-from bson.objectid import ObjectId
-from flask import current_app
-
-from flask_paginate import Pagination, get_page_args
+from flask import (render_template,
+    redirect, url_for, Blueprint, session)
 
 from football_memories import mongo
 
@@ -21,8 +12,6 @@ administration = Blueprint('administration', __name__)
 def home():
     three_latest_memories = list(mongo.db.memories.find().
                                  sort("_id", -1).limit(3))
-    print ("latest memories")
-    print (three_latest_memories)
     return render_template("administration/index.html",
                            memories=three_latest_memories)
 

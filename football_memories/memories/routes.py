@@ -1,25 +1,14 @@
 import os
 import boto3
-from flask import (
-    Flask, flash, render_template,
-    redirect, request, session, url_for, Blueprint, session, abort)
-from werkzeug.security import generate_password_hash, check_password_hash
-from flask_pymongo import PyMongo
+from flask import (flash, render_template,
+    redirect, request, url_for, Blueprint, session)
 from bson.objectid import ObjectId
 from werkzeug.utils import secure_filename
 from datetime import datetime
-from flask import current_app
-from botocore.exceptions import NoCredentialsError
 from flask_paginate import Pagination, get_page_args
 from football_memories import mongo
-if os.path.exists("env.py"):
-    import env
+from football_memories.util import util
 
-s3_bucket_name = "ci-ms3-football-memories"
-s3_bucket_url = "https://ci-ms3-football-memories.s3.eu-west-1.amazonaws.com/"
-client = boto3.client('s3', 
-                aws_access_key_id=os.environ.get("AWS_ACCESS_KEY_ID"),
-                aws_secret_access_key=os.environ.get("AWS_SECRET_ACCESS_KEY"))
 memories = Blueprint('memories', __name__)
 
 
@@ -31,7 +20,7 @@ def get_memories():
     if 'user' not in session:
         return redirect(url_for("administration.home"))    
 
-    offset, per_page, page = setupPagination()
+    offset, per_page, page = util.setupPagination()
 
     username = session["user"]
     user = mongo.db.users.find_one({"username": username})
@@ -60,7 +49,7 @@ def get_memory(id):
     
     round_av_rating = calculateAverageRating(id)
 
-    offset, per_page, page = setupPagination()
+    offset, per_page, page = util.setupPagination()
 
     memory = mongo.db.memories.find_one({"_id": ObjectId(id)})
 
@@ -93,7 +82,7 @@ def get_user_memories():
     if 'user' not in session:
         return redirect(url_for("administration.home"))
         
-    offset, per_page, page = setupPagination()
+    offset, per_page, page = util.setupPagination()
 
     username = session["user"]
 
@@ -121,8 +110,8 @@ def add_memory():
     if 'user' not in session:
         return redirect(url_for("administration.home"))
     
-    if request.method == "POST":
-        image_url = storeImageAWSS3Bucket()
+    if request.method == "POST": 
+        image_url = util.storeImageAWSS3Bucket('memory_image')      
 
         memory = {
             "memory_image": image_url,
@@ -151,7 +140,7 @@ def edit_memory(memory_id):
     if 'user' not in session:
         return redirect(url_for("administration.home"))
     if request.method == "POST":
-        image_url = storeImageAWSS3Bucket()
+        image_url = util.storeImageAWSS3Bucket('memory_image')     
 
         memory_to_update = {
             "memory_image": image_url,
@@ -192,7 +181,7 @@ def search():
     """
     TBC
     """
-    offset, per_page, page = setupPagination()
+    offset, per_page, page = util.setupPagination()
 
     username = session["user"]
     user = mongo.db.users.find_one({"username": username})
@@ -221,7 +210,7 @@ def add_comment(id):
     if 'user' not in session:
         return redirect(url_for("administration.home"))
     
-    month, year = getMonthAndYear()
+    month, year = util.getMonthAndYear()
     comment = {
         "memory_id": id,
         "comment_text": request.form.get("comment"),
@@ -250,52 +239,6 @@ def add_rating(id):
     mongo.db.ratings.insert_one(rating)
     flash("Rating Successfully Added")
     return redirect(url_for("memories.get_memory", id=id))
-
-
-def setupPagination():
-    """
-    TBC
-    """
-    page, per_page, offset = get_page_args(
-        page_parameter='page', per_page_parameter='per_page',
-        offset_parameter='offset')
-
-    per_page = 3
-    offset = (page - 1) * 3
-    return offset, per_page, page
-
-
-def getMonthAndYear():
-    """
-    TBC
-    """
-    now = datetime.now()
-    year = now.strftime("%Y")
-    month = now.strftime("%m")
-    return month, year
-
-
-def storeImageAWSS3Bucket():
-    """
-    TBC
-    """
-    timestamp = generateTimestamp()
-    image = request.files['memory_image']
-    image_file = secure_filename(image.filename)
-    image_to_upload = timestamp + image_file
-    s3 = boto3.resource('s3')
-    s3.Bucket(s3_bucket_name).put_object(Key=image_to_upload, Body=image)
-    image_url = s3_bucket_url + image_to_upload
-    return image_url
-
-def generateTimestamp():
-    """
-    TBC
-    """
-    now = datetime.now()
-    timestamp = now.strftime("%Y_%m_%d_%H_%M_%S_")
-    return timestamp
-
 
 def calculateAverageRating(id):
     """

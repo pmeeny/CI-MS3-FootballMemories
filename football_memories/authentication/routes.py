@@ -1,11 +1,7 @@
 from flask import (
     Flask, flash, render_template,
     redirect, request, session, url_for, Blueprint, abort)
-
 from werkzeug.security import generate_password_hash, check_password_hash
-from flask_pymongo import PyMongo
-from bson.objectid import ObjectId
-from flask import current_app
 from football_memories import mongo
 
 authentication = Blueprint('authentication', __name__)
