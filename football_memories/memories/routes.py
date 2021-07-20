@@ -122,17 +122,7 @@ def add_memory():
         return redirect(url_for("administration.home"))
     
     if request.method == "POST":
-        image = request.files['memory_image']
-        image_file = secure_filename(image.filename)
-        image.save(image_file)
-        now = datetime.now()
-        timestamp = now.strftime("%Y_%m_%d_%H_%M_%S_")
-        image_to_upload = timestamp + image_file
-
-        client.upload_file(image_file, 'ci-ms3-football-memories',
-                           image_to_upload)
-
-        image_url = s3_bucket_url + image_to_upload
+        image_url = storeImageAWSS3Bucket()
 
         memory = {
             "memory_image": image_url,
