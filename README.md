@@ -26,7 +26,7 @@ View the live site [here](https://ci-ms3-footballmemories.herokuapp.com/)
 
 ## Structure
 I have structured the website into XXX pages, each with clear, concise structure, information and purpose. I use the Bootstrap grid system throughout, which gave a consistent structure and responsive design "out of the box"
-1. Home: This is the landing page, and the first page the user encounters when they access the site, before they login/register
+1. Home/Landing Page: This is the landing page, and the first page the user encounters when they access the site, before they login/register
 2. Register: This page allows the user to register an account to use the site
 3. Login: This page allows the user to login to the site
 4. Terms and Conditions: This page displays the sites terms and conditions
@@ -81,92 +81,136 @@ I feel the colours complement each other very well, and I choose those colours a
 ![Palette](/football_memories/static/images/readme/color_palette.PNG)
 
 ### Typography
+The Poppins font is the main font used throughout the whole website with Sans Serif as the fallback font in case for any reason the Poppins font cannot be imported into the website correctly. This font is from the Google fonts library.
 
 # Features
 The website has five webpages consisting of seven distinct features and they are described below
 ## Existing Features
-### Feature 1 Navigation Bar
+### Feature 1 Navigation Bar/Logout
 #### Description
-#### User Stories
+This is the navigation bar of the website, and is displayed on all pages. The navigation bar is a bootstrap component, and is a responsive component. It becomes a burger menu on tablet and mobile devices.
 
+When the user is not logged in, there are three options with a logo, Home, Login, Register
+When the user is logged in, there are six options with a logo: Memories, Add Memory, Tournaments, Profile, Dashboard, Logout
+
+Clicking on the Logout button logs the user out of the site, and their session is ended. If they click back they are automatically re-sent back to the home/landing page
+The following code is a check on every route on the website
+
+<code>
+    if 'user' not in session:
+        return redirect(url_for("administration.home"))
+</code><br>
+
+<br>
+
+#### Nav Bar Logged Out
+![Nav Bar 1](/football_memories/static/images/nav_bar/nav_bar_logged_out.PNG)
+#### Nav Bar Logged Out Mobile
+![Nav Bar 2](/football_memories/static/images/nav_bar/nav_bar_logged_out_mobile.PNG)
+#### Navr Bar Logged In
+![Nav Bar 3](/football_memories/static/images/nav_bar/nav_bar_logged_in.PNG)
+#### Navr Bar Logged In Mobile
+![Nav Bar 4](/football_memories/static/images/nav_bar/nav_bar_logged_in_mobile.PNG)
+
+
+
+#### User Stories
+- User Story 1.1: As an admin/regular user the navigation bar is displayed with a logo on all pages for easy navigation, with a burger menu on mobile devices
+- User Story 1.2: As an admin/regular user the navigation item selected is highlighted
+User Story 1.3: As an admin/regular user, when logged out, the home/landing page is the default page and there are three options with a logo, Home, Login, Register displayed
+- User Story 1.4: As an admin/regular user, when logged out, the memories page is the default page and there are six options with a logo: Memories, Add Memory, Tournaments, Profile, Dashboard, Logout
+- User Story 1.5: As an admin/regular user, when I am logged into the site, and I click Logout I am succesfully logged out of the site, and brought to the home/landing page, and the navigation bar is updated with three options with a logo, Home, Login, Register
+- User Story 1.6: As an admin/regular user, when I am logged into the site and I click the back button I am automatically redirected to the home/landing page, and the navigation bar is updated with three options with a logo, Home, Login, Register
 
 ### Feature 2 Footer
 #### Description
+The footer of the website is displayed on all pages. It consists of three main sections
+
+1. Logo with text and social media links
+2. Terms and Conditions and Privacy Policy links
+3. Newsletter signup
+
+#### Footer desktop
+![Footer desktop](/football_memories/static/images/footer/footer_desktop.PNG)
+
+#### Footer Mobile
+![Footer Mobile](/football_memories/static/images/footer/footer_mobile.PNG)
+
+#### User Stories
+- User Story 2.1: As an admin/regular user I can view the footers social icons(twitter, facebook, instagram, pinterest, snapchat) and the relevant website opens in a new tab when clicked
+- User Story 2.2: As an admin/regular user I can view the websites terms and condition page by clicking on the link in the footer
+- User Story 2.3: As an admin/regular user I can view the websites privacy policy page by clicking on the link in the footer
+- User Story 2.4: As an admin/regular user I can signup to the football memories newsletter by entering my email and clicking SignUp. The email address entered will recieve an email
+
+
+### Feature 3 Landing/Home page
+#### Description
+The landing/home page is displayed when the user first accessing the site, and when they logout. It displays a hero image with Login/Register buttons
+
+##### Hero image
+![Landing Page](/football_memories/static/images/landing_page/hero_image.PNG)
+
+Below the hero image are the last three memories added by users. The following code is used to query the mongodb in the administation route python file
+<code>
+three_latest_memories = list(mongo.db.memories.find().
+                                 sort("_id", -1).limit(3))
+</code><br>
+
 #### User Stories
 
-### Feature 2 Footer
+### Feature 3 Login/Register/Logout administration
+#### Description
+The user can login into their account by clicking on the Login button on the landing page or clicking the Login link in the navigation bar. They must enter a valid username and password otherwise a relevant message will be displayed.
+#### User Stories
+2.1 As a regular user/admin user I can login to my account by providing my username and password. A username and password must be provided. If the username and/or password entered is incorrectly a relevant message will be displayed
+
+
+### Feature 4 Memories, Memory, Add/Edit/Delete Memory
 #### Description
 #### User Stories
 
-### Feature 2 Tournamnets
+
+
+### Feature 5 Tournaments
 #### Description
-Text
+A regular user can view the tournaments they can add memories to. Three tournaments are displays per page(tournament name, tournament image), and pagination is displayed if there are more than three tournaments in the mongodb database
 #### User Stories
 2.1 As a regular user/admin user I can view a list of tournaments created with the tournament name and tournament image displayed
 2.1 As a regular user/admin user the list of tournaments is displayed with three per page, and pagination if displayed if there are more than 3 tournaments
-2.2 As an admin user I can add a new tournament with a tournament name and tournament image 
-2.2 As an admin user I can edit an existing tournament with a tournament name and tournament image
-2.4 As an admin user I can delete an existing tournament, once I have confirmed that it is ok to delete the tournament
+2.2 As an admin user I can add a new tournament with a tournament name and tournament image. Both fields are mandatory and a message is displayed accordingly. The tournament information is added in the mongo database and the tournament image is stored in an AWS S3 bucket 
+2.2 As an admin user I can edit an existing tournament with a tournament name and tournament image. Both fields are mandatory and a message is displayed accordingly. The tournament information is updated in the mongo database and the tournament image is stored in an AWS S3 bucket
+2.4 As an admin user I can delete an existing tournament, once I have confirmed that it is ok to delete the tournament. The tournament information is deleted from the mongo database
 2.5 As an admin user if a tournament has memories associated with it, the tournament cannot be deleted and a message is displayed
 
 
-### Feature 2 Dashboard
+
+### Feature 6 Dashboard
 #### Description
+The dashboard page displays the results of 5 queries against the mongo db for the number of users, number of tournaments, number of memories, number of ratings and number of comments added on the site
+<code>
+    number_of_users = mongo.db.users.count() <br>
+    number_of_tournaments = mongo.db.tournaments.count() <br>
+    number_of_memories = mongo.db.memories.count() <br>
+    number_of_comments = mongo.db.comments.count() <br>
+    number_of_ratings = mongo.db.ratings.count() <br>
+</code>    
+
 #### User Stories
-2.1 As a regular user/admin user I can view a dashboard to see the number of users, tournaments, memories and comments added on the site
+- User Story 6.1: As a regular user/admin user I can view a dashboard to see the number of users, number of tournaments, number of memories, number of ratings and number of comments added on the site
 
 
-### Feature 2 Profile
+### Feature 7 Profile
 #### Description
+A user can view or edit their profile details. Their username is displayed, but it is an un-editable field. When the user clicks save changes they are brougth back to the Profile page with the relevant updates made
+
+#### Profile/Edit Profile
+![Profile/Edit Profile](/football_memories/static/images/profile/profile.PNG)
+
 #### User Stories
-2.1 As a regular user/admin user I can view my profile details: First Name, Last Name, Favourite Team and Country
-2.1 As a regular user/admin user I can update my profile password
-2.1 As a regular user/admin user I can update my profile details: First Name, Last Name, Favourite Team and Country
-
-### Feature 2 Memories
-#### Description
-#### User Stories
-
-### Feature 2 Login/Register/Logout administration
-#### Description
-#### User Stories
-2.1 As a regular user/admin user I can login to my account by providing my username and password. A username and password must be provided
-2.2 As a regular user/admin user I can logout from my account
-
-### Feature 2 Nav Bar, Landing page, footer
-#### Description
-#### User Stories
-2.1 As a regular user/admin user I can view the footers social icons(twitter, facebook, instagram, pinterest, snapchat) and the website opens in a new tab whcn clicked
-2.1 As a regular user/admin user I can view the websites terms and conditions by clicking on the link in the footer
-2.1 As a regular user/admin user I can view the websites privacy policy by clicking on the link in the footer
-
-The landing page displays a hero image, login, registe rbuttons and the last 3 memories added
-The footer is consistent acrosss all screens
-footer social icons
-on mobiel its a burger menu
-The navr bar is consistent acroess all pages
-Email subscription
-
-
-### Feature 2 Memories Page
-#### Description
-#### User Stories
-
-
-### Feature 2 Memory Page
-#### Description
-#### User Stories
-
-
-### Feature 2 Add/Edit/Delete memory Page
-#### Description
-#### User Stories
-
-
-
-
-
-
+- User Story 7.1: As a regular user/admin user I can view my profile details: Username, First Name, Last Name, Favourite Team and Country. The country is selected from a dropdown of countries
+- User Story 7.2: As a regular user/admin user I can update my profile password, but the confirm password entered must match with the password. The password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.
+- User Story 7.3: As a regular user/admin user I can update my profile details: First Name, Last Name, Favourite Team and Country
+- User Story 7.4: As a regular user/admin user the following fields are mandatory: Username, First Name, Last Name, Favourite Team and Country
 
 
 
@@ -175,11 +219,14 @@ Email subscription
 - I am content with what was implemented. The site is a feature rich site using a number of linked namespaces in a mongodb collection.
 - However here are some additional "nice to have" features that could be added to the site
 
-# | Feature  
- ------------ | -------
-1 | Social sharing of a memory on facebook, twitter
+Number | Feature  
+ ------------ | ------- |
+1 | Social sharing of a memory on facebook, twitter  |
 2 | The image type(jpg, png) is read and the memory displays a different image based on it
 3 | Tags functionality and search by tags
+4 | Enhance reporting/dashboard capabilities, and use a 3pp graph library
+5 | User must verify their email address when registering, or 2 factor authentication is implemented
+6 | Delete image from aws, when tournament, memory deleted
 
 # Technologies Used
 ## Languages 
@@ -190,7 +237,9 @@ Email subscription
 - Javascript (https://www.javascript.com/)
     - Javascript was used for all scripting on the site
 - Python (https://www.python.org/)
-    - Python was used for server side coding on the project
+    - Python was used for server side coding on the project, a number of libraries were also used: Boto3(AWS interface), Pytest(unit testing)
+- Jinja (https://jinja.palletsprojects.com/en/3.0.x/)
+    - Jinja is a templating engine for Python that is used throughout the project
 
 ## Libraries and other resources
 - Bootstrap 5.0 (https://getbootstrap.com/docs/5.0)
@@ -239,12 +288,7 @@ The testing information and results for this project are documented in [TESTING.
 
 
 # Deployment
-
-
-The project uses a number of API's and the Cypress testing framework, below are the steps to configure the API in your environment
-
-
-
+The project uses a number of API's, below are the steps to configure the API in your environment
 
 ## Google Maps API
 1. Create an account at https://console.developers.google.com
@@ -261,72 +305,58 @@ The project uses a number of API's and the Cypress testing framework, below are 
 4. Create an email template in the Email templates section and note the id
 5. Update the script sendEmail.js, method sendMail with your user id, email service id and email template id
 
-## Cypress Testing framework.
-
 
 # Credits
-Couintry list taken from https://www.technicalkeeda.com/html-tutorials/all-countries-drop-down-list-in-html
+- For the memories page, I used some of the html code from https://bootstrapious.com/p/bootstrap-photo-gallery
 
-photo gallery   https://bootstrapious.com/p/bootstrap-photo-gallery
+- For the password validation, I built on examples code described here: 
+    - https://www.w3schools.com/howto/howto_js_password_validation.asp
+    - https://bootsnipp.com/snippets/67OaM
+    - https://learncodeweb.com/bootstrap-framework/registration-form-with-validation-in-bootstrap-4/
+    - https://getbootstrap.com/docs/5.0/forms/validation/
 
-password validation: https://www.w3schools.com/howto/howto_js_password_validation.asp
+- For pagination on the memories, tournament I found the following links useful to implement pagination:  
+    - https://gist.github.com/mozillazg/69fb40067ae6d80386e10e105e6803c9
+    - https://pythonhosted.org/Flask-paginate/
 
-Pagination: https://gist.github.com/mozillazg/69fb40067ae6d80386e10e105e6803c9
-https://pythonhosted.org/Flask-paginate/
+- For the footer to stick to the bottom of the I used code from the following pages:
+    -https://stackoverflow.com/questions/4575826/how-to-push-a-footer-to-the-bottom-of-page-when-content-is-short-or-missing#:~:text=Just%20wrap%20your%20.,will%20move%20to%20the%20bottom.
 
-Footer sticks to bottom of page:
-https://stackoverflow.com/questions/4575826/how-to-push-a-footer-to-the-bottom-of-page-when-content-is-short-or-missing#:~:text=Just%20wrap%20your%20.,will%20move%20to%20the%20bottom.
 
-Bluprints
-schafers youtuibe and github
-https://www.youtube.com/watch?v=Wfx4YBzg16s&list=PL-osiE80TeTs4UjLw5MM6OjgkjFeUxCYH&index=11 
-https://github.com/CoreyMSchafer/code_snippets/tree/master/Python/Flask_Blog 
+- My project is built using a Blueprints structure, I found the following video and links invaluable to structure my project accordingly
+    - https://www.youtube.com/watch?v=Wfx4YBzg16s&list=PL-osiE80TeTs4UjLw5MM6OjgkjFeUxCYH&index=11 
+    - https://github.com/CoreyMSchafer/code_snippets/tree/master/Python/Flask_Blog 
 
-Password calidation
+- For password validation I re-used some of the code here
 https://stackoverflow.com/questions/9142527/can-you-require-two-form-fields-to-match-with-html5
 
-aws buckets, public facing and allowing public access to files in the bucket
-https://www.youtube.com/watch?v=s1Tu0yKmDKU
-https://stackoverflow.com/questions/44228422/s3-bucket-action-doesnt-apply-to-any-resources
+- For storing images in an AWS S3 bucket, I found the following links very useful
+    - https://www.youtube.com/watch?v=s1Tu0yKmDKU
+    - https://stackoverflow.com/questions/44228422/s3-bucket-action-doesnt-apply-to-any-resources
+    - https://www.youtube.com/watch?v=7gqvV4tUxmY 
 
+- I found the following resource great for some jquery code used: https://api.jquery.com/replacewith/
 
-aws s3 put object example
-https://www.youtube.com/watch?v=7gqvV4tUxmY 
-
-jquery documentation:
-https://api.jquery.com/replacewith/
-
-
-footer cedit
-/* footer https://jsfiddle.net/bootstrapious/c7ash30w/ */
-
-username/password validation
-// https://bootsnipp.com/snippets/67OaM
-// https://learncodeweb.com/bootstrap-framework/registration-form-with-validation-in-bootstrap-4/
-// https://getbootstrap.com/docs/5.0/forms/validation/
+- I used html/css code, then tweaked it accodingly for the site footer: https://jsfiddle.net/bootstrapious/c7ash30w/ */
 
 # Content
-
-
+- Country list (https://www.technicalkeeda.com/html-tutorials/all-countries-drop-down-list-in-html)
+    - The country list on the registration page
 
 - Font Awesome (http://fontawesome.com)    
-    - The fonts on the footer and header are from font awesome
+    - The icons used on the site from font awesome
 
-- Fonts (http://https://fonts.google.com/)    
-    - The text font(Lato) is from google fonts
+- Fonts (https://fonts.google.com/)    
+    - The text font(Poppins) is from google fonts
 
-- Google Maps
+- Google Maps (https://www.google.com/maps)
+    - The google maps api is used to display maps in the memory page
 
 <br>
 
 # Media
 - Flikr ()
-    - The images on the home page, a and background on events, quiz and about pages are from pixabay
-
-
-
- <br>
-
+    - The hero image is form Flikr
  <br>
 
 # Acknowledgements
