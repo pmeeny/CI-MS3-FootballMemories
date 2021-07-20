@@ -299,13 +299,16 @@ i {
 }
 /* ---  Memory Page --- */
 #map {
-    height: 250px;
-    width: 250px;
+    height: 500px;
+    width: 500px;
     margin: auto;
 }
 #memory-image{
-    max-height: 300px;
-    max-width: 300px;
+    height: 100%;
+    width: 100%;
+}
+.comment-text{
+    font-size: 1.1rem;
 }
 /* ---  Dashboard Page --- */
 .card-title{
@@ -404,6 +407,16 @@ i {
 }  
 /* SMALL SCREEN */
 @media screen and (max-width: 481px) {
+    #map {
+        height: 300px;
+        width: 300px;
+        margin: auto;
+    }
+    #memory-image{
+        height: 300px;
+        width: 300px;
+        margin: auto 0;
+    }
     .common-holder {
         padding: 20px;
     }
@@ -416,6 +429,15 @@ i {
 }    
 /* X-SMALL SCREEN */
 @media screen and (max-width: 320px) {
+    #map {
+        height: 250px;
+        width: 250px;
+        margin: auto;
+    }
+    #memory-image{
+        height: 250px;
+        width: 250px;
+    }
     .footer-font {
         font-size: 0.8rem;
     }
