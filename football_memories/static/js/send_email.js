@@ -7,7 +7,7 @@
  function sendMail(contactForm) {
     emailjs.init("user_wxBAvg07l9uKgfV3nW0x3");
     emailjs.send("gmail", "football_memories", {
-        "from_email": contactForm.email_address.value
+        "to_email": contactForm.email_address.value
     }).then(
         function (response) {
             console.log("SUCCESS")
