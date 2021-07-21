@@ -69,6 +69,12 @@ The code was updated to fix this
 Bug8, routing not working after adding a comment
 Fix in add_comment(id): in toute.py
 
+Bug 9: The email js code was sending the email to the same user, a test user.
+The fix was to update the send_email.js to update a parameter, and then update the emailjs template accordingly with a link to that field
+<code>
+        "to_email": contactForm.email_address.value
+</code>
+
 # Code Validators and Website Analysis
 The website's pages were run against the following validators:
 
@@ -93,7 +99,7 @@ I used https://jigsaw.w3.org/css-validator/ to validate the css(style.css)
 
 Page | Result | Test Detail/Screenshot
 ------------ | ------------- | -------------
-style.css | Passed, No errors found | [Results](assets/images/testing/css-validation/css_validation.JPG)
+style.css | Passed, No errors found | [Results](/football_memories/static/images/css_validation/css_validation.PNG)
 
 <br>
 
@@ -103,7 +109,7 @@ style.css | Passed, No errors found | [Results](assets/images/testing/css-valida
 
 Page | Result | Test Detail/Screenshot
 ------------ | ------------- | -------------
-index.html (Desktop) | Performance: 98, Accessibility: 100, Best practices: 100, SEO: 100 | [Results](assets/images/testing/lighthouse-testing/index_desktop.JPG)
+index.html (Desktop) | Performance: 98, Accessibility: 100, Best practices: 100, SEO: 100 | [Results](/football_memories/static/images/wave_validation/wave_landing.PNG)
 football_memories/templates/base.html | 0 errors and 0 contrast errors| [Results](assets/images/testing/wave-validation/index_wave_validation.PNG)
 football_memories/templates/administration/dashboard.html | 0 errors and 0 contrast errors|
 football_memories/templates/administration/index.html  | 0 errors and 0 contrast errors|
@@ -129,32 +135,31 @@ football_memories/templates/tournaments/tournament.html | 0 errors and 0 contras
 
 Page | Result | Test Detail/Screenshot
 ------------ | ------------- | -------------
-football_memories/templates/base.html | 0 errors and 0 contrast errors| [Results](assets/images/testing/wave-validation/index_wave_validation.PNG)
-football_memories/templates/administration/dashboard.html | 0 errors and 0 contrast errors|
-football_memories/templates/administration/index.html  | 0 errors and 0 contrast errors|
-football_memories/templates/administration/privacy_policy.html  | 0 errors and 0 contrast errors|
-football_memories/templates/administration/terms_and_conditions.html  | 0 errors and 0 contrast errors|
-football_memories/templates/authentication/login.html | 0 errors and 0 contrast errors|
-football_memories/templates/authentication/profile.html | 0 errors and 0 contrast errors|
-football_memories/templates/authentication/register.html | 0 errors and 0 contrast errors|
+football_memories/templates/administration/dashboard.html | 0 errors and 0 contrast errors| [Results](/football_memories/static/images/wave-validation/wave_dashboard.PNG)
+football_memories/templates/administration/index.html  | 0 errors and 0 contrast errors| [Results](/football_memories/static/images/wave-validation/wave_landing.PNG)
+football_memories/templates/administration/privacy_policy.html  | 0 errors and 0 contrast errors| [Results](/football_memories/static/images/wave-validation/wave_dashboard.PNG)
+football_memories/templates/administration/terms_and_conditions.html  | 0 errors and 0 contrast errors| [Results](/football_memories/static/images/wave-validation/wave_terms_and_conditions.PNG)
+football_memories/templates/authentication/login.html | 0 errors and 0 contrast errors| [Results](/football_memories/static/images/wave-validation/wave_login.PNG)
+football_memories/templates/authentication/profile.html | 0 errors and 0 contrast errors| [Results](/football_memories/static/images/wave-validation/wave_profile.PNG)
+football_memories/templates/authentication/register.html | 0 errors and 0 contrast errors| [Results](/football_memories/static/images/wave-validation/wave_register.PNG)
 football_memories/templates/errors/404.html | 0 errors and 0 contrast errors|
 football_memories/templates/errors/500.html | 0 errors and 0 contrast errors|
-football_memories/templates/memories/add_memory.html | 0 errors and 0 contrast errors|
-football_memories/templates/memories/edit_memory.html | 0 errors and 0 contrast errors|
-football_memories/templates/memories/memories.html | 0 errors and 0 contrast errors|
-football_memories/templates/memories/memory.html | 0 errors and 0 contrast errors|
-football_memories/templates/tournaments/add_tournament.html | 0 errors and 0 contrast errors|
-football_memories/templates/tournaments/edit_tournament.html | 0 errors and 0 contrast errors|
-football_memories/templates/tournaments/tournament.html | 0 errors and 0 contrast errors|
+football_memories/templates/memories/add_memory.html | 0 errors and 0 contrast errors| [Results](/football_memories/static/images/wave-validation/wave_add_memory.PNG)
+football_memories/templates/memories/edit_memory.html | 0 errors and 0 contrast errors| [Results](/football_memories/static/images/wave-validation/wave_edit_memory.PNG)
+football_memories/templates/memories/memories.html | 0 errors and 0 contrast errors| [Results](/football_memories/static/images/wave-validation/wave_memories.PNG)
+football_memories/templates/memories/memory.html | 0 errors and 0 contrast errors| [Results](/football_memories/static/images/wave-validation/wave_memory.PNG)
+football_memories/templates/tournaments/add_tournament.html | 0 errors and 0 contrast errors| [Results](/football_memories/static/images/wave-validation/wave_add_tournament.PNG)
+football_memories/templates/tournaments/edit_tournament.html | 0 errors and 0 contrast errors| [Results](/football_memories/static/images/wave-validation/wave_edit_tournament.PNG)
+football_memories/templates/tournaments/tournament.html | 0 errors and 0 contrast errors| [Results](/football_memories/static/images/wave-validation/wave_tournaments.PNG)
 
 ## JSHint
 - JSHint was used to analyse the Javascript files
 
 Page | Result | Test Detail/Screenshot
 ------------ | ------------- | -------------
-authentication.js | 0 errors and 0 warnings | [Results](assets/images/testing/jshint/about_jshint.PNG)
-memory.js | 0 errors and 0 warnings | [Results](assets/images/testing/jshint/about_jshint.PNG)
-send_email.js | 0 errors and 0 warnings | [Results](assets/images/testing/jshint/about_jshint.PNG)
+authentication.js | 0 errors and 0 warnings | [Results](/football_memories/static/images/jshint/authentication.PNG)
+memory.js | 0 errors and 0 warnings | [Results](/football_memories/static/images/jshint/memory.PNG)
+send_email.js | 0 errors and 0 warnings | [Results](/football_memories/static/images/jshint/send_email.PNG)
 
 <br>
 
