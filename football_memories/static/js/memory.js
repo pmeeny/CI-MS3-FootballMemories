@@ -54,7 +54,7 @@ function geocodeAddress(geocoder, resultsMap, address) {
 * [emptyCommentField clears the comment field]
 */
   function emptyCommentField() {
-  document.getElementById("comment").value = ''
+  document.getElementById("comment").value = '';
 }
 // Call display stadium when javascript file loads
-displayStadium()
+displayStadium();

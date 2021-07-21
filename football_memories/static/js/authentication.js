@@ -1,25 +1,25 @@
 // Example starter JavaScript for disabling form submissions if there are invalid fields
 // Credit: https://getbootstrap.com/docs/5.0/forms/validation/
-  var forms = document.querySelectorAll('.needs-validation')
+  var forms = document.querySelectorAll('.needs-validation');
   // Loop over them and prevent submission
   Array.prototype.slice.call(forms)
     .forEach(function (form) {
       form.addEventListener('submit', function (event) {
         if (!form.checkValidity()) {
-          event.preventDefault()
-          event.stopPropagation()
+          event.preventDefault();
+          event.stopPropagation();
         }
 
-        form.classList.add('was-validated')
-      }, false)
-    })
+        form.classList.add('was-validated');
+      }, false);
+    });
 /**
 * [validateUserNameAndPassword() validates the 
   username and password against a regular expression]
 */
 function validateUserNameAndPassword(){
-  var username = document.getElementById("username")
-  var password = document.getElementById("password")
+  var username = document.getElementById("username");
+  var password = document.getElementById("password");
   var confirm_password = document.getElementById("confirm-password");
   // Username must be a minimum of 6 characters and contain at least one lowercase letter, with no special characters
   var regExprUsername= /^(?=.*[a-z])\w{6,}$/;

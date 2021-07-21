@@ -10,7 +10,7 @@
         "to_email": contactForm.email_address.value
     }).then(
         function (response) {
-            console.log("SUCCESS")
+            console.log("SUCCESS");
             $("#mailing-list").replaceWith( "Thanks for subscribing to our mailing list" );
         },
         function (error) {
