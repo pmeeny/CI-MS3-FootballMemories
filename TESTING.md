@@ -135,22 +135,22 @@ football_memories/templates/tournaments/tournament.html | 0 errors and 0 contras
 
 Page | Result | Test Detail/Screenshot
 ------------ | ------------- | -------------
-football_memories/templates/administration/dashboard.html | 0 errors and 0 contrast errors| [Results](/football_memories/static/images/wave-validation/wave_dashboard.PNG)
-football_memories/templates/administration/index.html  | 0 errors and 0 contrast errors| [Results](/football_memories/static/images/wave-validation/wave_landing.PNG)
-football_memories/templates/administration/privacy_policy.html  | 0 errors and 0 contrast errors| [Results](/football_memories/static/images/wave-validation/wave_dashboard.PNG)
-football_memories/templates/administration/terms_and_conditions.html  | 0 errors and 0 contrast errors| [Results](/football_memories/static/images/wave-validation/wave_terms_and_conditions.PNG)
-football_memories/templates/authentication/login.html | 0 errors and 0 contrast errors| [Results](/football_memories/static/images/wave-validation/wave_login.PNG)
-football_memories/templates/authentication/profile.html | 0 errors and 0 contrast errors| [Results](/football_memories/static/images/wave-validation/wave_profile.PNG)
-football_memories/templates/authentication/register.html | 0 errors and 0 contrast errors| [Results](/football_memories/static/images/wave-validation/wave_register.PNG)
+football_memories/templates/administration/dashboard.html | 0 errors and 0 contrast errors| [Results](/football_memories/static/images/wave_validation/wave_dashboard.PNG)
+football_memories/templates/administration/index.html  | 0 errors and 0 contrast errors| [Results](/football_memories/static/images/wave_validation/wave_landing.PNG)
+football_memories/templates/administration/privacy_policy.html  | 0 errors and 0 contrast errors| [Results](/football_memories/static/images/wave_validation/wave_dashboard.PNG)
+football_memories/templates/administration/terms_and_conditions.html  | 0 errors and 0 contrast errors| [Results](/football_memories/static/images/wave_validation/wave_terms_and_conditions.PNG)
+football_memories/templates/authentication/login.html | 0 errors and 0 contrast errors| [Results](/football_memories/static/images/wave_validation/wave_login.PNG)
+football_memories/templates/authentication/profile.html | 0 errors and 0 contrast errors| [Results](/football_memories/static/images/wave_validation/wave_profile.PNG)
+football_memories/templates/authentication/register.html | 0 errors and 0 contrast errors| [Results](/football_memories/static/images/wave_validation/wave_register.PNG)
 football_memories/templates/errors/404.html | 0 errors and 0 contrast errors|
 football_memories/templates/errors/500.html | 0 errors and 0 contrast errors|
-football_memories/templates/memories/add_memory.html | 0 errors and 0 contrast errors| [Results](/football_memories/static/images/wave-validation/wave_add_memory.PNG)
-football_memories/templates/memories/edit_memory.html | 0 errors and 0 contrast errors| [Results](/football_memories/static/images/wave-validation/wave_edit_memory.PNG)
-football_memories/templates/memories/memories.html | 0 errors and 0 contrast errors| [Results](/football_memories/static/images/wave-validation/wave_memories.PNG)
-football_memories/templates/memories/memory.html | 0 errors and 0 contrast errors| [Results](/football_memories/static/images/wave-validation/wave_memory.PNG)
-football_memories/templates/tournaments/add_tournament.html | 0 errors and 0 contrast errors| [Results](/football_memories/static/images/wave-validation/wave_add_tournament.PNG)
-football_memories/templates/tournaments/edit_tournament.html | 0 errors and 0 contrast errors| [Results](/football_memories/static/images/wave-validation/wave_edit_tournament.PNG)
-football_memories/templates/tournaments/tournament.html | 0 errors and 0 contrast errors| [Results](/football_memories/static/images/wave-validation/wave_tournaments.PNG)
+football_memories/templates/memories/add_memory.html | 0 errors and 0 contrast errors| [Results](/football_memories/static/images/wave_validation/wave_add_memory.PNG)
+football_memories/templates/memories/edit_memory.html | 0 errors and 0 contrast errors| [Results](/football_memories/static/images/wave_validation/wave_edit_memory.PNG)
+football_memories/templates/memories/memories.html | 0 errors and 0 contrast errors| [Results](/football_memories/static/images/wave_validation/wave_memories.PNG)
+football_memories/templates/memories/memory.html | 0 errors and 0 contrast errors| [Results](/football_memories/static/images/wave_validation/wave_memory.PNG)
+football_memories/templates/tournaments/add_tournament.html | 0 errors and 0 contrast errors| [Results](/football_memories/static/images/wave_validation/wave_add_tournament.PNG)
+football_memories/templates/tournaments/edit_tournament.html | 0 errors and 0 contrast errors| [Results](/football_memories/static/images/wave_validation/wave_edit_tournament.PNG)
+football_memories/templates/tournaments/tournament.html | 0 errors and 0 contrast errors| [Results](/football_memories/static/images/wave_validation/wave_tournaments.PNG)
 
 ## JSHint
 - JSHint was used to analyse the Javascript files
