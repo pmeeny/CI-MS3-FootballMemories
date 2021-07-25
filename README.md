@@ -1,12 +1,14 @@
-# Football memories  site
+# Football memories site
 Football memories is a website that allows users to add/edit/delete/view football memories for given tournaments. 
 It also allows users to rate and comment on football memories
-
-An admin user account has been setup with username/password of admin/Password123
-A regular user account has been setup with username/password of
+- There are two types of users, and I have setup accounts for both
+    - An admin user account has been setup with username/password of admin/Password123
+    - A regular user account has been setup with username/password of
 <br>
+
 View the live site [here](https://ci-ms3-footballmemories.herokuapp.com/)
 <br><br>
+![Responsive site example](/football_memories/static/images/am_i_responsive/responsive_devices.png)
 
 # Table of Contents
 
@@ -21,11 +23,78 @@ View the live site [here](https://ci-ms3-footballmemories.herokuapp.com/)
 # UX
 ## Strategy
 ### Primary Goal
-- The primary goal of the website from the site owners perspective is to allow users view/add/modify/delete football memories, to create tournaments so users can add a memory to a tournament and to see statistics about the memories
-- The primary goal of the website from a site users perspective is to add/edit/delete memories, view other users memories, rate a memory and comment on a memory
+The primary goal of the website from the site 
+owners perspective is as follows:
+- To create/edit/delete tournaments so users can add a memory to a tournament(name and image)
+- To allow users add/modify/delete their football memories(name, image, tournament, description, date, stadium)
+- To allow users view their memories and other users memories
+- To allow users comment on a memory
+- To allow users rate a memory with a score from 1-5
+- To delete a memory if required
+- To view statistics on the usage of the site
+
+The primary goal of the website from a site users perspective is as follows:
+- To add/modify/delete their football memories(name, image, tournament, description, date, stadium)
+- To view their memories and other users memories
+- To comment on a memory
+- To rate a memory with a score from 1-5
 
 ## Structure
-I have structured the website into XXX pages, each with clear, concise structure, information and purpose. I use the Bootstrap grid system throughout, which gave a consistent structure and responsive design "out of the box"
+### Database
+- The website is a data-centric one with html, javscript, css used with the boostrap framework as a frontend
+- The backend comprises of Python, flask and jinja templates with a database of a mongodb open-source document-oriented database
+
+
+#### Conceptual database model
+The first step in the database design was the create a conceptual data model. The helped me understand the design at a conceptual level while enabling me to understand the required collections in the database
+![conceptual](/football_memories/static/images/database_design/conceptual_design_model.png)
+
+#### Physical database model
+From the conceptual database model I created the physical database model. This model contains all fields stored in the database collections with their data type and mimics the structure of what is actually stored in the mongo database(mongodb)
+![conceptual](/football_memories/static/images/database_design/physical_design_model.png)
+
+#### Mongo DB database information
+- One production database(football_memories_prod) was created to store site information, it contains five collections described below
+1. users - to store regusterd user information
+2. tournaments - to store tournament information added by an admin user
+3. memories - to store memory information added by an admin/regular user
+4. comments - to store comment information for a memory added by an admin/regular user
+5. ratings - to store rating information for a memory added by an admin/regular user
+
+#### Users
+- The users collection is used to store user information when they register.
+- The fields stored in the collection are users username(String), password(String), first_name(String), last_name(String), favourite_team(String) and country(String) with a unique identifier(primary key) , "_id"(Object Id)
+- The users password is encypted using a generate_password_hash from a werkzeug.security Python library.
+![users](/football_memories/static/images/database_design/users.PNG)
+
+#### Tournaments
+- The tournaments that memories are added to are added by an admin user.
+- The fields stored in the collection are the tournament name(String) and tournament image(String) with a unique identifier(primary key)  automatically assigned by the mongodb, "_id"(Object Id) primary key
+![tournaments](/football_memories/static/images/database_design/tournaments.PNG)
+
+#### Memories
+- Memories are added by regular and admin users
+- The fields stored in the collection are the memory_image(String), tournament name(String), memory name(String), memory_description(String), memory_date(String), memory_stadium(String), memory_view_count(Int32), memory_created_by(username) with a unique identifier(primary key) automatically assigned by the mongodb, "_id"(Object Id)
+- When a user adds a memory, it stores the tournament name(from the tournaments added in the tournament table) and a memory_created_by(take from the User tables username field of the user who added the memory) to create a link between the two collections
+
+![memories](/football_memories/static/images/database_design/memories.PNG)
+
+#### Comments
+- Comments are added to a memory by a regular or admin user
+- The fields stored in the collection are the memory_id(String), comment_text(String), comment_date(String), comment_created_by(String) with a unique identifier(primary key) automatically assigned by the mongodb, "_id"(Object Id)
+- When a user adds a comment, it stores the memory_id(from the memories table) in the collection and the comment_created_by field, storing the username(from the User table) who added the comment to create a link between the two collections
+
+![comments](/football_memories/static/images/database_design/comments.PNG)
+
+#### Ratings
+- Ratings are added to a memory by a regular or admin user
+- The fields stored in the collection are the ratibg value(Int32), the rating_created_by(String) with a unique identifier(primary key)  automatically assigned by the mongodb, "_id"(Object Id)
+- When a user adds a rating, the rating_created_by field populated with the users username(from the User table) to create a link between the two collections
+
+![memories](/football_memories/static/images/database_design/ratings.PNG)
+
+### Website pages
+I have structured the website into 19 pages, each with clear, concise structure, information and purpose. I use the Bootstrap grid system throughout, which gave a consistent structure and responsive design "out of the box"
 1. Home/Landing Page: This is the landing page, and the first page the user encounters when they access the site, before they login/register
 2. Register: This page allows the user to register an account to use the site
 3. Login: This page allows the user to login to the site
@@ -49,11 +118,22 @@ I have structured the website into XXX pages, each with clear, concise structure
 ## Scope
 ### User Stories Potential or Existing Customer
 The user stories for the website user "regular user" (a potential or existing customer) are described as follows: 
-- As a regular user
+- User Story 1.1: As an regular user the navigation bar is displayed with a logo on all pages for easy navigation, with a burger menu on mobile devices
+- User Story 1.2: As an regular user the navigation item selected is highlighted
+User Story 1.3: As an regular user, when logged out, the home/landing page is the default page and there are three options with a logo, Home, Login, Register displayed
+- User Story 1.4: As an regular user, when logged out, the memories page is the default page and there are six options with a logo: Memories, Add Memory, Tournaments, Profile, Dashboard, Logout
+- User Story 1.5: As an regular user, when I am logged into the site, and I click Logout I am succesfully logged out of the site, and brought to the home/landing page, and the navigation bar is updated with three options with a logo, Home, Login, Register
+- User Story 1.6: As an regular user, when I am logged into the site and I click the back button I am automatically redirected to the home/landing page, and the navigation bar is updated with three options with a logo, Home, Login, Register
 
 ### User Stories Website Owner
 The user stories for the website owner(admin user) are described as follows: 
-- As an admin user
+There is a lot of overlap between the two user types, the admin user however has more administrative rights throughout
+- User Story 1.1: As an admin user the navigation bar is displayed with a logo on all pages for easy navigation, with a burger menu on mobile devices
+- User Story 1.2: As an admin user the navigation item selected is highlighted
+User Story 1.3: As an admin user, when logged out, the home/landing page is the default page and there are three options with a logo, Home, Login, Register displayed
+- User Story 1.4: As an admin user, when logged out, the memories page is the default page and there are six options with a logo: Memories, Add Memory, Tournaments, Profile, Dashboard, Logout
+- User Story 1.5: As an admin user, when I am logged into the site, and I click Logout I am succesfully logged out of the site, and brought to the home/landing page, and the navigation bar is updated with three options with a logo, Home, Login, Register
+- User Story 1.6: As an admin user, when I am logged into the site and I click the back button I am automatically redirected to the home/landing page, and the navigation bar is updated with three options with a logo, Home, Login, Register
 
 ## Skeleton
 ### Wireframes
@@ -82,6 +162,7 @@ I feel the colours complement each other very well, and I choose those colours a
 
 ### Typography
 The Poppins font is the main font used throughout the whole website with Sans Serif as the fallback font in case for any reason the Poppins font cannot be imported into the website correctly. This font is from the Google fonts library.
+![Font](/football_memories/static/images/readme/font.PNG)
 
 # Features
 The website has five webpages consisting of seven distinct features and they are described below
@@ -211,8 +292,7 @@ A user can view or edit their profile details. Their username is displayed, but 
 - User Story 7.2: As a regular user/admin user I can update my profile password, but the confirm password entered must match with the password. The password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.
 - User Story 7.3: As a regular user/admin user I can update my profile details: First Name, Last Name, Favourite Team and Country
 - User Story 7.4: As a regular user/admin user the following fields are mandatory: Username, First Name, Last Name, Favourite Team and Country
-
-
+- User Story 7.5: As a regular user I can delete my account. This will delete any memories I have added(including their associated comments and ratings) and will also delete any comments or ratings the regular user has added on others users memories. The user will be asked to confirm the delete account action, and will be brought to the homepage after their account is succesfully deleted.
 
 
 ##  Features Left to Implement
@@ -254,6 +334,8 @@ Number | Feature
     - Balsamiq was used to create the website wireframes
 - Font Awesome (https://fontawesome.com/)
     - Font awesome was used to provide the relevant fonts/icons for the website
+- Lucidchat (http://lucidchart.com)    
+    - Lucidchart was used to create the database design diagrams
 - JQuery (https://jquery.com)
     - JQuery was used in some of the javascript files for DOM manipulation
 - TinyPNG (https://tinypng.com/)
@@ -355,8 +437,12 @@ https://stackoverflow.com/questions/9142527/can-you-require-two-form-fields-to-m
 <br>
 
 # Media
-- Flikr ()
-    - The hero image is form Flikr
+- Pexels (https://www.pexels.com/)
+    - The hero image used throughout the site is form Pexels, https://www.pexels.com/photo/aerial-view-of-soccer-field-1171084/ by user https://www.pexels.com/@mike-468229 
+
+- The 42(www.the42.ie), Irish Independant(www.irishindependant.ie), Tokyvideo(www.tokyvideo.com)
+    - The memory images added to the memories added to the website were taken from the above websites media galleries
+
  <br>
 
 # Acknowledgements
