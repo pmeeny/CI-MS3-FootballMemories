@@ -122,6 +122,7 @@ def update_profile(username):
     This function updates the users profile with the information
     they have submitted
     """
+    # Create an update_profile object with the updated information
     if request.method == "POST":
         update_profile = {
             "user_type": "regular_user",
@@ -143,12 +144,12 @@ def update_profile(username):
                            username=session['user'], user=user)
 
 
-@authentication.route("/delete_account/<username>")
-def delete_account(username):
+@authentication.route("/delete_profile/<username>")
+def delete_profile(username):
     """
     This function deletes all information linked to a user and their username
     It deletes all memories added by the user, and the comments/ratings linked
-    to the memories frpm the memories, ratings, comments collections
+    to the memories from the memories, ratings, comments collections
     It deletes all comments added by the user on other users memories from
     the comments collection
     It deletes all ratings added by the user on other users memories from
