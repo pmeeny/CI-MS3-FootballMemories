@@ -112,7 +112,6 @@ i {
     color: #ffffff;
  }
 #hero-message {
-    border-radius: 25px;
     background-color: rgba(112, 35, 35, 0.3);
  }
 #hero-message small {
@@ -182,6 +181,7 @@ i {
     padding-top: 20px;
  }
 #hero-message {
+    border-radius: 25px;
     margin-top: 50px;
     width: 100%;
     height: 450px;
@@ -385,7 +385,16 @@ i {
     margin: 0 auto;
     text-align: center;
 }
-
+/* ----- Profile Page ----- */
+#delete_profile_holder {
+    margin-top: 10px;
+}
+#delete_profile_text {
+    text-align: center;
+}
+#delete_profile_btn{
+    text-align: center; 
+}
 /* ----- Media Queries ----- */
 /* --- Medium Screen --- */
 @media screen and (max-width: 768px) {
