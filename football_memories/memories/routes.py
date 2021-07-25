@@ -55,6 +55,8 @@ def get_memory(id):
 
     comments = mongo.db.comments.find({"memory_id":  id}).sort("_id", -1)
     total_comments = mongo.db.comments.find({"memory_id":  id}).count()
+    print("tc")
+    print(total_comments)
 
     view_count = memory['memory_view_count']
     view_count1 = view_count+1
