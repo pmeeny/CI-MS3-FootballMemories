@@ -1,8 +1,9 @@
 {% extends "base.html" %}
+{% block title %}Memory{% endblock %}
 {% block content %}
 <head>
-        <!-- Polyfill needed for google maps api call -->
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <!-- Polyfill needed for google maps api call -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
 </head>
 <body class="hero-image flex-wrapper-auth">
     <div class="container common-holder">
@@ -10,101 +11,104 @@
             <h1>Memory</h1>
         </div>
         <div class="row">
-            <div class="col-6"> 
+            <div class="col-md-6 col-sm-12"> 
                 <h2>Memory Image</h2>
-                <img src="{{ memory.memory_image }}" height="600" width="600" alt="memory image" >
+                <img src="{{ memory.memory_image }}" id="memory-image" alt="memory image" >
             </div>
-            <div class="col-6"> 
+            <div class="col-md-6 col-sm-12"> 
                 <h2>Memory Stadium: {{ memory['memory_stadium'] }}</h2>
-
                 <div id="stadium" hidden>{{ memory['memory_stadium'] }}</div> 
-
                 <div class="container">
                     <div id="map" aria-hidden="true"></div>
                 </div>
-
-
             </div>      
         </div>
-    <div class="row">
-        <div class="col-6">
-            <h2>Details</h2>
-            <p class="p-dark">Memory Name: {{ memory['memory_name'] }}</p>
-            <p class="p-dark">Memory Description: {{ memory['memory_description'] }}</p> 
-            <p class="p-dark">Tournament Name: {{ memory.tournament_name }}</p>             
-            <p class="p-dark">Stadium: {{ memory.memory_stadium }}</p> 
-            <p class="p-dark">View Count: {{ memory['memory_view_count'] }}</p>   
-            <p class="p-dark">Uploaded by: {{ memory['memory_created_by'] }}</p>   
-            <p class="p-dark">Date: {{ memory['memory_date'] }}</p> 
-        </div>
-        <div class="col-6">
-            <h2>Ratings</h2>
-            <p class="p-dark">Average Rating: {{ average_rating }}</p> 
-            <div id="ratings">
-                <h2>Add a rating</h2>
-                <form method="POST" action="{{ url_for('memories.add_rating', id=memory['_id'] ) }}">
-                    <select class="form-select" aria-label="select a memory rating" name="rating" id="rating">
-                        <option value="5">5</option>
-                        <option value="4">4</option>
-                        <option value="3">3</option>
-                        <option value="2">2</option>
-                        <option value="1">1</option>
-                      </select>
-                      <button class="btn btn-primary light-green-one-btn" type="submit">Submit Rating</button>
-                </form>
+        <div class="row">
+            <div class="col-md-6 col-sm-12">
+                <h2>Details</h2>
+                <p class="p-dark">Memory Name: {{ memory['memory_name'] }}</p>
+                <p class="p-dark">Memory Description: {{ memory['memory_description'] }}</p> 
+                <p class="p-dark">Tournament Name: {{ memory.tournament_name }}</p>             
+                <p class="p-dark">Stadium: {{ memory.memory_stadium }}</p> 
+                <p class="p-dark">View Count: {{ memory['memory_view_count'] }}</p>   
+                <p class="p-dark">Uploaded by: {{ memory['memory_created_by'] }}</p>   
+                <p class="p-dark">Date: {{ memory['memory_date'] }}</p> 
             </div>
-        </div>
-    </div>
-<div class="container mt-5">
-    <div class="d-flex justify-content-center row">
-        <div class="col-md-8">
-            <h2>Comments:</h2>
-            <div class="d-flex flex-column comment-section">
-                <div class="bg-white p-2">
-                    <h4 class="light-blue-text text-darken-4 center-align">Newsest comments are displayed at the top of the comments list</h4>
-                        {% for comment in comments %}
-                         <div class="d-flex flex-row user-info">
-                            <div class="d-flex flex-column justify-content-start ml-2"><span class="d-block font-weight-bold name">Posted by: {{ comment.comment_created_by }}</span><span class="date text-black-50">Date: {{ comment.comment_date }}</span></div>
-                        </div>   
-                        <div class="mt-2">
-                        {{ comment.comment_text }}
-                        </div> 
-                        {% endfor %}
-
-                        <div class="container">
-                            <div class="row">
-                                <div class="d-flex align-items-center justify-content-between rounded-pill bg-light px-3 py-2 mt-4">
-                                    <div class="col-md-6 col-sm-12">
-                                        {{ pagination.links }} 
-                                    </div>
-                                    <div class="col-md-6 col-sm-12" id="pagin-info">
-                                        {{ pagination.info }}  
-                                    </div>
-                                </div>
-                            </div>
+            <div class="col-md-6 col-sm-12">
+                <h2>Ratings</h2>
+                <p class="p-dark">Average Rating: {{ average_rating }}</p> 
+                <div id="ratings">
+                    <h3>Add a rating</h3>
+                    <form method="POST" action="{{ url_for('memories.add_rating', id=memory['_id'] ) }}">
+                        <div class="row">
+                            <div class="col-6">
+                            <select class="form-select" aria-label="select a memory rating" name="rating" id="rating">
+                                <option value="5">5</option>
+                                <option value="4">4</option>
+                                <option value="3">3</option>
+                                <option value="2">2</option>
+                                <option value="1">1</option>
+                            </select>
                         </div>
-                </div>
-            
-                <br><br>
-
-                <form method="POST" enctype="multipart/form-data" action="{{ url_for('memories.add_comment', id=memory['_id'] ) }}" class="needs-validation" novalidate>
-                <div class="bg-light p-2">
-                    <div class="d-flex flex-row align-items-start">
-                        <textarea class="form-control ml-1 shadow-none textarea" name="comment" id="comment"></textarea></div>
-                    <div class="mt-2 text-right">
-                        <button class="btn btn-primary light-green-one-btn" type="submit">Post comment</button>
-                        <a class="btn btn-danger" type="button" onclick="emptyCommentField()">Cancel</a>
-
-                    </div>
-                </form>
+                        <div class="col-6">
+                            <button class="btn btn-primary light-green-one-btn" type="submit">Submit Rating</button>
+                        </div>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
-    </div>
-</div>
+        <div class="container mt-5">
+            <div class="d-flex row">
+                <div class="col-md-8">
+                    <h2>Comments:</h2>
+                    <div class="d-flex flex-column comment-section">
+                        <div class="bg-white p-2">
+                            {% for comment in comments %}
+                                <div class="d-flex flex-row user-info">
+                                    <div class="d-flex flex-column justify-content-start ml-2">
+                                        <div class="mt-2 comment-text">
+                                            {{ comment.comment_text }}
+                                        </div> 
+                                        <span class="d-block font-weight-bold name">Posted by: {{ comment.comment_created_by }}</span>
+                                        <span class="date text-black-50">Date: {{ comment.comment_date }}</span>
+                                    </div>
+                                </div>   
+                            {% endfor %}
+ 
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="d-flex align-items-center justify-content-between rounded-pill bg-light px-3 py-2 mt-4 row">
+                    <div class="col-md-6 col-sm-12">
+                        {{ pagination.links }} 
+                    </div>
+                    <div class="col-md-6 col-sm-12" id="pagin-info">
+                        {{ pagination.info }}  
+                    </div>
+                </div>
+            </div>
+        </div>
+        <form method="POST" enctype="multipart/form-data" action="{{ url_for('memories.add_comment', id=memory['_id'] ) }}" class="needs-validation" novalidate>
+            <div class="bg-light p-2">
+                <div class="d-flex flex-row align-items-start">
+                    <label for="comment" hidden>Comment</label>
+                    <textarea class="form-control ml-1 shadow-none textarea" name="comment" id="comment"></textarea>
+                </div>
+                <div class="mt-2 text-right">
+                    <button class="btn btn-primary light-green-one-btn" type="submit">Post comment</button>
+                    <a class="btn btn-danger" type="button" onclick="emptyCommentField()">Cancel</a>
+                </div
+            </div>    
+        </form>
+    <!-- Google maps api javascript file -->
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCWncKIaJ0_spPiZHLkwqIAhhgHqs-X0X4&libraries=&v=weekly"></script>
    <!-- Script javascript file -->
    <script src="{{ url_for('static', filename='js/memory.js') }}"></script>
-
 </body>
 {% endblock %}
