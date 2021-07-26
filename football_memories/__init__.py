@@ -2,6 +2,9 @@ import os
 from flask import (Flask)
 from flask_pymongo import PyMongo
 
+if os.path.exists("env.py"):
+    import env
+
 # App variables for setup and mongodb connectivity
 app = Flask(__name__)
 app.config["MONGO_DBNAME"] = os.environ.get("MONGO_DBNAME")
@@ -25,7 +28,7 @@ def create_app():
     from football_memories.tournaments.routes import tournaments
     # Register the routes with the app
     app.register_blueprint(administration)
-    app.register_blueprint(administration)
+    app.register_blueprint(authentication)
     app.register_blueprint(errors)
     app.register_blueprint(memories)
     app.register_blueprint(tournaments)
