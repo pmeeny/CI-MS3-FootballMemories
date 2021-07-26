@@ -40,43 +40,22 @@ User Story 1.1:
 
 # Bugs found during the testing phase
 
-Bug Number | Comment |  Solution/Design decision |
+Bug no. | Bug description |  Bug fix |
 ------------ | ------------- | ------------- | 
-1 |  |
-Bug 1: add_memory , the memroy name was being stored as null in database
-fix: the name field was missing from the form field
+1 | When adding a memory, the memory_name was being stored as null in the memory collection| The "name" field was missing from the form field for the input type memory_name
+2 | Adding a comment was throwing a 404 error | The form in memory.html file updated to send in id only, and not memory, that was not required
+3 | Deleting a tournament was deleting the wrong tournament| The tournament id needed to be correctly passed down into the modal
+4 | Comments not ordered by date on memory page | The fix was to sort by date <code> mongo.db.comments.find({"memory_id":  id}).sort("_id", -1) </code>
+5 | When an image was added to s3, it stores the file locally also | The fix was to use the put_object boto3 method 
+6 | A memory on the index/landing page was clickable, only a logged in user should be able to see the memory information | The fix was to remove the a href link 
+7 | An admin should not be able to edit a users memory. Only the memory creator should be allowed to edit a memory | The fix was to update the memory route and memories template
+8 | After adding a comment, the user was not routed back to the memory | Fix in add_comment(id): in route.py (memories)
+9 | The email js code was sending the email to the same user, a test user.|  The fix was to update the send_email.js to update a parameter, and then update the emailjs template accordingly with a link to that field<code>"to_email": contactForm.email_address.value</code>
+10 | Editing an admin user incorrectly updates the users user_type to regular_user| The fix in route.py (administration) was to get the users type first and store that when updating the users profile
 
-Bug2: Add comment was throwing a 404 error. 
-Form in memory.html file updated to send in id only, and not memory, that was not required
-
-Bug 3: Delete ytournament was deleting the wrong tournament
-Need to pass down the tournament id into the modal
-
-Bug 4: comments not ordered by date on memory page
-
-bug 5: Whe add image to s3, it also stores the file locally
-Fix was to use a different method 
-
-Bug 6: A memory on the landing page is a clicable link into the memory
-A user should only be able to see this infroamtion if they are logged in
-Fix: Update index.html to remove ahref link
-
-Bug 7, an admin can edit a memory, if an admin edits a memory, it then becomes the uploaded by of the memory
-This is a bug, an admin should be allowed delete a memeory, but not edit.
-Only the memory creator should be allowed to edit a memory
-The code was updated to fix this
-
-Bug8, routing not working after adding a comment
-Fix in add_comment(id): in toute.py
-
-Bug 9: The email js code was sending the email to the same user, a test user.
-The fix was to update the send_email.js to update a parameter, and then update the emailjs template accordingly with a link to that field
-<code>
-        "to_email": contactForm.email_address.value
-</code>
 
 # Code Validators and Website Analysis
-The website's pages were run against the following validators:
+The website's pages was tested against the following validators:
 
 ## HTML Markup Validation Service
 I used https://validator.w3.org/ to validate the html files
@@ -84,6 +63,8 @@ I used https://validator.w3.org/ to validate the html files
 Page | Result | Test Detail/Screenshot
 ------------ | ------------- | -------------
 index.html | Passed, No errors found | [Results](assets/images/testing/html-validation/index_html_validation.jpg)
+TBC
+TBC
 
 <br>
 
@@ -157,9 +138,9 @@ football_memories/templates/tournaments/tournament.html | 0 errors and 0 contras
 
 Page | Result | Test Detail/Screenshot
 ------------ | ------------- | -------------
-authentication.js | 0 errors and 0 warnings | [Results](/football_memories/static/images/jshint/authentication.PNG)
-memory.js | 0 errors and 0 warnings | [Results](/football_memories/static/images/jshint/memory.PNG)
-send_email.js | 0 errors and 0 warnings | [Results](/football_memories/static/images/jshint/send_email.PNG)
+authentication.js | 0 errors and 0 warnings | [Results](football_memories/static/images/jshint/authentication.PNG)
+memory.js | 0 errors and 0 warnings | [Results](football_memories/static/images/jshint/memory.PNG)
+send_email.js | 0 errors and 0 warnings | [Results](football_memories/static/images/jshint/send_email.PNG)
 
 <br>
 
