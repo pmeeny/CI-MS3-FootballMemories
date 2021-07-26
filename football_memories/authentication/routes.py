@@ -1,10 +1,9 @@
-from flask import (
-    Flask, flash, render_template,
-    redirect, request, session, url_for, Blueprint, abort)
-from bson.objectid import ObjectId
+from flask import (flash, render_template,
+                   redirect, request, session, url_for, Blueprint)
 from werkzeug.security import generate_password_hash, check_password_hash
 from football_memories import mongo
 
+# Create an authentication object as a blueprint
 authentication = Blueprint('authentication', __name__)
 
 
@@ -37,7 +36,7 @@ def register():
             "favourite_team": request.form.get("favourite_team"),
             "country": request.form.get("country")
         }
-        
+
         # Insert the register object in the users collection
         mongo.db.users.insert_one(register)
 
@@ -67,13 +66,13 @@ def login():
             # Ensure the hashed password matches user input
             if check_password_hash(
                     existing_user["password"], request.form.get("password")):
-                        session["user"] = request.form.get("username").lower()
-                        flash("Welcome, {}".format(
-                            request.form.get("username")))
-                        # Redirect to users memories page
-                        return redirect(url_for(
-                            "memories.get_user_memories",
-                            username=session["user"]))
+                session["user"] = request.form.get("username").lower()
+                flash("Welcome, {}".format(
+                    request.form.get("username")))
+                # Redirect to users memories page
+                return redirect(url_for(
+                    "memories.get_user_memories",
+                    username=session["user"]))
             else:
                 # Invalid password match
                 flash("Incorrect Username and/or Password")
@@ -109,7 +108,7 @@ def profile(username):
     # If the user is not logged in, redirect them to home/landing page
     if 'user' not in session:
         return redirect(url_for("administration.home"))
-    
+
     # Find the user in the users collection
     user = mongo.db.users.find_one({"username": username})
     return render_template("authentication/profile.html",
@@ -161,30 +160,29 @@ def delete_profile(username):
     Finally it deletes the user from the users collection and redirects the user
     to the home/landing page
     """
-    #Find the user       
+    # Find the user
     user = mongo.db.users.find_one({"username": username})
-    
+
     # For each memory, created by a user, get the memory_id, and delete 
     # and comments/ratings with that memory_id in the comments and ratings
     # collections
     memories_to_delete = list(mongo.db.memories.find({"memory_created_by": username}))
-    for memory in memories_to_delete :
+    for memory in memories_to_delete:
         memory_id = str(memory['_id'])
         mongo.db.comments.delete_many({"memory_id": memory_id})
         mongo.db.ratings.delete_many({"memory_id": memory_id})
-    
+
     # Delete any memories created by the user in the memories colection
     mongo.db.memories.delete_many({"memory_created_by": username})
-       
+
     # Delete all comments by user: comments.comment_created_by
     mongo.db.comments.remove({"comment_created_by": username})
     # delete all ratings by user: ratings.rating_created_by
     mongo.db.ratings.remove({"rating_created_by": username})
-    
+
     # Delete user from users collection, where the username matches
     # mongo.db.users.remove({"username": username})
 
     # Redirect user to homepage/landing page
     return render_template("authentication/profile.html",
                            username=session['user'], user=user)
-    
