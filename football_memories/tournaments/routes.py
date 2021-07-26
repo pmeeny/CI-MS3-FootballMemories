@@ -116,7 +116,12 @@ def delete_tournament(tournament_id):
     if(number_of_memories > 0):
         flash("A tournament than contains memories cannot be deleted")
     else:
-        mongo.db.tournaments.remove({"_id": ObjectId(tournament_id)})
-        flash("Tournament Successfully Deleted")
+        # Get the count of tournaments in the tournament collection
+        number_of_tournaments = mongo.db.tournaments.find().count()
+        if(number_of_tournaments == 1):
+            flash("Cannot delete this tournament as a minimum of one tournament is required")
+        else:
+            mongo.db.tournaments.remove({"_id": ObjectId(tournament_id)})
+            flash("Tournament Successfully Deleted")
 
     return redirect(url_for("tournaments.get_tournaments"))
