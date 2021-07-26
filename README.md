@@ -76,6 +76,7 @@ From the conceptual database model I created the physical database model. This m
 - Memories are added by regular and admin users
 - The fields stored in the collection are the memory_image(String), tournament name(String), memory name(String), memory_description(String), memory_date(String), memory_stadium(String), memory_view_count(Int32), memory_created_by(username) with a unique identifier(primary key) automatically assigned by the mongodb, "_id"(Object Id)
 - When a user adds a memory, it stores the tournament name(from the tournaments added in the tournament table) and a memory_created_by(take from the User tables username field of the user who added the memory) to create a link between the two collections
+- The memory_name and memory_description have search indexes setup for searching functionality
 
 ![memories](football_memories/static/images/database_design/memories.PNG)
 
@@ -151,7 +152,8 @@ I have structured the website into 19 pages, each with clear, concise structure,
 12. Tournaments: This page displays the tournaments that have been created by the admin user. An admin user can add/edit or delete a tournament
 13. Add Tournament: This page allows an admin user to add a football tournament
 14. Edit Tournament: This page allows an admin user to edit a football tournament
-15. Delete Tournament: This button allows an admin user to edit a football tournament
+15. Delete Tournament: This button allows an admin user to edit a football tournament as long as there are no memories associated 
+    and a minimum of one tournament in the tournament collection
 16. Logout: This link allows the user to logout of the site
 17. Newsletter: The user can enter their email address in the site footer and subscribe to a mailing list
 18. 404: The 404 error page is displayed if the user enters in an incorrect url when accessing the site.
@@ -179,8 +181,24 @@ There is a lot of overlap between the two user types, the admin user however has
 
 ## Skeleton
 ### Wireframes
+Each wireframe below contains three images, one for desktop, tablet and mobile
 
-#### Desktop 
+Page | Wireframe | 
+------------ | ------------- 
+index | [Desktop/Tablet/Mobile](football_memories/static/)
+register | [Desktop/Tablet/Mobile](football_memories/static/)
+login | [Desktop/Tablet/Mobile](football_memories/static/)
+memories | [Desktop/Tablet/Mobile](football_memories/static/)
+memory | [Desktop/Tablet/Mobile](football_memories/static/)
+add_memory | [Desktop/Tablet/Mobile](football_memories/static/)
+edit_memory | [Desktop/Tablet/Mobile](football_memories/static/)
+delete_memory | [Desktop/Tablet/Mobile](football_memories/static/)
+tournaments | [Desktop/Tablet/Mobile](football_memories/static/)
+add_tournament | [Desktop/Tablet/Mobile](football_memories/static/)
+edit_tournament | [Desktop/Tablet/Mobile](football_memories/static/)
+delete_tournament | [Desktop/Tablet/Mobile](football_memories/static/)
+profile | [Desktop/Tablet/Mobile](football_memories/static/)
+dashboard | [Desktop/Tablet/Mobile](football_memories/static/)
 
 
 #### Tablet
@@ -193,11 +211,11 @@ There is a lot of overlap between the two user types, the admin user however has
 ### Color Palette
 I have gone for a simple and minimal design for the website, with predominatly green font colours over a large hero image on all pages
 There are five colours in the color palette
-- #264653 - Dark green colour for some of the button and text colours
-- #006400 - Light green colour for some of the button and text colours
-- #000000 - Black color for some of the text
-- #F8F9FA - Light grey colour for the header and footer and panel backgrounds
-- #DC3545 - Red colour for some of the buttons, cancel and delete buttons
+- 264653 - Dark green colour for some of the button and text colours
+- 006400 - Light green colour for some of the button and text colours
+- 000000 - Black color for some of the text
+- F8F9FA - Light grey colour for the header and footer and panel backgrounds
+- DC3545 - Red colour for some of the buttons, cancel and delete buttons
 
 I feel the colours complement each other very well, and I choose those colours after testing a number of palettes while making sure the colour palette met accessibility standards.
 ![Palette](football_memories/static/images/readme/color_palette.PNG)
@@ -207,7 +225,7 @@ The Poppins font is the main font used throughout the whole website with Sans Se
 ![Font](football_memories/static/images/readme/font.PNG)
 
 # Features
-The website has five webpages consisting of seven distinct features and they are described below
+The website has seven distinct features and they are described below
 ## Existing Features
 ### Feature 1 Navigation Bar/Logout
 #### Description
@@ -278,7 +296,9 @@ three_latest_memories = list(mongo.db.memories.find().
 </code><br>
 
 #### User Stories
-- User Story 3.1:
+- User Story 3.1: As a regular user/admin user I can view a hero image with login and register buttons on the home/landing page
+- User Story 3.2: As a regular user/admin user I can view the last three memories added on the website, with memory name, memory image
+and tournament
 
 ### Feature 4 Login/Register/Logout administration
 #### Description
@@ -304,7 +324,7 @@ A regular user can view the tournaments they can add memories to. Three tourname
 - User Story 5.4: As an admin user I can edit an existing tournament with a tournament name and tournament image. Both fields are mandatory and a message is displayed accordingly. The tournament information is updated in the mongo database and the tournament image is stored in an AWS S3 bucket
 - User Story 5.5: As an admin user I can delete an existing tournament, once I have confirmed that it is ok to delete the tournament. The tournament information is deleted from the mongo database
 - User Story 5.6: As an admin user if a tournament has memories associated with it, the tournament cannot be deleted and a message is displayed
-
+- User Story 5.7: As an admin user if there is only one tournament in website, it cannot be deleted, a minimum of one tournament is required
 
 ### Feature 6 Dashboard
 #### Description
@@ -323,7 +343,8 @@ The dashboard page displays the results of 5 queries against the mongo db for th
 
 ### Feature 7 Profile
 #### Description
-A user can view or edit their profile details. Their username is displayed, but it is an un-editable field. When the user clicks save changes they are brougth back to the Profile page with the relevant updates made
+A user can view or edit their profile details. Their username is displayed, but it is an un-editable field. When the user clicks save changes they are brought back to the Profile page with the relevant updates made
+A user cannot update their username, the field is read only on the profile page
 
 #### Profile/Edit Profile
 ![Profile/Edit Profile](football_memories/static/images/profile/profile.PNG)
