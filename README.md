@@ -8,7 +8,7 @@ It also allows users to rate and comment on football memories
 
 View the live site [here](https://ci-ms3-footballmemories.herokuapp.com/)
 <br><br>
-![Responsive site example](/football_memories/static/images/am_i_responsive/responsive_devices.png)
+![Responsive site example](football_memories/static/images/am_i_responsive/responsive_devices.png)
 
 # Table of Contents
 
@@ -47,15 +47,15 @@ The primary goal of the website from a site users perspective is as follows:
 
 #### Conceptual database model
 The first step in the database design was the create a conceptual data model. The helped me understand the design at a conceptual level while enabling me to understand the required collections in the database
-![conceptual](/football_memories/static/images/database_design/conceptual_design_model.png)
+![conceptual](football_memories/static/images/database_design/conceptual_design_model.png)
 
 #### Physical database model
 From the conceptual database model I created the physical database model. This model contains all fields stored in the database collections with their data type and mimics the structure of what is actually stored in the mongo database(mongodb)
-![conceptual](/football_memories/static/images/database_design/physical_design_model.png)
+![conceptual](football_memories/static/images/database_design/physical_design_model.png)
 
 #### Mongo DB database information
 - One production database(football_memories_prod) was created to store site information, it contains five collections described below
-1. users - to store regusterd user information
+1. users - to store registered user information
 2. tournaments - to store tournament information added by an admin user
 3. memories - to store memory information added by an admin/regular user
 4. comments - to store comment information for a memory added by an admin/regular user
@@ -65,34 +65,76 @@ From the conceptual database model I created the physical database model. This m
 - The users collection is used to store user information when they register.
 - The fields stored in the collection are users username(String), password(String), first_name(String), last_name(String), favourite_team(String) and country(String) with a unique identifier(primary key) , "_id"(Object Id)
 - The users password is encypted using a generate_password_hash from a werkzeug.security Python library.
-![users](/football_memories/static/images/database_design/users.PNG)
+![users](football_memories/static/images/database_design/users.PNG)
 
 #### Tournaments
 - The tournaments that memories are added to are added by an admin user.
 - The fields stored in the collection are the tournament name(String) and tournament image(String) with a unique identifier(primary key)  automatically assigned by the mongodb, "_id"(Object Id) primary key
-![tournaments](/football_memories/static/images/database_design/tournaments.PNG)
+![tournaments](football_memories/static/images/database_design/tournaments.PNG)
 
 #### Memories
 - Memories are added by regular and admin users
 - The fields stored in the collection are the memory_image(String), tournament name(String), memory name(String), memory_description(String), memory_date(String), memory_stadium(String), memory_view_count(Int32), memory_created_by(username) with a unique identifier(primary key) automatically assigned by the mongodb, "_id"(Object Id)
 - When a user adds a memory, it stores the tournament name(from the tournaments added in the tournament table) and a memory_created_by(take from the User tables username field of the user who added the memory) to create a link between the two collections
 
-![memories](/football_memories/static/images/database_design/memories.PNG)
+![memories](football_memories/static/images/database_design/memories.PNG)
 
 #### Comments
 - Comments are added to a memory by a regular or admin user
 - The fields stored in the collection are the memory_id(String), comment_text(String), comment_date(String), comment_created_by(String) with a unique identifier(primary key) automatically assigned by the mongodb, "_id"(Object Id)
 - When a user adds a comment, it stores the memory_id(from the memories table) in the collection and the comment_created_by field, storing the username(from the User table) who added the comment to create a link between the two collections
 
-![comments](/football_memories/static/images/database_design/comments.PNG)
+![comments](football_memories/static/images/database_design/comments.PNG)
 
 #### Ratings
 - Ratings are added to a memory by a regular or admin user
 - The fields stored in the collection are the ratibg value(Int32), the rating_created_by(String) with a unique identifier(primary key)  automatically assigned by the mongodb, "_id"(Object Id)
 - When a user adds a rating, the rating_created_by field populated with the users username(from the User table) to create a link between the two collections
 
-![memories](/football_memories/static/images/database_design/ratings.PNG)
+![memories](football_memories/static/images/database_design/ratings.PNG)
 
+### Amazon Web Services S3 bucket
+While mongodb stores the majority of the users data in the database, any images added
+by a regular user or admin user when adding a new tournament or memory is stored in an 
+Amazon Web services(AWS) S3(storage) bucket. I made this choice for performance reasons(https://aws.amazon.com/s3/faqs/)
+and to challenge myself to learn how to integrate the site with AWS.
+Here are the steps I took for the integration
+1. I created an account with AWS, and created an S3 bucket named "ci-ms3-football-memories"
+![s3 bucket](football_memories/static/images/readme/aws_s3_bucket.PNG)
+2. I created a user in AWS IAM, and gave the user the AmazonS3FullAccess permission   
+3. I then gave the bucket policy the neccesary permissions to allow my application to access 
+the S3 bucket
+![s3 bucket policy](football_memories/static/images/readme/aws_s3_policy.PNG)
+4. I imported the Boto3 python library (https://boto3.amazonaws.com/) in the util.py file
+I made a design decision to have a util.py in a util flask route python file that would be used to store common code
+that could be used by multiple routes
+5. The relevant s3 variables for the bucket name, url and access/secret keys are defined at the top of the util.py file
+   <code>
+   s3_bucket_name = "ci-ms3-football-memories"
+s3_bucket_url = "https://ci-ms3-football-memories.s3.eu-west-1.amazonaws.com/"
+client = boto3.client('s3', 
+                aws_access_key_id=os.environ.get("AWS_ACCESS_KEY_ID"),
+                aws_secret_access_key=os.environ.get("AWS_SECRET_ACCESS_KEY"))
+   </code>
+6. A single function was written named storeImageAWSS3Bucket that takes one parameter, the filename to store
+7. This single function is used by the tournament and memories routes to store the images in the S3 bucket
+8. This function stores a file in an AWS S3 bucket using boto3. The filename is in the form timestamp + name of file added by the user
+The timestamp ensures uniqueness for every file added to the s3 bucket allowing users to use the same filename if desired.
+<code>
+   image_file = secure_filename(image.filename)
+    image_to_upload = timestamp + image_file
+</code>
+9. The boto3 put_object method is used to store the image taking two parameters, the file name and actual file
+<code>
+   s3.Bucket(s3_bucket_name).put_object(Key=image_to_upload, Body=image)
+</code>
+10. An image url is returned, and it is the image url that is stored in the mongodb for the relevant tournament or memory
+<code>
+image_url = s3_bucket_url + image_to_upload
+</code>
+![tournaments](football_memories/static/images/database_design/tournaments.PNG)
+![memories](football_memories/static/images/database_design/memories.PNG)
+   
 ### Website pages
 I have structured the website into 19 pages, each with clear, concise structure, information and purpose. I use the Bootstrap grid system throughout, which gave a consistent structure and responsive design "out of the box"
 1. Home/Landing Page: This is the landing page, and the first page the user encounters when they access the site, before they login/register
@@ -118,19 +160,19 @@ I have structured the website into 19 pages, each with clear, concise structure,
 ## Scope
 ### User Stories Potential or Existing Customer
 The user stories for the website user "regular user" (a potential or existing customer) are described as follows: 
-- User Story 1.1: As an regular user the navigation bar is displayed with a logo on all pages for easy navigation, with a burger menu on mobile devices
-- User Story 1.2: As an regular user the navigation item selected is highlighted
-User Story 1.3: As an regular user, when logged out, the home/landing page is the default page and there are three options with a logo, Home, Login, Register displayed
-- User Story 1.4: As an regular user, when logged out, the memories page is the default page and there are six options with a logo: Memories, Add Memory, Tournaments, Profile, Dashboard, Logout
-- User Story 1.5: As an regular user, when I am logged into the site, and I click Logout I am succesfully logged out of the site, and brought to the home/landing page, and the navigation bar is updated with three options with a logo, Home, Login, Register
-- User Story 1.6: As an regular user, when I am logged into the site and I click the back button I am automatically redirected to the home/landing page, and the navigation bar is updated with three options with a logo, Home, Login, Register
+- User Story 1.1: As a regular user the navigation bar is displayed with a logo on all pages for easy navigation, with a burger menu on mobile devices
+- User Story 1.2: As a regular user the navigation item selected is highlighted
+- User Story 1.3: As a regular user, when logged out, the home/landing page is the default page and there are three options with a logo, Home, Login, Register displayed
+- User Story 1.4: As a regular user, when logged out, the memories page is the default page and there are six options with a logo: Memories, Add Memory, Tournaments, Profile, Dashboard, Logout
+- User Story 1.5: As a regular user, when I am logged into the site, and I click Logout I am succesfully logged out of the site, and brought to the home/landing page, and the navigation bar is updated with three options with a logo, Home, Login, Register
+- User Story 1.6: As a regular user, when I am logged into the site and I click the back button I am automatically redirected to the home/landing page, and the navigation bar is updated with three options with a logo, Home, Login, Register
 
 ### User Stories Website Owner
 The user stories for the website owner(admin user) are described as follows: 
 There is a lot of overlap between the two user types, the admin user however has more administrative rights throughout
 - User Story 1.1: As an admin user the navigation bar is displayed with a logo on all pages for easy navigation, with a burger menu on mobile devices
 - User Story 1.2: As an admin user the navigation item selected is highlighted
-User Story 1.3: As an admin user, when logged out, the home/landing page is the default page and there are three options with a logo, Home, Login, Register displayed
+- User Story 1.3: As an admin user, when logged out, the home/landing page is the default page and there are three options with a logo, Home, Login, Register displayed
 - User Story 1.4: As an admin user, when logged out, the memories page is the default page and there are six options with a logo: Memories, Add Memory, Tournaments, Profile, Dashboard, Logout
 - User Story 1.5: As an admin user, when I am logged into the site, and I click Logout I am succesfully logged out of the site, and brought to the home/landing page, and the navigation bar is updated with three options with a logo, Home, Login, Register
 - User Story 1.6: As an admin user, when I am logged into the site and I click the back button I am automatically redirected to the home/landing page, and the navigation bar is updated with three options with a logo, Home, Login, Register
@@ -158,25 +200,23 @@ There are five colours in the color palette
 - #DC3545 - Red colour for some of the buttons, cancel and delete buttons
 
 I feel the colours complement each other very well, and I choose those colours after testing a number of palettes while making sure the colour palette met accessibility standards.
-![Palette](/football_memories/static/images/readme/color_palette.PNG)
+![Palette](football_memories/static/images/readme/color_palette.PNG)
 
 ### Typography
 The Poppins font is the main font used throughout the whole website with Sans Serif as the fallback font in case for any reason the Poppins font cannot be imported into the website correctly. This font is from the Google fonts library.
-![Font](/football_memories/static/images/readme/font.PNG)
+![Font](football_memories/static/images/readme/font.PNG)
 
 # Features
 The website has five webpages consisting of seven distinct features and they are described below
 ## Existing Features
 ### Feature 1 Navigation Bar/Logout
 #### Description
-This is the navigation bar of the website, and is displayed on all pages. The navigation bar is a bootstrap component, and is a responsive component. It becomes a burger menu on tablet and mobile devices.
+- This is the navigation bar of the website, and is displayed on all pages. The navigation bar is a bootstrap component, and is a responsive component. It becomes a burger menu on tablet and mobile devices.
+- When the user is not logged in, there are three options with a logo, Home, Login, Register
+- When the user is logged in, there are six options with a logo: Memories, Add Memory, Tournaments, Profile, Dashboard, Logout
 
-When the user is not logged in, there are three options with a logo, Home, Login, Register
-When the user is logged in, there are six options with a logo: Memories, Add Memory, Tournaments, Profile, Dashboard, Logout
-
-Clicking on the Logout button logs the user out of the site, and their session is ended. If they click back they are automatically re-sent back to the home/landing page
-The following code is a check on every route on the website
-
+- Clicking on the Logout button logs the user out of the site, and their session is ended. If they click back they are automatically re-sent back to the home/landing page
+- The following code is a check on the relevant functions in every flask route on the website
 <code>
     if 'user' not in session:
         return redirect(url_for("administration.home"))
@@ -185,12 +225,12 @@ The following code is a check on every route on the website
 <br>
 
 #### Nav Bar Logged Out
-![Nav Bar 1](/football_memories/static/images/nav_bar/nav_bar_logged_out.PNG)
+![Nav Bar 1](football_memories/static/images/nav_bar/nav_bar_logged_out.PNG)
 #### Nav Bar Logged Out Mobile
-![Nav Bar 2](/football_memories/static/images/nav_bar/nav_bar_logged_out_mobile.PNG)
-#### Navr Bar Logged In
-![Nav Bar 3](/football_memories/static/images/nav_bar/nav_bar_logged_in.PNG)
-#### Navr Bar Logged In Mobile
+![Nav Bar 2](football_memories/static/images/nav_bar/nav_bar_logged_out_mobile.PNG)
+#### Nav Bar Logged In
+![Nav Bar 3](football_memories/static/images/nav_bar/nav_bar_logged_in.PNG)
+#### Nav Bar Logged In Mobile
 ![Nav Bar 4](/football_memories/static/images/nav_bar/nav_bar_logged_in_mobile.PNG)
 
 
@@ -198,7 +238,7 @@ The following code is a check on every route on the website
 #### User Stories
 - User Story 1.1: As an admin/regular user the navigation bar is displayed with a logo on all pages for easy navigation, with a burger menu on mobile devices
 - User Story 1.2: As an admin/regular user the navigation item selected is highlighted
-User Story 1.3: As an admin/regular user, when logged out, the home/landing page is the default page and there are three options with a logo, Home, Login, Register displayed
+- User Story 1.3: As an admin/regular user, when logged out, the home/landing page is the default page and there are three options with a logo, Home, Login, Register displayed
 - User Story 1.4: As an admin/regular user, when logged out, the memories page is the default page and there are six options with a logo: Memories, Add Memory, Tournaments, Profile, Dashboard, Logout
 - User Story 1.5: As an admin/regular user, when I am logged into the site, and I click Logout I am succesfully logged out of the site, and brought to the home/landing page, and the navigation bar is updated with three options with a logo, Home, Login, Register
 - User Story 1.6: As an admin/regular user, when I am logged into the site and I click the back button I am automatically redirected to the home/landing page, and the navigation bar is updated with three options with a logo, Home, Login, Register
@@ -212,10 +252,10 @@ The footer of the website is displayed on all pages. It consists of three main s
 3. Newsletter signup
 
 #### Footer desktop
-![Footer desktop](/football_memories/static/images/footer/footer_desktop.PNG)
+![Footer desktop](football_memories/static/images/footer/footer_desktop.PNG)
 
 #### Footer Mobile
-![Footer Mobile](/football_memories/static/images/footer/footer_mobile.PNG)
+![Footer Mobile](football_memories/static/images/footer/footer_mobile.PNG)
 
 #### User Stories
 - User Story 2.1: As an admin/regular user I can view the footers social icons(twitter, facebook, instagram, pinterest, snapchat) and the relevant website opens in a new tab when clicked
@@ -229,7 +269,7 @@ The footer of the website is displayed on all pages. It consists of three main s
 The landing/home page is displayed when the user first accessing the site, and when they logout. It displays a hero image with Login/Register buttons
 
 ##### Hero image
-![Landing Page](/football_memories/static/images/landing_page/hero_image.PNG)
+![Landing Page](football_memories/static/images/landing_page/hero_image.PNG)
 
 Below the hero image are the last three memories added by users. The following code is used to query the mongodb in the administation route python file
 <code>
@@ -238,31 +278,32 @@ three_latest_memories = list(mongo.db.memories.find().
 </code><br>
 
 #### User Stories
+- User Story 3.1:
 
-### Feature 3 Login/Register/Logout administration
+### Feature 4 Login/Register/Logout administration
 #### Description
 The user can login into their account by clicking on the Login button on the landing page or clicking the Login link in the navigation bar. They must enter a valid username and password otherwise a relevant message will be displayed.
 #### User Stories
-2.1 As a regular user/admin user I can login to my account by providing my username and password. A username and password must be provided. If the username and/or password entered is incorrectly a relevant message will be displayed
+- User Story 4.1: As a regular user/admin user I can login to my account by providing my username and password and clicking Login. A username and password must be provided. If the username and/or password entered is incorrectly a relevant message will be displayed
 
 
-### Feature 4 Memories, Memory, Add/Edit/Delete Memory
+### Feature 5 Memories, Memory, Add/Edit/Delete Memory
 #### Description
 #### User Stories
-
-
+- User Story 5.1:
+- User Story 5.2:
+- User Story 5.3:
 
 ### Feature 5 Tournaments
 #### Description
 A regular user can view the tournaments they can add memories to. Three tournaments are displays per page(tournament name, tournament image), and pagination is displayed if there are more than three tournaments in the mongodb database
 #### User Stories
-2.1 As a regular user/admin user I can view a list of tournaments created with the tournament name and tournament image displayed
-2.1 As a regular user/admin user the list of tournaments is displayed with three per page, and pagination if displayed if there are more than 3 tournaments
-2.2 As an admin user I can add a new tournament with a tournament name and tournament image. Both fields are mandatory and a message is displayed accordingly. The tournament information is added in the mongo database and the tournament image is stored in an AWS S3 bucket 
-2.2 As an admin user I can edit an existing tournament with a tournament name and tournament image. Both fields are mandatory and a message is displayed accordingly. The tournament information is updated in the mongo database and the tournament image is stored in an AWS S3 bucket
-2.4 As an admin user I can delete an existing tournament, once I have confirmed that it is ok to delete the tournament. The tournament information is deleted from the mongo database
-2.5 As an admin user if a tournament has memories associated with it, the tournament cannot be deleted and a message is displayed
-
+- User Story 5.1: As a regular user/admin user I can view a list of tournaments created with the tournament name and tournament image displayed
+- User Story 5.2: As a regular user/admin user the list of tournaments is displayed with three per page, and pagination if displayed if there are more than 3 tournaments
+- User Story 5.3: As an admin user I can add a new tournament with a tournament name and tournament image. Both fields are mandatory and a message is displayed accordingly. The tournament information is added in the mongo database and the tournament image is stored in an AWS S3 bucket 
+- User Story 5.4: As an admin user I can edit an existing tournament with a tournament name and tournament image. Both fields are mandatory and a message is displayed accordingly. The tournament information is updated in the mongo database and the tournament image is stored in an AWS S3 bucket
+- User Story 5.5: As an admin user I can delete an existing tournament, once I have confirmed that it is ok to delete the tournament. The tournament information is deleted from the mongo database
+- User Story 5.6: As an admin user if a tournament has memories associated with it, the tournament cannot be deleted and a message is displayed
 
 
 ### Feature 6 Dashboard
@@ -285,7 +326,7 @@ The dashboard page displays the results of 5 queries against the mongo db for th
 A user can view or edit their profile details. Their username is displayed, but it is an un-editable field. When the user clicks save changes they are brougth back to the Profile page with the relevant updates made
 
 #### Profile/Edit Profile
-![Profile/Edit Profile](/football_memories/static/images/profile/profile.PNG)
+![Profile/Edit Profile](football_memories/static/images/profile/profile.PNG)
 
 #### User Stories
 - User Story 7.1: As a regular user/admin user I can view my profile details: Username, First Name, Last Name, Favourite Team and Country. The country is selected from a dropdown of countries
@@ -302,7 +343,7 @@ A user can view or edit their profile details. Their username is displayed, but 
 Number | Feature  
  ------------ | ------- |
 1 | Social sharing of a memory on facebook, twitter  |
-2 | The image type(jpg, png) is read and the memory displays a different image based on it
+2 | The image type(jpg, png) is read and the memory displays a different helper image based on it
 3 | Tags functionality and search by tags
 4 | Enhance reporting/dashboard capabilities, and use a 3pp graph library
 5 | User must verify their email address when registering, or 2 factor authentication is implemented
@@ -389,7 +430,8 @@ The project uses a number of API's, below are the steps to configure the API in 
 
 
 # Credits
-- For the memories page, I used some of the html code from https://bootstrapious.com/p/bootstrap-photo-gallery
+- For the memories page, I used some html and css code from https://bootstrapious.com/p/bootstrap-photo-gallery as a basis
+for the memories gallery
 
 - For the password validation, I built on examples code described here: 
     - https://www.w3schools.com/howto/howto_js_password_validation.asp
@@ -403,8 +445,6 @@ The project uses a number of API's, below are the steps to configure the API in 
 
 - For the footer to stick to the bottom of the I used code from the following pages:
     -https://stackoverflow.com/questions/4575826/how-to-push-a-footer-to-the-bottom-of-page-when-content-is-short-or-missing#:~:text=Just%20wrap%20your%20.,will%20move%20to%20the%20bottom.
-
-
 - My project is built using a Blueprints structure, I found the following video and links invaluable to structure my project accordingly
     - https://www.youtube.com/watch?v=Wfx4YBzg16s&list=PL-osiE80TeTs4UjLw5MM6OjgkjFeUxCYH&index=11 
     - https://github.com/CoreyMSchafer/code_snippets/tree/master/Python/Flask_Blog 
