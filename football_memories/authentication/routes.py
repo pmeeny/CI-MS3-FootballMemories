@@ -119,13 +119,17 @@ def profile(username):
 @authentication.route("/update_profile/<username>", methods=["GET", "POST"])
 def update_profile(username):
     """
-    This function updates the users profile with the information
+    This function updates the users profile with the updated information
     they have submitted
     """
     # Create an update_profile object with the updated information
     if request.method == "POST":
+        # Get the user and their user_type, regular_user or admin_user
+        user = mongo.db.users.find_one({"username": username})
+        user_type = user['user_type']
+        # Create an object update_profile with the updated information
         update_profile = {
-            "user_type": "regular_user",
+            "user_type": user_type,
             "username": session['user'],
             "password": generate_password_hash(request.form.get("password")),
             "first_name": request.form.get("first_name"),
