@@ -98,11 +98,11 @@ def logout():
     return redirect(url_for("administration.home"))
 
 
-@authentication.route("/profile/<username>", methods=["GET", "POST"])
+@authentication.route("/profile/<username>", methods=["GET"])
 def profile(username):
     """
     This function renders the profile page and displays
-    the users profile infromation once the user is logged in
+    the users profile information once the user is logged in
     and exists in the users collection
     """
     # If the user is not logged in, redirect them to home/landing page
