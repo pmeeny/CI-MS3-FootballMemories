@@ -58,3 +58,12 @@ def storeImageAWSS3Bucket(file_to_store):
     s3.Bucket(s3_bucket_name).put_object(Key=image_to_upload, Body=image)
     image_url = s3_bucket_url + image_to_upload
     return image_url
+
+def isAllowedImageFileType(file_name):
+    """
+    TBC
+    """
+    allowedImageFileTypes = ["jpg","JPG","png","PNG","gif","GIF"]
+    image = request.files[file_name]
+    image_type = secure_filename(image.filename).rsplit('.',1)[1]
+    return image_type, allowedImageFileTypes
