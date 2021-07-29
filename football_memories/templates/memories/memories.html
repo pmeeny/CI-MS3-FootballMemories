@@ -95,18 +95,16 @@
                 {% endfor %}
             </div>
         </div>
-        <div class="container">
-            <div class="row">
-                <div class="d-flex align-items-center justify-content-between rounded-pill bg-light px-3 py-2 mt-4">
-                    <div class="col-md-6 col-sm-12">
-                        {{ pagination.links }} 
+            <div class="container">
+                    <div class="row d-flex align-items-center justify-content-between rounded-pill bg-light py-2 mt-4">
+                        <div class="col-md-6 col-sm-12">
+                            {{ pagination.links }}
+                        </div>
+                        <div class="col-md-6 col-sm-12" id="pagin-info">
+                            {{ pagination.info }}
+                        </div>
                     </div>
-                    <div class="col-md-6 col-sm-12" id="pagin-info">
-                        {{ pagination.info }}  
-                    </div>
-                </div>
             </div>
-        </div>
         </div>
     </div>
 </body>
