@@ -55,8 +55,6 @@ def get_memory(id):
 
     comments = mongo.db.comments.find({"memory_id":  id}).sort("_id", -1)
     total_comments = mongo.db.comments.find({"memory_id":  id}).count()
-    print("tc")
-    print(total_comments)
 
     view_count = memory['memory_view_count']
     view_count1 = view_count+1
@@ -113,6 +111,13 @@ def add_memory():
         return redirect(url_for("administration.home"))
     
     if request.method == "POST": 
+        # Check if the file type is an allowed image file type
+        memory_image_type, allowedImageFileTypes = util.isAllowedImageFileType('tournament_image')
+        
+        if (memory_image_type) not in allowedImageFileTypes:
+            flash("File type " + memory_image_type + " not allowed, allowed file types are: jpg, JPG ,png ,PNG")
+            return redirect(url_for("memories.get_user_memories"))
+        
         image_url = util.storeImageAWSS3Bucket('memory_image')      
 
         memory = {
@@ -141,7 +146,15 @@ def edit_memory(memory_id):
     """
     if 'user' not in session:
         return redirect(url_for("administration.home"))
+    
     if request.method == "POST":
+        # Check if the file type is an allowed image file type
+        memory_image_type, allowedImageFileTypes = util.isAllowedImageFileType('tournament_image')
+        
+        if (memory_image_type) not in allowedImageFileTypes:
+            flash("File type " + memory_image_type + " not allowed, allowed file types are: jpg, JPG ,png ,PNG")
+            return redirect(url_for("memories.get_user_memories"))
+        
         image_url = util.storeImageAWSS3Bucket('memory_image')     
 
         memory_to_update = {

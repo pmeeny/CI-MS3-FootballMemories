@@ -45,8 +45,16 @@ def add_tournament():
     """
     if 'user' not in session:
         return redirect(url_for("administration.home"))
-    
+
     if request.method == "POST":
+    
+        # Check if the file type is an allowed image file type
+        tournament_image_type, allowedImageFileTypes = util.isAllowedImageFileType('tournament_image')
+        
+        if (tournament_image_type) not in allowedImageFileTypes:
+            flash("File type " + tournament_image_type + " not allowed, allowed file types are: jpg, JPG ,png ,PNG, gif, GIF")
+            return redirect(url_for("tournaments.get_tournaments"))
+        
         # check if tournament name already exists in db
         existing_tournament = mongo.db.tournaments.find_one(
             {"tournament_name": request.form.get("tournament_name")})
@@ -77,6 +85,13 @@ def edit_tournament(tournament_id):
         return redirect(url_for("administration.home"))
     
     if request.method == "POST":
+        # Check if the file type is an allowed image file type
+        tournament_image_type, allowedImageFileTypes = util.isAllowedImageFileType('tournament_image')
+        
+        if (tournament_image_type) not in allowedImageFileTypes:
+            flash("File type " + tournament_image_type + " not allowed, allowed file types are: jpg, JPG ,png ,PNG, gif, GIF")
+            return redirect(url_for("tournaments.get_tournaments"))
+            
         # check if tournament name already exists in db
         existing_tournament = mongo.db.tournaments.find_one(
             {"tournament_name": request.form.get("tournament_name")})
