@@ -122,6 +122,16 @@ def add_memory():
     # Check the user is logged in
     if 'user' not in session:
         return redirect(url_for("administration.home"))
+    
+    if request.method == "POST": 
+        # Check if the file type is an allowed image file type
+        memory_image_type, allowedImageFileTypes = util.isAllowedImageFileType('tournament_image')
+        
+        if (memory_image_type) not in allowedImageFileTypes:
+            flash("File type " + memory_image_type + " not allowed, allowed file types are: jpg, JPG ,png ,PNG")
+            return redirect(url_for("memories.get_user_memories"))
+        
+        image_url = util.storeImageAWSS3Bucket('memory_image')      
 
     if request.method == "POST":
         # Store the memory image in an S3 bucket
@@ -158,10 +168,16 @@ def edit_memory(memory_id):
     # Check the user is logged in
     if 'user' not in session:
         return redirect(url_for("administration.home"))
-
+    
     if request.method == "POST":
-        # Store the memory image in an S3 bucket
-        image_url = util.storeImageAWSS3Bucket('memory_image')
+        # Check if the file type is an allowed image file type
+        memory_image_type, allowedImageFileTypes = util.isAllowedImageFileType('tournament_image')
+        
+        if (memory_image_type) not in allowedImageFileTypes:
+            flash("File type " + memory_image_type + " not allowed, allowed file types are: jpg, JPG ,png ,PNG")
+            return redirect(url_for("memories.get_user_memories"))
+        
+        image_url = util.storeImageAWSS3Bucket('memory_image')     
 
         # Create a memory_to_update object with the new memory information
         memory_to_update = {
