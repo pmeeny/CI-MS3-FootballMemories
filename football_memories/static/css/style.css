@@ -299,13 +299,12 @@ i {
 }
 /* ---  Memory Page --- */
 #map {
-    height: 500px;
-    width: 500px;
-    margin: auto;
+    height: 400px;
+    width: 400px;
 }
 #memory-image{
-    height: 100%;
-    width: 100%;
+    height: 400px;
+    width: 400px;
 }
 .comment-text{
     font-size: 1.1rem;
@@ -413,19 +412,18 @@ i {
     .form-control {
         font-size: 0.8rem; 
     }
-}  
-/* SMALL SCREEN */
-@media screen and (max-width: 481px) {
+    /* ---  Memory Page --- */
     #map {
         height: 300px;
         width: 300px;
-        margin: auto;
     }
     #memory-image{
         height: 300px;
         width: 300px;
-        margin: auto 0;
     }
+}  
+/* SMALL SCREEN */
+@media screen and (max-width: 481px) {
     .common-holder {
         padding: 20px;
     }
@@ -441,7 +439,6 @@ i {
     #map {
         height: 250px;
         width: 250px;
-        margin: auto;
     }
     #memory-image{
         height: 250px;
