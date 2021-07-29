@@ -1,4 +1,14 @@
 {% extends "base.html" %}
 {% block content %}
-
+    <body class="hero-image flex-wrapper">
+        <div class="container common-holder">
+            <div class="h1-header">
+                <h1>404 Not found error page</h1>
+            </div>
+            <section>
+                <p class="p-dark"><b>The page you have requested does not exist</b></p>
+                <p class="p-dark">Click <a href="{{ url_for('administration.home') }}">here</a> to go back to the home page</p>
+            </section>
+        </div>
+    </body>
 {% endblock %}

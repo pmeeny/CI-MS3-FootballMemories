@@ -1,16 +1,14 @@
 import os
 import boto3
-from botocore.exceptions import NoCredentialsError
-from flask import (
-    Flask, flash, render_template,
-    redirect, request, session, url_for, Blueprint, session, abort)
-from flask_paginate import Pagination, get_page_args
+from flask import (request)
+from flask_paginate import get_page_args
 from werkzeug.utils import secure_filename
 from datetime import datetime
 
 if os.path.exists("env.py"):
     import env
 
+# AWS S3 variables
 s3_bucket_name = "ci-ms3-football-memories"
 s3_bucket_url = "https://ci-ms3-football-memories.s3.eu-west-1.amazonaws.com/"
 client = boto3.client('s3', 
@@ -19,7 +17,7 @@ client = boto3.client('s3',
 
 def getMonthAndYear():
     """
-    TBC
+    This function returns the current month and year, for example 07,2021
     """
     now = datetime.now()
     year = now.strftime("%Y")
@@ -28,7 +26,7 @@ def getMonthAndYear():
 
 def generateTimestamp():
     """
-    TBC
+    This function generates a timestamp
     """
     now = datetime.now()
     timestamp = now.strftime("%Y_%m_%d_%H_%M_%S_")
@@ -36,7 +34,8 @@ def generateTimestamp():
 
 def setupPagination():
     """
-    TBC
+    This function sets up pagination, so that 3 items can be displayed on a page
+    and if there are more than 3 items, pagination will be displayed
     """
     page, per_page, offset = get_page_args(
         page_parameter='page', per_page_parameter='per_page',
@@ -48,7 +47,10 @@ def setupPagination():
 
 def storeImageAWSS3Bucket(file_to_store):
     """
-    TBC
+    This function stores a file in an AWS S3 bucket using boto3
+    The filename is in the form timestamp + name of file added by the user
+    When the file is succesfully stored in the s3 bucket, then image_url is
+    returned
     """
     timestamp = generateTimestamp()
     image = request.files[file_to_store]
