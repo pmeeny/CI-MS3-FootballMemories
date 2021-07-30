@@ -26,18 +26,21 @@ View the live site [here](https://ci-ms3-footballmemories.herokuapp.com/)
 The primary goal of the website from the site 
 owners perspective is as follows:
 - To create/edit/delete tournaments so users can add a memory to a tournament(name and image)
-- To allow users add/modify/delete their football memories(name, image, tournament, description, date, stadium)
+- To allow users add their football memories(name, image, tournament, description, date, stadium)
+- To allow users modify their football memories(name, image, tournament, description, date, stadium)
+- To allow users delete their football memories
 - To allow users view their memories and other users memories
 - To allow users comment on a memory
 - To allow users rate a memory with a score from 1-5
-- To delete a memory if required
 - To view statistics on the usage of the site
 
 The primary goal of the website from a site users perspective is as follows:
-- To add/modify/delete their football memories(name, image, tournament, description, date, stadium)
+- To allow users add their football memories(name, image, tournament, description, date, stadium)
+- To allow users modify their football memories(name, image, tournament, description, date, stadium)
+- To allow users delete their football memories
 - To view their memories and other users memories
-- To comment on a memory
-- To rate a memory with a score from 1-5
+- To comment on a memory and view comments
+- To rate a memory with a score from 1-5 and view ratings of a memory
 
 ## Structure
 ### Database
@@ -160,14 +163,47 @@ I have structured the website into 19 pages, each with clear, concise structure,
 19. 500: The 500 error page is displayed if the user encounters an error on the site
 
 ## Scope
+There is a overlap in terms of user stories for the two types of users and they are described below
 ### User Stories Potential or Existing Customer
 The user stories for the website user "regular user" (a potential or existing customer) are described as follows: 
-- User Story 1.1: As a regular user the navigation bar is displayed with a logo on all pages for easy navigation, with a burger menu on mobile devices
-- User Story 1.2: As a regular user the navigation item selected is highlighted
-- User Story 1.3: As a regular user, when logged out, the home/landing page is the default page and there are three options with a logo, Home, Login, Register displayed
-- User Story 1.4: As a regular user, when logged out, the memories page is the default page and there are six options with a logo: Memories, Add Memory, Tournaments, Profile, Dashboard, Logout
-- User Story 1.5: As a regular user, when I am logged into the site, and I click Logout I am succesfully logged out of the site, and brought to the home/landing page, and the navigation bar is updated with three options with a logo, Home, Login, Register
-- User Story 1.6: As a regular user, when I am logged into the site and I click the back button I am automatically redirected to the home/landing page, and the navigation bar is updated with three options with a logo, Home, Login, Register
+- User Story 1.1: As an regular user the navigation bar is displayed with a logo on all pages for easy navigation, with a burger menu on mobile devices
+- User Story 1.2: As an regular user the navigation item selected is highlighted
+- User Story 1.3: As an regular user, when logged out, the home/landing page is the default page and there are three options with a logo, Home, Login, Register displayed
+- User Story 1.4: As an regular user, when logged out, the memories page is the default page and there are six options with a logo: Memories, Add Memory, Tournaments, Profile, Dashboard, Logout
+- User Story 2.1: As an regular user I can view the footers social icons(twitter, facebook, instagram, pinterest, snapchat) and the relevant website opens in a new tab when clicked
+- User Story 2.2: As an regular user I can view the websites terms and condition page by clicking on the link in the footer
+- User Story 2.3: As an regular user I can view the websites privacy policy page by clicking on the link in the footer
+- User Story 2.4: As an regular user I can signup to the football memories newsletter by entering my email and clicking SignUp. The email address entered will recieve an email
+- User Story 3.1: As a regular user user I can view a hero image with login and register buttons on the home/landing page
+- User Story 3.2: As a regular user user I can view the last three memories added on the website, with memory name, memory image
+and tournament
+- User Story 4.1: As a regular user I can register for an account by providing my username, password, confirm password, first name, last name, favourite team and country and I will be brouight to the my memories page. All fields must be provided
+- User Story 4.2: As a regular user my username must be a minimum of 6 characters, and contain at least one lowercase letter, with no special characters
+- User Story 4.3: As a regular user my password must be a minimum of 6 characters and contain least one number, one lowercase and one uppercase letter, with no special characters
+- User Story 4.4: As a regular user my password must match my confirm password
+- User Story 4.5: As a regular user user I can login to my account by providing my username and password and clicking Login and I will be be navigated to the my memories page. A username and password must be provided. If the username and/or password entered is incorrectly a relevant message will be displayed
+- User Story 4.6: As a regular user, when I am logged into the site, and I click Logout I am succesfully logged out of the site, and brought to the home/landing page, and the navigation bar is updated with three options with a logo, Home, Login, Register
+- User Story 4.7: As a regular user, when I am logged into the site and I click the back button I am automatically redirected to the home/landing page, and the navigation bar is updated with three options with a logo, Home, Login, Register
+- User Story 5.1: Add Memory - As a regular user user I can add a memory by selecting a tournament, uploading a memory image, entering a memory name, description, date and stadium. All fields are mandatory
+- User Story 5.2: Add Memory - As a regular user user the memory image I upload must be png or jpg format
+- User Story 5.2: Edit  Memory - As a regular user user I can edit a memory by uploading a memory image, updating the memory name, description, date and stadium. All fields are mandatory
+- User Story 5.3: Delete Memory - As a regular user I can delete a memory I created by confirming I wnat to delete
+- User Story 5.4: View Memory - As a regular user I can view a memory by clicking on a memory
+- User Story 5.5: View Memory - As a regular user I can view the memory image, stadium in a google map, average rating, view acount, memory name, description, tournament name,  date, view count, uploaded by inforamtion and all comments for the memory, paginated if there are more than 3 comments
+- User Story 5.5: View Memory - As a regular user the view count increases when the user clicks on a memory or refreshes the memory page
+- User Story 5.6: View Memory - As a regular user I can add a comment to a memory
+- User Story 5.7: View Memory - As a regular user I can add a comment to a rating to a memory, and the aeverage rating is updated accordingly
+- User Story 5.8: My Memories- As a regular user user I can filter on memories I have created, and the page will be paginated if there are more than 3 memories
+- User Story 5.9: All Memories - As a regular user user I can filter on memories I have created, and the page will be paginated if there are more than 3 memories
+- User Story 5.10: Search - As a regular user I can search on text for the memory name and memory description, and the memories page will be updated with those filtered memories 
+- User Story 6.1: As a regular useruser I can view a list of tournaments created with the tournament name and tournament image displayed
+- User Story 6.2: As a regular user user the list of tournaments is displayed with three per page, and pagination if displayed if there are more than 3 tournaments
+- User Story 7.1: As a regular user I can view a dashboard to see the number of users, number of tournaments, number of memories, number of ratings and number of comments added on the site
+- User Story 8.1: As a regular user I can view my profile details: Username, First Name, Last Name, Favourite Team and Country. The country is selected from a dropdown of countries
+- User Story 8.2: As a regular user I can update my profile password, but the confirm password entered must match with the password. The password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.
+- User Story 8.3: As a regular user I can update my profile details: First Name, Last Name, Favourite Team and Country
+- User Story 8.4: As a regular user the following fields are mandatory: Username, First Name, Last Name, Favourite Team and Country
+- User Story 8.5: As a regular user I can delete my account. This will delete any memories I have added(including their associated comments and ratings) and will also delete any comments or ratings the regular user has added on others users memories. The user will be asked to confirm the delete account action, and will be brought to the homepage after their account is succesfully deleted.
 
 ### User Stories Website Owner
 The user stories for the website owner(admin user) are described as follows: 
@@ -176,8 +212,40 @@ There is a lot of overlap between the two user types, the admin user however has
 - User Story 1.2: As an admin user the navigation item selected is highlighted
 - User Story 1.3: As an admin user, when logged out, the home/landing page is the default page and there are three options with a logo, Home, Login, Register displayed
 - User Story 1.4: As an admin user, when logged out, the memories page is the default page and there are six options with a logo: Memories, Add Memory, Tournaments, Profile, Dashboard, Logout
-- User Story 1.5: As an admin user, when I am logged into the site, and I click Logout I am succesfully logged out of the site, and brought to the home/landing page, and the navigation bar is updated with three options with a logo, Home, Login, Register
-- User Story 1.6: As an admin user, when I am logged into the site and I click the back button I am automatically redirected to the home/landing page, and the navigation bar is updated with three options with a logo, Home, Login, Register
+- User Story 2.1: As an admin user I can view the footers social icons(twitter, facebook, instagram, pinterest, snapchat) and the relevant website opens in a new tab when clicked
+- User Story 2.2: As an admin user I can view the websites terms and condition page by clicking on the link in the footer
+- User Story 2.3: As an admin user I can view the websites privacy policy page by clicking on the link in the footer
+- User Story 2.4: As an admin user I can signup to the football memories newsletter by entering my email and clicking SignUp. The email address entered will recieve an email
+- User Story 3.1: As an admin user I can view a hero image with login and register buttons on the home/landing page
+- User Story 3.2: As an admin user I can view the last three memories added on the website, with memory name, memory image
+and tournament
+- User Story 4.5: As an admin user I can login to my account by providing my username and password and clicking Login and I will be be navigated to the my memories page. A username and password must be provided. If the username and/or password entered is incorrectly a relevant message will be displayed
+- User Story 4.6: As an admin user, when I am logged into the site, and I click Logout I am succesfully logged out of the site, and brought to the home/landing page, and the navigation bar is updated with three options with a logo, Home, Login, Register
+- User Story 4.7: As an admin user, when I am logged into the site and I click the back button I am automatically redirected to the home/landing page, and the navigation bar is updated with three options with a logo, Home, Login, Register
+- User Story 5.1: Add Memory - As an admin user I can add a memory by selecting a tournament, uploading a memory image, entering a memory name, description, date and stadium. All fields are mandatory
+- User Story 5.2: Add Memory - As an admin user the memory image I upload must be png or jpg format
+- User Story 5.2: Edit  Memory - As an admin user I can edit a memory by uploading a memory image, updating the memory name, description, date and stadium. All fields are mandatory
+- User Story 5.3: Delete Memory - As an admin user I can delete a memory, created by any user or a memory I have created
+- User Story 5.4: View Memory - As an admin user I can view a memory by clicking on a memory
+- User Story 5.5: View Memory - As an admin user I can view the memory image, stadium in a google map, average rating, view acount, memory name, description, tournament name,  date, view count, uploaded by inforamtion and all comments for the memory, paginated if there are more than 3 comments
+- User Story 5.5: View Memory - As an admin user the view count increases when the user clicks on a memory or refreshes the memory page
+- User Story 5.6: View Memory - As an admin user I can add a comment to a memory
+- User Story 5.7: View Memory - As an admin user I can add a comment to a rating to a memory, and the aeverage rating is updated accordingly
+- User Story 5.8: My Memories- As an admin use user I can filter on memories I have created, and the page will be paginated if there are more than 3 memories
+- User Story 5.9: All Memories - As an admin use user I can filter on memories I have created, and the page will be paginated if there are more than 3 memories
+- User Story 5.10: Search - As an admin user I can search on text for the memory name and memory description, and the memories page will be updated with those filtered memories 
+- User Story 6.1: As an admin user I can view a list of tournaments created with the tournament name and tournament image displayed
+- User Story 6.2: As an admin user the list of tournaments is displayed with three per page, and pagination if displayed if there are more than 3 tournaments
+- User Story 6.3: As an admin user I can add a new tournament with a tournament name and tournament image. Both fields are mandatory and a message is displayed accordingly. The tournament information is added in the mongo database and the tournament image is stored in an AWS S3 bucket 
+- User Story 6.4: As an admin user I can edit an existing tournament with a tournament name and tournament image. Both fields are mandatory and a message is displayed accordingly. The tournament information is updated in the mongo database and the tournament image is stored in an AWS S3 bucket
+- User Story 6.5: As an admin user I can delete an existing tournament, once I have confirmed that it is ok to delete the tournament. The tournament information is deleted from the mongo database
+- User Story 6.6: As an admin user if a tournament has memories associated with it, the tournament cannot be deleted and a message is displayed
+- User Story 6.7: As an admin user if there is only one tournament in website, it cannot be deleted, a minimum of one tournament is required
+- User Story 7.1: As an admin user I can view a dashboard to see the number of users, number of tournaments, number of memories, number of ratings and number of comments added on the site
+- User Story 8.1: As an admin user I can view my profile details: Username, First Name, Last Name, Favourite Team and Country. The country is selected from a dropdown of countries
+- User Story 8.2: As an admin user I can update my profile password, but the confirm password entered must match with the password. The password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.
+- User Story 8.3: As an admin user I can update my profile details: First Name, Last Name, Favourite Team and Country
+- User Story 8.4: As an admin user the following fields are mandatory: Username, First Name, Last Name, Favourite Team and Country
 
 ## Skeleton
 ### Wireframes
@@ -302,42 +370,45 @@ and tournament
 #### Description
 The user can login into their account by clicking on the Login button on the landing page or clicking the Login link in the navigation bar. They must enter a valid username and password otherwise a relevant message will be displayed.
 #### User Stories
-- User Story 4.2: As a regular user I can register for an account by providing my username, password, confirm password, first name, last name, favourite team and country and I will be brouight to the my memories page. All fields mist be provided
-- User Story 4.2: As a regular user my username must be in the 
-- User Story 4.2: As a regular user my password must be in the 
-- User Story 4.2: As a regular user my passwword must match my confirm password
-- User Story 4.2: As a regular user/admin user I can login to my account by providing my username and password and clicking Login and I will be be navigated to the my memories page. A username and password must be provided. If the username and/or password entered is incorrectly a relevant message will be displayed
-- User Story 4.3: As an admin/regular user, when I am logged into the site, and I click Logout I am succesfully logged out of the site, and brought to the home/landing page, and the navigation bar is updated with three options with a logo, Home, Login, Register
-- User Story 4.4: As an admin/regular user, when I am logged into the site and I click the back button I am automatically redirected to the home/landing page, and the navigation bar is updated with three options with a logo, Home, Login, Register
+- User Story 4.1: As a regular user I can register for an account by providing my username, password, confirm password, first name, last name, favourite team and country and I will be brouight to the my memories page. All fields must be provided
+- User Story 4.2: As a regular user my username must be a minimum of 6 characters, and contain at least one lowercase letter, with no special characters
+- User Story 4.3: As a regular user my password must be a minimum of 6 characters and contain least one number, one lowercase and one uppercase letter, with no special characters
+- User Story 4.4: As a regular user my password must match my confirm password
+- User Story 4.5: As a regular user/admin user I can login to my account by providing my username and password and clicking Login and I will be be navigated to the my memories page. A username and password must be provided. If the username and/or password entered is incorrectly a relevant message will be displayed
+- User Story 4.6: As an admin/regular user, when I am logged into the site, and I click Logout I am succesfully logged out of the site, and brought to the home/landing page, and the navigation bar is updated with three options with a logo, Home, Login, Register
+- User Story 4.7: As an admin/regular user, when I am logged into the site and I click the back button I am automatically redirected to the home/landing page, and the navigation bar is updated with three options with a logo, Home, Login, Register
 
 
 ### Feature 5 Memories, Memory, Add/Edit/Delete Memory
 #### Description
 #### User Stories
-- User Story 5.1: Add Memory
-- User Story 5.2: Edit Memory
-- User Story 5.3: Delete Memory
-- User Story 5.4: View Memory
-- User Story 5.5: View Memory, display comments, ratings, image, google map
-- User Story 5.6: View Memory- add comment
-- User Story 5.7: View Memory - add rating
-- User Story 5.8: My Memories, 3 per page, pagination
-- User Story 5.9: All Memories , 3 per page, pagination
-- User Story 5.10: Search
+- User Story 5.1: Add Memory - As a regular user/admin user I can add a memory by selecting a tournament, uploading a memory image, entering a memory name, description, date and stadium. All fields are mandatory
+- User Story 5.2: Add Memory - As a regular user/admin user the memory image I upload must be png or jpg format
+- User Story 5.2: Edit  Memory - As a regular user/admin user I can edit a memory by uploading a memory image, updating the memory name, description, date and stadium. All fields are mandatory
+- User Story 5.3: Delete Memory - As a regular user I can delete a memory I created by confirming I wnat to delete
+- User Story 5.3: Delete Memory - As an admin user I can delete a memory, created by any user
+- User Story 5.4: View Memory - As a regular user/admin user I can view a memory by clicking on a memory
+- User Story 5.5: View Memory - As a regular user/admin user I can view the memory image, stadium in a google map, average rating, view acount, memory name, description, tournament name,  date, view count, uploaded by inforamtion and all comments for the memory, paginated if there are more than 3 comments
+- User Story 5.5: View Memory - As a regular user/admin user the view count increases when the user clicks on a memory or refreshes the memory page
+- User Story 5.6: View Memory - As a regular user/admin user I can add a comment to a memory
+- User Story 5.7: View Memory - As a regular user/admin user I can add a comment to a rating to a memory, and the average rating is updated accordingly
+- User Story 5.8: My Memories- As a regular user/admin user I can filter on memories I have created, and the page will be paginated if there are more than 3 memories
+- User Story 5.9: All Memories - As a regular user/admin user I can filter on memories I have created, and the page will be paginated if there are more than 3 memories
+- User Story 5.10: Search - As a regular user/admin I can search on text for the memory name and memory description, and the memories page will be updated with those filtered memories 
 
-### Feature 5 Tournaments
+### Feature 6 Tournaments
 #### Description
 A regular user can view the tournaments they can add memories to. Three tournaments are displays per page(tournament name, tournament image), and pagination is displayed if there are more than three tournaments in the mongodb database
 #### User Stories
-- User Story 5.1: As a regular user/admin user I can view a list of tournaments created with the tournament name and tournament image displayed
-- User Story 5.2: As a regular user/admin user the list of tournaments is displayed with three per page, and pagination if displayed if there are more than 3 tournaments
-- User Story 5.3: As an admin user I can add a new tournament with a tournament name and tournament image. Both fields are mandatory and a message is displayed accordingly. The tournament information is added in the mongo database and the tournament image is stored in an AWS S3 bucket 
-- User Story 5.4: As an admin user I can edit an existing tournament with a tournament name and tournament image. Both fields are mandatory and a message is displayed accordingly. The tournament information is updated in the mongo database and the tournament image is stored in an AWS S3 bucket
-- User Story 5.5: As an admin user I can delete an existing tournament, once I have confirmed that it is ok to delete the tournament. The tournament information is deleted from the mongo database
-- User Story 5.6: As an admin user if a tournament has memories associated with it, the tournament cannot be deleted and a message is displayed
-- User Story 5.7: As an admin user if there is only one tournament in website, it cannot be deleted, a minimum of one tournament is required
+- User Story 6.1: As a regular user/admin user I can view a list of tournaments created with the tournament name and tournament image displayed
+- User Story 6.2: As a regular user/admin user the list of tournaments is displayed with three per page, and pagination if displayed if there are more than 3 tournaments
+- User Story 6.3: As an admin user I can add a new tournament with a tournament name and tournament image. Both fields are mandatory and a message is displayed accordingly. The tournament information is added in the mongo database and the tournament image is stored in an AWS S3 bucket 
+- User Story 6.4: As an admin user I can edit an existing tournament with a tournament name and tournament image. Both fields are mandatory and a message is displayed accordingly. The tournament information is updated in the mongo database and the tournament image is stored in an AWS S3 bucket
+- User Story 6.5: As an admin user I can delete an existing tournament, once I have confirmed that it is ok to delete the tournament. The tournament information is deleted from the mongo database
+- User Story 6.6: As an admin user if a tournament has memories associated with it, the tournament cannot be deleted and a message is displayed
+- User Story 6.7: As an admin user if there is only one tournament in website, it cannot be deleted, a minimum of one tournament is required
 
-### Feature 6 Dashboard
+### Feature 7 Dashboard
 #### Description
 The dashboard page displays the results of 5 queries against the mongo db for the number of users, number of tournaments, number of memories, number of ratings and number of comments added on the site
 <code>
@@ -349,10 +420,10 @@ The dashboard page displays the results of 5 queries against the mongo db for th
 </code>    
 
 #### User Stories
-- User Story 6.1: As a regular user/admin user I can view a dashboard to see the number of users, number of tournaments, number of memories, number of ratings and number of comments added on the site
+- User Story 7.1: As a regular user/admin user I can view a dashboard to see the number of users, number of tournaments, number of memories, number of ratings and number of comments added on the site
 
 
-### Feature 7 Profile
+### Feature 8 Profile
 #### Description
 A user can view or edit their profile details. Their username is displayed, but it is an un-editable field. When the user clicks save changes they are brought back to the Profile page with the relevant updates made
 A user cannot update their username, the field is read only on the profile page
@@ -361,11 +432,11 @@ A user cannot update their username, the field is read only on the profile page
 ![Profile/Edit Profile](football_memories/static/images/profile/profile.PNG)
 
 #### User Stories
-- User Story 7.1: As a regular user/admin user I can view my profile details: Username, First Name, Last Name, Favourite Team and Country. The country is selected from a dropdown of countries
-- User Story 7.2: As a regular user/admin user I can update my profile password, but the confirm password entered must match with the password. The password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.
-- User Story 7.3: As a regular user/admin user I can update my profile details: First Name, Last Name, Favourite Team and Country
-- User Story 7.4: As a regular user/admin user the following fields are mandatory: Username, First Name, Last Name, Favourite Team and Country
-- User Story 7.5: As a regular user I can delete my account. This will delete any memories I have added(including their associated comments and ratings) and will also delete any comments or ratings the regular user has added on others users memories. The user will be asked to confirm the delete account action, and will be brought to the homepage after their account is succesfully deleted.
+- User Story 8.1: As a regular user/admin user I can view my profile details: Username, First Name, Last Name, Favourite Team and Country. The country is selected from a dropdown of countries
+- User Story 8.2: As a regular user/admin user I can update my profile password, but the confirm password entered must match with the password. The password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.
+- User Story 8.3: As a regular user/admin user I can update my profile details: First Name, Last Name, Favourite Team and Country
+- User Story 8.4: As a regular user/admin user the following fields are mandatory: Username, First Name, Last Name, Favourite Team and Country
+- User Story 8.5: As a regular user I can delete my account. This will delete any memories I have added(including their associated comments and ratings) and will also delete any comments or ratings the regular user has added on others users memories. The user will be asked to confirm the delete account action, and will be brought to the homepage after their account is succesfully deleted.
 
 
 ##  Features Left to Implement
@@ -390,7 +461,9 @@ Number | Feature
 - Javascript (https://www.javascript.com/)
     - Javascript was used for all scripting on the site
 - Python (https://www.python.org/)
-    - Python was used for server side coding on the project, a number of libraries were also used: Boto3(AWS interface), Pytest(unit testing)
+    - Python was used for server side coding on the project, a number of libraries were also used: 
+        - boto, boto3, botocore, click, dnspython, Flask, flask-paginate, 
+        Flask-PyMongo, itsdangerous, Jinja2, jmespath, MarkupSafe, pymongo, s3transfer,Werkzeug
 - Jinja (https://jinja.palletsprojects.com/en/3.0.x/)
     - Jinja is a templating engine for Python that is used throughout the project
 
@@ -443,6 +516,26 @@ The testing information and results for this project are documented in [TESTING.
 
 
 # Deployment
+## Heroku
+To deploy this application to Heroku, run the following steps.
+1. In the app.py file, ensure that debug is not enabled, i.e set to True
+2. Create a file called ProcFile in the root directory, and add the line <code>web: python app.py</code>
+3. Create a requirements.txt file by running the command <code>pip freeze > requirements.txt</code> in your terminal
+5. Both the ProcFile and requirements.txt files should be added to your git repo in the root directory
+6. Create an account on heroku.com
+7. Create a new application and give it a unique name
+8. In the application dashbaord, navigate to the deploy section and connect your application to your git repo, by selecting your repo
+![Heroku dashboard](football_memories/static/images/readme/heroku_dashboard.PNG)
+9. Select the branch for example master and enable automatic deploys if desired. Otherwise a deployment will be manual
+10. The next step is to set the config variables in the Settings section
+![Config vars](football_memories/static/images/readme/config_vars.PNG)
+11. Set key/value pairs for the following keys: AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY, IP, MONGO_DBNAME, MONGO_URI, PORT, SECRET_KEY
+12. Go to the dashboard and trigger a deployment
+![Deploy](football_memories/static/images/readme/deploy.PNG)
+13. This will trigger a deployment, once the deployment has been succesful click on the "Open App" link to open the app
+14. If you encounter any issues accesing the buiold logs is a good way to troubelshoot the issue
+
+
 The project uses a number of API's, below are the steps to configure the API in your environment
 
 ## Google Maps API
@@ -460,6 +553,15 @@ The project uses a number of API's, below are the steps to configure the API in 
 4. Create an email template in the Email templates section and note the id
 5. Update the script sendEmail.js, method sendMail with your user id, email service id and email template id
 
+## Amazon WebServices
+1. Create an account at aws.amazon.com
+2. Open the IAM application and create a new user
+3. Set the AmazonS3FullAccess for the user and note the users AWS ACCESS and SECRET keys
+![Iam](football_memories/static/images/readme/iam.PNG)
+4. Open the S3 application and create a new bucket. For the purpose of this application the bucket name is ci-ms3-football-memories but this can be updated in the util.py route
+5. With security best practices update the public access and policy bucket to enable the user created and the application access to read/write to the S3 bucket. Consult the AWS documentation if required: https://aws.amazon.com/s3/
+![policy](football_memories/static/images/readme/policy.PNG)
+6. The s3 bucket is now updated to be accessed by your application
 
 # Credits
 - For the memories page, I used some html and css code from https://bootstrapious.com/p/bootstrap-photo-gallery as a basis
