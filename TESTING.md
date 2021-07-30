@@ -62,23 +62,21 @@ I used https://validator.w3.org/ to validate the html files
 
 Page | Result | Test Detail/Screenshot
 ------------ | ------------- | -------------
-base.html | Passed, No errors found | [Results](/football_memories/static/images/html_validation/index_html_validation.PNG)
-administration/dashboard.html | Passed, No errors found | [Results](/football_memories/static/images/html_validation/index_html_validation.PNG)
+administration/dashboard.html | Passed, No errors found | [Results](/football_memories/static/images/html_validation/dashboard_html_validation.PNG)
 administration/index.html | Passed, No errors found | [Results](/football_memories/static/images/html_validation/index_html_validation.PNG)
-administration/privacy_policy.html | Passed, No errors found | [Results](/football_memories/static/images/html_validation/index_html_validation.PNG)
-administration/terms_and_conditions.html | Passed, No errors found | [Results](/football_memories/static/images/html_validation/index_html_validation.PNG)
-authentication/login.html | Passed, No errors found | [Results](/football_memories/static/images/html_validation/index_html_validation.PNG)
-authentication/profile.html | Passed, No errors found | [Results](/football_memories/static/images/html_validation/index_html_validation.PNG)
-authentication/register.html | Passed, No errors found | [Results](/football_memories/static/images/html_validation/index_html_validation.PNG)
-errors/404.html | Passed, No errors found | [Results](/football_memories/static/images/html_validation/index_html_validation.PNG)
-errors/500.html | Passed, No errors found | [Results](/football_memories/static/images/html_validation/index_html_validation.PNG)
-memories/add_memory.html | Passed, No errors found | [Results](/football_memories/static/images/html_validation/index_html_validation.PNG)
-memories/edit_memory.html | Passed, No errors found | [Results](/football_memories/static/images/html_validation/index_html_validation.PNG)
-memories/memories.html | Passed, No errors found | [Results](/football_memories/static/images/html_validation/index_html_validation.PNG)
-memories/memory.html | Passed, No errors found | [Results](/football_memories/static/images/html_validation/index_html_validation.PNG)
-tournaments/add_tournament.html | Passed, No errors found | [Results](/football_memories/static/images/html_validation/index_html_validation.PNG)
-tournaments/edit_tournament.html | Passed, No errors found | [Results](/football_memories/static/images/html_validation/index_html_validation.PNG)
-tournaments/tournament.html | Passed, No errors found | [Results](/football_memories/static/images/html_validation/index_html_validation.PNG)
+administration/privacy_policy.html | Passed, No errors found | [Results](/football_memories/static/images/html_validation/privacy_policy_html_validation.PNG)
+administration/terms_and_conditions.html | Passed, No errors found | [Results](/football_memories/static/images/html_validation/terms_and_conditions_html_validation.PNG)
+authentication/login.html | Passed, No errors found | [Results](/football_memories/static/images/html_validation/login_html_validation.PNG)
+authentication/profile.html | Passed, No errors found | [Results](/football_memories/static/images/html_validation/profile_html_validation.PNG)
+authentication/register.html | Passed, No errors found | [Results](/football_memories/static/images/html_validation/register_html_validation.PNG)
+errors/404.html | Passed, No errors found | [Results](/football_memories/static/images/html_validation/404_html_validation.PNG)
+memories/add_memory.html | Passed, No errors found | [Results](/football_memories/static/images/html_validation/add_memory_html_validation.PNG)
+memories/edit_memory.html | Passed, No errors found | [Results](/football_memories/static/images/html_validation/edit_memory_html_validation.PNG)
+memories/memories.html | Passed, No errors found | [Results](/football_memories/static/images/html_validation/memories_html_validation.PNG)
+memories/memory.html | Passed, No errors found | [Results](/football_memories/static/images/html_validation/memory_html_validation.PNG)
+tournaments/add_tournament.html | Passed, No errors found | [Results](/football_memories/static/images/html_validation/add_tournament_html_validation.PNG)
+tournaments/edit_tournament.html | Passed, No errors found | [Results](/football_memories/static/images/html_validation/edit_tournament_html_validation.PNG)
+tournaments/tournaments.html | Passed, No errors found | [Results](/football_memories/static/images/html_validation/tournaments_html_validation.PNG)
 
 <br>
 
@@ -101,27 +99,44 @@ style.css | Passed, No errors found | [Results](/football_memories/static/images
 ## Chrome Dev tools Lighthouse 
 
 (I used Lighthouse https://developers.google.com/web/tools/lighthouse) to test the performance, seo, best practices and accessability of the site
-
+### Desktop
 Page | Result | Test Detail/Screenshot
 ------------ | ------------- | -------------
-index.html (Desktop) | Performance: 98, Accessibility: 100, Best practices: 100, SEO: 100 | [Results](/football_memories/static/images/wave_validation/wave_landing.PNG)
-football_memories/templates/base.html | 0 errors and 0 contrast errors| [Results](assets/images/testing/wave-validation/index_wave_validation.PNG)
-football_memories/templates/administration/dashboard.html | 0 errors and 0 contrast errors|
-football_memories/templates/administration/index.html  | 0 errors and 0 contrast errors|
-football_memories/templates/administration/privacy_policy.html  | 0 errors and 0 contrast errors|
-football_memories/templates/administration/terms_and_conditions.html  | 0 errors and 0 contrast errors|
-football_memories/templates/authentication/login.html | 0 errors and 0 contrast errors|
-football_memories/templates/authentication/profile.html | 0 errors and 0 contrast errors|
-football_memories/templates/authentication/register.html | 0 errors and 0 contrast errors|
-football_memories/templates/errors/404.html | 0 errors and 0 contrast errors|
-football_memories/templates/errors/500.html | 0 errors and 0 contrast errors|
-football_memories/templates/memories/add_memory.html | 0 errors and 0 contrast errors|
-football_memories/templates/memories/edit_memory.html | 0 errors and 0 contrast errors|
-football_memories/templates/memories/memories.html | 0 errors and 0 contrast errors|
-football_memories/templates/memories/memory.html | 0 errors and 0 contrast errors|
-football_memories/templates/tournaments/add_tournament.html | 0 errors and 0 contrast errors|
-football_memories/templates/tournaments/edit_tournament.html | 0 errors and 0 contrast errors|
-football_memories/templates/tournaments/tournament.html | 0 errors and 0 contrast errors|
+administration/dashboard.html | Performance: 98, Accessibility: 100, Best practices: 100, SEO: 100 | [Results](/football_memories/static/images/html_validation/dashboard_lighthouse_validation.PNG)
+administration/index.html | Passed, No errors found | [Results](/football_memories/static/images/lighthouse_validation/desktop/index_lighthouse_validation.PNG)
+administration/privacy_policy.html | Passed, No errors found | [Results](/football_memories/static/images/lighthouse_validation/desktop/privacy_policy_lighthouse_validation.PNG)
+administration/terms_and_conditions.html | Passed, No errors found | [Results](/football_memories/static/images/lighthouse_validation/desktop/terms_and_conditions_lighthouse_validation.PNG)
+authentication/login.html | Passed, No errors found | [Results](/football_memories/static/images//lighthouse_validation/desktop/login_lighthouse_validation.PNG)
+authentication/profile.html | Passed, No errors found | [Results](/football_memories/static/images//lighthouse_validation/desktop/profile_lighthouse_validation.PNG)
+authentication/register.html | Passed, No errors found | [Results](/football_memories/static/images//lighthouse_validation/desktop/register_lighthouse_validation.PNG)
+errors/404.html | Passed, No errors found | [Results](/football_memories/static/images//lighthouse_validation/desktop/404_lighthouse_validation.PNG)
+memories/add_memory.html | Passed, No errors found | [Results](/football_memories/static/images//lighthouse_validation/desktop/add_memory_lighthouse_validation.PNG)
+memories/edit_memory.html | Passed, No errors found | [Results](/football_memories/static/images//lighthouse_validation/desktop/edit_memory_lighthouse_validation.PNG)
+memories/memories.html | Passed, No errors found | [Results](/football_memories/static/images//lighthouse_validation/desktop/memories_lighthouse_validation.PNG)
+memories/memory.html | Passed, No errors found | [Results](/football_memories/static/images//lighthouse_validation/desktop/memory_lighthouse_validation.PNG)
+tournaments/add_tournament.html | Passed, No errors found | [Results](/football_memories/static/images//lighthouse_validation/desktop/add_tournament_lighthouse_validation.PNG)
+tournaments/edit_tournament.html | Passed, No errors found | [Results](/football_memories/static/images//lighthouse_validation/desktop/edit_tournament_lighthouse_validation.PNG)
+tournaments/tournaments.html | Passed, No errors found | [Results](/football_memories/static/images//lighthouse_validation/desktop/tournaments_lighthouse_validation.PNG)
+
+
+### Mobile
+Page | Result | Test Detail/Screenshot
+------------ | ------------- | -------------
+administration/dashboard.html | Performance: 98, Accessibility: 100, Best practices: 100, SEO: 100 | [Results](/football_memories/static/images/html_validation/dashboard_lighthouse_validation.PNG)
+administration/index.html | Passed, No errors found | [Results](/football_memories/static/images/lighthouse_validation/mobile/index_lighthouse_validation.PNG)
+administration/privacy_policy.html | Passed, No errors found | [Results](/football_memories/static/images/lighthouse_validation/mobile/privacy_policy_lighthouse_validation.PNG)
+administration/terms_and_conditions.html | Passed, No errors found | [Results](/football_memories/static/images/lighthouse_validation/mobile/terms_and_conditions_lighthouse_validation.PNG)
+authentication/login.html | Passed, No errors found | [Results](/football_memories/static/images//lighthouse_validation/mobile/login_lighthouse_validation.PNG)
+authentication/profile.html | Passed, No errors found | [Results](/football_memories/static/images//lighthouse_validation/mobile/profile_lighthouse_validation.PNG)
+authentication/register.html | Passed, No errors found | [Results](/football_memories/static/images//lighthouse_validation/mobile/register_lighthouse_validation.PNG)
+errors/404.html | Passed, No errors found | [Results](/football_memories/static/images//lighthouse_validation/mobile/404_lighthouse_validation.PNG)
+memories/add_memory.html | Passed, No errors found | [Results](/football_memories/static/images//lighthouse_validation/mobile/add_memory_lighthouse_validation.PNG)
+memories/edit_memory.html | Passed, No errors found | [Results](/football_memories/static/images//lighthouse_validation/mobile/edit_memory_lighthouse_validation.PNG)
+memories/memories.html | Passed, No errors found | [Results](/football_memories/static/images//lighthouse_validation/mobile/memories_lighthouse_validation.PNG)
+memories/memory.html | Passed, No errors found | [Results](/football_memories/static/images//lighthouse_validation/mobile/memory_lighthouse_validation.PNG)
+tournaments/add_tournament.html | Passed, No errors found | [Results](/football_memories/static/images//lighthouse_validation/mobile/add_tournament_lighthouse_validation.PNG)
+tournaments/edit_tournament.html | Passed, No errors found | [Results](/football_memories/static/images//lighthouse_validation/mobile/edit_tournament_lighthouse_validation.PNG)
+tournaments/tournaments.html | Passed, No errors found | [Results](/football_memories/static/images//lighthouse_validation/mobile/tournaments_lighthouse_validation.PNG)
 
 <br>
 
