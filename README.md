@@ -227,7 +227,7 @@ The Poppins font is the main font used throughout the whole website with Sans Se
 # Features
 The website has seven distinct features and they are described below
 ## Existing Features
-### Feature 1 Navigation Bar/Logout
+### Feature 1 Navigation Bar
 #### Description
 - This is the navigation bar of the website, and is displayed on all pages. The navigation bar is a bootstrap component, and is a responsive component. It becomes a burger menu on tablet and mobile devices.
 - When the user is not logged in, there are three options with a logo, Home, Login, Register
@@ -258,8 +258,6 @@ The website has seven distinct features and they are described below
 - User Story 1.2: As an admin/regular user the navigation item selected is highlighted
 - User Story 1.3: As an admin/regular user, when logged out, the home/landing page is the default page and there are three options with a logo, Home, Login, Register displayed
 - User Story 1.4: As an admin/regular user, when logged out, the memories page is the default page and there are six options with a logo: Memories, Add Memory, Tournaments, Profile, Dashboard, Logout
-- User Story 1.5: As an admin/regular user, when I am logged into the site, and I click Logout I am succesfully logged out of the site, and brought to the home/landing page, and the navigation bar is updated with three options with a logo, Home, Login, Register
-- User Story 1.6: As an admin/regular user, when I am logged into the site and I click the back button I am automatically redirected to the home/landing page, and the navigation bar is updated with three options with a logo, Home, Login, Register
 
 ### Feature 2 Footer
 #### Description
@@ -304,15 +302,28 @@ and tournament
 #### Description
 The user can login into their account by clicking on the Login button on the landing page or clicking the Login link in the navigation bar. They must enter a valid username and password otherwise a relevant message will be displayed.
 #### User Stories
-- User Story 4.1: As a regular user/admin user I can login to my account by providing my username and password and clicking Login. A username and password must be provided. If the username and/or password entered is incorrectly a relevant message will be displayed
+- User Story 4.2: As a regular user I can register for an account by providing my username, password, confirm password, first name, last name, favourite team and country and I will be brouight to the my memories page. All fields mist be provided
+- User Story 4.2: As a regular user my username must be in the 
+- User Story 4.2: As a regular user my password must be in the 
+- User Story 4.2: As a regular user my passwword must match my confirm password
+- User Story 4.2: As a regular user/admin user I can login to my account by providing my username and password and clicking Login and I will be be navigated to the my memories page. A username and password must be provided. If the username and/or password entered is incorrectly a relevant message will be displayed
+- User Story 4.3: As an admin/regular user, when I am logged into the site, and I click Logout I am succesfully logged out of the site, and brought to the home/landing page, and the navigation bar is updated with three options with a logo, Home, Login, Register
+- User Story 4.4: As an admin/regular user, when I am logged into the site and I click the back button I am automatically redirected to the home/landing page, and the navigation bar is updated with three options with a logo, Home, Login, Register
 
 
 ### Feature 5 Memories, Memory, Add/Edit/Delete Memory
 #### Description
 #### User Stories
-- User Story 5.1:
-- User Story 5.2:
-- User Story 5.3:
+- User Story 5.1: Add Memory
+- User Story 5.2: Edit Memory
+- User Story 5.3: Delete Memory
+- User Story 5.4: View Memory
+- User Story 5.5: View Memory, display comments, ratings, image, google map
+- User Story 5.6: View Memory- add comment
+- User Story 5.7: View Memory - add rating
+- User Story 5.8: My Memories, 3 per page, pagination
+- User Story 5.9: All Memories , 3 per page, pagination
+- User Story 5.10: Search
 
 ### Feature 5 Tournaments
 #### Description
@@ -480,7 +491,7 @@ https://stackoverflow.com/questions/9142527/can-you-require-two-form-fields-to-m
 
 - I found the following resource great for some jquery code used: https://api.jquery.com/replacewith/
 
-- I used html/css code, then tweaked it accodingly for the site footer: https://jsfiddle.net/bootstrapious/c7ash30w/ */
+- I used html/css code, then tweaked it accodingly for the site footer: https://jsfiddle.net/bootstrapious/c7ash30w/
 
 # Content
 - Country list (https://www.technicalkeeda.com/html-tutorials/all-countries-drop-down-list-in-html)
