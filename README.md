@@ -12,6 +12,82 @@ View the live site [here](https://ci-ms3-footballmemories.herokuapp.com/)
 
 # Table of Contents
 
+- [Project Overview](#project-overview)
+- [UX](#ux)
+  * [Strategy](#strategy)
+    + [Primary Goal](#primary-goal)
+  * [Structure](#structure)
+    + [Database](#database)
+      - [Conceptual database model](#conceptual-database-model)
+      - [Physical database model](#physical-database-model)
+      - [Mongo DB database information](#mongo-db-database-information)
+      - [Users](#users)
+      - [Tournaments](#tournaments)
+      - [Memories](#memories)
+      - [Comments](#comments)
+      - [Ratings](#ratings)
+    + [Amazon Web Services S3 bucket](#amazon-web-services-s3-bucket)
+    + [Website pages](#website-pages)
+  * [Scope](#scope)
+    + [User Stories Potential or Existing Customer](#user-stories-potential-or-existing-customer)
+    + [User Stories Website Owner](#user-stories-website-owner)
+  * [Skeleton](#skeleton)
+    + [Wireframes](#wireframes)
+      - [Tablet](#tablet)
+      - [Mobile](#mobile)
+  * [Surface](#surface)
+    + [Color Palette](#color-palette)
+    + [Typography](#typography)
+- [Features](#features)
+  * [Existing Features](#existing-features)
+    + [Feature 1 Navigation Bar](#feature-1-navigation-bar)
+      - [Description](#description)
+      - [Nav Bar Logged Out](#nav-bar-logged-out)
+      - [Nav Bar Logged Out Mobile](#nav-bar-logged-out-mobile)
+      - [Nav Bar Logged In](#nav-bar-logged-in)
+      - [Nav Bar Logged In Mobile](#nav-bar-logged-in-mobile)
+      - [User Stories](#user-stories)
+    + [Feature 2 Footer](#feature-2-footer)
+      - [Description](#description-1)
+      - [Footer desktop](#footer-desktop)
+      - [Footer Mobile](#footer-mobile)
+      - [User Stories](#user-stories-1)
+    + [Feature 3 Landing/Home page](#feature-3-landing-home-page)
+      - [Description](#description-2)
+        * [Hero image](#hero-image)
+      - [User Stories](#user-stories-2)
+    + [Feature 4 Login/Register/Logout administration](#feature-4-login-register-logout-administration)
+      - [Description](#description-3)
+      - [User Stories](#user-stories-3)
+    + [Feature 5 Memories, Memory, Add/Edit/Delete Memory](#feature-5-memories--memory--add-edit-delete-memory)
+      - [Description](#description-4)
+      - [User Stories](#user-stories-4)
+    + [Feature 6 Tournaments](#feature-6-tournaments)
+      - [Description](#description-5)
+      - [User Stories](#user-stories-5)
+    + [Feature 7 Dashboard](#feature-7-dashboard)
+      - [Description](#description-6)
+      - [User Stories](#user-stories-6)
+    + [Feature 8 Profile](#feature-8-profile)
+      - [Description](#description-7)
+      - [Profile/Edit Profile](#profile-edit-profile)
+      - [User Stories](#user-stories-7)
+  * [Features Left to Implement](#features-left-to-implement)
+- [Technologies Used](#technologies-used)
+  * [Languages](#languages)
+  * [Libraries and other resources](#libraries-and-other-resources)
+- [Testing](#testing)
+- [Deployment](#deployment)
+  * [Local Deployment](#local-deployment)
+  * [Heroku](#heroku)
+  * [Google Maps API](#google-maps-api)
+  * [Email JS](#email-js)
+  * [Amazon WebServices](#amazon-webservices)
+- [Credits](#credits)
+- [Content](#content)
+- [Media](#media)
+- [Acknowledgements](#acknowledgements)
+
 <small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
 
 # Project Overview
@@ -516,11 +592,35 @@ The testing information and results for this project are documented in [TESTING.
 
 
 # Deployment
+## Local Deployment
+To run this project locally, you will need to clone the repository
+1. Login to GitHub (https://wwww.github.com)
+2. Select the repository pmeeny/CI-MS3-FootballMemories
+3. Click the Code button and copy the HTTPS url, for example: https://github.com/pmeeny/CI-MS3-FootballMemories.git
+4. In your IDE, open a terminal and run the git clone command, for example 
+
+```git clone https://github.com/pmeeny/CI-MS3-FootballMemories.git```
+
+5. The repository will now be cloned in your workspace
+6. Create an env.py file, and add in the following code with the relevant key, value pairs, and ensure you enter the correct key values
+<code>
+import os
+os.environ.setdefault("IP", TO BE ADDED BY USER)
+os.environ.setdefault("PORT", TO BE ADDED BY USER)
+os.environ.setdefault("SECRET_KEY", TO BE ADDED BY USER)
+os.environ.setdefault("MONGO_URI", TO BE ADDED BY USER)
+os.environ.setdefault("MONGO_DBNAME", TO BE ADDED BY USER)
+os.environ.setdefault("AWS_ACCESS_KEY_ID", TO BE ADDED BY USER)
+os.environ.setdefault("AWS_SECRET_ACCESS_KEY", TO BE ADDED BY USER)
+</code>
+7. Install the relevant packages as per the requirements.txt file
+8. Start the application by running <code>python3 app.py<code>
+
 ## Heroku
 To deploy this application to Heroku, run the following steps.
 1. In the app.py file, ensure that debug is not enabled, i.e set to True
-2. Create a file called ProcFile in the root directory, and add the line <code>web: python app.py</code>
-3. Create a requirements.txt file by running the command <code>pip freeze > requirements.txt</code> in your terminal
+2. Create a file called ProcFile in the root directory, and add the line <code>web: python app.py</code> if the file doesnt already exist
+3. Create a requirements.txt file by running the command <code>pip freeze > requirements.txt</code> in your terminal if the file doesnt already exist
 5. Both the ProcFile and requirements.txt files should be added to your git repo in the root directory
 6. Create an account on heroku.com
 7. Create a new application and give it a unique name
