@@ -71,7 +71,7 @@ def login():
                     request.form.get("username")))
                 # Redirect to users memories page
                 return redirect(url_for(
-                    "memories.get_user_memories",
+                    "memories.get_memories",
                     username=session["user"]))
             else:
                 # Invalid password match
