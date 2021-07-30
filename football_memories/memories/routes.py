@@ -245,7 +245,7 @@ def search():
                            memories=memories_paginated,
                            page=page,
                            per_page=per_page,
-                           pagination=pagination, user=user)
+                           pagination=pagination, user=user, query=query)
 
 
 @memories.route("/add_comment/<id>", methods=["POST"])
