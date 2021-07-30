@@ -15,7 +15,7 @@
                     <label for="tournament_name" class="form-label col-4">Tournament Name</label>
                     <div class="col-8">
                         <select id="tournament_name" name="tournament_name" class="validate form-control" required>
-                            <option disabled selected>Choose Tournament</option>
+                            <option value="" disabled hidden>Choose a tournament</option>
                                 {% for tournament in tournaments %}
                                     {% if tournament.tournament_name == memory.tournament_name %}
                                         <option value="{{ tournament.tournament_name }}" selected>{{ tournament.tournament_name }}</option>
@@ -30,7 +30,7 @@
                    <!-- Memory image and validation-->
                     <label for="memory_image" class="form-label col-4">Memory Image</label>
                     <div class="col-8">
-                        <input class="form-control validate" type="file" id="memory_image" name="memory_image" value="{{ memory.memory_image }}" required>
+                        <input class="form-control validate" type="file" id="memory_image" name="memory_image" required>
                         <div class="valid-feedback">
                             Looks good!
                         </div>

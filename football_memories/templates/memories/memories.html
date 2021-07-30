@@ -17,8 +17,8 @@
                         <h2 class="h2-header">Filters:</h2>
                     </div>
                     <div class="col-lg-11">
-                        <a type="button" class="btn btn-light phone-font" {% if selected == "get_user_memories" %} id="selected" {% endif %} href="{{ url_for('memories.get_user_memories') }}"> My Memories</a>
-                        <a type="button" class="btn btn-light phone-font"  {% if selected == "get_memories" %} id="selected" {% endif %} href="{{ url_for('memories.get_memories') }}"> All Memories</a>
+                        <a  class="btn btn-light phone-font" {% if selected == "get_user_memories" %} id="selected" {% endif %} href="{{ url_for('memories.get_user_memories') }}"> My Memories</a>
+                        <a class="btn btn-light phone-font"  {% if selected == "get_memories" %} id="selected" {% endif %} href="{{ url_for('memories.get_memories') }}"> All Memories</a>
                     </div>
                 </div>   
                 <!-- Search area and reset button-->   
@@ -28,12 +28,12 @@
                     </div> 
                     <div class="col-lg-9 col-md-12" id="search-bar">  
                         <form action="{{ url_for('memories.search') }}" method="POST">         
-                            <input class="form-control" type="text" aria-label="Search" name="query" id="query" minlength="3" class="validate" required>
+                            <input class="form-control validate" type="text" aria-label="Search" name="query" id="query" minlength="3" required>
                                 <div id="search-and-reset">
                                     <button type="submit" class="light-blue darken-1 btn text-shadow">
                                         <i class="fas fa-search left"></i> Search
                                     </button>
-                                    <a type="submit" class="btn btn-light phone-font" href="{{ url_for('memories.get_user_memories') }}">Reset</a>
+                                    <a class="btn btn-light phone-font" href="{{ url_for('memories.get_user_memories') }}">Reset</a>
                                 </div>    
                         </form>
                     </div> 
@@ -47,7 +47,7 @@
                         <div class="bg-white rounded shadow-sm" id="full-card">
                             <!-- Memory image -->
                             <a href="/get_memory/{{ memory._id }}">
-                                <img src="{{ memory.memory_image }}" alt="{{ memory.memory_name }}" class="img-fluid card-img-top"">
+                                <img src="{{ memory.memory_image }}" alt="{{ memory.memory_name }}" class="img-fluid card-img-top">
                             </a>
                             <!-- Memory details -->
                             <div class="p-4 memory-details">
@@ -63,35 +63,36 @@
                                     {% if (session.user|lower == memory.memory_created_by|lower) %}
                                         <!-- A user who created a memory can edit -->
                                         <div class="col-md-6 col-sm-12 center-div">
-                                            <a type="submit" id="edit_memory_button" class="btn btn-success light-green-one-btn" href="{{ url_for('memories.edit_memory', memory_id=memory._id) }}">Edit</a>
+                                            <a id="edit_memory_button" class="btn btn-success light-green-one-btn" href="{{ url_for('memories.edit_memory', memory_id=memory._id) }}">Edit</a>
                                         </div>
                                     {% endif %}
                                         <!-- An admin user who memory creator can delete a memory -->
                                         <div class="col-md-6 col-sm-12 center-div">
-                                            <button type="submit" id="delete_memory_button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteMemoryModal">Delete</button>
+                                            <button type="submit" id="delete_memory_button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteMemoryModal{{ memory._id }}">Delete</button>
+                                            <!-- Delete memory modal -->
+                                            <div class="modal fade" id="deleteMemoryModal{{ memory._id }}" tabindex="-1" aria-labelledby="deleteMemoryLabel" aria-hidden="true">
+                                                <div class="modal-dialog">
+                                                    <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h2 class="modal-title">Delete Memory</h2>
+                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        Are you sure you want to delete this memory?
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <!-- Close and delete memory buttons -->
+                                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                        <a href="{{ url_for('memories.delete_memory', memory_id=memory._id) }}" class="btn btn-primary light-green-one-btn">Delete Memory</a>
+                                                    </div>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>    
                                 {% endif %}
-                                <!-- Delete memory modal -->
-                                <div class="modal fade" id="deleteMemoryModal" tabindex="-1" aria-labelledby="deleteMemoryLabel" aria-hidden="true">
-                                    <div class="modal-dialog">
-                                        <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h2 class="modal-title" id="deleteMemoryLabel">Delete Memory</h2>
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                        </div>
-                                        <div class="modal-body">
-                                            Are you sure you want to delete this memory?
-                                        </div>
-                                        <div class="modal-footer">
-                                            <!-- Close and delete memory buttons -->
-                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                            <a href="{{ url_for('memories.delete_memory', memory_id=memory._id) }}" class="btn btn-primary">Delete Memory</a>
-                                        </div>
-                                        </div>
-                                    </div>
-                                </div>
+
                             </div>
                         </div>
                     </div>
@@ -109,8 +110,9 @@
                             {{ pagination.info }}  
                         </div>
                     </div>
-            </div>
-        </div>   
+                </div>
+            </div>  
+        </div>     
     </div>
 </div>
 {% endblock %}

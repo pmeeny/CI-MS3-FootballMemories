@@ -1,10 +1,6 @@
 {% extends "base.html" %}
 {% block title %}Memory{% endblock %}
 {% block content %}
-<head>
-    <!-- Polyfill needed for google maps api call -->
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
-</head>
 <div class="flex-wrapper-auth">
     <div class="container common-holder">
         <!-- Memory header -->
@@ -13,12 +9,12 @@
         </div>
         <!-- Memory information -->
         <div class="row">
-            <div class="col-md-6 col-sm-12"> 
+            <div class="col-md-6 col-sm-12 mt-3"> 
                 <!-- Memory image -->
                 <h2>Memory Image</h2>
                 <img src="{{ memory.memory_image }}" id="memory-image" alt="memory image" >
             </div>
-            <div class="col-md-6 col-sm-12"> 
+            <div class="col-md-6 col-sm-12 mt-3"> 
                 <!-- Memory stadium -->
                 <h2>Memory Stadium: {{ memory['memory_stadium'] }}</h2>
                 <div id="stadium" hidden>{{ memory['memory_stadium'] }}</div>
@@ -27,7 +23,7 @@
         </div>
         <!-- Memory description -->
         <div class="row">
-            <div class="col-md-6 col-sm-12">
+            <div class="col-md-6 col-sm-12 mt-3">
                 <h2>Details</h2>
                 <p class="p-dark">Memory Name: {{ memory['memory_name'] }}</p>
                 <p class="p-dark">Memory Description: {{ memory['memory_description'] }}</p> 
@@ -37,7 +33,7 @@
                 <p class="p-dark">Uploaded by: {{ memory['memory_created_by'] }}</p>   
                 <p class="p-dark">Date: {{ memory['memory_date'] }}</p> 
             </div>
-            <div class="col-md-6 col-sm-12">
+            <div class="col-md-6 col-sm-12 mt-3">
                 <!-- Rating, average rating and add rating -->
                 <h2>Ratings</h2>
                 <p class="p-dark">Average Rating: {{ average_rating }}</p> 
@@ -69,7 +65,7 @@
                 <div class="col-md-8">
                     <h2>Comments:</h2>
                     <div class="d-flex flex-column comment-section">
-                        <div class="bg-white p-2">
+                        <div class="bg-white p-1">
                             <!-- Display comments -->
                             {% for comment in comments %}
                                 <div class="d-flex flex-row user-info">
@@ -103,7 +99,7 @@
             </div>
         </div>
         <!-- Add comment form -->
-        <form method="POST" enctype="multipart/form-data" action="{{ url_for('memories.add_comment', id=memory['_id'] ) }}" class="needs-validation" novalidate>
+        <form method="POST" enctype="multipart/form-data" action="{{ url_for('memories.add_comment', id=memory['_id'] ) }}" class="needs-validation mt-3" novalidate>
             <div class="bg-light p-2">
                 <div class="d-flex flex-row align-items-start">
                     <label for="comment" hidden>Comment</label>
@@ -111,8 +107,8 @@
                 </div>
                 <div class="mt-2 text-right">
                     <button class="btn btn-primary light-green-one-btn" type="submit">Post comment</button>
-                    <a class="btn btn-danger" type="button" onclick="emptyCommentField()">Cancel</a>
-                </div
+                    <a class="btn btn-danger" onclick="emptyCommentField()">Cancel</a>
+                </div>
             </div>    
         </form>
     </div>    
@@ -120,5 +116,7 @@
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCWncKIaJ0_spPiZHLkwqIAhhgHqs-X0X4&libraries=&v=weekly"></script>
    <!-- Script javascript file -->
    <script src="{{ url_for('static', filename='js/memory.js') }}"></script>
+   <!-- Polyfill needed for google maps api call -->
+   <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
 </div>
 {% endblock %}
