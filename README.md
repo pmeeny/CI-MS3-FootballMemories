@@ -78,6 +78,7 @@ View the live site [here](https://ci-ms3-footballmemories.herokuapp.com/)
   * [Libraries and other resources](#libraries-and-other-resources)
 - [Testing](#testing)
 - [Deployment](#deployment)
+  * [Mongo Database](#mongo-database)
   * [Local Deployment](#local-deployment)
   * [Heroku](#heroku)
   * [Google Maps API](#google-maps-api)
@@ -592,6 +593,17 @@ The testing information and results for this project are documented in [TESTING.
 
 
 # Deployment
+## Mongo Database
+Mongodb is the database used in the application
+1. Create an account at mongodb
+2. Create a database cluster
+3. Select the cluster, and in the collections section create a database and create 5 collections under the database: memories, comments, ratings, tournaments, users
+![Database](football_memories/static/images/readme/database1.PNG)
+4. In the database access, create a user and allow the user read/write access. Note the username
+5. In the network access tab, allow netowrk access from the ip-address of the application connecting to the database
+6. In the Databases section click Connect, and select connet your application
+7. Note the MONGO_URI, MONGO_DBNAME and user, these parameters are used when deploying locally(env.py file) and deploying on the likes of heroku(config vars)
+
 ## Local Deployment
 To run this project locally, you will need to clone the repository
 1. Login to GitHub (https://wwww.github.com)
