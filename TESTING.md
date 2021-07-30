@@ -62,9 +62,23 @@ I used https://validator.w3.org/ to validate the html files
 
 Page | Result | Test Detail/Screenshot
 ------------ | ------------- | -------------
-index.html | Passed, No errors found | [Results](assets/images/testing/html-validation/index_html_validation.jpg)
-TBC
-TBC
+base.html | Passed, No errors found | [Results](/football_memories/static/images/html_validation/index_html_validation.PNG)
+administration/dashboard.html | Passed, No errors found | [Results](/football_memories/static/images/html_validation/index_html_validation.PNG)
+administration/index.html | Passed, No errors found | [Results](/football_memories/static/images/html_validation/index_html_validation.PNG)
+administration/privacy_policy.html | Passed, No errors found | [Results](/football_memories/static/images/html_validation/index_html_validation.PNG)
+administration/terms_and_conditions.html | Passed, No errors found | [Results](/football_memories/static/images/html_validation/index_html_validation.PNG)
+authentication/login.html | Passed, No errors found | [Results](/football_memories/static/images/html_validation/index_html_validation.PNG)
+authentication/profile.html | Passed, No errors found | [Results](/football_memories/static/images/html_validation/index_html_validation.PNG)
+authentication/register.html | Passed, No errors found | [Results](/football_memories/static/images/html_validation/index_html_validation.PNG)
+errors/404.html | Passed, No errors found | [Results](/football_memories/static/images/html_validation/index_html_validation.PNG)
+errors/500.html | Passed, No errors found | [Results](/football_memories/static/images/html_validation/index_html_validation.PNG)
+memories/add_memory.html | Passed, No errors found | [Results](/football_memories/static/images/html_validation/index_html_validation.PNG)
+memories/edit_memory.html | Passed, No errors found | [Results](/football_memories/static/images/html_validation/index_html_validation.PNG)
+memories/memories.html | Passed, No errors found | [Results](/football_memories/static/images/html_validation/index_html_validation.PNG)
+memories/memory.html | Passed, No errors found | [Results](/football_memories/static/images/html_validation/index_html_validation.PNG)
+tournaments/add_tournament.html | Passed, No errors found | [Results](/football_memories/static/images/html_validation/index_html_validation.PNG)
+tournaments/edit_tournament.html | Passed, No errors found | [Results](/football_memories/static/images/html_validation/index_html_validation.PNG)
+tournaments/tournament.html | Passed, No errors found | [Results](/football_memories/static/images/html_validation/index_html_validation.PNG)
 
 <br>
 
@@ -123,12 +137,11 @@ football_memories/templates/administration/terms_and_conditions.html  | 0 errors
 football_memories/templates/authentication/login.html | 0 errors and 0 contrast errors| [Results](/football_memories/static/images/wave_validation/wave_login.PNG)
 football_memories/templates/authentication/profile.html | 0 errors and 0 contrast errors| [Results](/football_memories/static/images/wave_validation/wave_profile.PNG)
 football_memories/templates/authentication/register.html | 0 errors and 0 contrast errors| [Results](/football_memories/static/images/wave_validation/wave_register.PNG)
-football_memories/templates/errors/404.html | 0 errors and 0 contrast errors|
-football_memories/templates/errors/500.html | 0 errors and 0 contrast errors|
+football_memories/templates/errors/404.html | 0 errors and 0 contrast errors| [Results](/football_memories/static/images/wave_validation/wave_404.PNG)
 football_memories/templates/memories/add_memory.html | 0 errors and 0 contrast errors| [Results](/football_memories/static/images/wave_validation/wave_add_memory.PNG)
 football_memories/templates/memories/edit_memory.html | 0 errors and 0 contrast errors| [Results](/football_memories/static/images/wave_validation/wave_edit_memory.PNG)
 football_memories/templates/memories/memories.html | 0 errors and 0 contrast errors| [Results](/football_memories/static/images/wave_validation/wave_memories.PNG)
-football_memories/templates/memories/memory.html | 0 errors and 0 contrast errors| [Results](/football_memories/static/images/wave_validation/wave_memory.PNG)
+football_memories/templates/memories/memory.html | 10 errors and 0 contrast errors (Note: These are within the google map so I cannot update/fix)| [Results](/football_memories/static/images/wave_validation/wave_memory.PNG)
 football_memories/templates/tournaments/add_tournament.html | 0 errors and 0 contrast errors| [Results](/football_memories/static/images/wave_validation/wave_add_tournament.PNG)
 football_memories/templates/tournaments/edit_tournament.html | 0 errors and 0 contrast errors| [Results](/football_memories/static/images/wave_validation/wave_edit_tournament.PNG)
 football_memories/templates/tournaments/tournament.html | 0 errors and 0 contrast errors| [Results](/football_memories/static/images/wave_validation/wave_tournaments.PNG)
