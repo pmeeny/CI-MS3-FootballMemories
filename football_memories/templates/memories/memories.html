@@ -17,8 +17,8 @@
                         <h2 class="h2-header">Filters:</h2>
                     </div>
                     <div class="col-lg-11">
-                        <a  class="btn btn-light phone-font" {% if selected == "get_user_memories" %} id="selected" {% endif %} href="{{ url_for('memories.get_user_memories') }}"> My Memories</a>
                         <a class="btn btn-light phone-font"  {% if selected == "get_memories" %} id="selected" {% endif %} href="{{ url_for('memories.get_memories') }}"> All Memories</a>
+                        <a  class="btn btn-light phone-font" {% if selected == "get_user_memories" %} id="selected" {% endif %} href="{{ url_for('memories.get_user_memories') }}"> My Memories</a>
                     </div>
                 </div>   
                 <!-- Search area and reset button-->   
@@ -28,12 +28,12 @@
                     </div> 
                     <div class="col-lg-9 col-md-12" id="search-bar">  
                         <form action="{{ url_for('memories.search') }}" method="POST">         
-                            <input class="form-control validate" type="text" aria-label="Search" name="query" id="query" minlength="3" required>
+                            <input class="form-control validate" type="text" aria-label="Search" name="query" id="query" minlength="3" required value="{{query}}">
                                 <div id="search-and-reset">
                                     <button type="submit" class="light-blue darken-1 btn text-shadow">
                                         <i class="fas fa-search left"></i> Search
                                     </button>
-                                    <a class="btn btn-light phone-font" href="{{ url_for('memories.get_user_memories') }}">Reset</a>
+                                    <a class="btn btn-light phone-font" href="{{ url_for('memories.get_memories') }}">Reset</a>
                                 </div>    
                         </form>
                     </div> 
