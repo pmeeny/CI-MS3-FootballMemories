@@ -2,90 +2,98 @@
 {% block title %}Register{% endblock %}
 {% block nav_register %}active{% endblock %}
 {% block content %}
-
-<body class="hero-image flex-wrapper-auth">
+<div class="flex-wrapper-auth">
     <div class="container-fluid reg-holder">
+        <!-- Register profile header-->
         <div class="h1-header">   
             <h1 id="register_text">Register</h1>
         </div> 
+        <!-- Register profile form-->
         <div class="common-body">
             <form method="POST" action="{{ url_for('authentication.register') }}" class="needs-validation" id="reg-form"  onchange="validateUserNameAndPassword()" novalidate>
                 <div class="row mt-3 form-group">
-                        <label for="username" class="form-label col-4">Username</label>
-                        <div class="col-8">
+                    <!-- Username field and validation-->
+                    <label for="username" class="form-label col-4">Username</label>
+                    <div class="col-8">
                         <input class="form-control" id="username" name="username" type="text" aria-describedby="username" required>
-                            <div id="username_help" class="form-text">
-                                Your username must be a minimum of 6 characters and contain at least one lowercase letter, with no special characters
-                            </div>
-                            <div class="valid-feedback">
-                                Looks good!
-                            </div>
-                            <div class="invalid-feedback">
-                                The username entered does not meet the required format
-                            </div>
+                        <div id="username_help" class="form-text">
+                            Your username must be a minimum of 6 characters and contain at least one lowercase letter, with no special characters
                         </div>
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>
+                        <div class="invalid-feedback">
+                            The username entered does not meet the required format
+                        </div>
+                    </div>
                 </div>
                 <div class="row mt-3 form-group">
-                        <label for="password" class="form-label col-4">Password</label>
-                        <div class="col-8">
-                            <input type="password" class="form-control" id="password" name="password" required>
-                            <div id="password_help" class="form-text">
-                                Your password must be a minimum of 6 characters and contain least one number, one lowercase and one uppercase letter, with no special characters
-                            </div>
-                            <div class="valid-feedback">
-                                Looks good!
-                            </div>
-                            <div class="invalid-feedback">
-                                The password entered does not meet the required format
-                            </div>
+                    <!-- Password field and validation-->
+                    <label for="password" class="form-label col-4">Password</label>
+                    <div class="col-8">
+                        <input type="password" class="form-control" id="password" name="password" required>
+                        <div id="password_help" class="form-text">
+                            Your password must be a minimum of 6 characters and contain least one number, one lowercase and one uppercase letter, with no special characters
                         </div>
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>
+                        <div class="invalid-feedback">
+                            The password entered does not meet the required format
+                        </div>
+                    </div>
                 </div>   
                 <div class="row mt-3 form-group">
-                        <label for="confirm-password" class="form-label col-4">Confirm Password</label>
-                        <div class="col-8">
-                            <input type="password" class="form-control" id="confirm-password" name="confirm-password" required>
-                            <div class="invalid-feedback">
-                                Your passwords must match
-                            </div>
+                    <!-- Confirm Password field and validation-->
+                    <label for="confirm-password" class="form-label col-4">Confirm Password</label>
+                    <div class="col-8">
+                        <input type="password" class="form-control" id="confirm-password" name="confirm-password" required>
+                        <div class="invalid-feedback">
+                            Your passwords must match
                         </div>
+                    </div>
                 </div>  
                 <div class="row mt-3 form group">
-                        <label for="first_name" class="form-label col-4">First Name</label>
-                        <div class="col-8">
-                            <input class="form-control" id="first_name" name="first_name" type="text" required>
-                            <div class="valid-feedback">
-                                Looks good!
-                            </div>
-                            <div class="invalid-feedback">
-                                Please enter a first name
-                            </div>
-                        </div>    
+                    <!-- First name field and validation-->
+                    <label for="first_name" class="form-label col-4">First Name</label>
+                    <div class="col-8">
+                        <input class="form-control" id="first_name" name="first_name" type="text" required>
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>
+                        <div class="invalid-feedback">
+                            Please enter a first name
+                        </div>
+                    </div>    
                 </div>
                 <div class="row mt-3 form group">
-                        <label for="last_name" class="form-label col-4">Last Name</label>
-                        <div class="col-8">
-                            <input type="text" class="form-control" id="last_name" name="last_name" required>
-                            <div class="valid-feedback">
-                                Looks good!
-                            </div>
-                            <div class="invalid-feedback">
-                                Please enter a last name
-                            </div>
-                        </div>    
+                    <!-- Last name field and validation-->
+                    <label for="last_name" class="form-label col-4">Last Name</label>
+                    <div class="col-8">
+                        <input type="text" class="form-control" id="last_name" name="last_name" required>
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>
+                        <div class="invalid-feedback">
+                            Please enter a last name
+                        </div>
+                    </div>    
+                </div>  
+                <div class="row mt-3 form group">
+                    <!-- Favourite team field and validation-->
+                    <label for="favourite_team" class="form-label col-4">Favourite Team</label>
+                    <div class="col-8">
+                        <input class="form-control" id="favourite_team" name="favourite_team" type="text" aria-describedby="favourite_team" required>
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>
+                        <div class="invalid-feedback">
+                            Please enter a favourite team
+                        </div>
+                    </div>    
                 </div>
                 <div class="row mt-3 form group">
-                        <label for="favourite_team" class="form-label col-4">Favourite Team</label>
-                        <div class="col-8">
-                            <input class="form-control" id="favourite_team" name="favourite_team" type="text" aria-describedby="favourite_team" required>
-                            <div class="valid-feedback">
-                                Looks good!
-                            </div>
-                            <div class="invalid-feedback">
-                                Please enter a favourite team
-                            </div>
-                        </div>    
-                </div>
-                <div class="row mt-3 form group">
+                    <!-- Country field and validation-->
                     <label for="country" class="form-label col-4">Your Country</label>
                     <div class="col-8">
                         <input class="form-control" name="country" id="country" list="countryOptions" placeholder="Type to search....." required>
@@ -95,7 +103,8 @@
                         <div class="invalid-feedback">
                             Please enter a country
                         </div>
-                            <datalist id="countryOptions">
+                            <!-- Country list-->
+                        <datalist id="countryOptions">
                                 <option value="Afganistan">Afganistan</option>
                                 <option value="Albania">Albania</option>
                                 <option value="Algeria">Algeria</option>
@@ -342,14 +351,15 @@
                                 <option value="Zaire">Zaire</option>
                                 <option value="Zambia">Zambia</option>
                                 <option value="Zimbabwe">Zimbabwe</option>
-                            </datalist>
-                        </div>    
-                </div> 
+                        </datalist>
+                    </div>    
+                </div>
+                <!-- Register submit button-->
                 <div class="submit-holder">
                     <button type="submit" class="btn btn-primary light-green-one-btn btn-account">Register</button> 
                 </div>                
             </form> 
         </div>           
     </div>
-</body>
+</div>
 {% endblock %}

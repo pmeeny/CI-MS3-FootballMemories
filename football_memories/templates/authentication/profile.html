@@ -2,34 +2,39 @@
 {% block title %}Profile{% endblock %}
 {% block nav_profile %}active{% endblock %}
 {% block content %}
-<body class="hero-image flex-wrapper">
+<div class="flex-wrapper">
     <div class="container-fluid reg-holder">
+        <!-- Edit profile header-->
         <div class="reg-header">   
             <h1 id="register_text">Edit Profile</h1>
         </div> 
+        <!-- Edit profile form-->
         <div class="reg-body">
             <form method="POST" action="{{ url_for('authentication.update_profile', username=username) }}" class="needs-validation" id="profile-form" onchange="validateUserNameAndPassword()" novalidate>
+                <!-- Username field, readonly field-->
                 <div class="row mt-3 form-group">
                     <label for="username" class="form-label col-4">Username</label>
                     <div class="col-8">
                         <input type="username" class="form-control" id="username" name="username" value="{{ user.username }}" readonly>
                     </div>
                 </div>
+                <!-- Password field with validation feedback-->
                 <div class="row mt-3 form-group">
-                        <label for="password" class="form-label col-4">Password</label>
-                        <div class="col-8">
-                            <input type="password" class="form-control" id="password" name="password" required>
-                            <div id="password_help" class="form-text">
-                                Your password must be a minimum of 6 characters and contain least one number, one lowercase and one uppercase letter, with no special characters
-                            </div>
-                            <div class="valid-feedback">
-                                Looks good!
-                            </div>
-                            <div class="invalid-feedback">
-                                The password entered does not meet the required format
-                            </div>
+                    <label for="password" class="form-label col-4">Password</label>
+                    <div class="col-8">
+                        <input type="password" class="form-control" id="password" name="password" required>
+                        <div id="password_help" class="form-text">
+                            Your password must be a minimum of 6 characters and contain least one number, one lowercase and one uppercase letter, with no special characters
                         </div>
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>
+                        <div class="invalid-feedback">
+                            The password entered does not meet the required format
+                        </div>
+                    </div>
                 </div>
+                <!-- Confirm Password field with validation feedback-->
                 <div class="row mt-3 form-group">
                         <label for="confirm-password" class="form-label col-4">Confirm Password</label>
                         <div class="col-8">
@@ -39,42 +44,46 @@
                             </div>
                         </div>
                 </div>
+                <!-- First name field with validation feedback-->
                 <div class="row mt-3 form group">
-                        <label for="first_name" class="form-label col-4">First Name</label>
-                        <div class="col-8">
-                            <input class="form-control" id="first_name" name="first_name" type="text" value="{{ user.first_name }}" required>
-                       <div class="valid-feedback">
-                                Looks good!
-                            </div>
-                            <div class="invalid-feedback">
-                                Please enter a first name
-                            </div>
+                    <label for="first_name" class="form-label col-4">First Name</label>
+                    <div class="col-8">
+                        <input class="form-control" id="first_name" name="first_name" type="text" value="{{ user.first_name }}" required>
+                        <div class="valid-feedback">
+                            Looks good!
                         </div>
+                        <div class="invalid-feedback">
+                            Please enter a first name
+                        </div>
+                    </div>
                 </div>
+                <!-- Last name field with validation feedback-->
                 <div class="row mt-3 form group">
-                        <label for="last_name" class="form-label col-4">Last Name</label>
-                        <div class="col-8">
-                            <input type="text" class="form-control" id="last_name" name="last_name" value="{{ user.last_name }}"  required>
-                            <div class="valid-feedback">
-                                Looks good!
-                            </div>
-                            <div class="invalid-feedback">
-                                Please enter a last name
-                            </div>
+                    <label for="last_name" class="form-label col-4">Last Name</label>
+                    <div class="col-8">
+                        <input type="text" class="form-control" id="last_name" name="last_name" value="{{ user.last_name }}"  required>
+                        <div class="valid-feedback">
+                            Looks good!
                         </div>
+                        <div class="invalid-feedback">
+                            Please enter a last name
+                        </div>
+                    </div>
                 </div>
+                <!-- Favourite team field with validation feedback-->
                 <div class="row mt-3 form group">
-                        <label for="favourite_team" class="form-label col-4">Favourite Team</label>
-                        <div class="col-8">
-                            <input class="form-control" id="favourite_team" name="favourite_team" type="text" aria-describedby="favourite_team" value="{{ user.favourite_team }}" required>
-                            <div class="valid-feedback">
-                                Looks good!
-                            </div>
-                            <div class="invalid-feedback">
-                                Please enter a favourite team
-                            </div>
+                    <label for="favourite_team" class="form-label col-4">Favourite Team</label>
+                    <div class="col-8">
+                        <input class="form-control" id="favourite_team" name="favourite_team" type="text" aria-describedby="favourite_team" value="{{ user.favourite_team }}" required>
+                        <div class="valid-feedback">
+                            Looks good!
                         </div>
+                        <div class="invalid-feedback">
+                            Please enter a favourite team
+                        </div>
+                    </div>
                 </div>
+                <!-- Country field with validation feedback-->
                 <div class="row mt-3 form group">
                     <label for="country" class="form-label col-4">Your Country</label>
                     <div class="col-8">
@@ -85,6 +94,7 @@
                         <div class="invalid-feedback">
                             Please enter a country
                         </div>
+                            <!-- Country list -->
                             <datalist id="countryOptions">
                                 <option value="Afganistan">Afganistan</option>
                                 <option value="Albania">Albania</option>
@@ -333,42 +343,44 @@
                                 <option value="Zambia">Zambia</option>
                                 <option value="Zimbabwe">Zimbabwe</option>
                             </datalist>
-                        </div>
+                    </div>
                 </div>
+                <!-- Save changes-->
                 <div class="submit-holder">
                     <button type="submit" class="btn btn-primary light-green-one-btn">Save Changes</button>
                 </div>
             </form>
+            <!-- If the user is a regular user, we allow them to delete their profile-->
             {% if (user.user_type == "regular_user") %}
             <div id="delete_profile_holder">
                 <div>
                     <h2 id="delete_profile_text">Delete Profile</h2>
                 </div>   
                 <div id="delete_profile_btn">
-                <!-- <a class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteUser{{username}}">Delete</a> -->
-                <a class="btn btn-danger" href="{{ url_for('authentication.delete_profile', username=username) }}">Delete Profile</a>
+                    <!-- <a class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteUser{{username}}">Delete</a> -->
+                    <a class="btn btn-danger" href="{{ url_for('authentication.delete_profile', username=username) }}">Delete Profile</a>
                 </div>   
-                                                    <!-- Modal 
-                                                    <div class="modal fade" id="deleteUser{{username}}" tabindex="-1" aria-labelledby="deleteAccountLabel" aria-hidden="true">
-                                                        <div class="modal-dialog">
-                                                            <div class="modal-content">
-                                                            <div class="modal-header">
-                                                                <h2 class="modal-title" id="deleteAccountLabel">Delete my account</h2>
-                                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                            </div>
-                                                            <div class="modal-body">
-                                                                Are you sure you want to delete your account?
-                                                            </div>
-                                                            <div class="modal-footer">
-                                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                                                <a href="{{ url_for('authentication.delete_profile', username=username) }}" class="btn btn-danger">Delete my Account</a>
-                                                            </div>
-                                                            </div>
-                                                        </div>
-                                                    </div> -->
-                </div>
+                    <!-- Modal 
+                        <div class="modal fade" id="deleteUser{{username}}" tabindex="-1" aria-labelledby="deleteAccountLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h2 class="modal-title" id="deleteAccountLabel">Delete my account</h2>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                   <div class="modal-body">
+                                     Are you sure you want to delete your account?
+                                            </div>
+                                       <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                           <a href="{{ url_for('authentication.delete_profile', username=username) }}" class="btn btn-danger">Delete my Account</a>
+                                       </div>
+                                   </div>
+                                 </div>
+                              </div> -->
+            </div>
             {% endif %}                                        
         </div>         
     </div>
-</body>
+</div>
 {% endblock %}

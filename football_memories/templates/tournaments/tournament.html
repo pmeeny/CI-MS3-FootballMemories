@@ -2,11 +2,13 @@
 {% block title %}Tournaments{% endblock %}
 {% block nav_tournaments %}active{% endblock %}
 {% block content %}
-<body class="hero-image flex-wrapper">
+<div class="hero-image flex-wrapper">
+    <!-- Tournament header -->
     <div class="container common-holder">
         <div class="h1-header">   
             <h1>Tournaments</h1>
         </div>
+        <!-- Add Tournament, once the user is an admin user  -->
         {% if (user.user_type == "admin_user") %}
         <div class="row" id="add_tournament">
             <div class="col-12">
@@ -15,57 +17,60 @@
             </div>
         </div>
         {% endif %}
-
         <div class="container">
             <div class="row">
+                <!-- Display each tournament, three tournaments per page -->
                 {% for tournament in tournaments %}
                 <div class="col col-lg-4 col-md-6 mb-4">
-                        <div class="card">
-                            <img id="tournament-image" src={{tournament.tournament_image}}  alt="{{ tournament.tournament_name }}">           
-                            <div class="card-body">
-                                <h2 class="card-title">{{ tournament.tournament_name }}</h2>
-                            </div>
-                            {% if (user.user_type == "admin_user") %}
-                            <div class="card-action">
-                                <a href="{{ url_for('tournaments.edit_tournament', tournament_id=tournament._id) }}" class="btn btn-primary light-green-one-btn">Edit</a>
-                                <a class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteTournamentModal{{tournament._id}}">Delete</a>
-                            </div>
-                            {% endif %}
+                    <div class="card">
+                        <!-- Tournament image -->  
+                        <img id="tournament-image" src={{tournament.tournament_image}}  alt="{{ tournament.tournament_name }}">  
+                        <!-- Tournament name -->         
+                        <div class="card-body">
+                            <h2 class="card-title">{{ tournament.tournament_name }}</h2>
                         </div>
-                    </div>    
-                                        <!-- Modal -->
+                        <!-- An admin user can edit or delete a tournament -->  
+                        {% if (user.user_type == "admin_user") %}
+                        <div class="card-action">
+                            <a href="{{ url_for('tournaments.edit_tournament', tournament_id=tournament._id) }}" class="btn btn-primary light-green-one-btn">Edit</a>
+                            <a class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteTournamentModal{{tournament._id}}">Delete</a>
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>    
+                <!-- Delete tournament modal -->
                 <div class="modal fade" id="deleteTournamentModal{{tournament._id}}" tabindex="-1" aria-labelledby="deleteTournamentLabel" aria-hidden="true">
                     <div class="modal-dialog">
                         <div class="modal-content">
-                        <div class="modal-header">
-                            <h2 class="modal-title" id="deleteTournamentLabel">Delete Tournament</h2>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            Are you sure you want to delete this tournament?
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <a href="{{ url_for('tournaments.delete_tournament', tournament_id=tournament._id) }}" class="btn btn-primary light-green-one-btn">Delete Tournament</a>
-                        </div>
+                            <div class="modal-header">
+                                <h2 class="modal-title" id="deleteTournamentLabel">Delete Tournament</h2>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                Are you sure you want to delete this tournament?
+                            </div>
+                            <div class="modal-footer">
+                                <!-- Close and delete tournament buttons-->
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <a href="{{ url_for('tournaments.delete_tournament', tournament_id=tournament._id) }}" class="btn btn-primary light-green-one-btn">Delete Tournament</a>
+                            </div>
                         </div>
                     </div>
                 </div>
                 {% endfor %}
             </div>
-
+            <!-- Pagination -->
             <div class="container">
-                    <div class="row d-flex align-items-center justify-content-between rounded-pill bg-light py-2 mt-4">
-                        <div class="col-md-6 col-sm-12">
-                            {{ pagination.links }} 
-                        </div>
-                        <div class="col-md-6 col-sm-12" id="pagin-info">
-                            {{ pagination.info }}  
-                        </div>
+                <div class="row d-flex align-items-center justify-content-between rounded-pill bg-light py-2 mt-4">
+                    <div class="col-md-6 col-sm-12">
+                        {{ pagination.links }} 
                     </div>
+                    <div class="col-md-6 col-sm-12" id="pagin-info">
+                        {{ pagination.info }}  
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-</body>
-
+</div>
 {% endblock %}

@@ -1,14 +1,17 @@
 {% extends "base.html" %}
 {% block title %}Add Tournament{% endblock %}
 {% block content %}
-<body class="hero-image flex-wrapper">
+<div class="flex-wrapper">
     <div class="container common-holder common-holder-width">
+        <!-- Add tournament header -->
         <div class="h1-header">   
             <h1>Add Tournament</h1>
         </div>
         <div class="common-body">
+            <!-- Add tournament form -->
             <form  method="POST" enctype="multipart/form-data"  action="{{ url_for('tournaments.add_tournament') }}"  class="needs-validation" novalidate>
                 <div class="row mt-3 form-group">
+                    <!-- Tournament name with validation -->
                     <label for="tournament_name" class="form-label col-4">Tournament Name</label>
                     <div class="col-8">
                         <input class="form-control" id="tournament_name" name="tournament_name" type="text" aria-describedby="tournament_name" required>
@@ -17,10 +20,11 @@
                         </div>
                         <div class="valid-feedback">
                             Looks good!
-                            </div>
+                        </div>
                     </div>
                 </div> 
                 <div class="row mt-3 form-group">
+                    <!-- Tournament image with validation -->
                     <label for="tournament_image" class="form-label col-4">Tournament Image</label>
                     <div class="col-8">
                         <input class="form-control validate" type="file" id="tournament_image" name="tournament_image" aria-describedby="tournament_image" required accept="image/*">
@@ -32,10 +36,10 @@
                         </div>
                         <div class="valid-feedback">
                             Looks good!
-                            </div>
+                        </div>
                     </div>
                 </div>                   
-                <!-- submit button -->
+                <!-- submit and cancel buttons -->
                 <div class="submit-holder">
                     <a href="{{ url_for('tournaments.get_tournaments') }}" class="btn btn-danger">Cancel</a>
                     <button type="submit" class="btn btn-primary light-green-one-btn">Add Tournament</button>
@@ -43,5 +47,5 @@
             </form>
         </div>
     </div>
-</body>
+</div>
 {% endblock %}

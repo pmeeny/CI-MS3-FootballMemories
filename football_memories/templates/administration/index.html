@@ -3,7 +3,7 @@
 {% block nav_home %}active{% endblock %}
 {% block content %}
 <!-- Hero image -->
-<body class="hero-image">
+<div>
     <div class="container-fluid">
         <div class="row">
             <div class="col-12">
@@ -14,7 +14,7 @@
                     <p>A football memory contains an image, description, date, stadium and tournament name.</p>
                     <p>If you are a new user click Register. Existing users can login by clicking the Login button</p>
                     <!-- Login and Register buttons -->
-                    <div class=""> 
+                    <div> 
                         <a href="{{ url_for('authentication.register') }}" class="btn btn-primary btn-account dark-green-one-btn">Register</a>
                         <a href="{{ url_for('authentication.login') }}"  class="btn btn-primary btn-account light-green-one-btn">Login</a>    
                     </div>
@@ -43,5 +43,5 @@
             </div>   
         </div>
     </div>    
-</body>   
+</div>   
 {% endblock %}

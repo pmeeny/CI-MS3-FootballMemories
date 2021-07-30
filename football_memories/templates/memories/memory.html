@@ -5,17 +5,21 @@
     <!-- Polyfill needed for google maps api call -->
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
 </head>
-<body class="hero-image flex-wrapper-auth">
+<div class="flex-wrapper-auth">
     <div class="container common-holder">
+        <!-- Memory header -->
         <div class="h1-header">   
             <h1>Memory</h1>
         </div>
+        <!-- Memory information -->
         <div class="row">
             <div class="col-md-6 col-sm-12"> 
+                <!-- Memory image -->
                 <h2>Memory Image</h2>
                 <img src="{{ memory.memory_image }}" id="memory-image" alt="memory image" >
             </div>
             <div class="col-md-6 col-sm-12"> 
+                <!-- Memory stadium -->
                 <h2>Memory Stadium: {{ memory['memory_stadium'] }}</h2>
                 <div id="stadium" hidden>{{ memory['memory_stadium'] }}</div> 
                 <div class="container">
@@ -23,6 +27,7 @@
                 </div>
             </div>      
         </div>
+        <!-- Memory description -->
         <div class="row">
             <div class="col-md-6 col-sm-12">
                 <h2>Details</h2>
@@ -35,6 +40,7 @@
                 <p class="p-dark">Date: {{ memory['memory_date'] }}</p> 
             </div>
             <div class="col-md-6 col-sm-12">
+                <!-- Rating, average rating and add rating -->
                 <h2>Ratings</h2>
                 <p class="p-dark">Average Rating: {{ average_rating }}</p> 
                 <div id="ratings">
@@ -50,6 +56,7 @@
                                 <option value="1">1</option>
                             </select>
                         </div>
+                        <!-- Submit rating button-->
                         <div class="col-6">
                             <button class="btn btn-primary light-green-one-btn" type="submit">Submit Rating</button>
                         </div>
@@ -58,30 +65,33 @@
                 </div>
             </div>
         </div>
+        <!-- Comments section -->
         <div class="container mt-5">
             <div class="d-flex row">
                 <div class="col-md-8">
                     <h2>Comments:</h2>
                     <div class="d-flex flex-column comment-section">
                         <div class="bg-white p-2">
+                            <!-- Display comments -->
                             {% for comment in comments %}
                                 <div class="d-flex flex-row user-info">
                                     <div class="d-flex flex-column justify-content-start ml-2">
+                                        <!-- Comment text -->
                                         <div class="mt-2 comment-text">
                                             {{ comment.comment_text }}
                                         </div> 
+                                        <!-- Comment created by and date information -->
                                         <span class="d-block font-weight-bold name">Posted by: {{ comment.comment_created_by }}</span>
                                         <span class="date text-black-50">Date: {{ comment.comment_date }}</span>
                                     </div>
                                 </div>   
                             {% endfor %}
- 
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>
+        <!-- Pagination -->
         <div class="container">
             <div class="row">
                 <div class="d-flex align-items-center justify-content-between rounded-pill bg-light px-3 py-2 mt-4 row">
@@ -94,6 +104,7 @@
                 </div>
             </div>
         </div>
+        <!-- Add comment form -->
         <form method="POST" enctype="multipart/form-data" action="{{ url_for('memories.add_comment', id=memory['_id'] ) }}" class="needs-validation" novalidate>
             <div class="bg-light p-2">
                 <div class="d-flex flex-row align-items-start">
@@ -106,9 +117,10 @@
                 </div
             </div>    
         </form>
+    </div>    
     <!-- Google maps api javascript file -->
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCWncKIaJ0_spPiZHLkwqIAhhgHqs-X0X4&libraries=&v=weekly"></script>
    <!-- Script javascript file -->
    <script src="{{ url_for('static', filename='js/memory.js') }}"></script>
-</body>
+</div>
 {% endblock %}

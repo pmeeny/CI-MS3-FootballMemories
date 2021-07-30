@@ -2,13 +2,16 @@
 {% block title %}Login{% endblock %}
 {% block nav_login %}active{% endblock %}
 {% block content %}
-<body class="hero-image flex-wrapper-auth">
+<div class="flex-wrapper-auth">
     <div class="container login-holder">
+        <!-- Login header-->
         <div class="h1-header">   
             <h1>Log In</h1>
         </div>
+        <!-- Login form-->
         <div class="common-body">
             <form method="POST" action="{{ url_for('authentication.login') }}" class="needs-validation" novalidate>
+                <!-- Username field-->
                 <div class="row mt-3 form group">
                     <label for="username" class="form-label col-4">Username</label>
                     <div class="col-8">
@@ -21,6 +24,7 @@
                         </div>
                     </div>    
                 </div>
+                <!-- Password field-->
                 <div class="row mt-3 form group">
                     <label for="password" class="form-label col-4">Password</label>
                     <div class="col-8">
@@ -33,14 +37,15 @@
                         </div>
                     </div>    
                 </div>
+                <!-- Login submit button-->
                 <div class="submit-holder">
                     <button type="submit" class="btn btn-primary btn-account light-green-one-btn">Log In</button>
                 </div>
             </form>
         </div>
-
         <div class="row">
             <div class="col s12">
+                <!-- Register account link-->
                 <p class="center-align p-dark" id="new-here-section">
                     New Here?
                     <a href="{{ url_for('authentication.register') }}" class="light-green-one-text-link">Register Account</a>
@@ -48,5 +53,5 @@
             </div>
         </div>
     </div>    
-</body>
+</div>
 {% endblock %}

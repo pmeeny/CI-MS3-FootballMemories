@@ -2,14 +2,16 @@
 {% block title %}Dashboard{% endblock %}
 {% block nav_dashboard %}active{% endblock %}
 {% block content %}
-<body class="hero-image flex-wrapper">
-    
+<div class="flex-wrapper"> 
     <div class="container common-holder">
+        <!-- Reporting dashboard header-->
         <div class="h1-header">   
             <h1>Reporting Dashboard</h1>
         </div>
+        <!-- Reporting dashboard five cards -->
         <div class="row">
             <p class="p-dark text-align-center">Here are some statistics regarding the number of users, memories and comments</p>
+            <!-- Number of users -->
             <div class="col col-lg-4 col-md-6 mb-4">
                 <div class="card">
                     <div class="card-body">
@@ -20,6 +22,7 @@
                     </div>
                 </div>
             </div>
+            <!-- Number of tournaments -->
             <div class="col col-lg-4 col-md-6 mb-4">
                 <div class="card">
                     <div class="card-body">
@@ -30,6 +33,7 @@
                     </div>
                 </div>
             </div>   
+            <!-- Number of memories -->
             <div class="col col-lg-4 col-md-6 mb-4">
                 <div class="card">
                     <div class="card-body">
@@ -40,6 +44,7 @@
                     </div>
                 </div>
             </div>
+            <!-- Number of comments -->
             <div class="col col-lg-4 col-md-6 mb-4">
                 <div class="card">
                     <div class="card-body">
@@ -50,6 +55,7 @@
                     </div>
                 </div>
             </div> 
+            <!-- Number of ratings -->
             <div class="col col-lg-4 col-md-6 mb-4">
                 <div class="card">
                     <div class="card-body">
@@ -62,6 +68,5 @@
             </div>      
         </div>
     </div>
-</body>
-
+</div>
 {% endblock %}

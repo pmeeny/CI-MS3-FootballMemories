@@ -2,13 +2,16 @@
 {% block title %}Add Memory{% endblock %}
 {% block nav_add_memory %}active{% endblock %}
 {% block content %}
-<body class="hero-image flex-wrapper">
+<div class="flex-wrapper">
     <div class="container common-holder common-holder-width">
+        <!-- Add Memory header-->
         <div class="h1-header">   
             <h1>Add Memory</h1>
         </div>
+        <!-- Add Memory form-->
         <div class="common-body">
             <form method="POST" enctype="multipart/form-data" action="{{ url_for('memories.add_memory') }}" class="needs-validation" novalidate>
+                <!-- Tournament name, display dropdown of tournaments-->
                 <div class="row mt-3 form-group">
                     <label for="tournament_name" class="form-label col-4">Tournament Name</label>
                     <div class="col-8">
@@ -20,6 +23,7 @@
                         </select>
                     </div>    
                 </div> 
+                <!-- Memory image and validation-->
                <div class="row mt-3 form-group">
                     <label for="memory_image" class="form-label col-4">Memory Image</label>
                     <div class="col-8">
@@ -32,34 +36,37 @@
                         </div>
                     </div>
                 </div>
+                <!-- Memory name and validation-->
                 <div class="row mt-3 form-group">
                     <label for="memory_name" class="form-label col-4">Memory Name</label>
                     <div class="col-8">
                         <input class="form-control" id="memory_name" name="memory_name" type="text" aria-describedby="memory_name" required>
-                            <div class="valid-feedback">
-                                Looks good!
-                            </div>
-                            <div class="invalid-feedback">
-                                Please enter a memory name
-                            </div>
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>
+                        <div class="invalid-feedback">
+                            Please enter a memory name
+                        </div>
                     </div>
                 </div> 
+                <!-- Memory description(textarea) and validation-->
                 <div class="row mt-3 form-group">
                     <label for="memory_description" class="form-label col-4">Memory Description</label>
                     <div class="col-8">
                         <textarea class="form-control" id="memory_description" name="memory_description" rows="3" required></textarea>
-                            <div class="valid-feedback">
-                                Looks good!
-                            </div>
-                            <div class="invalid-feedback">
-                                Please enter a memory description
-                            </div>
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>
+                        <div class="invalid-feedback">
+                            Please enter a memory description
+                        </div>
                     </div>
                 </div>
+                <!-- Date and validation-->
                 <div class="row mt-3 form-group">
                     <label for="memory_date" class="col-4 col-form-label">Date</label>
                     <div class="col-8">
-                    <input class="form-control" type="date" id="memory_date" name="memory_date" required> 
+                        <input class="form-control" type="date" id="memory_date" name="memory_date" required> 
                         <div class="valid-feedback">
                             Looks good!
                         </div>
@@ -67,7 +74,8 @@
                             Please enter a memory date
                         </div>
                     </div>
-                </div>              
+                </div>     
+                <!-- Stadium and validation-->         
                 <div class="row mt-3 form-group">
                     <label for="memory_stadium" class="col-4 col-form-label">Stadium</label>
                     <div class="col-8">
@@ -80,7 +88,7 @@
                         </div>
                     </div>
                 </div> 
-                <!-- submit button -->
+                <!-- Submit and cancel button -->
                 <div class="submit-holder">
                     <a href="{{ url_for('memories.get_user_memories') }}" class="btn btn-danger">Cancel</a>
                     <button type="submit" class="btn btn-primary light-green-one-btn">Add Memory</button>
@@ -88,5 +96,5 @@
             </form>
         </div>
     </div>    
-</body>     
+</div>     
 {% endblock %}

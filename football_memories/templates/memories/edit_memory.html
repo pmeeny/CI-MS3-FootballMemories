@@ -1,18 +1,21 @@
 {% extends "base.html" %}
 {% block title %}Edit Memory{% endblock %}
 {% block content %}
-<body class="hero-image flex-wrapper">
+<div class="flex-wrapper">
     <div class="container common-holder common-holder-width">
+        <!-- Edit Memory header-->
         <div class="h1-header">   
             <h1>Edit Memory</h1>
         </div>
+        <!-- Edit Memory form-->
         <div class="common-body">
             <form method="POST" enctype="multipart/form-data" action="{{ url_for('memories.edit_memory', memory_id=memory._id) }}" class="needs-validation" novalidate>                                                              
                 <div class="row mt-3 form-group">
+                    <!-- Tournament name, displays selected tournament-->
                     <label for="tournament_name" class="form-label col-4">Tournament Name</label>
                     <div class="col-8">
                         <select id="tournament_name" name="tournament_name" class="validate form-control" required>
-                            <option value="" disabled selected>Choose Tournament</option>
+                            <option disabled selected>Choose Tournament</option>
                                 {% for tournament in tournaments %}
                                     {% if tournament.tournament_name == memory.tournament_name %}
                                         <option value="{{ tournament.tournament_name }}" selected>{{ tournament.tournament_name }}</option>
@@ -24,6 +27,7 @@
                     </div>    
                 </div>
                <div class="row mt-3 form-group">
+                   <!-- Memory image and validation-->
                     <label for="memory_image" class="form-label col-4">Memory Image</label>
                     <div class="col-8">
                         <input class="form-control validate" type="file" id="memory_image" name="memory_image" value="{{ memory.memory_image }}" required>
@@ -36,18 +40,20 @@
                     </div>
                 </div>
                 <div class="row mt-3 form-group">
+                    <!-- Memory name and validation-->
                     <label for="memory_name" class="form-label col-4">Memory Name</label>
                     <div class="col-8">
                         <input class="form-control" id="memory_name" name="memory_name" type="text" aria-describedby="memory_name" value="{{ memory.memory_name }}" required>
-                            <div class="valid-feedback">
-                                Looks good!
-                            </div>
-                            <div class="invalid-feedback">
-                                Please enter a memory name
-                            </div>
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>
+                        <div class="invalid-feedback">
+                            Please enter a memory name
+                        </div>
                     </div>
                 </div>
                 <div class="row mt-3 form-group">
+                    <!-- Memory description and textarea-->
                     <label for="memory_description" class="form-label col-4">Memory Description</label>
                     <div class="col-8">
                         <textarea class="form-control" id="memory_description" name="memory_description" rows="3" aria-describedby="memory_description" required>{{ memory['memory_description'] }}</textarea>
@@ -60,6 +66,7 @@
                     </div>
                 </div>
                 <div class="row mt-3 form-group">
+                    <!-- Memory date-->
                     <label for="memory_date" class="col-4 col-form-label">Date</label>
                     <div class="col-8">
                     <input class="form-control" type="date" id="memory_date" name="memory_date" value="{{ memory.memory_date  }}" required> 
@@ -72,6 +79,7 @@
                     </div>
                 </div>   
                <div class="row mt-3 form-group">
+                    <!-- Memory stadium-->
                     <label for="memory_stadium" class="col-4 col-form-label">Stadium</label>
                     <div class="col-8">
                         <input class="form-control" name="memory_stadium" type="text" id="memory_stadium" value="{{ memory.memory_stadium }}" required>
@@ -83,7 +91,7 @@
                         </div>
                     </div>
                 </div>
-                <!-- submit button -->
+                <!-- Save changes and cancel button -->
                 <div class="submit-holder">
                     <a href="{{ url_for('memories.get_user_memories') }}" class="btn btn-danger">Cancel</a>
                     <button type="submit" class="btn btn-primary light-green-one-btn">Save Changes</button>
@@ -91,5 +99,5 @@
             </form>
         </div>
     </div>    
-</body>        
+</div>        
 {% endblock %}
