@@ -120,6 +120,25 @@ The primary goal of the website from a site users perspective is as follows:
 - To rate a memory with a score from 1-5 and view ratings of a memory
 
 ## Structure
+### Code Structure.
+- My project is built using a Blueprints structure, I found the following video and links invaluable to structure my project accordingly
+    - https://www.youtube.com/watch?v=Wfx4YBzg16s&list=PL-osiE80TeTs4UjLw5MM6OjgkjFeUxCYH&index=11 
+    - https://github.com/CoreyMSchafer/code_snippets/tree/master/Python/Flask_Blog 
+A blueprint in Flask is an object to structure a Flask application into subsets. This helped in organizing code and separating functionality.
+The project is structured as follows
+    - Administration: Contains a flask route for administration code, for example a dashboard
+    - Authentication: Contains a flask route for authentication for example login, register
+    - Errors: Contains a flask route for error pages for example 404
+    - Memories: Contains a flask route for memory code, adding, editing etc
+    - Static
+      - css (Project style css)
+      - Images (Project and readme images)
+      - Js (Project javascript structured into individual files)
+    - Templates
+      - Html templates to match the routes for Administration, Authentication, Errors, Memories, Tournaments and a base.html file
+    - Tournaments: Contains a flask route for tournament code, adding, editing etc 
+    - Util: Utilities, common code for example aws code for writing to a aws s3 bucket
+    
 ### Database
 - The website is a data-centric one with html, javscript, css used with the boostrap framework as a frontend
 - The backend comprises of Python, flask and jinja templates with a database of a mongodb open-source document-oriented database
@@ -527,7 +546,8 @@ Number | Feature
 3 | Tags functionality and search by tags
 4 | Enhance reporting/dashboard capabilities, and use a 3pp graph library
 5 | User must verify their email address when registering, or 2 factor authentication is implemented
-6 | Delete image from aws, when tournament, memory deleted
+6 | Delete image from aws s3 bucket, when a tournament or memory is deleted. I did attempt to do this but came across permission issues. Despite making numerous changes to the bucket policy I was unable to get the code working
+7 | Continue to make further changes to the blueprint structure, and move all mongodb database related code to its own route
 
 # Technologies Used
 ## Languages 
@@ -626,7 +646,7 @@ os.environ.setdefault("AWS_ACCESS_KEY_ID", TO BE ADDED BY USER)
 os.environ.setdefault("AWS_SECRET_ACCESS_KEY", TO BE ADDED BY USER)
 </code>
 7. Install the relevant packages as per the requirements.txt file
-8. Start the application by running <code>python3 app.py<code>
+8. Start the application by running <code>python3 app.py</code>
 
 ## Heroku
 To deploy this application to Heroku, run the following steps.
