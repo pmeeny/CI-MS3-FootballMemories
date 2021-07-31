@@ -9,18 +9,17 @@ from football_memories.util import util
 if os.path.exists("env.py"):
     import env
 
-
-    def test_generateTimestamp():
-        timestamp = util.generateTimestamp()
-        assert (len(timestamp) == 20)
-        assert(timestamp.startswith("2021"))
-        assert (timestamp.endswith("_"))
+def test_generateTimestamp():
+    timestamp = util.generateTimestamp()
+    assert (len(timestamp) == 20)
+    assert(timestamp.startswith("2021"))
+    assert (timestamp.endswith("_"))
         
-    def test_getMonthAndYear():   
-        month, year = util.getMonthAndYear()
-        assert (len(month) == 2)
-        assert (len(year) == 4)
-        assert (year == "2021")
+def test_getMonthAndYear():
+    month, year = util.getMonthAndYear()
+    assert (len(month) == 2)
+    assert (len(year) == 4)
+    assert (year == "2021")
         
     #def test_setupPagination():    
     #    offset, per_page, page = util.setupPagination()  
