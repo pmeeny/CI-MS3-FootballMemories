@@ -14,7 +14,7 @@ def register():
     in the users collection and once succesful brings the user to
     their memories page and a login session is created for the user.
     The users password is stored encrypted
-    If the username already exists, the user is redirected back 
+    If the username already exists, the user is redirected back
     to the register page
     """
     if request.method == "POST":
@@ -157,16 +157,17 @@ def delete_profile(username):
     the comments collection
     It deletes all ratings added by the user on other users memories from
     the ratings collection
-    Finally it deletes the user from the users collection and redirects the user
-    to the home/landing page
+    Finally it deletes the user from the users collection and redirects the
+    user to the home/landing page
     """
     # Find the user
     user = mongo.db.users.find_one({"username": username})
 
-    # For each memory, created by a user, get the memory_id, and delete 
+    # For each memory, created by a user, get the memory_id, and delete
     # and comments/ratings with that memory_id in the comments and ratings
     # collections
-    memories_to_delete = list(mongo.db.memories.find({"memory_created_by": username}))
+    memories_to_delete = list(mongo.db.memories.find(
+                            {"memory_created_by": username}))
     for memory in memories_to_delete:
         memory_id = str(memory['_id'])
         mongo.db.comments.delete_many({"memory_id": memory_id})
