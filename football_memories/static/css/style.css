@@ -168,6 +168,10 @@ i {
 .card {
     width: 17rem;
 }
+.logo {
+    height: 55px;
+    width: 180px;
+}
 /* ----- Hero Image and text ----- */
 .hero-image {
     background-image: url("/static/images/background/football_pitch.jpg");
@@ -398,19 +402,19 @@ i {
 /* --- Medium Screen --- */
 @media screen and (max-width: 768px) {
     .footer-font {
-        font-size: 0.8rem;
+        font-size: 0.9rem;
     }
     .pagination {
-        font-size: 0.8rem;
+        font-size: 0.9rem;
     }
     .pagination-page-info {
-        font-size: 0.8rem;
+        font-size: 0.9rem;
     }    
     .common-body {
-        font-size: 0.8rem; 
+        font-size: 0.9rem;
     }
     .form-control {
-        font-size: 0.8rem; 
+        font-size: 0.9rem;
     }
     /* ---  Memory Page --- */
     #map {
