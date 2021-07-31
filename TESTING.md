@@ -25,7 +25,11 @@ Device Number | Physical/Emulator | Device Name | Device Type | Browser | Versio
 
 ## Feature 1 Navigation Bar
 ### User Story
-User Story 1.1: 
+- User Story 1.1: As an admin/regular user the navigation bar is displayed with a logo on all pages for easy navigation, with a burger menu on mobile devices
+- User Story 1.2: As an admin/regular user the navigation item selected is highlighted
+- User Story 1.3: As an admin/regular user, when logged out, the home/landing page is the default page and there are three options with a logo, Home, Login, Register displayed
+- User Story 1.4: As an admin/regular user, when logged out, the memories page is the default page and there are six options with a logo: Memories, Add Memory, Tournaments, Profile, Dashboard, Logout
+
 
 ### Test case steps
 1. 
@@ -34,8 +38,61 @@ User Story 1.1:
 1.
 2.
 
-## Feature 2 Footer
+### Feature 2 Footer
 ### User Story
+- User Story 2.1: As an admin/regular user I can view the footers social icons(twitter, facebook, instagram, pinterest, snapchat) and the relevant website opens in a new tab when clicked
+- User Story 2.2: As an admin/regular user I can view the websites terms and condition page by clicking on the link in the footer
+- User Story 2.3: As an admin/regular user I can view the websites privacy policy page by clicking on the link in the footer
+- User Story 2.4: As an admin/regular user I can signup to the football memories newsletter by entering my email and clicking SignUp. The email address entered will recieve an email
+
+### Feature 3 Landing/Home page
+- User Story 3.1: As a regular user/admin user I can view a hero image with login and register buttons on the home/landing page
+- User Story 3.2: As a regular user/admin user I can view the last three memories added on the website, with memory name, memory image
+and tournament
+
+### Feature 4 Login/Register/Logout administration
+- User Story 4.1: As a regular user I can register for an account by providing my username, password, confirm password, first name, last name, favourite team and country and I will be brouight to the my memories page. All fields must be provided
+- User Story 4.2: As a regular user my username must be a minimum of 6 characters, and contain at least one lowercase letter, with no special characters
+- User Story 4.3: As a regular user my password must be a minimum of 6 characters and contain least one number, one lowercase and one uppercase letter, with no special characters
+- User Story 4.4: As a regular user my password must match my confirm password
+- User Story 4.5: As a regular user/admin user I can login to my account by providing my username and password and clicking Login and I will be be navigated to the my memories page. A username and password must be provided. If the username and/or password entered is incorrectly a relevant message will be displayed
+- User Story 4.6: As an admin/regular user, when I am logged into the site, and I click Logout I am succesfully logged out of the site, and brought to the home/landing page, and the navigation bar is updated with three options with a logo, Home, Login, Register
+- User Story 4.7: As an admin/regular user, when I am logged into the site and I click the back button I am automatically redirected to the home/landing page, and the navigation bar is updated with three options with a logo, Home, Login, Register
+
+### Feature 5 Memories, Memory, Add/Edit/Delete Memory
+- User Story 5.1: Add Memory - As a regular user/admin user I can add a memory by selecting a tournament, uploading a memory image, entering a memory name, description, date and stadium. All fields are mandatory
+- User Story 5.2: Add Memory - As a regular user/admin user the memory image I upload must be png or jpg format
+- User Story 5.2: Edit  Memory - As a regular user/admin user I can edit a memory by uploading a memory image, updating the memory name, description, date and stadium. All fields are mandatory
+- User Story 5.3: Delete Memory - As a regular user I can delete a memory I created by confirming I wnat to delete
+- User Story 5.3: Delete Memory - As an admin user I can delete a memory, created by any user
+- User Story 5.4: View Memory - As a regular user/admin user I can view a memory by clicking on a memory
+- User Story 5.5: View Memory - As a regular user/admin user I can view the memory image, stadium in a google map, average rating, view acount, memory name, description, tournament name,  date, view count, uploaded by inforamtion and all comments for the memory, paginated if there are more than 3 comments
+- User Story 5.5: View Memory - As a regular user/admin user the view count increases when the user clicks on a memory or refreshes the memory page
+- User Story 5.6: View Memory - As a regular user/admin user I can add a comment to a memory
+- User Story 5.7: View Memory - As a regular user/admin user I can add a comment to a rating to a memory, and the average rating is updated accordingly
+- User Story 5.8: My Memories- As a regular user/admin user I can filter on memories I have created, and the page will be paginated if there are more than 3 memories
+- User Story 5.9: All Memories - As a regular user/admin user I can filter on memories I have created, and the page will be paginated if there are more than 3 memories
+- User Story 5.10: Search - As a regular user/admin I can search on text for the memory name and memory description, and the memories page will be updated with those filtered memories 
+
+### Feature 6 Tournaments
+- User Story 6.1: As a regular user/admin user I can view a list of tournaments created with the tournament name and tournament image displayed
+- User Story 6.2: As a regular user/admin user the list of tournaments is displayed with three per page, and pagination if displayed if there are more than 3 tournaments
+- User Story 6.3: As an admin user I can add a new tournament with a tournament name and tournament image. Both fields are mandatory and a message is displayed accordingly. The tournament information is added in the mongo database and the tournament image is stored in an AWS S3 bucket 
+- User Story 6.4: As an admin user I can edit an existing tournament with a tournament name and tournament image. Both fields are mandatory and a message is displayed accordingly. The tournament information is updated in the mongo database and the tournament image is stored in an AWS S3 bucket
+- User Story 6.5: As an admin user I can delete an existing tournament, once I have confirmed that it is ok to delete the tournament. The tournament information is deleted from the mongo database
+- User Story 6.6: As an admin user if a tournament has memories associated with it, the tournament cannot be deleted and a message is displayed
+- User Story 6.7: As an admin user if there is only one tournament in website, it cannot be deleted, a minimum of one tournament is required
+
+### Feature 7 Dashboard
+- User Story 7.1: As a regular user/admin user I can view a dashboard to see the number of users, number of tournaments, number of memories, number of ratings and number of comments added on the site
+
+
+### Feature 8 Profile
+- User Story 8.1: As a regular user/admin user I can view my profile details: Username, First Name, Last Name, Favourite Team and Country. The country is selected from a dropdown of countries
+- User Story 8.2: As a regular user/admin user I can update my profile password, but the confirm password entered must match with the password. The password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.
+- User Story 8.3: As a regular user/admin user I can update my profile details: First Name, Last Name, Favourite Team and Country
+- User Story 8.4: As a regular user/admin user the following fields are mandatory: Username, First Name, Last Name, Favourite Team and Country
+- User Story 8.5: As a regular user I can delete my account. This will delete any memories I have added(including their associated comments and ratings) and will also delete any comments or ratings the regular user has added on others users memories. The user will be asked to confirm the delete account action, and will be brought to the homepage after their account is succesfully deleted.
 
 
 # Bugs found during the testing phase
@@ -62,21 +119,21 @@ I used https://validator.w3.org/ to validate the html files
 
 Page | Result | Test Detail/Screenshot
 ------------ | ------------- | -------------
-administration/dashboard.html | Passed, No errors found | [Results](/football_memories/static/images/html_validation/dashboard_html_validation.PNG)
-administration/index.html | Passed, No errors found | [Results](/football_memories/static/images/html_validation/index_html_validation.PNG)
-administration/privacy_policy.html | Passed, No errors found | [Results](/football_memories/static/images/html_validation/privacy_policy_html_validation.PNG)
-administration/terms_and_conditions.html | Passed, No errors found | [Results](/football_memories/static/images/html_validation/terms_and_conditions_html_validation.PNG)
-authentication/login.html | Passed, No errors found | [Results](/football_memories/static/images/html_validation/login_html_validation.PNG)
-authentication/profile.html | Passed, No errors found | [Results](/football_memories/static/images/html_validation/profile_html_validation.PNG)
-authentication/register.html | Passed, No errors found | [Results](/football_memories/static/images/html_validation/register_html_validation.PNG)
-errors/404.html | Passed, No errors found | [Results](/football_memories/static/images/html_validation/404_html_validation.PNG)
-memories/add_memory.html | Passed, No errors found | [Results](/football_memories/static/images/html_validation/add_memory_html_validation.PNG)
-memories/edit_memory.html | Passed, No errors found | [Results](/football_memories/static/images/html_validation/edit_memory_html_validation.PNG)
-memories/memories.html | Passed, No errors found | [Results](/football_memories/static/images/html_validation/memories_html_validation.PNG)
-memories/memory.html | Passed, No errors found | [Results](/football_memories/static/images/html_validation/memory_html_validation.PNG)
-tournaments/add_tournament.html | Passed, No errors found | [Results](/football_memories/static/images/html_validation/add_tournament_html_validation.PNG)
-tournaments/edit_tournament.html | Passed, No errors found | [Results](/football_memories/static/images/html_validation/edit_tournament_html_validation.PNG)
-tournaments/tournaments.html | Passed, No errors found | [Results](/football_memories/static/images/html_validation/tournaments_html_validation.PNG)
+administration/dashboard.html | Passed, No errors found | [Results](football_memories/static/images/html_validation/dashboard_html_validation.PNG)
+administration/index.html | Passed, No errors found | [Results](football_memories/static/images/html_validation/index_html_validation.PNG)
+administration/privacy_policy.html | Passed, No errors found | [Results](football_memories/static/images/html_validation/privacy_policy_html_validation.PNG)
+administration/terms_and_conditions.html | Passed, No errors found | [Results](football_memories/static/images/html_validation/terms_and_conditions_html_validation.PNG)
+authentication/login.html | Passed, No errors found | [Results](football_memories/static/images/html_validation/login_html_validation.PNG)
+authentication/profile.html | Passed, No errors found | [Results](football_memories/static/images/html_validation/profile_html_validation.PNG)
+authentication/register.html | Passed, No errors found | [Results](football_memories/static/images/html_validation/register_html_validation.PNG)
+errors/404.html | Passed, No errors found | [Results](football_memories/static/images/html_validation/404_html_validation.PNG)
+memories/add_memory.html | Passed, No errors found | [Results](football_memories/static/images/html_validation/add_memory_html_validation.PNG)
+memories/edit_memory.html | Passed, No errors found | [Results](football_memories/static/images/html_validation/edit_memory_html_validation.PNG)
+memories/memories.html | Passed, No errors found | [Results](football_memories/static/images/html_validation/memories_html_validation.PNG)
+memories/memory.html | Passed, No errors found | [Results](football_memories/static/images/html_validation/memory_html_validation.PNG)
+tournaments/add_tournament.html | Passed, No errors found | [Results](football_memories/static/images/html_validation/add_tournament_html_validation.PNG)
+tournaments/edit_tournament.html | Passed, No errors found | [Results](football_memories/static/images/html_validation/edit_tournament_html_validation.PNG)
+tournaments/tournaments.html | Passed, No errors found | [Results](football_memories/static/images/html_validation/tournaments_html_validation.PNG)
 
 <br>
 
@@ -92,7 +149,7 @@ I used https://jigsaw.w3.org/css-validator/ to validate the css(style.css)
 
 Page | Result | Test Detail/Screenshot
 ------------ | ------------- | -------------
-style.css | Passed, No errors found | [Results](/football_memories/static/images/css_validation/css_validation.PNG)
+style.css | Passed, No errors found | [Results](football_memories/static/images/css_validation/css_validation.PNG)
 
 <br>
 
@@ -100,44 +157,41 @@ style.css | Passed, No errors found | [Results](/football_memories/static/images
 
 (I used Lighthouse https://developers.google.com/web/tools/lighthouse) to test the performance, seo, best practices and accessability of the site
 ### Desktop
-Page | Result | Test Detail/Screenshot
------------- | ------------- | -------------
-administration/dashboard.html | Performance: 98, Accessibility: 100, Best practices: 100, SEO: 100 | [Results](/football_memories/static/images/html_validation/dashboard_lighthouse_validation.PNG)
-administration/index.html | Passed, No errors found | [Results](/football_memories/static/images/lighthouse_validation/desktop/index_lighthouse_validation.PNG)
-administration/privacy_policy.html | Passed, No errors found | [Results](/football_memories/static/images/lighthouse_validation/desktop/privacy_policy_lighthouse_validation.PNG)
-administration/terms_and_conditions.html | Passed, No errors found | [Results](/football_memories/static/images/lighthouse_validation/desktop/terms_and_conditions_lighthouse_validation.PNG)
-authentication/login.html | Passed, No errors found | [Results](/football_memories/static/images//lighthouse_validation/desktop/login_lighthouse_validation.PNG)
-authentication/profile.html | Passed, No errors found | [Results](/football_memories/static/images//lighthouse_validation/desktop/profile_lighthouse_validation.PNG)
-authentication/register.html | Passed, No errors found | [Results](/football_memories/static/images//lighthouse_validation/desktop/register_lighthouse_validation.PNG)
-errors/404.html | Passed, No errors found | [Results](/football_memories/static/images//lighthouse_validation/desktop/404_lighthouse_validation.PNG)
-memories/add_memory.html | Passed, No errors found | [Results](/football_memories/static/images//lighthouse_validation/desktop/add_memory_lighthouse_validation.PNG)
-memories/edit_memory.html | Passed, No errors found | [Results](/football_memories/static/images//lighthouse_validation/desktop/edit_memory_lighthouse_validation.PNG)
-memories/memories.html | Passed, No errors found | [Results](/football_memories/static/images//lighthouse_validation/desktop/memories_lighthouse_validation.PNG)
-memories/memory.html | Passed, No errors found | [Results](/football_memories/static/images//lighthouse_validation/desktop/memory_lighthouse_validation.PNG)
-tournaments/add_tournament.html | Passed, No errors found | [Results](/football_memories/static/images//lighthouse_validation/desktop/add_tournament_lighthouse_validation.PNG)
-tournaments/edit_tournament.html | Passed, No errors found | [Results](/football_memories/static/images//lighthouse_validation/desktop/edit_tournament_lighthouse_validation.PNG)
-tournaments/tournaments.html | Passed, No errors found | [Results](/football_memories/static/images//lighthouse_validation/desktop/tournaments_lighthouse_validation.PNG)
+Page | Result 
+------------ | ------------- 
+administration/dashboard.html |  ![Results](football_memories/static/images/lighthouse_validation/dashboard_desktop.PNG)
+administration/index.html  | ![Results](football_memories/static/images/lighthouse_validation/index_desktop.PNG)
+administration/privacy_policy.html | ![Results](football_memories/static/images/lighthouse_validation/privacy_policy_desktop.PNG)
+administration/terms_and_conditions.html | ![Results](football_memories/static/images/lighthouse_validation/terms_and_conditions_desktop.PNG)
+authentication/login.html | ![Results](football_memories/static/images/lighthouse_validation/login_desktop.PNG)
+authentication/profile.html | ![Results](football_memories/static/images/lighthouse_validation/profile_desktop.PNG)
+authentication/register.html | ![Results](football_memories/static/images/lighthouse_validation/register_desktop.PNG)
+memories/add_memory.html | ![Results](football_memories/static/images/lighthouse_validation/add_memory_desktop.PNG)
+memories/edit_memory.html | ![Results](football_memories/static/images/lighthouse_validation/edit_memory_desktop.PNG)
+memories/memories.html | ![Results](football_memories/static/images/lighthouse_validation/memories_desktop.PNG)
+memories/memory.html | ![Results](football_memories/static/images/lighthouse_validation/memory_desktop.PNG)
+tournaments/add_tournament.html | ![Results](football_memories/static/images/lighthouse_validation/add_tournament_desktop.PNG)
+tournaments/edit_tournament.html | ![Results](football_memories/static/images/lighthouse_validation/edit_tournament_desktop.PNG)
+tournaments/tournaments.html | ![Results](football_memories/static/images/lighthouse_validation/tournaments_desktop.PNG)
 
 
 ### Mobile
-Page | Result | Test Detail/Screenshot
------------- | ------------- | -------------
-administration/dashboard.html | Performance: 98, Accessibility: 100, Best practices: 100, SEO: 100 | [Results](/football_memories/static/images/html_validation/dashboard_lighthouse_validation.PNG)
-administration/index.html | Passed, No errors found | [Results](/football_memories/static/images/lighthouse_validation/mobile/index_lighthouse_validation.PNG)
-administration/privacy_policy.html | Passed, No errors found | [Results](/football_memories/static/images/lighthouse_validation/mobile/privacy_policy_lighthouse_validation.PNG)
-administration/terms_and_conditions.html | Passed, No errors found | [Results](/football_memories/static/images/lighthouse_validation/mobile/terms_and_conditions_lighthouse_validation.PNG)
-authentication/login.html | Passed, No errors found | [Results](/football_memories/static/images//lighthouse_validation/mobile/login_lighthouse_validation.PNG)
-authentication/profile.html | Passed, No errors found | [Results](/football_memories/static/images//lighthouse_validation/mobile/profile_lighthouse_validation.PNG)
-authentication/register.html | Passed, No errors found | [Results](/football_memories/static/images//lighthouse_validation/mobile/register_lighthouse_validation.PNG)
-errors/404.html | Passed, No errors found | [Results](/football_memories/static/images//lighthouse_validation/mobile/404_lighthouse_validation.PNG)
-memories/add_memory.html | Passed, No errors found | [Results](/football_memories/static/images//lighthouse_validation/mobile/add_memory_lighthouse_validation.PNG)
-memories/edit_memory.html | Passed, No errors found | [Results](/football_memories/static/images//lighthouse_validation/mobile/edit_memory_lighthouse_validation.PNG)
-memories/memories.html | Passed, No errors found | [Results](/football_memories/static/images//lighthouse_validation/mobile/memories_lighthouse_validation.PNG)
-memories/memory.html | Passed, No errors found | [Results](/football_memories/static/images//lighthouse_validation/mobile/memory_lighthouse_validation.PNG)
-tournaments/add_tournament.html | Passed, No errors found | [Results](/football_memories/static/images//lighthouse_validation/mobile/add_tournament_lighthouse_validation.PNG)
-tournaments/edit_tournament.html | Passed, No errors found | [Results](/football_memories/static/images//lighthouse_validation/mobile/edit_tournament_lighthouse_validation.PNG)
-tournaments/tournaments.html | Passed, No errors found | [Results](/football_memories/static/images//lighthouse_validation/mobile/tournaments_lighthouse_validation.PNG)
-
+Page | Result
+------------ | ------------- 
+administration/dashboard.html |  ![Results](football_memories/static/images/lighthouse_validation/dashboard_mobile.PNG)
+administration/index.html  | ![Results](football_memories/static/images/lighthouse_validation/index_mobile.PNG)
+administration/privacy_policy.html | ![Results](football_memories/static/images/lighthouse_validation/privacy_policy_mobile.PNG)
+administration/terms_and_conditions.html | ![Results](football_memories/static/images/lighthouse_validation/terms_and_conditions_mobile.PNG)
+authentication/login.html | ![Results](football_memories/static/images/lighthouse_validation/login_mobile.PNG)
+authentication/profile.html | ![Results](football_memories/static/images/lighthouse_validation/profile_mobile.PNG)
+authentication/register.html | ![Results](football_memories/static/images/lighthouse_validation/register_mobile.PNG)
+memories/add_memory.html | ![Results](football_memories/static/images/lighthouse_validation/add_memory_mobile.PNG)
+memories/edit_memory.html | ![Results](football_memories/static/images/lighthouse_validation/edit_memory_mobile.PNG)
+memories/memories.html | [![Results](football_memories/static/images/lighthouse_validation/memories_mobile.PNG)
+memories/memory.html | ![Results](football_memories/static/images/lighthouse_validation/memory_mobile.PNG)
+tournaments/add_tournament.html | ![Results](football_memories/static/images/lighthouse_validation/add_tournament_mobile.PNG)
+tournaments/edit_tournament.html | ![Results](football_memories/static/images/lighthouse_validation/edit_tournament_mobile.PNG)
+tournaments/tournaments.html | ![Results](football_memories/static/images/lighthouse_validation/tournaments_mobile.PNG)
 <br>
 
 ## Wave Accessibility
@@ -145,21 +199,21 @@ tournaments/tournaments.html | Passed, No errors found | [Results](/football_mem
 
 Page | Result | Test Detail/Screenshot
 ------------ | ------------- | -------------
-football_memories/templates/administration/dashboard.html | 0 errors and 0 contrast errors| [Results](/football_memories/static/images/wave_validation/wave_dashboard.PNG)
-football_memories/templates/administration/index.html  | 0 errors and 0 contrast errors| [Results](/football_memories/static/images/wave_validation/wave_landing.PNG)
-football_memories/templates/administration/privacy_policy.html  | 0 errors and 0 contrast errors| [Results](/football_memories/static/images/wave_validation/wave_dashboard.PNG)
-football_memories/templates/administration/terms_and_conditions.html  | 0 errors and 0 contrast errors| [Results](/football_memories/static/images/wave_validation/wave_terms_and_conditions.PNG)
-football_memories/templates/authentication/login.html | 0 errors and 0 contrast errors| [Results](/football_memories/static/images/wave_validation/wave_login.PNG)
-football_memories/templates/authentication/profile.html | 0 errors and 0 contrast errors| [Results](/football_memories/static/images/wave_validation/wave_profile.PNG)
-football_memories/templates/authentication/register.html | 0 errors and 0 contrast errors| [Results](/football_memories/static/images/wave_validation/wave_register.PNG)
-football_memories/templates/errors/404.html | 0 errors and 0 contrast errors| [Results](/football_memories/static/images/wave_validation/wave_404.PNG)
-football_memories/templates/memories/add_memory.html | 0 errors and 0 contrast errors| [Results](/football_memories/static/images/wave_validation/wave_add_memory.PNG)
-football_memories/templates/memories/edit_memory.html | 0 errors and 0 contrast errors| [Results](/football_memories/static/images/wave_validation/wave_edit_memory.PNG)
-football_memories/templates/memories/memories.html | 0 errors and 0 contrast errors| [Results](/football_memories/static/images/wave_validation/wave_memories.PNG)
-football_memories/templates/memories/memory.html | 10 errors and 0 contrast errors (Note: These are within the google map so I cannot update/fix)| [Results](/football_memories/static/images/wave_validation/wave_memory.PNG)
-football_memories/templates/tournaments/add_tournament.html | 0 errors and 0 contrast errors| [Results](/football_memories/static/images/wave_validation/wave_add_tournament.PNG)
-football_memories/templates/tournaments/edit_tournament.html | 0 errors and 0 contrast errors| [Results](/football_memories/static/images/wave_validation/wave_edit_tournament.PNG)
-football_memories/templates/tournaments/tournament.html | 0 errors and 0 contrast errors| [Results](/football_memories/static/images/wave_validation/wave_tournaments.PNG)
+football_memories/templates/administration/dashboard.html | 0 errors and 0 contrast errors| [Results](football_memories/static/images/wave_validation/wave_dashboard.PNG)
+football_memories/templates/administration/index.html  | 0 errors and 0 contrast errors| [Results](football_memories/static/images/wave_validation/wave_landing.PNG)
+football_memories/templates/administration/privacy_policy.html  | 0 errors and 0 contrast errors| [Results](football_memories/static/images/wave_validation/wave_dashboard.PNG)
+football_memories/templates/administration/terms_and_conditions.html  | 0 errors and 0 contrast errors| [Results](football_memories/static/images/wave_validation/wave_terms_and_conditions.PNG)
+football_memories/templates/authentication/login.html | 0 errors and 0 contrast errors| [Results](football_memories/static/images/wave_validation/wave_login.PNG)
+football_memories/templates/authentication/profile.html | 0 errors and 0 contrast errors| [Results](football_memories/static/images/wave_validation/wave_profile.PNG)
+football_memories/templates/authentication/register.html | 0 errors and 0 contrast errors| [Results](football_memories/static/images/wave_validation/wave_register.PNG)
+football_memories/templates/errors/404.html | 0 errors and 0 contrast errors| [Results](football_memories/static/images/wave_validation/wave_404.PNG)
+football_memories/templates/memories/add_memory.html | 0 errors and 0 contrast errors| [Results](football_memories/static/images/wave_validation/wave_add_memory.PNG)
+football_memories/templates/memories/edit_memory.html | 0 errors and 0 contrast errors| [Results](football_memories/static/images/wave_validation/wave_edit_memory.PNG)
+football_memories/templates/memories/memories.html | 0 errors and 0 contrast errors| [Results](football_memories/static/images/wave_validation/wave_memories.PNG)
+football_memories/templates/memories/memory.html | 10 errors and 0 contrast errors (Note: These are within the google map so I cannot update/fix as they are outside of my control)| [Results](football_memories/static/images/wave_validation/wave_memory.PNG)
+football_memories/templates/tournaments/add_tournament.html | 0 errors and 0 contrast errors| [Results](football_memories/static/images/wave_validation/wave_add_tournament.PNG)
+football_memories/templates/tournaments/edit_tournament.html | 0 errors and 0 contrast errors| [Results](football_memories/static/images/wave_validation/wave_edit_tournament.PNG)
+football_memories/templates/tournaments/tournament.html | 0 errors and 0 contrast errors| [Results](football_memories/static/images/wave_validation/wave_tournaments.PNG)
 
 ## JSHint
 - JSHint was used to analyse the Javascript files
@@ -177,10 +231,10 @@ send_email.js | 0 errors and 0 warnings | [Results](football_memories/static/ima
 
 Page | Result | Test Detail/Screenshot
 ------------ | ------------- | -------------
-app.py | | [Results](assets/images/testing/jshint/about_jshint.PNG)
-football_memories/__init__.py |  | [Results](assets/images/testing/jshint/about_jshint.PNG)
-football_memories/administration/routes.py |  | [Results](assets/images/testing/jshint/about_jshint.PNG)
-football_memories/authentication/routes.py |  | [Results](assets/images/testing/jshint/about_jshint.PNG)
-football_memories/errors/routes.py |  | [Results](assets/images/testing/jshint/about_jshint.PNG)
-football_memories/memories/routes.py |  | [Results](assets/images/testing/jshint/about_jshint.PNG)
-football_memories/tournaments/routes.py |  | [Results](assets/images/testing/jshint/about_jshint.PNG)
+app.py | | [Results](football_memories/static/images/pep8/app.PNG)
+football_memories/__ init __.py |  | [Results](football_memories/static/images/pep8/init.PNG)
+football_memories/administration/routes.py |  | [Results](football_memories/static/images/pep8/administration_route.PNG)
+football_memories/authentication/routes.py |  | [Results](football_memories/static/images/pep8/authentication_route.PNG)
+football_memories/errors/routes.py |  | [Results](football_memories/static/images/pep8/errors_route.PNG)
+football_memories/memories/routes.py |  | [Results](football_memories/static/images/pep8/memories_route.PNG)
+football_memories/tournaments/routes.py |  | [Results](football_memories/static/images/pep8/tournaments_route.PNG)
