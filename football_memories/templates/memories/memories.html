@@ -68,9 +68,9 @@
                                     {% endif %}
                                         <!-- An admin user who memory creator can delete a memory -->
                                         <div class="col-md-6 col-sm-12 center-div">
-                                            <button type="submit" id="delete_memory_button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteMemoryModal{{ memory._id }}">Delete</button>
+                                            <button type="submit" id="delete_memory_button" class="btn btn-danger" data-bs-toggle="modal" aria-labelledby="deleteMemoryModal{{ memory._id }}" data-bs-target="#deleteMemoryModal{{ memory._id }}">Delete</button>
                                             <!-- Delete memory modal -->
-                                            <div class="modal fade" id="deleteMemoryModal{{ memory._id }}" tabindex="-1" aria-labelledby="deleteMemoryLabel" aria-hidden="true">
+                                            <div class="modal fade" id="deleteMemoryModal{{ memory._id }}" tabindex="-1" aria-hidden="true">
                                                 <div class="modal-dialog">
                                                     <div class="modal-content">
                                                     <div class="modal-header">
@@ -92,7 +92,6 @@
                                     </div>
                                 </div>    
                                 {% endif %}
-
                             </div>
                         </div>
                     </div>
