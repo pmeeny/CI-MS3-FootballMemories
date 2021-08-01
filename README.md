@@ -3,7 +3,7 @@ Football memories is a website that allows users to add/edit/delete/view footbal
 It also allows users to rate and comment on football memories
 - There are two types of users, and I have setup accounts for both
     - An admin user account has been setup with username/password of admin/Password123
-    - A regular user account has been setup with username/password of
+    - A regular user account has been setup with username/password of testuser/Password123
 <br>
 
 View the live site [here](https://ci-ms3-footballmemories.herokuapp.com/)
@@ -17,6 +17,7 @@ View the live site [here](https://ci-ms3-footballmemories.herokuapp.com/)
   * [Strategy](#strategy)
     + [Primary Goal](#primary-goal)
   * [Structure](#structure)
+    + [Code Structure.](#code-structure)
     + [Database](#database)
       - [Conceptual database model](#conceptual-database-model)
       - [Physical database model](#physical-database-model)
@@ -33,8 +34,6 @@ View the live site [here](https://ci-ms3-footballmemories.herokuapp.com/)
     + [User Stories Website Owner](#user-stories-website-owner)
   * [Skeleton](#skeleton)
     + [Wireframes](#wireframes)
-      - [Tablet](#tablet)
-      - [Mobile](#mobile)
   * [Surface](#surface)
     + [Color Palette](#color-palette)
     + [Typography](#typography)
@@ -262,22 +261,22 @@ I have structured the website into 19 pages, each with clear, concise structure,
 There is a overlap in terms of user stories for the two types of users and they are described below
 ### User Stories Potential or Existing Customer
 The user stories for the website user "regular user" (a potential or existing customer) are described as follows: 
-- User Story 1.1: As an regular user the navigation bar is displayed with a logo on all pages for easy navigation, with a burger menu on mobile devices
-- User Story 1.2: As an regular user the navigation item selected is highlighted
-- User Story 1.3: As an regular user, when logged out, the home/landing page is the default page and there are three options with a logo, Home, Login, Register displayed
-- User Story 1.4: As an regular user, when logged out, the memories page is the default page and there are six options with a logo: Memories, Add Memory, Tournaments, Profile, Dashboard, Logout
-- User Story 2.1: As an regular user I can view the footers social icons(twitter, facebook, instagram, pinterest, snapchat) and the relevant website opens in a new tab when clicked
-- User Story 2.2: As an regular user I can view the websites terms and condition page by clicking on the link in the footer
-- User Story 2.3: As an regular user I can view the websites privacy policy page by clicking on the link in the footer
-- User Story 2.4: As an regular user I can signup to the football memories newsletter by entering my email and clicking SignUp. The email address entered will recieve an email
-- User Story 3.1: As a regular user user I can view a hero image with login and register buttons on the home/landing page
-- User Story 3.2: As a regular user user I can view the last three memories added on the website, with memory name, memory image
+- User Story 1.1: As a regular user the navigation bar is displayed with a logo on all pages for easy navigation, with a burger menu on mobile devices
+- User Story 1.2: As a regular user the navigation item selected is highlighted
+- User Story 1.3: As a regular user, when logged out, the home/landing page is the default page and there are three options with a logo, Home, Login, Register displayed
+- User Story 1.4: As a regular user, when logged out, the memories page is the default page and there are six options with a logo: Memories, Add Memory, Tournaments, Profile, Dashboard, Logout
+- User Story 2.1: As a regular user I can view the footers social icons(twitter, facebook, instagram, pinterest, snapchat) and the relevant website opens in a new tab when clicked
+- User Story 2.2: As a regular user I can view the websites terms and condition page by clicking on the link in the footer
+- User Story 2.3: As a regular user I can view the websites privacy policy page by clicking on the link in the footer
+- User Story 2.4: As a regular user I can signup to the football memories newsletter by entering my email and clicking SignUp. The email address entered will recieve an email
+- User Story 3.1: As a regular user I can view a hero image with login and register buttons on the home/landing page
+- User Story 3.2: As a regular  user I can view the last three memories added on the website, with memory name, memory image
 and tournament
-- User Story 4.1: As a regular user I can register for an account by providing my username, password, confirm password, first name, last name, favourite team and country and I will be brouight to the my memories page. All fields must be provided
+- User Story 4.1: As a regular user I can register for an account by providing my username, password, confirm password, first name, last name, favourite team and country and I will be brought to the memories page. All fields must be provided
 - User Story 4.2: As a regular user my username must be a minimum of 6 characters, and contain at least one lowercase letter, with no special characters
 - User Story 4.3: As a regular user my password must be a minimum of 6 characters and contain least one number, one lowercase and one uppercase letter, with no special characters
 - User Story 4.4: As a regular user my password must match my confirm password
-- User Story 4.5: As a regular user user I can login to my account by providing my username and password and clicking Login and I will be be navigated to the my memories page. A username and password must be provided. If the username and/or password entered is incorrectly a relevant message will be displayed
+- User Story 4.5: As a regular user user I can login to my account by providing my username and password and clicking Login and I will be be navigated to the memories page. A username and password must be provided. If the username and/or password entered is incorrectly a relevant message will be displayed
 - User Story 4.6: As a regular user, when I am logged into the site, and I click Logout I am succesfully logged out of the site, and brought to the home/landing page, and the navigation bar is updated with three options with a logo, Home, Login, Register
 - User Story 4.7: As a regular user, when I am logged into the site and I click the back button I am automatically redirected to the home/landing page, and the navigation bar is updated with three options with a logo, Home, Login, Register
 - User Story 5.1: Add Memory - As a regular user user I can add a memory by selecting a tournament, uploading a memory image, entering a memory name, description, date and stadium. All fields are mandatory
@@ -345,35 +344,29 @@ and tournament
 
 ## Skeleton
 ### Wireframes
-Each wireframe below contains three images, one for desktop, tablet and mobile
+Each wireframe image below contains three sub images, one for desktop, tablet and mobile
 
 Page | Wireframe | 
 ------------ | ------------- 
-index | [Desktop/Tablet/Mobile](football_memories/static/)
-register | [Desktop/Tablet/Mobile](football_memories/static/)
-login | [Desktop/Tablet/Mobile](football_memories/static/)
-memories | [Desktop/Tablet/Mobile](football_memories/static/)
-memory | [Desktop/Tablet/Mobile](football_memories/static/)
-add_memory | [Desktop/Tablet/Mobile](football_memories/static/)
-edit_memory | [Desktop/Tablet/Mobile](football_memories/static/)
-delete_memory | [Desktop/Tablet/Mobile](football_memories/static/)
-tournaments | [Desktop/Tablet/Mobile](football_memories/static/)
-add_tournament | [Desktop/Tablet/Mobile](football_memories/static/)
-edit_tournament | [Desktop/Tablet/Mobile](football_memories/static/)
-delete_tournament | [Desktop/Tablet/Mobile](football_memories/static/)
-profile | [Desktop/Tablet/Mobile](football_memories/static/)
-dashboard | [Desktop/Tablet/Mobile](football_memories/static/)
-
-
-#### Tablet
-
-
-#### Mobile
+index | [Desktop/Tablet/Mobile](football_memories/static/images/wireframes/index.png)
+register | [Desktop/Tablet/Mobile](football_memories/static/images/wireframes/register.png)
+login | [Desktop/Tablet/Mobile](football_memories/static/images/wireframes/login.png)
+memories | [Desktop/Tablet/Mobile](football_memories/static/images/wireframes/memories.png)
+memory | [Desktop/Tablet/Mobile](football_memories/static/images/wireframes/memory.png)
+add_memory/edit_memory | [Desktop/Tablet/Mobile](football_memories/static/images/wireframes/add_edit_memory.png)
+delete_memory | [Desktop/Tablet/Mobile](football_memories/static/images/wireframes/delete_memory.png)
+tournaments | [Desktop/Tablet/Mobile](football_memories/static/images/wireframes/tournaments.png)
+add_tournament/edit_tournament | [Desktop/Tablet/Mobile](football_memories/static/images/wireframes/add_edit_tournanents.png)
+delete_tournament | [Desktop/Tablet/Mobile](football_memories/static/images/wireframes/delete_tournament.png)
+profile | [Desktop/Tablet/Mobile](football_memories/static/images/wireframes/profile.png)
+dashboard | [Desktop/Tablet/Mobile](football_memories/static/images/wireframes/dashboard.png)
+terms_and_conditions | [Desktop/Tablet/Mobile](football_memories/static/images/wireframes/terms_and_conditions.png)
+privacy_policy | [Desktop/Tablet/Mobile](football_memories/static/images/wireframes/privacy_policy.png)
 
 
 ## Surface
 ### Color Palette
-I have gone for a simple and minimal design for the website, with predominatly green font colours over a large hero image on all pages
+I have gone for a simple and minimal design for the website, with predominatly green, black and white font colours over a large hero image on all pages
 There are five colours in the color palette
 - 264653 - Dark green colour for some of the button and text colours
 - 006400 - Light green colour for some of the button and text colours
@@ -466,11 +459,11 @@ and tournament
 #### Description
 The user can login into their account by clicking on the Login button on the landing page or clicking the Login link in the navigation bar. They must enter a valid username and password otherwise a relevant message will be displayed.
 #### User Stories
-- User Story 4.1: As a regular user I can register for an account by providing my username, password, confirm password, first name, last name, favourite team and country and I will be brouight to the my memories page. All fields must be provided
+- User Story 4.1: As a regular user I can register for an account by providing my username, password, confirm password, first name, last name, favourite team and country and I will be brouight to the memories page. All fields must be provided
 - User Story 4.2: As a regular user my username must be a minimum of 6 characters, and contain at least one lowercase letter, with no special characters
 - User Story 4.3: As a regular user my password must be a minimum of 6 characters and contain least one number, one lowercase and one uppercase letter, with no special characters
 - User Story 4.4: As a regular user my password must match my confirm password
-- User Story 4.5: As a regular user/admin user I can login to my account by providing my username and password and clicking Login and I will be be navigated to the my memories page. A username and password must be provided. If the username and/or password entered is incorrectly a relevant message will be displayed
+- User Story 4.5: As a regular user/admin user I can login to my account by providing my username and password and clicking Login and I will be be navigated to the memories page. A username and password must be provided. If the username and/or password entered is incorrectly a relevant message will be displayed
 - User Story 4.6: As an admin/regular user, when I am logged into the site, and I click Logout I am succesfully logged out of the site, and brought to the home/landing page, and the navigation bar is updated with three options with a logo, Home, Login, Register
 - User Story 4.7: As an admin/regular user, when I am logged into the site and I click the back button I am automatically redirected to the home/landing page, and the navigation bar is updated with three options with a logo, Home, Login, Register
 
@@ -597,8 +590,6 @@ Number | Feature
     - Used for testing html and css concepts
 - GitHub Wiki TOC generator (https://ecotrust-canada.github.io/markdown-toc/)
     - Used for generating a table of contents for this README
-- Cypress (https://www.cypress.io)
-    - Cypress was used for automated e2e testing of all pages 
 - Google Maps api (https://developers.google.com/maps)
     - The google maps api is used to display the stadium information on the memory page
 - Google maps geocode API (https://developers.google.com/maps/documentation/geocoding/start)
