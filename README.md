@@ -276,23 +276,23 @@ and tournament
 - User Story 4.2: As a regular user my username must be a minimum of 6 characters, and contain at least one lowercase letter, with no special characters
 - User Story 4.3: As a regular user my password must be a minimum of 6 characters and contain least one number, one lowercase and one uppercase letter, with no special characters
 - User Story 4.4: As a regular user my password must match my confirm password
-- User Story 4.5: As a regular user user I can login to my account by providing my username and password and clicking Login and I will be be navigated to the memories page. A username and password must be provided. If the username and/or password entered is incorrectly a relevant message will be displayed
+- User Story 4.5: As a regular user I can login to my account by providing my username and password and clicking Login and I will be be navigated to the memories page. A username and password must be provided. If the username and/or password entered is incorrectly a relevant message will be displayed
 - User Story 4.6: As a regular user, when I am logged into the site, and I click Logout I am succesfully logged out of the site, and brought to the home/landing page, and the navigation bar is updated with three options with a logo, Home, Login, Register
 - User Story 4.7: As a regular user, when I am logged into the site and I click the back button I am automatically redirected to the home/landing page, and the navigation bar is updated with three options with a logo, Home, Login, Register
-- User Story 5.1: Add Memory - As a regular user user I can add a memory by selecting a tournament, uploading a memory image, entering a memory name, description, date and stadium. All fields are mandatory
-- User Story 5.2: Add Memory - As a regular user user the memory image I upload must be png or jpg format
-- User Story 5.2: Edit  Memory - As a regular user user I can edit a memory by uploading a memory image, updating the memory name, description, date and stadium. All fields are mandatory
-- User Story 5.3: Delete Memory - As a regular user I can delete a memory I created by confirming I wnat to delete
-- User Story 5.4: View Memory - As a regular user I can view a memory by clicking on a memory
-- User Story 5.5: View Memory - As a regular user I can view the memory image, stadium in a google map, average rating, view acount, memory name, description, tournament name,  date, view count, uploaded by inforamtion and all comments for the memory, paginated if there are more than 3 comments
-- User Story 5.5: View Memory - As a regular user the view count increases when the user clicks on a memory or refreshes the memory page
-- User Story 5.6: View Memory - As a regular user I can add a comment to a memory
-- User Story 5.7: View Memory - As a regular user I can add a comment to a rating to a memory, and the aeverage rating is updated accordingly
-- User Story 5.8: My Memories- As a regular user user I can filter on memories I have created, and the page will be paginated if there are more than 3 memories
-- User Story 5.9: All Memories - As a regular user user I can filter on memories I have created, and the page will be paginated if there are more than 3 memories
-- User Story 5.10: Search - As a regular user I can search on text for the memory name and memory description, and the memories page will be updated with those filtered memories 
-- User Story 6.1: As a regular useruser I can view a list of tournaments created with the tournament name and tournament image displayed
-- User Story 6.2: As a regular user user the list of tournaments is displayed with three per page, and pagination if displayed if there are more than 3 tournaments
+- User Story 5.1: Add Memory - As a regular user I can add a memory by selecting a tournament, uploading a memory image, entering a memory name, description, date and stadium. All fields are mandatory
+- User Story 5.2: Add Memory - As a regular user the memory image I upload must be png or jpg format
+- User Story 5.3: Edit  Memory - As a regular user I can edit a memory by uploading a memory image, updating the memory name, description, date and stadium. All fields are mandatory
+- User Story 5.4: Delete Memory - As a regular user I can delete a memory I created by confirming I want to delete
+- User Story 5.6: View Memory - As a regular user I can view a memory by clicking on a memory
+- User Story 5.7: View Memory - As a regular user I can view the memory image, stadium in a google map, average rating, view acount, memory name, description, tournament name,  date, view count, uploaded by inforamtion and all comments for the memory, paginated if there are more than 3 comments
+- User Story 5.8: View Memory - As a regular user the view count increases when the user clicks on a memory or refreshes the memory page
+- User Story 5.9: View Memory - As a regular user I can add a comment to a memory
+- User Story 5.10: View Memory - As a regular user I can add a comment to a rating to a memory, and the aeverage rating is updated accordingly
+- User Story 5.11: My Memories- As a regular user I can filter on memories I have created, and the page will be paginated if there are more than 3 memories
+- User Story 5.12: All Memories - As a regular user I can filter on memories I have created, and the page will be paginated if there are more than 3 memories
+- User Story 5.13: Search - As a regular user I can search on text for the memory name and memory description, and the memories page will be updated with those filtered memories 
+- User Story 6.1: As a regular user I can view a list of tournaments created with the tournament name and tournament image displayed
+- User Story 6.2: As a regular user the list of tournaments is displayed with three per page, and pagination if displayed if there are more than 3 tournaments
 - User Story 7.1: As a regular user I can view a dashboard to see the number of users, number of tournaments, number of memories, number of ratings and number of comments added on the site
 - User Story 8.1: As a regular user I can view my profile details: Username, First Name, Last Name, Favourite Team and Country. The country is selected from a dropdown of countries
 - User Story 8.2: As a regular user I can update my profile password, but the confirm password entered must match with the password. The password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.
@@ -319,16 +319,16 @@ and tournament
 - User Story 4.7: As an admin user, when I am logged into the site and I click the back button I am automatically redirected to the home/landing page, and the navigation bar is updated with three options with a logo, Home, Login, Register
 - User Story 5.1: Add Memory - As an admin user I can add a memory by selecting a tournament, uploading a memory image, entering a memory name, description, date and stadium. All fields are mandatory
 - User Story 5.2: Add Memory - As an admin user the memory image I upload must be png or jpg format
-- User Story 5.2: Edit  Memory - As an admin user I can edit a memory by uploading a memory image, updating the memory name, description, date and stadium. All fields are mandatory
-- User Story 5.3: Delete Memory - As an admin user I can delete a memory, created by any user or a memory I have created
-- User Story 5.4: View Memory - As an admin user I can view a memory by clicking on a memory
-- User Story 5.5: View Memory - As an admin user I can view the memory image, stadium in a google map, average rating, view acount, memory name, description, tournament name,  date, view count, uploaded by inforamtion and all comments for the memory, paginated if there are more than 3 comments
-- User Story 5.5: View Memory - As an admin user the view count increases when the user clicks on a memory or refreshes the memory page
-- User Story 5.6: View Memory - As an admin user I can add a comment to a memory
-- User Story 5.7: View Memory - As an admin user I can add a comment to a rating to a memory, and the aeverage rating is updated accordingly
-- User Story 5.8: My Memories- As an admin use user I can filter on memories I have created, and the page will be paginated if there are more than 3 memories
-- User Story 5.9: All Memories - As an admin use user I can filter on memories I have created, and the page will be paginated if there are more than 3 memories
-- User Story 5.10: Search - As an admin user I can search on text for the memory name and memory description, and the memories page will be updated with those filtered memories 
+- User Story 5.3: Edit  Memory - As an admin user I can edit a memory by uploading a memory image, updating the memory name, description, date and stadium. All fields are mandatory
+- User Story 5.5: Delete Memory - As an admin user I can delete a memory, created by any user or a memory I have created
+- User Story 5.6: View Memory - As an admin user I can view a memory by clicking on a memory
+- User Story 5.7: View Memory - As an admin user I can view the memory image, stadium in a google map, average rating, view acount, memory name, description, tournament name,  date, view count, uploaded by inforamtion and all comments for the memory, paginated if there are more than 3 comments
+- User Story 5.8: View Memory - As an admin user the view count increases when the user clicks on a memory or refreshes the memory page
+- User Story 5.9: View Memory - As an admin user I can add a comment to a memory
+- User Story 5.10: View Memory - As an admin user I can add a comment to a rating to a memory, and the aeverage rating is updated accordingly
+- User Story 5.11: My Memories- As an admin use user I can filter on memories I have created, and the page will be paginated if there are more than 3 memories
+- User Story 5.12: All Memories - As an admin use user I can filter on memories I have created, and the page will be paginated if there are more than 3 memories
+- User Story 5.13: Search - As an admin user I can search on text for the memory name and memory description, and the memories page will be updated with those filtered memories 
 - User Story 6.1: As an admin user I can view a list of tournaments created with the tournament name and tournament image displayed
 - User Story 6.2: As an admin user the list of tournaments is displayed with three per page, and pagination if displayed if there are more than 3 tournaments
 - User Story 6.3: As an admin user I can add a new tournament with a tournament name and tournament image. Both fields are mandatory and a message is displayed accordingly. The tournament information is added in the mongo database and the tournament image is stored in an AWS S3 bucket 

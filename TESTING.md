@@ -305,110 +305,130 @@ Step 1 | [Desktop Result]()  | [Tablet Result]() |[Mobile Result]() | Passed |
 ### User Story 3_1
 - User Story 3.1: As a regular user/admin user I can view a hero image with login and register buttons on the home/landing page
 
-### Test case steps
+### Test case steps 3_1
 1. 
 
-### Expected Result
+### Expected Result 3_1
 1.
 
-### Actual Result
+### Actual Result 3_1
 
-### User Story
+### User Story 3_2
 - User Story 3.2: As a regular user/admin user I can view the last three memories added on the website, with memory name, memory image
 and tournament
 
-### Test case steps
+### Test case steps 3_2
 1. 
 
-### Expected Result
+### Expected Result 3_2
 1.
 
-### Actual Result
+### Actual Result 3_2
 
 ## Feature 4 Login/Register/Logout administration
-### User Story
+### User Story 4_1
 - User Story 4.1: As a regular user I can register for an account by providing my username, password, confirm password, first name, last name, favourite team and country and I will be brouight to the my memories page. All fields must be provided
-### Test case steps
+### Test case steps 4_1
 1. 
 
-### Expected Result
+### Expected Result 4_1
 1.
 
-### Actual Result
+### Actual Result 4_1
 
-### User Story
+### User Story 4_2
 - User Story 4.2: As a regular user my username must be a minimum of 6 characters, and contain at least one lowercase letter, with no special characters
-### Test case steps
+### Test case steps 4_2
 1. 
 
-### Expected Result
+### Expected Result 4_2
 1.
 
-### Actual Result
+### Actual Result 4_2
 
-### User Story
+### User Story 4_3
 - User Story 4.3: As a regular user my password must be a minimum of 6 characters and contain least one number, one lowercase and one uppercase letter, with no special characters
-### Test case steps
+### Test case steps 4_3
 1. 
 
-### Expected Result
+### Expected Result 4_3
 1.
 
-### Actual Result
+### Actual Result 4_3
 
-### User Story
+### User Story 4_4
 - User Story 4.4: As a regular user my password must match my confirm password
-### Test case steps
+### Test case steps 4_4
 1. 
 
-### Expected Result
+### Expected Result 4_4
 1.
 
-### Actual Result
+### Actual Result 4_4
 
-### User Story
+### User Story 4_5
 - User Story 4.5: As a regular user/admin user I can login to my account by providing my username and password and clicking Login and I will be be navigated to the my memories page. A username and password must be provided. If the username and/or password entered is incorrectly a relevant message will be displayed
-### Test case steps
+### Test case steps 4_5
 1. 
 
-### Expected Result
+### Expected Result 4_5
 1.
 
-### Actual Result
+### Actual Result 4_5
 
-### User Story
+### User Story 4_6
 - User Story 4.6: As an admin/regular user, when I am logged into the site, and I click Logout I am succesfully logged out of the site, and brought to the home/landing page, and the navigation bar is updated with three options with a logo, Home, Login, Register
-### Test case steps
+### Test case steps 4_6
 1. 
 
-### Expected Result
+### Expected Result 4_6
 1.
 
-### Actual Result
+### Actual Result 4_6
 
-### User Story
+### User Story 4_7
 - User Story 4.7: As an admin/regular user, when I am logged into the site and I click the back button I am automatically redirected to the home/landing page, and the navigation bar is updated with three options with a logo, Home, Login, Register
-### Test case steps
+### Test case steps 4_7
 1. 
 
-### Expected Result
+### Expected Result 4_7
 1.
 
-### Actual Result
+### Actual Result 4_7
 
 ## Feature 5 Memories, Memory, Add/Edit/Delete Memory
-### User Story
+### User Story 5_1
 - User Story 5.1: Add Memory - As a regular user/admin user I can add a memory by selecting a tournament, uploading a memory image, entering a memory name, description, date and stadium. All fields are mandatory
-### Test case steps
+### Test case steps 5_1
 1. 
 
-### Expected Result
+### Expected Result 5_1
 1.
 
-### Actual Result
+### Actual Result 5_1
 
-### User Story
+### User Story 5_2
 - User Story 5.2: Add Memory - As a regular user/admin user the memory image I upload must be png or jpg format
+### Test case steps 5_2
+1. 
+
+### Expected Result 5_2
+1.
+
+### Actual Result 5_2
+
+### User Story 5_3
+- User Story 5.3: Edit  Memory - As a regular user/admin user I can edit a memory by uploading a memory image, updating the memory name, description, date and stadium. All fields are mandatory
+### Test case steps 5_3
+1. 
+
+### Expected Result 5_3
+1.
+
+### Actual Result 5_3
+
+### User Story
+- User Story 5.4: Delete Memory - As a regular user I can delete a memory I created by confirming I wnat to delete
 ### Test case steps
 1. 
 
@@ -418,7 +438,7 @@ and tournament
 ### Actual Result
 
 ### User Story
-- User Story 5.2: Edit  Memory - As a regular user/admin user I can edit a memory by uploading a memory image, updating the memory name, description, date and stadium. All fields are mandatory
+- User Story 5.5: Delete Memory - As an admin user I can delete a memory, created by any user
 ### Test case steps
 1. 
 
@@ -428,7 +448,7 @@ and tournament
 ### Actual Result
 
 ### User Story
-- User Story 5.3: Delete Memory - As a regular user I can delete a memory I created by confirming I wnat to delete
+- User Story 5.6: View Memory - As a regular user/admin user I can view a memory by clicking on a memory
 ### Test case steps
 1. 
 
@@ -438,7 +458,7 @@ and tournament
 ### Actual Result
 
 ### User Story
-- User Story 5.3: Delete Memory - As an admin user I can delete a memory, created by any user
+- User Story 5.7: View Memory - As a regular user/admin user I can view the memory image, stadium in a google map, average rating, view acount, memory name, description, tournament name,  date, view count, uploaded by inforamtion and all comments for the memory, paginated if there are more than 3 comments
 ### Test case steps
 1. 
 
@@ -448,7 +468,7 @@ and tournament
 ### Actual Result
 
 ### User Story
-- User Story 5.4: View Memory - As a regular user/admin user I can view a memory by clicking on a memory
+- User Story 5.8: View Memory - As a regular user/admin user the view count increases when the user clicks on a memory or refreshes the memory page
 ### Test case steps
 1. 
 
@@ -458,7 +478,7 @@ and tournament
 ### Actual Result
 
 ### User Story
-- User Story 5.5: View Memory - As a regular user/admin user I can view the memory image, stadium in a google map, average rating, view acount, memory name, description, tournament name,  date, view count, uploaded by inforamtion and all comments for the memory, paginated if there are more than 3 comments
+- User Story 5.9: View Memory - As a regular user/admin user I can add a comment to a memory
 ### Test case steps
 1. 
 
@@ -468,7 +488,7 @@ and tournament
 ### Actual Result
 
 ### User Story
-- User Story 5.5: View Memory - As a regular user/admin user the view count increases when the user clicks on a memory or refreshes the memory page
+- User Story 5.10: View Memory - As a regular user/admin user I can add a comment to a rating to a memory, and the average rating is updated accordingly
 ### Test case steps
 1. 
 
@@ -478,7 +498,7 @@ and tournament
 ### Actual Result
 
 ### User Story
-- User Story 5.6: View Memory - As a regular user/admin user I can add a comment to a memory
+- User Story 5.11: My Memories- As a regular user/admin user I can filter on memories I have created, and the page will be paginated if there are more than 3 memories
 ### Test case steps
 1. 
 
@@ -488,7 +508,7 @@ and tournament
 ### Actual Result
 
 ### User Story
-- User Story 5.7: View Memory - As a regular user/admin user I can add a comment to a rating to a memory, and the average rating is updated accordingly
+- User Story 5.12: All Memories - As a regular user/admin user I can filter on memories I have created, and the page will be paginated if there are more than 3 memories
 ### Test case steps
 1. 
 
@@ -497,46 +517,26 @@ and tournament
 
 ### Actual Result
 
-### User Story
-- User Story 5.8: My Memories- As a regular user/admin user I can filter on memories I have created, and the page will be paginated if there are more than 3 memories
-### Test case steps
+### User Story 5_13
+- User Story 5.13: Search - As a regular user/admin I can search on text for the memory name and memory description, and the memories page will be updated with those filtered memories 
+### Test case steps 5_13
 1. 
 
-### Expected Result
+### Expected Result 5_13
 1.
 
-### Actual Result
-
-### User Story
-- User Story 5.9: All Memories - As a regular user/admin user I can filter on memories I have created, and the page will be paginated if there are more than 3 memories
-### Test case steps
-1. 
-
-### Expected Result
-1.
-
-### Actual Result
-
-### User Story
-- User Story 5.10: Search - As a regular user/admin I can search on text for the memory name and memory description, and the memories page will be updated with those filtered memories 
-### Test case steps
-1. 
-
-### Expected Result
-1.
-
-### Actual Result
+### Actual Result 5_13
 
 ## Feature 6 Tournaments
-### User Story
+### User Story 6_1
 - User Story 6.1: As a regular user/admin user I can view a list of tournaments created with the tournament name and tournament image displayed
-### Test case steps
+### Test case steps 6_1
 1. 
 
-### Expected Result
+### Expected Result 6_1
 1.
 
-### Actual Result
+### Actual Result 6_1
 
 ### User Story
 - User Story 6.2: As a regular user/admin user the list of tournaments is displayed with three per page, and pagination if displayed if there are more than 3 tournaments
@@ -599,15 +599,15 @@ and tournament
 ### Actual Result
 
 ## Feature 7 Dashboard
-### User Story
+### User Story 7_1
 - User Story 7.1: As a regular user/admin user I can view a dashboard to see the number of users, number of tournaments, number of memories, number of ratings and number of comments added on the site
-### Test case steps
+### Test case steps 7_1
 1. 
 
-### Expected Result
+### Expected Result 7_1
 1.
 
-### Actual Result
+### Actual Result 7_1
 
 
 ## Feature 8 Profile
@@ -793,14 +793,14 @@ send_email.js | 0 errors and 0 warnings | [Results](football_memories/static/ima
 <br>
 
 ## PEP8online
-- PEP8online was used to analyse the Javascript files
+- PEP8online was used to analyse the Python files (https://pep8online.com/)
 
 Page | Result | Test Detail/Screenshot
 ------------ | ------------- | -------------
-app.py | | [Results](football_memories/static/images/pep8/app.PNG)
-football_memories/__ init __.py |  | [Results](football_memories/static/images/pep8/init.PNG)
-football_memories/administration/routes.py |  | [Results](football_memories/static/images/pep8/administration_route.PNG)
-football_memories/authentication/routes.py |  | [Results](football_memories/static/images/pep8/authentication_route.PNG)
-football_memories/errors/routes.py |  | [Results](football_memories/static/images/pep8/errors_route.PNG)
-football_memories/memories/routes.py |  | [Results](football_memories/static/images/pep8/memories_route.PNG)
-football_memories/tournaments/routes.py |  | [Results](football_memories/static/images/pep8/tournaments_route.PNG)
+app.py | No errors/warnings | [Results](football_memories/static/images/pep8/app.PNG)
+football_memories/__ init __.py | No errors/warnings | [Results](football_memories/static/images/pep8/init.PNG)
+football_memories/administration/routes.py | No errors/warnings | [Results](football_memories/static/images/pep8/administration_route.PNG)
+football_memories/authentication/routes.py | No errors/warnings | [Results](football_memories/static/images/pep8/authentication_route.PNG)
+football_memories/errors/routes.py | No errors/warnings | [Results](football_memories/static/images/pep8/errors_route.PNG)
+football_memories/memories/routes.py | No errors/warnings | [Results](football_memories/static/images/pep8/memories_route.PNG)
+football_memories/tournaments/routes.py | No errors/warnings | [Results](football_memories/static/images/pep8/tournaments_route.PNG)
