@@ -51,14 +51,17 @@ def add_tournament():
         return redirect(url_for("administration.home"))
 
     if request.method == "POST":
-    
+
         # Check if the file type is an allowed image file type
-        tournament_image_type, allowedImageFileTypes = util.isAllowedImageFileType('tournament_image')
-        
+        tournament_image_type, allowedImageFileTypes = \
+            util.isAllowedImageFileType('tournament_image')
+
         if (tournament_image_type) not in allowedImageFileTypes:
-            flash("File type " + tournament_image_type + " not allowed, allowed file types are: jpg, JPG ,png ,PNG, gif, GIF")
+            flash("File type " + tournament_image_type +
+                  " not allowed," +
+                  " allowed file types are: jpg, JPG ,png ,PNG, gif, GIF")
             return redirect(url_for("tournaments.get_tournaments"))
-        
+
         # Check if the tournament name already exists in db
         existing_tournament = mongo.db.tournaments.find_one(
             {"tournament_name": request.form.get("tournament_name")})
@@ -93,15 +96,18 @@ def edit_tournament(tournament_id):
     # Check the user is logged in
     if 'user' not in session:
         return redirect(url_for("administration.home"))
-    
+
     if request.method == "POST":
         # Check if the file type is an allowed image file type
-        tournament_image_type, allowedImageFileTypes = util.isAllowedImageFileType('tournament_image')
-        
+        tournament_image_type, allowedImageFileTypes = \
+            util.isAllowedImageFileType('tournament_image')
+
         if (tournament_image_type) not in allowedImageFileTypes:
-            flash("File type " + tournament_image_type + " not allowed, allowed file types are: jpg, JPG ,png ,PNG, gif, GIF")
+            flash("File type " + tournament_image_type +
+                  " not allowed, " +
+                  "allowed file types are: jpg, JPG ,png ,PNG, gif, GIF")
             return redirect(url_for("tournaments.get_tournaments"))
-            
+
         # Check if tournament name already exists in db
         existing_tournament = mongo.db.tournaments.find_one(
             {"tournament_name": request.form.get("tournament_name")})
@@ -152,7 +158,8 @@ def delete_tournament(tournament_id):
         # Get the count of tournaments in the tournament collection
         number_of_tournaments = mongo.db.tournaments.find().count()
         if(number_of_tournaments == 1):
-            flash("Cannot delete this tournament as a minimum of one tournament is required")
+            flash("Cannot delete this tournament as a " +
+                  "minimum of one tournament is required")
         else:
             # Delete the tournament from the tournaments collection
             mongo.db.tournaments.remove({"_id": ObjectId(tournament_id)})
