@@ -35,131 +35,131 @@
     + [Test case steps 2_4](#test-case-steps-2-4)
     + [Expected Result 2_4](#expected-result-2-4)
     + [Actual Result 2_4](#actual-result-2-4)
-  * [Feature 3 Landing/Home page](#feature-3-landing-home-page)
+  * [Feature 3 Landing Home page](#feature-3-landing-home-page)
     + [User Story 3_1](#user-story-3-1)
-    + [Test case steps](#test-case-steps)
-    + [Expected Result](#expected-result)
-    + [Actual Result](#actual-result)
-    + [User Story](#user-story)
-    + [Test case steps](#test-case-steps-1)
-    + [Expected Result](#expected-result-1)
-    + [Actual Result](#actual-result-1)
-  * [Feature 4 Login/Register/Logout administration](#feature-4-login-register-logout-administration)
-    + [User Story](#user-story-1)
-    + [Test case steps](#test-case-steps-2)
-    + [Expected Result](#expected-result-2)
-    + [Actual Result](#actual-result-2)
-    + [User Story](#user-story-2)
-    + [Test case steps](#test-case-steps-3)
-    + [Expected Result](#expected-result-3)
-    + [Actual Result](#actual-result-3)
-    + [User Story](#user-story-3)
-    + [Test case steps](#test-case-steps-4)
-    + [Expected Result](#expected-result-4)
-    + [Actual Result](#actual-result-4)
-    + [User Story](#user-story-4)
-    + [Test case steps](#test-case-steps-5)
-    + [Expected Result](#expected-result-5)
-    + [Actual Result](#actual-result-5)
-    + [User Story](#user-story-5)
-    + [Test case steps](#test-case-steps-6)
-    + [Expected Result](#expected-result-6)
-    + [Actual Result](#actual-result-6)
-    + [User Story](#user-story-6)
-    + [Test case steps](#test-case-steps-7)
-    + [Expected Result](#expected-result-7)
-    + [Actual Result](#actual-result-7)
-    + [User Story](#user-story-7)
-    + [Test case steps](#test-case-steps-8)
-    + [Expected Result](#expected-result-8)
-    + [Actual Result](#actual-result-8)
-  * [Feature 5 Memories, Memory, Add/Edit/Delete Memory](#feature-5-memories--memory--add-edit-delete-memory)
-    + [User Story](#user-story-8)
-    + [Test case steps](#test-case-steps-9)
-    + [Expected Result](#expected-result-9)
-    + [Actual Result](#actual-result-9)
-    + [User Story](#user-story-9)
-    + [Test case steps](#test-case-steps-10)
-    + [Expected Result](#expected-result-10)
-    + [Actual Result](#actual-result-10)
-    + [User Story](#user-story-10)
-    + [Test case steps](#test-case-steps-11)
-    + [Expected Result](#expected-result-11)
-    + [Actual Result](#actual-result-11)
-    + [User Story](#user-story-11)
-    + [Test case steps](#test-case-steps-12)
-    + [Expected Result](#expected-result-12)
-    + [Actual Result](#actual-result-12)
-    + [User Story](#user-story-12)
-    + [Test case steps](#test-case-steps-13)
-    + [Expected Result](#expected-result-13)
-    + [Actual Result](#actual-result-13)
-    + [User Story](#user-story-13)
-    + [Test case steps](#test-case-steps-14)
-    + [Expected Result](#expected-result-14)
-    + [Actual Result](#actual-result-14)
-    + [User Story](#user-story-14)
-    + [Test case steps](#test-case-steps-15)
-    + [Expected Result](#expected-result-15)
-    + [Actual Result](#actual-result-15)
-    + [User Story](#user-story-15)
-    + [Test case steps](#test-case-steps-16)
-    + [Expected Result](#expected-result-16)
-    + [Actual Result](#actual-result-16)
-    + [User Story](#user-story-16)
-    + [Test case steps](#test-case-steps-17)
-    + [Expected Result](#expected-result-17)
-    + [Actual Result](#actual-result-17)
-    + [User Story](#user-story-17)
-    + [Test case steps](#test-case-steps-18)
-    + [Expected Result](#expected-result-18)
-    + [Actual Result](#actual-result-18)
-    + [User Story](#user-story-18)
-    + [Test case steps](#test-case-steps-19)
-    + [Expected Result](#expected-result-19)
-    + [Actual Result](#actual-result-19)
-    + [User Story](#user-story-19)
-    + [Test case steps](#test-case-steps-20)
-    + [Expected Result](#expected-result-20)
-    + [Actual Result](#actual-result-20)
-    + [User Story](#user-story-20)
-    + [Test case steps](#test-case-steps-21)
-    + [Expected Result](#expected-result-21)
-    + [Actual Result](#actual-result-21)
+    + [Test case steps 3_1](#test-case-steps-3-1)
+    + [Expected Result 3_1](#expected-result-3-1)
+    + [Actual Result 3_1](#actual-result-3-1)
+    + [User Story 3_2](#user-story-3-2)
+    + [Test case steps 3_2](#test-case-steps-3-2)
+    + [Expected Result 3_2](#expected-result-3-2)
+    + [Actual Result 3_2](#actual-result-3-2)
+  * [Feature 4 Login Register Logout administration](#feature-4-login-register-logout-administration)
+    + [User Story 4_1](#user-story-4-1)
+    + [Test case steps 4_1](#test-case-steps-4-1)
+    + [Expected Result 4_1](#expected-result-4-1)
+    + [Actual Result 4_1](#actual-result-4-1)
+    + [User Story 4_2](#user-story-4-2)
+    + [Test case steps 4_2](#test-case-steps-4-2)
+    + [Expected Result 4_2](#expected-result-4-2)
+    + [Actual Result 4_2](#actual-result-4-2)
+    + [User Story 4_3](#user-story-4-3)
+    + [Test case steps 4_3](#test-case-steps-4-3)
+    + [Expected Result 4_3](#expected-result-4-3)
+    + [Actual Result 4_3](#actual-result-4-3)
+    + [User Story 4_4](#user-story-4-4)
+    + [Test case steps 4_4](#test-case-steps-4-4)
+    + [Expected Result 4_4](#expected-result-4-4)
+    + [Actual Result 4_4](#actual-result-4-4)
+    + [User Story 4_5](#user-story-4-5)
+    + [Test case steps 4_5](#test-case-steps-4-5)
+    + [Expected Result 4_5](#expected-result-4-5)
+    + [Actual Result 4_5](#actual-result-4-5)
+    + [User Story 4_6](#user-story-4-6)
+    + [Test case steps 4_6](#test-case-steps-4-6)
+    + [Expected Result 4_6](#expected-result-4-6)
+    + [Actual Result 4_6](#actual-result-4-6)
+    + [User Story 4_7](#user-story-4-7)
+    + [Test case steps 4_7](#test-case-steps-4-7)
+    + [Expected Result 4_7](#expected-result-4-7)
+    + [Actual Result 4_7](#actual-result-4-7)
+  * [Feature 5 Memories, Add Edit Delete Memory](#feature-5-memories--add-edit-delete-memory)
+    + [User Story 5_1](#user-story-5-1)
+    + [Test case steps 5_1](#test-case-steps-5-1)
+    + [Expected Result 5_1](#expected-result-5-1)
+    + [Actual Result 5_1](#actual-result-5-1)
+    + [User Story 5_2](#user-story-5-2)
+    + [Test case steps 5_2](#test-case-steps-5-2)
+    + [Expected Result 5_2](#expected-result-5-2)
+    + [Actual Result 5_2](#actual-result-5-2)
+    + [User Story 5_3](#user-story-5-3)
+    + [Test case steps 5_3](#test-case-steps-5-3)
+    + [Expected Result 5_3](#expected-result-5-3)
+    + [Actual Result 5_3](#actual-result-5-3)
+    + [User Story 5_4](#user-story-5-4)
+    + [Test case steps 5_4](#test-case-steps-5-4)
+    + [Expected Result 5_4](#expected-result-5-4)
+    + [Actual Result 5_4](#actual-result-5-4)
+    + [User Story 5_5](#user-story-5-5)
+    + [Test case steps 5_5](#test-case-steps-5-5)
+    + [Expected Result 5_5](#expected-result-5-5)
+    + [Actual Result 5_5](#actual-result-5-5)
+    + [User Story 5_6](#user-story-5-6)
+    + [Test case steps 5_6](#test-case-steps-5-6)
+    + [Expected Result 5_6](#expected-result-5-6)
+    + [Actual Result 5_6](#actual-result-5-6)
+    + [User Story 5_7](#user-story-5-7)
+    + [Test case steps 5_7](#test-case-steps-5-7)
+    + [Expected Result 5_7](#expected-result-5-7)
+    + [Actual Result 5_7](#actual-result-5-7)
+    + [User Story 5_8](#user-story-5-8)
+    + [Test case steps 5_8](#test-case-steps-5-8)
+    + [Expected Result 5_8](#expected-result-5-8)
+    + [Actual Result 5_8](#actual-result-5-8)
+    + [User Story 5_9](#user-story-5-9)
+    + [Test case steps 5_9](#test-case-steps-5-9)
+    + [Expected Result 5_9](#expected-result-5-9)
+    + [Actual Result 5_9](#actual-result-5-9)
+    + [User Story 5_10](#user-story-5-10)
+    + [Test case steps 5_10](#test-case-steps-5-10)
+    + [Expected Result 5_10](#expected-result-5-10)
+    + [Actual Result 5_10](#actual-result-5-10)
+    + [User Story 5_11](#user-story-5-11)
+    + [Test case steps 5_11](#test-case-steps-5-11)
+    + [Expected Result 5_11](#expected-result-5-11)
+    + [Actual Result 5_11](#actual-result-5-11)
+    + [User Story 5_12](#user-story-5-12)
+    + [Test case steps 5_12](#test-case-steps-5-12)
+    + [Expected Result 5_12](#expected-result-5-12)
+    + [Actual Result 5_12](#actual-result-5-12)
+    + [User Story 5_13](#user-story-5-13)
+    + [Test case steps 5_13](#test-case-steps-5-13)
+    + [Expected Result 5_13](#expected-result-5-13)
+    + [Actual Result 5_13](#actual-result-5-13)
   * [Feature 6 Tournaments](#feature-6-tournaments)
-    + [User Story](#user-story-21)
-    + [Test case steps](#test-case-steps-22)
-    + [Expected Result](#expected-result-22)
-    + [Actual Result](#actual-result-22)
-    + [User Story](#user-story-22)
-    + [Test case steps](#test-case-steps-23)
-    + [Expected Result](#expected-result-23)
-    + [Actual Result](#actual-result-23)
-    + [User Story](#user-story-23)
-    + [Test case steps](#test-case-steps-24)
-    + [Expected Result](#expected-result-24)
-    + [Actual Result](#actual-result-24)
-    + [User Story](#user-story-24)
-    + [Test case steps](#test-case-steps-25)
-    + [Expected Result](#expected-result-25)
-    + [Actual Result](#actual-result-25)
-    + [User Story](#user-story-25)
-    + [Test case steps](#test-case-steps-26)
-    + [Expected Result](#expected-result-26)
-    + [Actual Result](#actual-result-26)
-    + [User Story](#user-story-26)
-    + [Test case steps](#test-case-steps-27)
-    + [Expected Result](#expected-result-27)
-    + [Actual Result](#actual-result-27)
-    + [User Story](#user-story-27)
-    + [Test case steps](#test-case-steps-28)
-    + [Expected Result](#expected-result-28)
-    + [Actual Result](#actual-result-28)
+    + [User Story 6_1](#user-story-6-1)
+    + [Test case steps 6_1](#test-case-steps-6-1)
+    + [Expected Result 6_1](#expected-result-6-1)
+    + [Actual Result 6_1](#actual-result-6-1)
+    + [User Story 6_2](#user-story-6-2)
+    + [Test case steps 6_2](#test-case-steps-6-2)
+    + [Expected Result 6_2](#expected-result-6-2)
+    + [Actual Result 6_2](#actual-result-6-2)
+    + [User Story 6_3](#user-story-6-3)
+    + [Test case steps 6_3](#test-case-steps-6-3)
+    + [Expected Result 6_3](#expected-result-6-3)
+    + [Actual Result 6_3](#actual-result-6-3)
+    + [User Story 6_4](#user-story-6-4)
+    + [Test case steps 6_4](#test-case-steps-6-4)
+    + [Expected Result 6_4](#expected-result-6-4)
+    + [Actual Result 6_4](#actual-result-6-4)
+    + [User Story 6_5](#user-story-6-5)
+    + [Test case steps 6_5](#test-case-steps-6-5)
+    + [Expected Result 6_5](#expected-result-6-5)
+    + [Actual Result 6_5](#actual-result-6-5)
+    + [User Story 6_6](#user-story-6-6)
+    + [Test case steps 6_6](#test-case-steps-6-6)
+    + [Expected Result 6_6](#expected-result-6-6)
+    + [Actual Result 6_6](#actual-result-6-6)
+    + [User Story 6_7](#user-story-6-7)
+    + [Test case steps 6_7](#test-case-steps-6-7)
+    + [Expected Result 6_7](#expected-result-6-7)
+    + [Actual Result 6_7](#actual-result-6-7)
   * [Feature 7 Dashboard](#feature-7-dashboard)
-    + [User Story](#user-story-28)
-    + [Test case steps](#test-case-steps-29)
-    + [Expected Result](#expected-result-29)
-    + [Actual Result](#actual-result-29)
+    + [User Story 7_1](#user-story-7-1)
+    + [Test case steps 7_1](#test-case-steps-7-1)
+    + [Expected Result 7_1](#expected-result-7-1)
+    + [Actual Result 7_1](#actual-result-7-1)
   * [Feature 8 Profile](#feature-8-profile)
     + [User Story 8_1](#user-story-8-1)
     + [Test case steps 8_1](#test-case-steps-8-1)
@@ -265,7 +265,7 @@ Step 1 | [Desktop Result]()  | [Tablet Result]() |[Mobile Result]() | Passed |
 
 ## Feature 2 Footer
 ### User Story 2_1
-- User Story 2.1: As an admin/regular user I can view the footers social icons(twitter, facebook, instagram, pinterest, snapchat) and the relevant website opens in a new tab when clicked
+- User Story 2.1: As an admin/regular user I can view the footers social icons(Twitter, facebook, instagram, pinterest, snapchat) and the relevant website opens in a new tab when clicked
 ### Test case steps 2_1
 1. 
 
@@ -283,7 +283,7 @@ Step 1 | [Desktop Result]()  | [Tablet Result]() |[Mobile Result]() | Passed |
 ### Actual Result 2_2
 
 ### User Story 2_3
-- User Story 2.3: As an admin/regular user I can view the websites privacy policy page by clicking on the link in the footer
+- User Story 2.3: As an admin/regular user I can view the websites' privacy policy page by clicking on the link in the footer
 ### Test case steps 2_3
 1. 
 
@@ -292,7 +292,7 @@ Step 1 | [Desktop Result]()  | [Tablet Result]() |[Mobile Result]() | Passed |
 ### Actual Result 2_3
 
 ### User Story 2_4
-- User Story 2.4: As an admin/regular user I can signup to the football memories newsletter by entering my email and clicking SignUp. The email address entered will recieve an email
+- User Story 2.4: As an admin/regular user I can sign up to the football memories newsletter by entering my email and clicking SignUp. The email address entered will receive an email
 ### Test case steps 2_4
 1. 
 
@@ -301,7 +301,7 @@ Step 1 | [Desktop Result]()  | [Tablet Result]() |[Mobile Result]() | Passed |
 
 ### Actual Result 2_4
 
-## Feature 3 Landing/Home page
+## Feature 3 Landing Home page
 ### User Story 3_1
 - User Story 3.1: As a regular user/admin user I can view a hero image with login and register buttons on the home/landing page
 
@@ -325,9 +325,9 @@ and tournament
 
 ### Actual Result 3_2
 
-## Feature 4 Login/Register/Logout administration
+## Feature 4 Login Register Logout administration
 ### User Story 4_1
-- User Story 4.1: As a regular user I can register for an account by providing my username, password, confirm password, first name, last name, favourite team and country and I will be brouight to the my memories page. All fields must be provided
+- User Story 4.1: As a regular user I can register for an account by providing my username, password, confirm password, first name, last name, favourite team and country, and I will be navigated to the my memories page. All fields must be provided
 ### Test case steps 4_1
 1. 
 
@@ -347,7 +347,7 @@ and tournament
 ### Actual Result 4_2
 
 ### User Story 4_3
-- User Story 4.3: As a regular user my password must be a minimum of 6 characters and contain least one number, one lowercase and one uppercase letter, with no special characters
+- User Story 4.3: As a regular user my password must be a minimum of 6 characters and contain at least one number, one lowercase and one uppercase letter, with no special characters
 ### Test case steps 4_3
 1. 
 
@@ -367,7 +367,7 @@ and tournament
 ### Actual Result 4_4
 
 ### User Story 4_5
-- User Story 4.5: As a regular user/admin user I can login to my account by providing my username and password and clicking Login and I will be be navigated to the my memories page. A username and password must be provided. If the username and/or password entered is incorrectly a relevant message will be displayed
+- User Story 4.5: As a regular user/admin user I can log in to my account by providing my username and password and clicking Login and I will be navigated to the my memories page. A username and password must be provided. If the username and/or password entered is incorrectly a relevant message will be displayed
 ### Test case steps 4_5
 1. 
 
@@ -377,7 +377,7 @@ and tournament
 ### Actual Result 4_5
 
 ### User Story 4_6
-- User Story 4.6: As an admin/regular user, when I am logged into the site, and I click Logout I am succesfully logged out of the site, and brought to the home/landing page, and the navigation bar is updated with three options with a logo, Home, Login, Register
+- User Story 4.6: As an admin/regular user, when I am logged into the site, and I click Logout I am successfully logged out of the site, and brought to the home/landing page, and the navigation bar is updated with three options with a logo, Home, Login, Register
 ### Test case steps 4_6
 1. 
 
@@ -387,7 +387,7 @@ and tournament
 ### Actual Result 4_6
 
 ### User Story 4_7
-- User Story 4.7: As an admin/regular user, when I am logged into the site and I click the back button I am automatically redirected to the home/landing page, and the navigation bar is updated with three options with a logo, Home, Login, Register
+- User Story 4.7: As an admin/regular user, when I am logged into the site, and I click the back button I am automatically redirected to the home/landing page, and the navigation bar is updated with three options with a logo, Home, Login, Register
 ### Test case steps 4_7
 1. 
 
@@ -396,7 +396,7 @@ and tournament
 
 ### Actual Result 4_7
 
-## Feature 5 Memories, Memory, Add/Edit/Delete Memory
+## Feature 5 Memories, Add Edit Delete Memory
 ### User Story 5_1
 - User Story 5.1: Add Memory - As a regular user/admin user I can add a memory by selecting a tournament, uploading a memory image, entering a memory name, description, date and stadium. All fields are mandatory
 ### Test case steps 5_1
@@ -427,95 +427,95 @@ and tournament
 
 ### Actual Result 5_3
 
-### User Story
-- User Story 5.4: Delete Memory - As a regular user I can delete a memory I created by confirming I wnat to delete
-### Test case steps
+### User Story 5_4
+- User Story 5.4: Delete Memory - As a regular user I can delete a memory I created by confirming I want to delete
+### Test case steps 5_4
 1. 
 
-### Expected Result
+### Expected Result 5_4
 1.
 
-### Actual Result
+### Actual Result 5_4
 
-### User Story
+### User Story 5_5
 - User Story 5.5: Delete Memory - As an admin user I can delete a memory, created by any user
-### Test case steps
+### Test case steps 5_5
 1. 
 
-### Expected Result
+### Expected Result 5_5
 1.
 
-### Actual Result
+### Actual Result 5_5
 
-### User Story
+### User Story 5_6
 - User Story 5.6: View Memory - As a regular user/admin user I can view a memory by clicking on a memory
-### Test case steps
+### Test case steps 5_6
 1. 
 
-### Expected Result
+### Expected Result 5_6
 1.
 
-### Actual Result
+### Actual Result 5_6
 
-### User Story
-- User Story 5.7: View Memory - As a regular user/admin user I can view the memory image, stadium in a google map, average rating, view acount, memory name, description, tournament name,  date, view count, uploaded by inforamtion and all comments for the memory, paginated if there are more than 3 comments
-### Test case steps
+### User Story 5_7
+- User Story 5.7: View Memory - As a regular user/admin user I can view the memory image, stadium in a Google map, average rating, view account, memory name, description, tournament name,  date, view count, uploaded by information and all comments for the memory, paginated if there are more than 3 comments
+### Test case steps 5_7
 1. 
 
-### Expected Result
+### Expected Result 5_7
 1.
 
-### Actual Result
+### Actual Result 5_7
 
-### User Story
+### User Story 5_8
 - User Story 5.8: View Memory - As a regular user/admin user the view count increases when the user clicks on a memory or refreshes the memory page
-### Test case steps
+### Test case steps 5_8
 1. 
 
-### Expected Result
+### Expected Result 5_8
 1.
 
-### Actual Result
+### Actual Result 5_8
 
-### User Story
+### User Story 5_9
 - User Story 5.9: View Memory - As a regular user/admin user I can add a comment to a memory
-### Test case steps
+### Test case steps 5_9
 1. 
 
-### Expected Result
+### Expected Result 5_9
 1.
 
-### Actual Result
+### Actual Result 5_9
 
-### User Story
+### User Story 5_10
 - User Story 5.10: View Memory - As a regular user/admin user I can add a comment to a rating to a memory, and the average rating is updated accordingly
-### Test case steps
+### Test case steps 5_10
 1. 
 
-### Expected Result
+### Expected Result 5_10
 1.
 
-### Actual Result
+### Actual Result 5_10
 
-### User Story
+### User Story 5_11
 - User Story 5.11: My Memories- As a regular user/admin user I can filter on memories I have created, and the page will be paginated if there are more than 3 memories
-### Test case steps
+### Test case steps 5_11
 1. 
 
-### Expected Result
+### Expected Result 5_11
 1.
 
-### Actual Result
+### Actual Result 5_11
 
-### User Story
+### User Story 5_12
 - User Story 5.12: All Memories - As a regular user/admin user I can filter on memories I have created, and the page will be paginated if there are more than 3 memories
-### Test case steps
+### Test case steps 5_12
 1. 
 
-### Expected Result
+### Expected Result 5_12
 1.
 
-### Actual Result
+### Actual Result 5_12
 
 ### User Story 5_13
 - User Story 5.13: Search - As a regular user/admin I can search on text for the memory name and memory description, and the memories page will be updated with those filtered memories 
@@ -538,65 +538,65 @@ and tournament
 
 ### Actual Result 6_1
 
-### User Story
-- User Story 6.2: As a regular user/admin user the list of tournaments is displayed with three per page, and pagination if displayed if there are more than 3 tournaments
-### Test case steps
+### User Story 6_2
+- User Story 6.2: As a regular user/admin user the list of tournaments is displayed with three per page, and pagination is displayed if there are more than 3 tournaments
+### Test case steps 6_2
 1. 
 
-### Expected Result
+### Expected Result 6_2
 1.
 
-### Actual Result
+### Actual Result 6_2
 
-### User Story
+### User Story 6_3
 - User Story 6.3: As an admin user I can add a new tournament with a tournament name and tournament image. Both fields are mandatory and a message is displayed accordingly. The tournament information is added in the mongo database and the tournament image is stored in an AWS S3 bucket 
-### Test case steps
+### Test case steps 6_3
 1. 
 
-### Expected Result
+### Expected Result 6_3
 1.
 
-### Actual Result
+### Actual Result 6_3
 
-### User Story
+### User Story 6_4
 - User Story 6.4: As an admin user I can edit an existing tournament with a tournament name and tournament image. Both fields are mandatory and a message is displayed accordingly. The tournament information is updated in the mongo database and the tournament image is stored in an AWS S3 bucket
-### Test case steps
+### Test case steps 6_4
 1. 
 
-### Expected Result
+### Expected Result 6_4
 1.
 
-### Actual Result
+### Actual Result 6_4
 
-### User Story
+### User Story 6_5
 - User Story 6.5: As an admin user I can delete an existing tournament, once I have confirmed that it is ok to delete the tournament. The tournament information is deleted from the mongo database
-### Test case steps
+### Test case steps 6_5
 1. 
 
-### Expected Result
+### Expected Result 6_5
 1.
 
-### Actual Result
+### Actual Result 6_5
 
-### User Story
+### User Story 6_6
 - User Story 6.6: As an admin user if a tournament has memories associated with it, the tournament cannot be deleted and a message is displayed
-### Test case steps
+### Test case steps 6_6
 1. 
 
-### Expected Result
+### Expected Result 6_6
 1.
 
-### Actual Result
+### Actual Result 6_6
 
-### User Story
+### User Story 6_7
 - User Story 6.7: As an admin user if there is only one tournament in website, it cannot be deleted, a minimum of one tournament is required
-### Test case steps
+### Test case steps 6_7
 1. 
 
-### Expected Result
+### Expected Result 6_7
 1.
 
-### Actual Result
+### Actual Result 6_7
 
 ## Feature 7 Dashboard
 ### User Story 7_1
@@ -652,7 +652,7 @@ and tournament
 ### Actual Result 8_4
 
 ### User Story 8_5
-- User Story 8.5: As a regular user I can delete my account. This will delete any memories I have added(including their associated comments and ratings) and will also delete any comments or ratings the regular user has added on others users memories. The user will be asked to confirm the delete account action, and will be brought to the homepage after their account is succesfully deleted.
+- User Story 8.5: As a regular user I can delete my account. This will delete any memories I have added(including their associated comments and ratings) and will also delete any comments or ratings the regular user has added on others users memories. The user will be asked to confirm the delete account action, and will be brought to the homepage after their account is successfully deleted.
 ### Test case steps 8_5
 1. 
 
@@ -721,7 +721,7 @@ style.css | Passed, No errors found | [Results](football_memories/static/images/
 
 ## Chrome Dev tools Lighthouse 
 
-(I used Lighthouse https://developers.google.com/web/tools/lighthouse) to test the performance, seo, best practices and accessability of the site
+(I used Lighthouse https://developers.google.com/web/tools/lighthouse) to test the performance, seo, best practices and accessibility of the site
 ### Desktop
 Page | Result 
 ------------ | ------------- 
