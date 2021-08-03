@@ -265,7 +265,7 @@ The user stories for the website user "regular user" (a potential or existing cu
 - User Story 1.1: As a regular user the navigation bar is displayed with a logo on all pages for easy navigation, with a burger menu on mobile devices
 - User Story 1.2: As a regular user the navigation item selected is highlighted
 - User Story 1.3: As a regular user, when logged out, the home/landing page is the default page and there are three options with a logo, Home, Login, Register displayed
-- User Story 1.4: As a regular user, when logged out, the memories page is the default page and there are six options with a logo: Memories, Add Memory, Tournaments, Profile, Dashboard, Logout
+- User Story 1.4: As a regular user, when logged in, the memories page is the default page and there are six options with a logo: Memories, Add Memory, Tournaments, Profile, Dashboard, Logout
 - User Story 2.1: As a regular user I can view the footers social icons(Twitter, facebook, instagram, pinterest, snapchat) and the relevant website opens in a new tab when clicked
 - User Story 2.2: As a regular user I can view the websites terms and condition page by clicking on the link in the footer
 - User Story 2.3: As a regular user I can view the websites' privacy policy page by clicking on the link in the footer
@@ -307,7 +307,7 @@ There is a lot of overlap between the two user types, the admin user however has
 - User Story 1.1: As an admin user the navigation bar is displayed with a logo on all pages for easy navigation, with a burger menu on mobile devices
 - User Story 1.2: As an admin user the navigation item selected is highlighted
 - User Story 1.3: As an admin user, when logged out, the home/landing page is the default page and there are three options with a logo, Home, Login, Register displayed
-- User Story 1.4: As an admin user, when logged out, the memories page is the default page and there are six options with a logo: Memories, Add Memory, Tournaments, Profile, Dashboard, Logout
+- User Story 1.4: As an admin user, when logged in, the memories page is the default page and there are six options with a logo: Memories, Add Memory, Tournaments, Profile, Dashboard, Logout
 - User Story 2.1: As an admin user I can view the footers social icons(Twitter, facebook, instagram, pinterest, snapchat) and the relevant website opens in a new tab when clicked
 - User Story 2.2: As an admin user I can view the websites terms and condition page by clicking on the link in the footer
 - User Story 2.3: As an admin user I can view the websites' privacy policy page by clicking on the link in the footer
@@ -415,7 +415,7 @@ The website has seven distinct features, and they are described below
 - User Story 1.1: As an admin/regular user the navigation bar is displayed with a logo on all pages for easy navigation, with a burger menu on mobile devices
 - User Story 1.2: As an admin/regular user the navigation item selected is highlighted
 - User Story 1.3: As an admin/regular user, when logged out, the home/landing page is the default page and there are three options with a logo, Home, Login, Register displayed
-- User Story 1.4: As an admin/regular user, when logged out, the memories page is the default page and there are six options with a logo: Memories, Add Memory, Tournaments, Profile, Dashboard, Logout
+- User Story 1.4: As an admin/regular user, when logged in, the memories page is the default page and there are six options with a logo: Memories, Add Memory, Tournaments, Profile, Dashboard, Logout
 
 ### Feature 2 Footer
 #### Description
