@@ -120,11 +120,12 @@ The primary goal of the website from a site users perspective is as follows:
 
 ## Structure
 ### Code Structure.
-- My project is built using a Blueprints structure, I found the following video and links invaluable to structure my project accordingly
+- My project is built using a Blueprints structure
+- A blueprint in Flask is an object to structure a Flask application into subsets. This helped in organizing code and separating functionality.
+- I found the following video and links invaluable to structure my project accordingly
     - https://www.youtube.com/watch?v=Wfx4YBzg16s&list=PL-osiE80TeTs4UjLw5MM6OjgkjFeUxCYH&index=11 
     - https://github.com/CoreyMSchafer/code_snippets/tree/master/Python/Flask_Blog 
-A blueprint in Flask is an object to structure a Flask application into subsets. This helped in organizing code and separating functionality.
-The project is structured as follows
+- The project is structured as follows
     - Administration: Contains a flask route for administration code, for example a dashboard
     - Authentication: Contains a flask route for authentication for example login, register
     - Errors: Contains a flask route for error pages for example 404
@@ -424,6 +425,10 @@ The footer of the website is displayed on all pages. It consists of three main s
 2. Terms and Conditions and Privacy Policy links
 3. Newsletter signup
 
+The terms and conditions and privacy policy contain the relevant infromation, it is test data for the purpose of having these pages on the website
+When the user enters their email address and clicks Signup the div is updated with a message
+![Newsletter](football_memories/static/images/readme/newsletter_signup.PNG)
+
 #### Footer desktop
 ![Footer desktop](football_memories/static/images/footer/footer_desktop.PNG)
 
@@ -449,6 +454,7 @@ Below the hero image are the last three memories added by users. The following c
 three_latest_memories = list(mongo.db.memories.find().
                                  sort("_id", -1).limit(3))
 </code><br>
+![Latest Memories](football_memories/static/images/landing_page/latest_memories.PNG)
 
 #### User Stories
 - User Story 3.1: As a regular user/admin user I can view a hero image with login and register buttons on the home/landing page
@@ -457,8 +463,18 @@ and tournament
 
 ### Feature 4 Login/Register/Logout administration
 #### Description
-The user can log in into their account by clicking on the Login button on the landing page or clicking the Login link in the navigation bar. They must enter a valid username and password otherwise a relevant message will be displayed.
-Note: I have limited the functionality so that only regular users and not admin users can register on the site
+- The user can register for an account on the website by entering their username, password, confirming their password, first name, last name, favourite team, country.
+- All fields are mandatory and a relevant message will be displayed and the username must be unique otherwise a message will be displayed to the user
+- The username must be a minimum of 6 characters and contain at least one lowercase letter, with no special characters
+- The password must be a minimum of 6 characters and contain least one number, one lowercase and one uppercase letter, with no special characters
+- The password must match the confirm password
+- The country is selected from a dropdown list of countries
+- Note: I have limited the functionality so that only regular users and not admin users can register on the site
+![Register](football_memories/static/images/readme/register.PNG)
+- The user can log in into their account by clicking on the Login button on the landing page or clicking the Login link in the navigation bar. They must enter a valid username and password otherwise a relevant message will be displayed.
+![Latest Memories](football_memories/static/images/readme/login.PNG)
+
+
 #### User Stories
 - User Story 4.1: As a regular user I can register for an account by providing my username, password, confirm password, first name, last name, favourite team and country, and I will be navigated to the memories page. All fields must be provided
 - User Story 4.2: As a regular user my username must be a minimum of 6 characters, and contain at least one lowercase letter, with no special characters
@@ -471,6 +487,43 @@ Note: I have limited the functionality so that only regular users and not admin 
 
 ### Feature 5 Memories, Memory, Add/Edit/Delete Memory
 #### Description
+- A user can add a memory by clicking on the Add Memory link and providing the following information
+    - Tournament Name, a dropdown appears with a list of tournament
+    - Memory Image, an image upload that the user can upload an image. The file types allowed are jpg and png, and a message is displayed if the user tried to add a memory with an image type not matching jpg or png
+    - Memory Name, a text field,. where the user can enter a memory name
+    - Memory Description, a textarea, where the user can enter a memory description, date(calendar date in the form dd/mm/yyyy) and stadium
+    - All fields are mandatory
+    Clicking cancel will bring the user back to the Memories page, clicking Add Memory will save the changes and create the memory
+    ![Add Memory](football_memories/static/images/readme/add_memory.PNG)
+- A user can edit an existing memory by clicking on the Edit Memory button on a memory(My memories) and providing the following information
+    - Tournament Name, the selected tournament is displayed
+    - Memory Image, an image upload that the user can upload an image. The file types allowed are jpg and png, and a message is displayed if the user tried to add a memory with an image type not matching jpg or png. For security purposes a new image must be uploaded
+    - Memory Name, a text field, where the user can update a memory name
+    - Memory Description, a textarea, where the user can update a memory description, date(calendar date in the form dd/mm/yyyy) and stadium
+    - All fields are mandatory
+    - Clicking cancel will bring the user back to the Memories page, clicking Save Changes will save the changes and update the memory
+    ![Edit Memory](football_memories/static/images/readme/add_memory.PNG)
+- A user can delete a memory they have created, and admin user can delete any memory
+    - A pop up will appear confirming that the user wishes to delete a memory, all comments, ratings will also be deleted for the deleted memory
+    ![Delete Memory](football_memories/static/images/readme/delete_memory.PNG)
+- A user can view all memories or filter on memories they have created on the Memories page. When the login/register they are navigated to the All Memories page, but when they add/edit/delete a memory, they are navigated to their memories page
+![All Memories](football_memories/static/images/readme/all_memories.PNG)
+![My Memories](football_memories/static/images/readme/my_memories.PNG)
+- Pagination will be displayed if there are more than 3 memories
+![My Memories](football_memories/static/images/readme/memories_pagination.PNG)
+- A user can search memories based on text on the memory name and description, the user can also reset the search. The search is not case sensitive
+![Search](football_memories/static/images/readme/search.PNG)
+- A user can click on a memory in the memories page to view detailed infroamtion about the memory
+    - They can view a larger image of the memory
+    - They can view a google map of the stadium that was entered for the memory
+    - They can view the memory name, memory description, tournament name, stadium, date
+    - They can view the view count of the image, and this value increments when the memory is viewed
+    - They can view the avergae rating for a memory(total of ratings/number of ratings)
+    - They can submit a rating for the memory, with a value of 1-5
+    - They can view all comments for a memory, and the page is paginated if there are more than 3 comments
+    - They can add a comment, and the comment is displayed with the comment, added by and date
+    ![Memory](football_memories/static/images/readme/memory.png)
+
 #### User Stories
 - User Story 5.1: Add Memory - As a regular user/admin user I can add a memory by selecting a tournament, uploading a memory image, entering a memory name, description, date and stadium. All fields are mandatory
 - User Story 5.2: Add Memory - As a regular user/admin user the memory image I upload must be png or jpg format
@@ -488,7 +541,21 @@ Note: I have limited the functionality so that only regular users and not admin 
 
 ### Feature 6 Tournaments
 #### Description
-A regular user can view the tournaments they can add memories to. Three tournaments are displays per page(tournament name, tournament image), and pagination is displayed if there are more than three tournaments in the mongodb database
+- A regular user can view the tournaments they can add memories to. Three tournaments are displays per page(tournament name, tournament image), and pagination is displayed if there are more than three tournaments in the mongodb database
+![Tournament Regular](football_memories/static/images/readme/tournaments_regular.PNG)
+
+- An admin user can add/edit and delete a tournament
+![Tournament Admin](football_memories/static/images/readme/tournaments_admin.PNG)
+- Adding a tournament requires a tournament name and tournament image field to be filled in. The file types allowed are jpg and png, and a message is displayed if the admin user tries to add a tournament with an image type not matching jpg or png
+    ![Add Tournament](football_memories/static/images/readme/add_tournament.PNG)
+- Editing a tournament requires a tournament name and tournament image field to be filled in. The file types allowed are jpg and png, and a message is displayed if the admin user tries to add a tournament with an image type not matching jpg or png
+    ![Edit Tournament](football_memories/static/images/readme/edit_tournament.PNG)
+- A tournament can be deleted
+![Delete Tournament](football_memories/static/images/readme/delete_tournament.PNG)
+    - If it has no memories associated
+    - There is a minimum of one tournamnent in the database after deletion
+    ![Delete Tournament Message](football_memories/static/images/readme/delete_tournament_message.PNG)
+
 #### User Stories
 - User Story 6.1: As a regular user/admin user I can view a list of tournaments created with the tournament name and tournament image displayed
 - User Story 6.2: As a regular user/admin user the list of tournaments is displayed with three per page, and pagination is displayed if there are more than 3 tournaments
@@ -501,13 +568,14 @@ A regular user can view the tournaments they can add memories to. Three tourname
 ### Feature 7 Dashboard
 #### Description
 The dashboard page displays the results of 5 queries against the mongo db for the number of users, number of tournaments, number of memories, number of ratings and number of comments added on the site
-<code>
-    number_of_users = mongo.db.users.count() <br>
-    number_of_tournaments = mongo.db.tournaments.count() <br>
-    number_of_memories = mongo.db.memories.count() <br>
-    number_of_comments = mongo.db.comments.count() <br>
-    number_of_ratings = mongo.db.ratings.count() <br>
-</code>    
+![Dashboard](football_memories/static/images/readme/dashboard.PNG)
+
+<code>number_of_users = mongo.db.users.count() </code> <br>
+ <code> number_of_tournaments = mongo.db.tournaments.count() </code> <br>
+ <code>     number_of_memories = mongo.db.memories.count() </code> <br>
+ <code>     number_of_comments = mongo.db.comments.count() </code> <br>
+ <code>     number_of_ratings = mongo.db.ratings.count() </code>
+   
 
 #### User Stories
 - User Story 7.1: As a regular user/admin user I can view a dashboard to see the number of users, number of tournaments, number of memories, number of ratings and number of comments added on the site
@@ -515,11 +583,14 @@ The dashboard page displays the results of 5 queries against the mongo db for th
 
 ### Feature 8 Profile
 #### Description
-A user can view or edit their profile details. Their username is displayed, but it is an un-editable field. When the user clicks save changes they are brought back to the Profile page with the relevant updates made
-A user cannot update their username, the field is read only on the profile page
+- A user can view or edit their profile details. Their username is displayed, but it is an un-editable field. When the user clicks save changes they are brought back to the Profile page with the relevant updates made
+- A user cannot update their username, the field is read only on the profile page
+- All fields are mandatory, similar to the registration page
 
 #### Profile/Edit Profile
 ![Profile/Edit Profile](football_memories/static/images/profile/profile.PNG)
+
+![Edit Profile 2](football_memories/static/images/readme/edit_profile.PNG)
 
 #### User Stories
 - User Story 8.1: As a regular user/admin user I can view my profile details: Username, First Name, Last Name, Favourite Team and Country. The country is selected from a dropdown of countries
@@ -540,7 +611,7 @@ Number | Feature
 3 | Tags functionality and search by tags
 4 | Enhance reporting/dashboard capabilities, and use a 3pp graph library
 5 | User must verify their email address when registering, or 2 factor authentication is implemented
-6 | Delete image from aws s3 bucket, when a tournament or memory is deleted. I did attempt to do this but came across permission issues. Despite making numerous changes to the bucket policy I was unable to get the code working
+6 | Delete image from aws s3 bucket, when a tournament or memory is deleted. I did attempt to do this but came across permission issues. Despite making numerous changes to the bucket policy I was unable to get the code working. I dont see this as a major issue as there is a lot of space available in the S3 bucket
 7 | Continue to make further changes to the blueprint structure, and move all mongodb database related code to its own route
 
 # Technologies Used
@@ -738,6 +809,8 @@ https://stackoverflow.com/questions/9142527/can-you-require-two-form-fields-to-m
 
 - Google Maps (https://www.google.com/maps)
     - The Google Maps api is used to display maps in the memory page
+
+- The terms and conditions and privacy policy page content was copied from https://www.privacypolicies.com/blog/privacy-policy-template/
 
 <br>
 
