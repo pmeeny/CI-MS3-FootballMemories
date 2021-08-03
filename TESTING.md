@@ -205,14 +205,14 @@ Device Number | Physical/Emulator | Device Name | Device Type | Browser | Versio
 ------------ | ------------ | ------------- | ------------- | ------------- | -------------
 1 | Physical | iPad | Tablet |  Safari | 14.4 |
 2 | Physical | iPhone | Mobile |Safari | 14.4 |
-3 | Physical | One Plus 5 | Mobile | Chrome | 88.0 |
+3 | Physical | One Plus 5 | Mobile | Chrome | 91.0 |
 4 | Physical | Windows Desktop| Desktop | IE Edge | 88.0 |
 5 | Physical | Windows Desktop| Desktop | Mozilla Firefox | 85.0 |
-6 | Physical | Windows Desktop| Desktop | Chrome | 86.0 |
-7 | Emulator | Galaxy S5 | Mobile | Chrome Emulator | 86.0 |
-8 | Emulator | iPad | Tablet | Chrome Emulator | 86.0 |
-9 | Emulator | iPhone X | Mobile | Chrome Emulator | 86.0 |
-10 | Emulator | iPhone 5/SE | Mobile | Chrome Emulator | 86.0 |
+6 | Physical | Windows Desktop| Desktop | Chrome | 91.0 |
+7 | Emulator | Galaxy S5 | Mobile | Chrome Emulator | 91.0 |
+8 | Emulator | iPad | Tablet | Chrome Emulator | 91.0 |
+9 | Emulator | iPhone X | Mobile | Chrome Emulator | 91.0 |
+10 | Emulator | iPhone 5/SE | Mobile | Chrome Emulator | 91.0 |
 
 - Below are the test results for testing the website requirements against a range of browsers and devices
 - For the purpose of the screenshots I used a Chrome emulator for desktop, tablet and mobile (Device numbers 6(Desktop), 8(Tablet), 9(Mobile))
@@ -222,43 +222,51 @@ Device Number | Physical/Emulator | Device Name | Device Type | Browser | Versio
 - User Story 1.1: As an admin/regular user the navigation bar is displayed with a logo on all pages for easy navigation, with a burger menu on mobile devices
 
 ### Test case steps 1_1
-1. 
+1. Navigate to the home/index page
 
 ### Expected Result 1_1
+1. The home/index page will be displayed with logo and navigation bar, with a burger menu on mobile devices
 
 ### Actual Result 1_1
 Step Number | Desktop | Tablet | Mobile | Result 
 ------------ | ------------ | ------------- | ------------- | ------------- |
-Step 1 | [Desktop Result]()  | [Tablet Result]() |[Mobile Result]() | Passed |
+Step 1 | [Desktop Result](football_memories/static/images/testing/index_desktop.png)  | [Tablet Result](football_memories/static/images/testing/index_tablet.png) |[Mobile Result](football_memories/static/images/testing/index_mobile.png) | Passed |
 
 ### User Story 1_2
 - User Story 1.2: As an admin/regular user the navigation item selected is highlighted
 
 ### Test case steps 1_2
-1. 
+1. Navigate to the Login page
+1. Navigate to the Register page
 
 ### Expected Result 1_2
+1. The Login page is displayed at the navigation bar link is highlighted
+2. The Register page is displayed at the navigation bar link is highlighted
 
 ### Actual Result 1_2
+Step 1 | [Desktop Result](football_memories/static/images/testing/login_desktop.png)  | [Tablet Result](football_memories/static/images/testing/login_tablet.png) |[Mobile Result](football_memories/static/images/testing/login_mobile.png) | Passed |
+Step 2 | [Desktop Result](football_memories/static/images/testing/register_desktop.png)  | [Tablet Result](football_memories/static/images/testing/register_tablet.png) |[Mobile Result](football_memories/static/images/testing/register_mobile.png) | Passed |
 
 ### User Story 1_3
 - User Story 1.3: As an admin/regular user, when logged out, the home/landing page is the default page and there are three options with a logo, Home, Login, Register displayed
 
 ### Test case steps 1_3
-1. 
+1. As an admin/regular user, navigate to the home/landing page by first logging in and then logging out of the application
 
 ### Expected Result 1_3
+1. The user is navigated to the  home/landing page and there are three options with a logo, Home, Login, Register displayed
 
 ### Actual Result 1_3
+Step 1 | [Desktop Result](football_memories/static/images/testing/index_desktop.png)  | [Tablet Result](football_memories/static/images/testing/index_tablet.png) |[Mobile Result](football_memories/static/images/testing/index_mobile.png) | Passed |
 
 ### User Story 1_4
-- User Story 1.4: As an admin/regular user, when logged out, the memories page is the default page and there are six options with a logo: Memories, Add Memory, Tournaments, Profile, Dashboard, Logout
+- User Story 1.4: As an admin/regular user, when logged in, the memories page is the default page and there are six options with a logo: Memories, Add Memory, Tournaments, Profile, Dashboard, Logout
 
 ### Test case steps 1_4
 1. 
 
 ### Expected Result 1_4
-1.
+1. 
 
 ### Actual Result 1_4
 
@@ -267,29 +275,36 @@ Step 1 | [Desktop Result]()  | [Tablet Result]() |[Mobile Result]() | Passed |
 ### User Story 2_1
 - User Story 2.1: As an admin/regular user I can view the footers social icons(Twitter, facebook, instagram, pinterest, snapchat) and the relevant website opens in a new tab when clicked
 ### Test case steps 2_1
-1. 
+1. As an admin/regular user on the home/landing page navigate to the footer and click on each social media icon
 
 ### Expected Result 2_1
+1. The footer is displayed, and clicking on a social media icon opens the relevant page in a new tab
 
 ### Actual Result 2_1
+TBC
 
 ### User Story 2_2
 - User Story 2.2: As an admin/regular user I can view the websites terms and condition page by clicking on the link in the footer
 ##### Test case steps 2_2
-1. 
+1. As an admin/regular user click on the websites terms and condition link in the footer
 
 ### Expected Result 2_2
+1. The websites terms and condition is displayed
 
 ### Actual Result 2_2
+Step 1 | [Desktop Result](football_memories/static/images/testing/terms_and_conditions_desktop.png)  | [Tablet Result](football_memories/static/images/testing/terms_and_conditions_tablet.png) |[Mobile Result](football_memories/static/images/testing/terms_and_conditions_mobile.png) | Passed |
 
 ### User Story 2_3
 - User Story 2.3: As an admin/regular user I can view the websites' privacy policy page by clicking on the link in the footer
 ### Test case steps 2_3
-1. 
+1. As an admin/regular user click on the websites privacy policy link in the footer
 
 ### Expected Result 2_3
+1. The websites privacy policy is displayed
 
 ### Actual Result 2_3
+Step 1 | [Desktop Result](football_memories/static/images/testing/privacy_policy_desktop.png)  | [Tablet Result](football_memories/static/images/testing/privacy_policy_tablet.png) |[Mobile Result](football_memories/static/images/testing/privacy_policy_mobile.png) | Passed |
+
 
 ### User Story 2_4
 - User Story 2.4: As an admin/regular user I can sign up to the football memories newsletter by entering my email and clicking SignUp. The email address entered will receive an email
@@ -306,24 +321,25 @@ Step 1 | [Desktop Result]()  | [Tablet Result]() |[Mobile Result]() | Passed |
 - User Story 3.1: As a regular user/admin user I can view a hero image with login and register buttons on the home/landing page
 
 ### Test case steps 3_1
-1. 
+1. As a regular user/admin user navigate to the home/landing page
 
 ### Expected Result 3_1
-1.
+1. The hero image with login and register buttons is displayed on the home/landing page
 
 ### Actual Result 3_1
+Step 1 | [Desktop Result](football_memories/static/images/testing/index_desktop.png)  | [Tablet Result](football_memories/static/images/testing/index_tablet.png) |[Mobile Result](football_memories/static/images/testing/index_mobile.png) | Passed |
 
 ### User Story 3_2
-- User Story 3.2: As a regular user/admin user I can view the last three memories added on the website, with memory name, memory image
-and tournament
+- User Story 3.2: As a regular user/admin user I can view the last three memories added on the website, with memory name, memory image and tournament name
 
 ### Test case steps 3_2
-1. 
+1. As a regular user/admin user navigate to the home/landing page and scroll down to the latest memories added section
 
 ### Expected Result 3_2
-1.
+1. The last three memories added on the website, with memory name, memory image and tournament name are displayed
 
 ### Actual Result 3_2
+Step 1 | [Desktop Result](football_memories/static/images/testing/index_desktop.png)  | [Tablet Result](football_memories/static/images/testing/index_tablet.png) |[Mobile Result](football_memories/static/images/testing/index_mobile.png) | Passed |
 
 ## Feature 4 Login Register Logout administration
 ### User Story 4_1
@@ -430,20 +446,24 @@ and tournament
 ### User Story 5_4
 - User Story 5.4: Delete Memory - As a regular user I can delete a memory I created by confirming I want to delete
 ### Test case steps 5_4
-1. 
+1. As a regular user , navigate to my memories filter on the memories page
+2. Delete a memory
 
 ### Expected Result 5_4
-1.
+1. The users memories are displayed and each memory has a delete button
+2. A confirmation modal is displayed and once confirmed the memory is deleted
 
 ### Actual Result 5_4
 
 ### User Story 5_5
 - User Story 5.5: Delete Memory - As an admin user I can delete a memory, created by any user
 ### Test case steps 5_5
-1. 
+1. As an admin user navigate to the All Memories page
+2. Delete a memory
 
 ### Expected Result 5_5
-1.
+1. The All Memories page is displayed and every memory will have a delete button displayed
+2. A confirmation modal is displayed and once confirmed the memory is deleted
 
 ### Actual Result 5_5
 
@@ -470,20 +490,24 @@ and tournament
 ### User Story 5_8
 - User Story 5.8: View Memory - As a regular user/admin user the view count increases when the user clicks on a memory or refreshes the memory page
 ### Test case steps 5_8
-1. 
+1. As a regular user/admin user click on a memory and note the view count
+2. As a regular user/admin user refresh the page or open the memory in a new tab 
 
 ### Expected Result 5_8
-1.
+1. The view count is displayed
+2. The view count is increased by one
 
 ### Actual Result 5_8
 
 ### User Story 5_9
 - User Story 5.9: View Memory - As a regular user/admin user I can add a comment to a memory
 ### Test case steps 5_9
-1. 
+1. As a regular user/admin user select a memory and add a comment
+2. Add more than three comments to a memory
 
 ### Expected Result 5_9
-1.
+1. The comment is displayed with user details, comment and date in the form MM-YYYY
+2. Pagination is displayed if there are more than 3 comments added to a memory
 
 ### Actual Result 5_9
 
@@ -602,13 +626,15 @@ and tournament
 ### User Story 7_1
 - User Story 7.1: As a regular user/admin user I can view a dashboard to see the number of users, number of tournaments, number of memories, number of ratings and number of comments added on the site
 ### Test case steps 7_1
-1. 
+1. As a logged in regular user/admin user select the Dashboard link
 
 ### Expected Result 7_1
-1.
+1. The dashboard displays 5 metrics: the number of users, the number of tournaments, the number of memories, the number of ratings and number of comments added on the site
 
 ### Actual Result 7_1
-
+Step Number | Desktop | Tablet | Mobile | Result 
+------------ | ------------ | ------------- | ------------- | ------------- |
+Step 1 | [Desktop Result](football_memories/static/images/testing/dashboard_desktop.png)  | [Tablet Result](football_memories/static/images/testing/dashboard_tablet.png) |[Mobile Result](football_memories/static/images/testing/dashboard_mobile.png) | Passed |
 
 ## Feature 8 Profile
 ### User Story 8_1
@@ -634,10 +660,10 @@ and tournament
 ### User Story 8_3
 - User Story 8.3: As a regular user/admin user I can update my profile details: First Name, Last Name, Favourite Team and Country
 ### Test case steps 8_3
-1. 
+1. As a regular user/admin user click on the Profile page and enter values for First Name, Last Name, Favourite Team and Country
 
 ### Expected Result 8_3
-1.
+1. 
 
 ### Actual Result 8_3
 
