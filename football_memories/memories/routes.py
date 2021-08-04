@@ -127,15 +127,13 @@ def add_memory():
     if request.method == "POST":
         # Check if the file type is an allowed image file type
         memory_image_type, allowedImageFileTypes = \
-            util.isAllowedImageFileType('tournament_image')
+            util.isAllowedImageFileType('memory_image')
 
         if (memory_image_type) not in allowedImageFileTypes:
             flash("File type " + memory_image_type +
                   " not allowed," +
                   " allowed file types are: jpg, JPG ,png ,PNG")
             return redirect(url_for("memories.get_user_memories"))
-
-        image_url = util.storeImageAWSS3Bucket('memory_image')
 
     if request.method == "POST":
         # Store the memory image in an S3 bucket
