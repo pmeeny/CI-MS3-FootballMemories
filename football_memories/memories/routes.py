@@ -174,7 +174,7 @@ def edit_memory(memory_id):
     if request.method == "POST":
         # Check if the file type is an allowed image file type
         memory_image_type, allowedImageFileTypes = \
-            util.isAllowedImageFileType('tournament_image')
+            util.isAllowedImageFileType('memory_image')
 
         if (memory_image_type) not in allowedImageFileTypes:
             flash("File type " + memory_image_type +
@@ -303,7 +303,9 @@ def add_rating(id):
 
 def calculateAverageRating(id):
     """
-    This function
+    This function calculates the average rating for a memory
+    Average Rating = Sum of all ratings divided by number of ratings
+    The value is returned to one decimal point
     """
     # Get all ratings for a memory id
     ratings = mongo.db.ratings.find({"memory_id": id})
