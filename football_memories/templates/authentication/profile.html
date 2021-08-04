@@ -10,19 +10,19 @@
         </div> 
         <!-- Edit profile form-->
         <div class="reg-body">
-            <form method="POST" action="{{ url_for('authentication.update_profile', username=username) }}" class="needs-validation" id="profile-form" onchange="validateUserNameAndPassword()" novalidate>
+            <form method="POST" autocomplete="off"  action="{{ url_for('authentication.update_profile', username=username) }}" class="needs-validation" id="profile-form" onchange="validateUserNameAndPassword()" novalidate>
                 <!-- Username field, readonly field-->
                 <div class="row mt-3 form-group">
                     <label for="username" class="form-label col-4">Username</label>
                     <div class="col-8">
-                        <input class="form-control" id="username" name="username" value="{{ user.username }}" readonly>
+                        <input class="form-control" id="username" name="username" value="{{ user.username }}" aria-describedby="username" readonly>
                     </div>
                 </div>
                 <!-- Password field with validation feedback-->
                 <div class="row mt-3 form-group">
                     <label for="password" class="form-label col-4">Password</label>
                     <div class="col-8">
-                        <input type="password" class="form-control" id="password" name="password" required>
+                        <input type="password" class="form-control" id="password" name="password" aria-describedby="password" required>
                         <div id="password_help" class="form-text">
                             Your password must be a minimum of 6 characters and contain least one number, one lowercase and one uppercase letter, with no special characters
                         </div>
@@ -38,7 +38,7 @@
                 <div class="row mt-3 form-group">
                         <label for="confirm-password" class="form-label col-4">Confirm Password</label>
                         <div class="col-8">
-                            <input type="password" class="form-control" id="confirm-password" name="confirm-password" required>
+                            <input type="password" class="form-control" id="confirm-password" aria-describedby="confirm-password" name="confirm-password1" required>
                              <div class="invalid-feedback">
                                 Your passwords must match
                             </div>
@@ -48,7 +48,7 @@
                 <div class="row mt-3 form group">
                     <label for="first_name" class="form-label col-4">First Name</label>
                     <div class="col-8">
-                        <input class="form-control" id="first_name" name="first_name" type="text" value="{{ user.first_name }}" required>
+                        <input class="form-control"  id="first_name" name="first_name" aria-describedby="first_name" type="text" value="{{ user.first_name }}"  required>
                         <div class="valid-feedback">
                             Looks good!
                         </div>
@@ -61,7 +61,7 @@
                 <div class="row mt-3 form group">
                     <label for="last_name" class="form-label col-4">Last Name</label>
                     <div class="col-8">
-                        <input type="text" class="form-control" id="last_name" name="last_name" value="{{ user.last_name }}"  required>
+                        <input type="text" class="form-control" id="last_name" aria-describedby="last_name" name="last_name"  value="{{ user.last_name }}"  required>
                         <div class="valid-feedback">
                             Looks good!
                         </div>
@@ -73,8 +73,8 @@
                 <!-- Favourite team field with validation feedback-->
                 <div class="row mt-3 form group">
                     <label for="favourite_team" class="form-label col-4">Favourite Team</label>
-                    <div class="col-8">
-                        <input class="form-control" id="favourite_team" name="favourite_team" type="text" aria-describedby="favourite_team" value="{{ user.favourite_team }}" required>
+                    <div class="col-8"> 
+                        <input class="form-control"  value="{{ user.favourite_team }}" id="favourite_team" name="favourite_team" type="text" aria-describedby="favourite_team" required>
                         <div class="valid-feedback">
                             Looks good!
                         </div>
@@ -87,7 +87,7 @@
                 <div class="row mt-3 form group">
                     <label for="country" class="form-label col-4">Your Country</label>
                     <div class="col-8">
-                        <input class="form-control" name="country" id="country" list="countryOptions" value="{{ user.country }}" placeholder="Type to search....." required>
+                        <input class="form-control" name="country" aria-describedby="country" id="country" list="countryOptions" value="{{ user.country }}" placeholder="Type to search....." required>
                         <div class="valid-feedback">
                             Looks good!
                         </div>
