@@ -31,7 +31,7 @@
                     <!-- Password field and validation-->
                     <label for="password" class="form-label col-4">Password</label>
                     <div class="col-8">
-                        <input type="password" class="form-control" id="password" name="password" required>
+                        <input type="password" class="form-control" id="password" name="password" aria-describedby="password"  required>
                         <div id="password_help" class="form-text">
                             Your password must be a minimum of 6 characters and contain least one number, one lowercase and one uppercase letter, with no special characters
                         </div>
@@ -47,7 +47,7 @@
                     <!-- Confirm Password field and validation-->
                     <label for="confirm-password" class="form-label col-4">Confirm Password</label>
                     <div class="col-8">
-                        <input type="password" class="form-control" id="confirm-password" name="confirm-password" required>
+                        <input type="password" class="form-control" id="confirm-password" aria-describedby="confirm-password" name="confirm-password" required>
                         <div class="invalid-feedback">
                             Your passwords must match
                         </div>
@@ -57,7 +57,7 @@
                     <!-- First name field and validation-->
                     <label for="first_name" class="form-label col-4">First Name</label>
                     <div class="col-8">
-                        <input class="form-control" id="first_name" name="first_name" type="text" required>
+                        <input class="form-control" id="first_name" name="first_name" aria-describedby="first_name" type="text" required>
                         <div class="valid-feedback">
                             Looks good!
                         </div>
@@ -70,7 +70,7 @@
                     <!-- Last name field and validation-->
                     <label for="last_name" class="form-label col-4">Last Name</label>
                     <div class="col-8">
-                        <input type="text" class="form-control" id="last_name" name="last_name" required>
+                        <input type="text" class="form-control" id="last_name" name="last_name" aria-describedby="last_name" required>
                         <div class="valid-feedback">
                             Looks good!
                         </div>
@@ -96,7 +96,7 @@
                     <!-- Country field and validation-->
                     <label for="country" class="form-label col-4">Your Country</label>
                     <div class="col-8">
-                        <input class="form-control" name="country" id="country" list="countryOptions" placeholder="Type to search....." required>
+                        <input class="form-control" name="country" id="country" list="countryOptions" aria-describedby="country" placeholder="Type to search....." required>
                         <div class="valid-feedback">
                             Looks good!
                         </div>
