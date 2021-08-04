@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}401 error page{% endblock %}
+{% block content %}
+{% block content %}
+    <div class="hero-image flex-wrapper">
+        <div class="container common-holder">
+            <!-- 401 error page header-->
+            <div class="h1-header">
+                <h1>401 error page</h1>
+            </div>
+            <!-- 401 error page section-->
+            <section>
+                <h2>The page you have requested does not exist</h2>
+                <p class="p-dark">Click <a href="{{ url_for('administration.home') }}">here</a> to go back to the home page</p>
+            </section>
+        </div>
+    </div>
+{% endblock %}
