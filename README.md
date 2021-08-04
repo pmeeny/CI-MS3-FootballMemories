@@ -16,6 +16,7 @@ View the live site [here](https://ci-ms3-footballmemories.herokuapp.com/)
   * [Strategy](#strategy)
     + [Primary Goal](#primary-goal)
   * [Structure](#structure)
+    + [Website pages](#website-pages)
     + [Code Structure.](#code-structure)
     + [Database](#database)
       - [Conceptual database model](#conceptual-database-model)
@@ -27,7 +28,6 @@ View the live site [here](https://ci-ms3-footballmemories.herokuapp.com/)
       - [Comments](#comments)
       - [Ratings](#ratings)
     + [Amazon Web Services S3 bucket](#amazon-web-services-s3-bucket)
-    + [Website pages](#website-pages)
   * [Scope](#scope)
     + [User Stories Potential or Existing Customer](#user-stories-potential-or-existing-customer)
     + [User Stories Website Owner](#user-stories-website-owner)
@@ -119,6 +119,29 @@ The primary goal of the website from a site users perspective is as follows:
 - To rate a memory with a score from 1-5 and view ratings of a memory
 
 ## Structure
+### Website pages
+I have structured the website into 19 pages, each with clear, concise structure, information and purpose. I use the Bootstrap grid system throughout, which gave a consistent structure and responsive design "out of the box"
+1. Home/Landing Page: This is the landing page, and the first page the user encounters when they access the site, before they log in/register
+2. Register: This page allows the user to register an account to use the site
+3. Login: This page allows the user to login to the site
+4. Terms and Conditions: This page displays the sites terms and conditions
+5. Privacy Policy: This page displays the sites' privacy policy
+6. Memories: This is the first page the user sees when the login/register, it displays all the football memories that have been added
+7. Add Memory: This page allows the user to add a football memory
+8. Edit Memory: This page allows a user to edit a memory they have created
+9. Delete Memory: This button allows a user to delete a memory they have created
+10. Profile: This page displays user information and allows the user to update their profile
+11. Dashboard: This page displays statistics about the number of users, tournaments memories, comments
+12. Tournaments: This page displays the tournaments that have been created by the admin user. An admin user can add/edit or delete a tournament
+13. Add Tournament: This page allows an admin user to add a football tournament
+14. Edit Tournament: This page allows an admin user to edit a football tournament
+15. Delete Tournament: This button allows an admin user to edit a football tournament as long as there are no memories associated 
+    and a minimum of one tournament in the tournament collection
+16. Logout: This link allows the user to logout of the site
+17. Newsletter: The user can enter their email address in the site footer and subscribe to a mailing list
+18. 404: The 404 error page is displayed if the user enters an incorrect url when accessing the site.
+19. 400, 401, 405 and 500: These error page is displayed if the user encounters an error on the site
+
 ### Code Structure.
 - My project is built using a Blueprints structure
 - A blueprint in Flask is an object to structure a Flask application into subsets. This helped in organizing code and separating functionality.
@@ -140,7 +163,7 @@ The primary goal of the website from a site users perspective is as follows:
     - Util: Utilities, common code for example aws code for writing to an aws s3 bucket
     
 ### Database
-- The website is a data-centric one with html, javascript, css used with the boostrap framework as a frontend
+- The website is a data-centric one with html, javascript, css used with the bootstrap framework as a frontend
 - The backend consists of Python, flask and jinja templates with a database of a mongodb open-source document-oriented database
 
 
@@ -218,8 +241,7 @@ client = boto3.client('s3',
    </code>
 6. A single function was written named storeImageAWSS3Bucket that takes one parameter, the filename to store
 7. This single function is used by the tournament and memories routes to store the images in the S3 bucket
-8. This function stores a file in an AWS S3 bucket using boto3. The filename is in the form timestamp + name of file added by the user
-The timestamp ensures uniqueness for every file added to the s3 bucket allowing users to use the same filename if desired.
+8. This function stores a file in an AWS S3 bucket using boto3. The filename is in the form timestamp + name of file added by the user. The timestamp ensures uniqueness for every file added to the s3 bucket allowing users to use the same filename if desired.
 <code>
    image_file = secure_filename(image.filename)
     image_to_upload = timestamp + image_file
@@ -235,28 +257,6 @@ image_url = s3_bucket_url + image_to_upload
 ![tournaments](football_memories/static/images/database_design/tournaments.PNG)
 ![memories](football_memories/static/images/database_design/memories.PNG)
    
-### Website pages
-I have structured the website into 19 pages, each with clear, concise structure, information and purpose. I use the Bootstrap grid system throughout, which gave a consistent structure and responsive design "out of the box"
-1. Home/Landing Page: This is the landing page, and the first page the user encounters when they access the site, before they log in/register
-2. Register: This page allows the user to register an account to use the site
-3. Login: This page allows the user to login to the site
-4. Terms and Conditions: This page displays the sites terms and conditions
-5. Privacy Policy: This page displays the sites' privacy policy
-6. Memories: This is the first page the user sees when the login/register, it displays all the football memories that have been added
-7. Add Memory: This page allows the user to add a football memory
-8. Edit Memory: This page allows a user to edit a memory they have created
-9. Delete Memory: This button allows a user to delete a memory they have created
-10. Profile: This page displays user information and allows the user to update their profile
-11. Dashboard: This page displays statistics about the number of users, tournaments memories, comments
-12. Tournaments: This page displays the tournaments that have been created by the admin user. An admin user can add/edit or delete a tournament
-13. Add Tournament: This page allows an admin user to add a football tournament
-14. Edit Tournament: This page allows an admin user to edit a football tournament
-15. Delete Tournament: This button allows an admin user to edit a football tournament as long as there are no memories associated 
-    and a minimum of one tournament in the tournament collection
-16. Logout: This link allows the user to logout of the site
-17. Newsletter: The user can enter their email address in the site footer and subscribe to a mailing list
-18. 404: The 404 error page is displayed if the user enters an incorrect url when accessing the site.
-19. 500: The 500 error page is displayed if the user encounters an error on the site
 
 ## Scope
 There is overlap in terms of user stories for the two types of users, and they are described below
@@ -266,13 +266,14 @@ The user stories for the website user "regular user" (a potential or existing cu
 - User Story 1.2: As a regular user the navigation item selected is highlighted
 - User Story 1.3: As a regular user, when logged out, the home/landing page is the default page and there are three options with a logo, Home, Login, Register displayed
 - User Story 1.4: As a regular user, when logged in, the memories page is the default page and there are six options with a logo: Memories, Add Memory, Tournaments, Profile, Dashboard, Logout
+- User Story 1.5: As a regular user if I encounter a route that does not exist I am navigated to a 404 error page
 - User Story 2.1: As a regular user I can view the footers social icons(Twitter, facebook, instagram, pinterest, snapchat) and the relevant website opens in a new tab when clicked
 - User Story 2.2: As a regular user I can view the websites terms and condition page by clicking on the link in the footer
 - User Story 2.3: As a regular user I can view the websites' privacy policy page by clicking on the link in the footer
 - User Story 2.4: As a regular user I can sign up to the football memories newsletter by entering my email and clicking SignUp. The email address entered will receive an email
 - User Story 3.1: As a regular user I can view a hero image with login and register buttons on the home/landing page
-- User Story 3.2: As a regular  user I can view the last three memories added on the website, with memory name, memory image
-and tournament
+- User Story 3.2: As a regular  user I can view the last three memories added on the website, with memory name, memory image and tournament
+- User Story 3.3: As an admin user if I encounter a route that does not exist I am navigated to a 404 error page
 - User Story 4.1: As a regular user I can register for an account by providing my username, password, confirm password, first name, last name, favourite team and country, and I will be brought to the memories page. All fields must be provided
 - User Story 4.2: As a regular user my username must be a minimum of 6 characters, and contain at least one lowercase letter, with no special characters
 - User Story 4.3: As a regular user my password must be a minimum of 6 characters and contain at least one number, one lowercase and one uppercase letter, with no special characters
@@ -312,8 +313,8 @@ There is a lot of overlap between the two user types, the admin user however has
 - User Story 2.3: As an admin user I can view the websites' privacy policy page by clicking on the link in the footer
 - User Story 2.4: As an admin user I can sign up to the football memories newsletter by entering my email and clicking SignUp. The email address entered will receive an email
 - User Story 3.1: As an admin user I can view a hero image with login and register buttons on the home/landing page
-- User Story 3.2: As an admin user I can view the last three memories added on the website, with memory name, memory image
-and tournament
+- User Story 3.2: As an admin user I can view the last three memories added on the website, with memory name, memory image and tournament
+- User Story 3.3: As an admin user if I encounter a route that does not exist I am navigated to a 404 error page
 - User Story 4.5: As an admin user I can log in to my account by providing my username and password and clicking Login and I will be navigated to the my memories page. A username and password must be provided. If the username and/or password entered is incorrectly a relevant message will be displayed
 - User Story 4.6: As an admin user, when I am logged into the site, and I click Logout I am successfully logged out of the site, and brought to the home/landing page, and the navigation bar is updated with three options with a logo, Home, Login, Register
 - User Story 4.7: As an admin user, when I am logged into the site, and I click the back button I am automatically redirected to the home/landing page, and the navigation bar is updated with three options with a logo, Home, Login, Register
@@ -355,7 +356,7 @@ memory | [Desktop/Tablet/Mobile](football_memories/static/images/wireframes/memo
 add_memory/edit_memory | [Desktop/Tablet/Mobile](football_memories/static/images/wireframes/add_edit_memory.png)
 delete_memory | [Desktop/Tablet/Mobile](football_memories/static/images/wireframes/delete_memory.png)
 tournaments | [Desktop/Tablet/Mobile](football_memories/static/images/wireframes/tournaments.png)
-add_tournament/edit_tournament | [Desktop/Tablet/Mobile](football_memories/static/images/wireframes/add_edit_tournanent.png)
+add_tournament/edit_tournament | [Desktop/Tablet/Mobile](football_memories/static/images/wireframes/add_edit_tournament.png)
 delete_tournament | [Desktop/Tablet/Mobile](football_memories/static/images/wireframes/delete_tournament.png)
 profile | [Desktop/Tablet/Mobile](football_memories/static/images/wireframes/profile.png)
 dashboard | [Desktop/Tablet/Mobile](football_memories/static/images/wireframes/dashboard.png)
@@ -415,16 +416,17 @@ The website has seven distinct features, and they are described below
 - User Story 1.3: As an admin/regular user, when logged out, the home/landing page is the default page and there are three options with a logo, Home, Login, Register displayed
 - User Story 1.4: As an admin/regular user, when logged in, the memories page is the default page and there are six options with a logo: Memories, Add Memory, Tournaments, Profile, Dashboard, Logout
 
+
 ### Feature 2 Footer
 #### Description
 The footer of the website is displayed on all pages. It consists of three main sections
 
 1. Logo with text and social media links
 2. Terms and Conditions and Privacy Policy links
-3. Newsletter signup
+3. Newsletter sign-up
 
-The terms and conditions and privacy policy contain the relevant infromation, it is test data for the purpose of having these pages on the website
-When the user enters their email address and clicks Signup the div is updated with a message
+The terms and conditions and privacy policy contain the relevant information, it is test data for the purpose of having these pages on the website
+When the user enters their email address and clicks Sign-up the div is updated with a message
 ![Newsletter](football_memories/static/images/readme/newsletter_signup.PNG)
 
 #### Footer desktop
@@ -458,6 +460,7 @@ three_latest_memories = list(mongo.db.memories.find().
 - User Story 3.1: As a regular user/admin user I can view a hero image with login and register buttons on the home/landing page
 - User Story 3.2: As a regular user/admin user I can view the last three memories added on the website, with memory name, memory image
 and tournament
+- User Story 3.3: As an admin/regular user if I encounter a route that does not exist I am navigated to a 404 error page
 
 ### Feature 4 Login/Register/Logout administration
 #### Description
@@ -511,12 +514,12 @@ and tournament
 ![My Memories](football_memories/static/images/readme/memories_pagination.PNG)
 - A user can search memories based on text on the memory name and description, the user can also reset the search. The search is not case sensitive
 ![Search](football_memories/static/images/readme/search.PNG)
-- A user can click on a memory in the memories page to view detailed infroamtion about the memory
+- A user can click on a memory in the memories page to view detailed information about the memory
     - They can view a larger image of the memory
     - They can view a google map of the stadium that was entered for the memory
     - They can view the memory name, memory description, tournament name, stadium, date
     - They can view the view count of the image, and this value increments when the memory is viewed
-    - They can view the avergae rating for a memory(total of ratings/number of ratings)
+    - They can view the average rating for a memory(total of ratings/number of ratings)
     - They can submit a rating for the memory, with a value of 1-5
     - They can view all comments for a memory, and the page is paginated if there are more than 3 comments
     - They can add a comment, and the comment is displayed with the comment, added by and date
@@ -539,7 +542,7 @@ and tournament
 
 ### Feature 6 Tournaments
 #### Description
-- A regular user can view the tournaments they can add memories to. Three tournaments are displays per page(tournament name, tournament image), and pagination is displayed if there are more than three tournaments in the mongodb database
+- A regular user can view the tournaments they can add memories to. Three tournaments are displays per page(tournament name, tournament image), and pagination is displayed if there are more than three tournaments in the mongodb database. The tournaments are sorted and displayed by date, most recently added first
 ![Tournament Regular](football_memories/static/images/readme/tournaments_regular.PNG)
 
 - An admin user can add/edit and delete a tournament
@@ -551,7 +554,7 @@ and tournament
 - A tournament can be deleted
 ![Delete Tournament](football_memories/static/images/readme/delete_tournament.PNG)
     - If it has no memories associated
-    - There is a minimum of one tournamnent in the database after deletion
+    - There is a minimum of one tournament in the database after deletion
     ![Delete Tournament Message](football_memories/static/images/readme/delete_tournament_message.PNG)
 
 #### User Stories
@@ -609,7 +612,7 @@ Number | Feature
 3 | Tags functionality and search by tags
 4 | Enhance reporting/dashboard capabilities, and use a 3pp graph library
 5 | User must verify their email address when registering, or 2 factor authentication is implemented
-6 | Delete image from aws s3 bucket, when a tournament or memory is deleted. I did attempt to do this but came across permission issues. Despite making numerous changes to the bucket policy I was unable to get the code working. I dont see this as a major issue as there is a lot of space available in the S3 bucket
+6 | Delete image from aws s3 bucket, when a tournament or memory is deleted. I did attempt to do this but came across permission issues. Despite making numerous changes to the bucket policy I was unable to get the code working. I don't see this as a major issue as there is a lot of space available in the S3 bucket
 7 | Continue to make further changes to the blueprint structure, and move all mongodb database related code to its own route
 
 # Technologies Used
@@ -816,7 +819,7 @@ https://stackoverflow.com/questions/9142527/can-you-require-two-form-fields-to-m
 - Pexels (https://www.pexels.com/)
     - The hero image used throughout the site is form Pexels, https://www.pexels.com/photo/aerial-view-of-soccer-field-1171084/ by user https://www.pexels.com/@mike-468229 
 
-- The 42(www.the42.ie), Irish Independant(www.irishindependant.ie), Tokyvideo(www.tokyvideo.com)
+- The 42(www.the42.ie), Irish Independant(www.irishindependant.ie), Tokyvideo(www.tokyvideo.com), Sky Sports(www.skysports.com)
     - The memory images added to the memories added to the website were taken from the above websites media galleries
 
  <br>
