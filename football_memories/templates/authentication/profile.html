@@ -22,7 +22,7 @@
                 <div class="row mt-3 form-group">
                     <label for="password" class="form-label col-4">Password</label>
                     <div class="col-8">
-                        <input type="password" class="form-control" id="password" name="password" aria-describedby="password" required>
+                        <input type="password" class="form-control" id="password" name="password" aria-describedby="password" autocomplete="new-password" required>
                         <div id="password_help" class="form-text">
                             Your password must be a minimum of 6 characters and contain least one number, one lowercase and one uppercase letter, with no special characters
                         </div>
@@ -48,7 +48,7 @@
                 <div class="row mt-3 form group">
                     <label for="first_name" class="form-label col-4">First Name</label>
                     <div class="col-8">
-                        <input class="form-control"  id="first_name" name="first_name" aria-describedby="first_name" type="text" value="{{ user.first_name }}"  required>
+                        <input class="form-control"  id="first_name" name="first_name" autocomplete="off" aria-describedby="first_name" type="search" value="{{ user.first_name }}" required>
                         <div class="valid-feedback">
                             Looks good!
                         </div>
@@ -61,7 +61,7 @@
                 <div class="row mt-3 form group">
                     <label for="last_name" class="form-label col-4">Last Name</label>
                     <div class="col-8">
-                        <input type="text" class="form-control" id="last_name" aria-describedby="last_name" name="last_name"  value="{{ user.last_name }}"  required>
+                        <input type="text" class="form-control" id="last_name" autocomplete="off" aria-describedby="last_name" name="last_name"  value="{{ user.last_name }}" required>
                         <div class="valid-feedback">
                             Looks good!
                         </div>
@@ -74,7 +74,7 @@
                 <div class="row mt-3 form group">
                     <label for="favourite_team" class="form-label col-4">Favourite Team</label>
                     <div class="col-8"> 
-                        <input class="form-control"  value="{{ user.favourite_team }}" id="favourite_team" name="favourite_team" type="text" aria-describedby="favourite_team" required>
+                        <input type="search" class="form-control" id="favourite_team"  autocomplete="off" aria-describedby="favourite_team" name="favourite_team" value="{{ user.favourite_team }}" required>
                         <div class="valid-feedback">
                             Looks good!
                         </div>
@@ -87,7 +87,7 @@
                 <div class="row mt-3 form group">
                     <label for="country" class="form-label col-4">Your Country</label>
                     <div class="col-8">
-                        <input class="form-control" name="country" aria-describedby="country" id="country" list="countryOptions" value="{{ user.country }}" placeholder="Type to search....." required>
+                        <input class="form-control" name="country" type="search" aria-describedby="country" id="country" list="countryOptions" value="{{ user.country }}" placeholder="Type to search....." required>
                         <div class="valid-feedback">
                             Looks good!
                         </div>
