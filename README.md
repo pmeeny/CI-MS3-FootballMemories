@@ -2,7 +2,7 @@
 Football memories is a website that allows users to add/edit/delete/view football memories for given tournaments. 
 It also allows users to rate and comment on football memories
 - There are two types of users, and I have set up accounts for both
-    - An admin user account has been set up with username/password of admin/Password123
+    - An admin user account has been set up with username/password of administrator/Password123
     - A regular user account has been set up with username/password of testuser/Password123
 <br>
 
@@ -292,8 +292,7 @@ and tournament
 - User Story 5.11: My Memories- As a regular user I can filter on memories I have created, and the page will be paginated if there are more than 3 memories
 - User Story 5.12: All Memories - As a regular user I can filter on memories I have created, and the page will be paginated if there are more than 3 memories
 - User Story 5.13: Search - As a regular user I can search on text for the memory name and memory description, and the memories page will be updated with those filtered memories 
-- User Story 6.1: As a regular user I can view a list of tournaments created with the tournament name and tournament image displayed
-- User Story 6.2: As a regular user the list of tournaments is displayed with three per page, and pagination if displayed is there are more than 3 tournaments
+User Story 6.1: As a regular user I can view a list of tournaments with the tournament name and tournament image displayed, and pagination is displayed if there are more than 3 tournaments
 - User Story 7.1: As a regular user I can view a dashboard to see the number of users, number of tournaments, number of memories, number of ratings and number of comments added on the site
 - User Story 8.1: As a regular user I can view my profile details: Username, First Name, Last Name, Favourite Team and Country. The country is selected from a dropdown of countries
 - User Story 8.2: As a regular user I can update my profile password, but the confirm password entered must match with the password. The password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.
@@ -330,8 +329,7 @@ and tournament
 - User Story 5.11: My Memories- As an admin use user I can filter on memories I have created, and the page will be paginated if there are more than 3 memories
 - User Story 5.12: All Memories - As an admin use user I can filter on memories I have created, and the page will be paginated if there are more than 3 memories
 - User Story 5.13: Search - As an admin user I can search on text for the memory name and memory description, and the memories page will be updated with those filtered memories 
-- User Story 6.1: As an admin user I can view a list of tournaments created with the tournament name and tournament image displayed
-- User Story 6.2: As an admin user the list of tournaments is displayed with three per page, and pagination is displayed if there are more than 3 tournaments
+- User Story 6.2: As an admin user I can view list of tournaments with the tournament name and tournament image displayed, and pagination is displayed if there are more than 3 tournaments. On the tournaments page I can also view an Add Tournament, Edit Tournament and Delete Tournament buttons
 - User Story 6.3: As an admin user I can add a new tournament with a tournament name and tournament image. Both fields are mandatory and a message is displayed accordingly. The tournament information is added in the mongo database and the tournament image is stored in an AWS S3 bucket 
 - User Story 6.4: As an admin user I can edit an existing tournament with a tournament name and tournament image. Both fields are mandatory and a message is displayed accordingly. The tournament information is updated in the mongo database and the tournament image is stored in an AWS S3 bucket
 - User Story 6.5: As an admin user I can delete an existing tournament, once I have confirmed that it is ok to delete the tournament. The tournament information is deleted from the mongo database
