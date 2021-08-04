@@ -829,6 +829,7 @@ Bug no. | Bug description |  Bug fix |
 8 | After adding a comment, the user was not routed back to the memory | Fix in add_comment(id): in route.py (memories)
 9 | The email js code was sending the email to the same user, a test user.|  The fix was to update the send_email.js to update a parameter, and then update the emailjs template accordingly with a link to that field<code>"to_email": contactForm.email_address.value</code>
 10 | Editing an admin user incorrectly updates the users user_type to regular_user| The fix in route.py (administration) was to get the users type first and store that when updating the users profile
+11 | On profile/edit profile the field names were being overwritten by chromes autofill feature | After researching this extensively, the best solution I could implement was to update the field type from "text" to "search" (https://developer.mozilla.org/en-US/docs/Web/Security/Securing_your_site/Turning_off_form_autocompletion) and (https://stackoverflow.com/questions/12374442/chrome-ignores-autocomplete-off)
 
 
 # Code Validators and Website Analysis
