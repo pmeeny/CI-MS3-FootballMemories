@@ -13,7 +13,7 @@ tournaments = Blueprint('tournaments', __name__)
 def get_tournaments():
     """
     This function renders the tournament template with all tournaments
-    in the tournament collection
+    in the tournament collection, the most recent added is displayed first
     """
     # Check the user is logged in
     if 'user' not in session:
@@ -28,7 +28,7 @@ def get_tournaments():
 
     # Get the tournament information and count
     total_tournaments = mongo.db.tournaments.find().count()
-    tournaments = list(mongo.db.tournaments.find().sort("tournament_name", 1))
+    tournaments = list(mongo.db.tournaments.find().sort("_id", -1))
     tournaments_paginated = tournaments[offset: offset + per_page]
     pagination = Pagination(page=page, per_page=per_page,
                             total=total_tournaments, css_framework='bootstrap')
