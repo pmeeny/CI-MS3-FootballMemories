@@ -24,7 +24,7 @@
     + [Expected Result 2_1](#expected-result-2-1)
     + [Actual Result 2_1](#actual-result-2-1)
     + [User Story 2_2](#user-story-2-2)
-        * [Test case steps 2_2](#test-case-steps-2-2)
+    + [Test case steps 2_2](#test-case-steps-2-2)
     + [Expected Result 2_2](#expected-result-2-2)
     + [Actual Result 2_2](#actual-result-2-2)
     + [User Story 2_3](#user-story-2-3)
@@ -44,6 +44,10 @@
     + [Test case steps 3_2](#test-case-steps-3-2)
     + [Expected Result 3_2](#expected-result-3-2)
     + [Actual Result 3_2](#actual-result-3-2)
+    + [User Story 3_3](#user-story-3-3)
+    + [Test case steps 3_3](#test-case-steps-3-3)
+    + [Expected Result 3_3](#expected-result-3-3)
+    + [Actual Result 3_3](#actual-result-3-3)
   * [Feature 4 Login Register Logout administration](#feature-4-login-register-logout-administration)
     + [User Story 4_1](#user-story-4-1)
     + [Test case steps 4_1](#test-case-steps-4-1)
@@ -273,7 +277,9 @@ Step 1 | [Desktop Result](football_memories/static/images/testing/index_desktop.
 1. The memories page is the default page and there are six options with a logo: Memories, Add Memory, Tournaments, Profile, Dashboard, Logout
 
 ### Actual Result 1_4
-TBD
+Step Number | Desktop | Tablet | Mobile | Result 
+------------ | ------------ | ------------- | ------------- | ------------- |
+Step 1 | [Desktop Result](football_memories/static/images/testing/all_memories_regular_desktop.png)  | [Tablet Result](football_memories/static/images/testing/all_memories_regular_tablet.png) |[Mobile Result](football_memories/static/images/testing/all_memories_regular_mobile.png) | Passed |
 
 ## Feature 2 Footer
 ### User Story 2_1
@@ -285,11 +291,14 @@ TBD
 1. The footer is displayed, and clicking on a social media icon opens the relevant page in a new tab
 
 ### Actual Result 2_1
-TBC
+The screenshots for this test case are for the desktop only and it is not possible to properly show on a tablet or mobile device
+Step Number | Desktop | Tablet | Mobile | Result 
+------------ | ------------ | ------------- | ------------- | ------------- |
+Step 1 | [Desktop Result](football_memories/static/images/testing/social_media_links.png)  | N/A |N/A | Passed |
 
 ### User Story 2_2
 - User Story 2.2: As an admin/regular user I can view the websites terms and condition page by clicking on the link in the footer
-##### Test case steps 2_2
+#### Test case steps 2_2
 1. As an admin/regular user click on the websites terms and condition link in the footer
 
 ### Expected Result 2_2
@@ -362,36 +371,61 @@ Step Number | Desktop | Tablet | Mobile | Result
 ------------ | ------------ | ------------- | ------------- | ------------- |
 Step 1 | [Desktop Result](football_memories/static/images/testing/index_desktop.png)  | [Tablet Result](football_memories/static/images/testing/index_tablet.png) |[Mobile Result](football_memories/static/images/testing/index_mobile.png) | Passed |
 
+### User Story 3_3
+- User Story 3.3: As an admin user if I encounter a route that does not exist I am navigated to a 404 error page
+
+### Test case steps 3_3
+1. Enter a url that does not exist, for example: website_url/login1
+
+### Expected Result 3_3
+1. A 404 page is displayed
+
+### Actual Result 3_3
+Step Number | Desktop | Tablet | Mobile | Result 
+------------ | ------------ | ------------- | ------------- | ------------- |
+
+
 ## Feature 4 Login Register Logout administration
 ### User Story 4_1
 - User Story 4.1: As a regular user I can register for an account by providing my username, password, confirm password, first name, last name, favourite team and country, and I will be navigated to the my memories page. All fields must be provided
 ### Test case steps 4_1
-1. 
+1. As a regular user navigate to the register page and click Register
+2. Enter values for username, password, confirm password, first name, last name, favourite team and country and click Register
+3. Login to mongodb and open the database and select the users collection
 
 ### Expected Result 4_1
-1.
+1. A message is displayed in red beside each field that a value needs to be entered
+2. The user is registered and brought to the memories page
+3. The users details is displayed in the users collection
 
 ### Actual Result 4_1
+TBD
 
 ### User Story 4_2
 - User Story 4.2: As a regular user my username must be a minimum of 6 characters, and contain at least one lowercase letter, with no special characters
 ### Test case steps 4_2
-1. 
+1. As a regular user navigate to the register page and enter a username that does not meet the criteria and click Register
+2. As a regular user navigate to the register page and enter a username that does meet the criteria and click Register
 
 ### Expected Result 4_2
-1.
+1. An error message is displayed beside the username field: The username entered does not meet the required format and the field is red
+2. A message with the text "Looks good!" is displayed and the field is green
 
 ### Actual Result 4_2
+TBD
 
 ### User Story 4_3
 - User Story 4.3: As a regular user my password must be a minimum of 6 characters and contain at least one number, one lowercase and one uppercase letter, with no special characters
 ### Test case steps 4_3
-1. 
+1. As a regular user navigate to the register page and enter a password that does not meet the criteria and click Register
+2. As a regular user navigate to the register page and enter a password that does meet the criteria and click Register
 
 ### Expected Result 4_3
-1.
+1. An error message is displayed beside the password field: The "password entered does not meet the required format" and the field is red
+2. A message with the text "Looks good!" is displayed and the field is green
 
 ### Actual Result 4_3
+TBD
 
 ### User Story 4_4
 - User Story 4.4: As a regular user my password must match my confirm password
@@ -415,75 +449,107 @@ Step 3 | [Desktop Result](football_memories/static/images/testing/register_deskt
 ### User Story 4_5
 - User Story 4.5: As a regular user/admin user I can log in to my account by providing my username and password and clicking Login and I will be navigated to the my memories page. A username and password must be provided. If the username and/or password entered is incorrectly a relevant message will be displayed
 ### Test case steps 4_5
-1. 
+1. As a regular user/admin user navigate to the login page and click the Login button
+2. Enter a username and/or password that does not exist
+3. Enter a valid username and password
 
 ### Expected Result 4_5
-1.
+1. An error message is displayed that both the username and password fields must be entered
+2. A message is displayed: Incorrect Username and/or Password
+3. The user is successfully logged in and is brought to the memories page
 
 ### Actual Result 4_5
+Step Number | Desktop | Tablet | Mobile | Result 
+------------ | ------------ | ------------- | ------------- | ------------- |
 
 ### User Story 4_6
 - User Story 4.6: As an admin/regular user, when I am logged into the site, and I click Logout I am successfully logged out of the site, and brought to the home/landing page, and the navigation bar is updated with three options with a logo, Home, Login, Register
 ### Test case steps 4_6
-1. 
+1. As an admin/regular user logged in, click the Logout button
 
 ### Expected Result 4_6
-1.
+1. The user is logged out, navigated to the home/landing page and a message is displayed
 
 ### Actual Result 4_6
+Step Number | Desktop | Tablet | Mobile | Result 
+------------ | ------------ | ------------- | ------------- | ------------- |
 
 ### User Story 4_7
 - User Story 4.7: As an admin/regular user, when I am logged into the site, and I click the back button I am automatically redirected to the home/landing page, and the navigation bar is updated with three options with a logo, Home, Login, Register
 ### Test case steps 4_7
-1. 
+1. As an admin/regular user logged in, click the Logout button
+2. Click the back button
 
 ### Expected Result 4_7
-1.
+1. The user is logged out, navigated to the home/landing page and a message is displayed
+2. The user remains on the home/landing page
 
 ### Actual Result 4_7
+Step Number | Desktop | Tablet | Mobile | Result 
+------------ | ------------ | ------------- | ------------- | ------------- |
 
 ## Feature 5 Memories, Add Edit Delete Memory
 ### User Story 5_1
 - User Story 5.1: Add Memory - As a regular user/admin user I can add a memory by selecting a tournament, uploading a memory image, entering a memory name, description, date and stadium. All fields are mandatory
 ### Test case steps 5_1
-1. 
+1. As a regular user/admin user navigate to the Add Memory page and click the Add Memory button
+2. Enter/select values for tournament, memory image, memory name, description, date and stadium 
+3. Click Add Memory
+4. Login to AWS, select S3 and bucket ci-ms3-football-memories
+5. Login to Mongodb, select the MS3Cluster, select the relevant database and click on the memories collection
 
 ### Expected Result 5_1
-1.
+1. An error message is displayed beside each field
+2. All fields are updated to green with the relevant Looks good message
+3. The memory is displayed in the memories page, and in the my memories filter
+4. The memory image is visible in the s3 bucket with a unique timestamp
+5. The memory is created and the values for tournament, memory image, memory name, description, date and stadium
 
 ### Actual Result 5_1
+Step Number | Desktop | Tablet | Mobile | Result 
+------------ | ------------ | ------------- | ------------- | ------------- |
 
 ### User Story 5_2
 - User Story 5.2: Add Memory - As a regular user/admin user the memory image I upload must be png or jpg format
 ### Test case steps 5_2
-1. 
+1. As a regular user/admin user when creating a memory upload a memory image that is not type png or jpg
 
 ### Expected Result 5_2
-1.
+1. A message will be displayed "File type json not allowed, allowed file types are: jpg, JPG ,png ,PNG" and the memory will not be added, and the user will be brought to the memories page
 
 ### Actual Result 5_2
+Step Number | Desktop | Tablet | Mobile | Result 
+------------ | ------------ | ------------- | ------------- | ------------- |
 
 ### User Story 5_3
 - User Story 5.3: Edit  Memory - As a regular user/admin user I can edit a memory by uploading a memory image, updating the memory name, description, date and stadium. All fields are mandatory
 ### Test case steps 5_3
-1. 
+1. As a regular user/admin user click the edit button on a memory
+2. Update the memory by making a change to one or all the fields
 
 ### Expected Result 5_3
-1.
+1. The Edit Memory page is displayed with values for the fields tournament name, memory name, memory description, date and stadium
+2. The memory is updated and the user is brought to the memories page
 
 ### Actual Result 5_3
+Step Number | Desktop | Tablet | Mobile | Result 
+------------ | ------------ | ------------- | ------------- | ------------- |
 
 ### User Story 5_4
 - User Story 5.4: Delete Memory - As a regular user I can delete a memory I created by confirming I want to delete
 ### Test case steps 5_4
 1. As a regular user, navigate to my memories filter on the memories page
 2. Delete a memory
+3. Login to Mongodb, select the MS3Cluster, select the relevant database and click on the memories collection
 
 ### Expected Result 5_4
 1. The users memories are displayed and each memory has a delete button
 2. A confirmation modal is displayed and once confirmed the memory is deleted
+3. The memory is not visible in the memories collection in the mongodb database
 
 ### Actual Result 5_4
+Step Number | Desktop | Tablet | Mobile | Result 
+------------ | ------------ | ------------- | ------------- | ------------- |
 
 ### User Story 5_5
 - User Story 5.5: Delete Memory - As an admin user I can delete a memory, created by any user
@@ -496,6 +562,8 @@ Step 3 | [Desktop Result](football_memories/static/images/testing/register_deskt
 2. A confirmation modal is displayed and once confirmed the memory is deleted
 
 ### Actual Result 5_5
+Step Number | Desktop | Tablet | Mobile | Result 
+------------ | ------------ | ------------- | ------------- | ------------- |
 
 ### User Story 5_6
 - User Story 5.6: View Memory - As a regular user/admin user I can view a memory by clicking on a memory
@@ -589,6 +657,8 @@ Step 3 | [Desktop Result](football_memories/static/images/testing/add_rating3_de
 1.
 
 ### Actual Result 5_11
+Step Number | Desktop | Tablet | Mobile | Result 
+------------ | ------------ | ------------- | ------------- | ------------- |
 
 ### User Story 5_12
 - User Story 5.12: All Memories - As a regular user/admin user I can filter on memories I have created, and the page will be paginated if there are more than 3 memories
@@ -599,11 +669,13 @@ Step 3 | [Desktop Result](football_memories/static/images/testing/add_rating3_de
 1.
 
 ### Actual Result 5_12
+Step Number | Desktop | Tablet | Mobile | Result 
+------------ | ------------ | ------------- | ------------- | ------------- |
 
 ### User Story 5_13
 - User Story 5.13: Search - As a regular user/admin I can search on text for the memory name and memory description, and the memories page will be updated with those filtered memories 
 ### Test case steps 5_13
-1. On the memories page, enter text for exmaple "Ireland" in the Search box and click Search
+1. On the memories page, enter text for example "Ireland" in the Search box and click Search
 
 ### Expected Result 5_13
 1. The memories with "Ireland" in the memory text or memory description will be displayed
@@ -648,13 +720,13 @@ Step 1 | [Desktop Result](football_memories/static/images/testing/tournament_reg
 3. Add a tournament name and tournament image
 4. Click Add Tournament
 5. Login to AWS, select S3 and bucket ci-ms3-football-memories
-6. Login to Mongodb, select the MS3Cluster, select the football_memories_prod database and click on the tournaments collection
+6. Login to Mongodb, select the MS3Cluster, select the relevant database and click on the tournaments collection
 
 ### Expected Result 6_3
 1. The Add Tournament page is displayed
 2. A message will be displayed to enter a tournament name and image in red around each field
 3. Both fields will turn green with a "Looks Good" message displayed
-4. A message will be displayed that the tournament was succesfully added and the user will be navigated to the tournaments page
+4. A message will be displayed that the tournament was successfully added and the user will be navigated to the tournaments page
 5. The image will be displayed in the S3 bucket with a unique timestamp
 6. The tournament will be created in the tournaments collection with tournament name and url to the location of the file in the AWS S3 bucket
 
@@ -677,6 +749,8 @@ Step 6 | [Desktop Result](football_memories/static/images/testing/tournament_mon
 1.
 
 ### Actual Result 6_4
+Step Number | Desktop | Tablet | Mobile | Result 
+------------ | ------------ | ------------- | ------------- | ------------- |
 
 ### User Story 6_5
 - User Story 6.5: As an admin user I can delete an existing tournament, once I have confirmed that it is ok to delete the tournament. The tournament information is deleted from the mongo database
@@ -688,7 +762,7 @@ Step 6 | [Desktop Result](football_memories/static/images/testing/tournament_mon
 
 ### Expected Result 6_5
 1. The tournament is added and displayed
-2. The tournament is succesfully deleted
+2. The tournament is successfully deleted
 3. The tournament is no longer displayed
 4. The tournament "Test Delete" is no longer in the tournaments collection in the mongodb database
 
@@ -722,6 +796,8 @@ Step 1 | [Desktop Result](football_memories/static/images/testing/delete_tournam
 1.
 
 ### Actual Result 6_7
+Step Number | Desktop | Tablet | Mobile | Result 
+------------ | ------------ | ------------- | ------------- | ------------- |
 
 ## Feature 7 Dashboard
 ### User Story 7_1
