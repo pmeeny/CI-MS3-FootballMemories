@@ -206,7 +206,7 @@ Device Number | Physical/Emulator | Device Name | Device Type | Browser | Versio
 1 | Physical | iPad | Tablet |  Safari | 14.4 |
 2 | Physical | iPhone | Mobile |Safari | 14.4 |
 3 | Physical | One Plus 5 | Mobile | Chrome | 91.0 |
-4 | Physical | Windows Desktop| Desktop | IE Edge | 88.0 |
+4 | Physical | Windows Desktop| Desktop | IE Edge | 42.0 |
 5 | Physical | Windows Desktop| Desktop | Mozilla Firefox | 85.0 |
 6 | Physical | Windows Desktop| Desktop | Chrome | 91.0 |
 7 | Emulator | Galaxy S5 | Mobile | Chrome Emulator | 91.0 |
@@ -244,6 +244,8 @@ Step 1 | [Desktop Result](football_memories/static/images/testing/index_desktop.
 2. The Register page is displayed at the navigation bar link is highlighted
 
 ### Actual Result 1_2
+Step Number | Desktop | Tablet | Mobile | Result 
+------------ | ------------ | ------------- | ------------- | ------------- |
 Step 1 | [Desktop Result](football_memories/static/images/testing/login_desktop.png)  | [Tablet Result](football_memories/static/images/testing/login_tablet.png) |[Mobile Result](football_memories/static/images/testing/login_mobile.png) | Passed |
 Step 2 | [Desktop Result](football_memories/static/images/testing/register_desktop.png)  | [Tablet Result](football_memories/static/images/testing/register_tablet.png) |[Mobile Result](football_memories/static/images/testing/register_mobile.png) | Passed |
 
@@ -257,19 +259,21 @@ Step 2 | [Desktop Result](football_memories/static/images/testing/register_deskt
 1. The user is navigated to the  home/landing page and there are three options with a logo, Home, Login, Register displayed
 
 ### Actual Result 1_3
+Step Number | Desktop | Tablet | Mobile | Result 
+------------ | ------------ | ------------- | ------------- | ------------- |
 Step 1 | [Desktop Result](football_memories/static/images/testing/index_desktop.png)  | [Tablet Result](football_memories/static/images/testing/index_tablet.png) |[Mobile Result](football_memories/static/images/testing/index_mobile.png) | Passed |
 
 ### User Story 1_4
 - User Story 1.4: As an admin/regular user, when logged in, the memories page is the default page and there are six options with a logo: Memories, Add Memory, Tournaments, Profile, Dashboard, Logout
 
 ### Test case steps 1_4
-1. 
+1. As an admin/regular user login to the website
 
 ### Expected Result 1_4
-1. 
+1. The memories page is the default page and there are six options with a logo: Memories, Add Memory, Tournaments, Profile, Dashboard, Logout
 
 ### Actual Result 1_4
-
+TBD
 
 ## Feature 2 Footer
 ### User Story 2_1
@@ -292,6 +296,8 @@ TBC
 1. The websites terms and condition is displayed
 
 ### Actual Result 2_2
+Step Number | Desktop | Tablet | Mobile | Result 
+------------ | ------------ | ------------- | ------------- | ------------- |
 Step 1 | [Desktop Result](football_memories/static/images/testing/terms_and_conditions_desktop.png)  | [Tablet Result](football_memories/static/images/testing/terms_and_conditions_tablet.png) |[Mobile Result](football_memories/static/images/testing/terms_and_conditions_mobile.png) | Passed |
 
 ### User Story 2_3
@@ -303,18 +309,29 @@ Step 1 | [Desktop Result](football_memories/static/images/testing/terms_and_cond
 1. The websites privacy policy is displayed
 
 ### Actual Result 2_3
+Step Number | Desktop | Tablet | Mobile | Result 
+------------ | ------------ | ------------- | ------------- | ------------- |
 Step 1 | [Desktop Result](football_memories/static/images/testing/privacy_policy_desktop.png)  | [Tablet Result](football_memories/static/images/testing/privacy_policy_tablet.png) |[Mobile Result](football_memories/static/images/testing/privacy_policy_mobile.png) | Passed |
 
 
 ### User Story 2_4
 - User Story 2.4: As an admin/regular user I can sign up to the football memories newsletter by entering my email and clicking SignUp. The email address entered will receive an email
 ### Test case steps 2_4
-1. 
+1. As an admin/regular user navigate to the footer and enter your email address in the relevant field 
+2. Click the SignUp button
+3. Check your email account of the address you entered
 
 ### Expected Result 2_4
-1.
+1. Your email address will be displayed in the relevant field
+2. A message will be displayed: Thanks for subscribing to our mailing list
+3. An email will be sent to the email address that you entered
 
 ### Actual Result 2_4
+Step Number | Desktop | Tablet | Mobile | Result 
+------------ | ------------ | ------------- | ------------- | ------------- |
+Step 1 | [Desktop Result](football_memories/static/images/testing/newsletter1_desktop.png)  | [Tablet Result](football_memories/static/images/newsletter1_tablet.png) |[Mobile Result](football_memories/static/images/testing/newsletter1_mobile.png) | Passed |
+Step 2 | [Desktop Result](football_memories/static/images/testing/newsletter2_desktop.png)  | [Tablet Result](football_memories/static/images/testing/newsletter2_tablet.png) |[Mobile Result](football_memories/static/images/testing/newsletter2_mobile.png) | Passed |
+Step 3 | [Desktop Result](football_memories/static/images/testing/newsletter_email.png)  | [Tablet Result](football_memories/static/images/testing/newsletter_email.png) |[Mobile Result](football_memories/static/images/testing/newsletter_email.png) | Passed |
 
 ## Feature 3 Landing Home page
 ### User Story 3_1
@@ -327,6 +344,8 @@ Step 1 | [Desktop Result](football_memories/static/images/testing/privacy_policy
 1. The hero image with login and register buttons is displayed on the home/landing page
 
 ### Actual Result 3_1
+Step Number | Desktop | Tablet | Mobile | Result 
+------------ | ------------ | ------------- | ------------- | ------------- |
 Step 1 | [Desktop Result](football_memories/static/images/testing/index_desktop.png)  | [Tablet Result](football_memories/static/images/testing/index_tablet.png) |[Mobile Result](football_memories/static/images/testing/index_mobile.png) | Passed |
 
 ### User Story 3_2
@@ -339,6 +358,8 @@ Step 1 | [Desktop Result](football_memories/static/images/testing/index_desktop.
 1. The last three memories added on the website, with memory name, memory image and tournament name are displayed
 
 ### Actual Result 3_2
+Step Number | Desktop | Tablet | Mobile | Result 
+------------ | ------------ | ------------- | ------------- | ------------- |
 Step 1 | [Desktop Result](football_memories/static/images/testing/index_desktop.png)  | [Tablet Result](football_memories/static/images/testing/index_tablet.png) |[Mobile Result](football_memories/static/images/testing/index_mobile.png) | Passed |
 
 ## Feature 4 Login Register Logout administration
@@ -375,12 +396,21 @@ Step 1 | [Desktop Result](football_memories/static/images/testing/index_desktop.
 ### User Story 4_4
 - User Story 4.4: As a regular user my password must match my confirm password
 ### Test case steps 4_4
-1. 
+1. As a regular user enter a password that meets the criteria and leave the confirm password field blank and click the Register button
+2. As a regular user enter a confirm password that does not match the value of the password field
+3. As a regular user update the confirm, password field so that it matches the password field
 
 ### Expected Result 4_4
-1.
+1. The password field is highlighted in green with a "Looks good" message, and the confirm password is displayed in red with a message "Your passwords must match"
+2. The password field is highlighted in green with a "Looks good" message, and the confirm password is displayed in red with a message "Your passwords must match"
+3. The confirm password field is displayed in green with no error messages
 
 ### Actual Result 4_4
+Step Number | Desktop | Tablet | Mobile | Result 
+------------ | ------------ | ------------- | ------------- | ------------- |
+Step 1 | [Desktop Result](football_memories/static/images/testing/register_desktop_4_4_1.png)  | [Tablet Result](football_memories/static/images/testing/register_tablet_4_4_1.png) |[Mobile Result](football_memories/static/images/testing/register_mobile_4_4_1.png) | Passed |
+Step 2 | [Desktop Result](football_memories/static/images/testing/register_desktop_4_4_2.png)  | [Tablet Result](football_memories/static/images/testing/register_tablet_4_4_2.png) |[Mobile Result](football_memories/static/images/testing/register_mobile_4_4_2.png) | Passed |
+Step 3 | [Desktop Result](football_memories/static/images/testing/register_desktop_4_4_3.png)  | [Tablet Result](football_memories/static/images/testing/register_tablet_4_4_3.png) |[Mobile Result](football_memories/static/images/testing/register_mobile_4_4_3.png) | Passed |
 
 ### User Story 4_5
 - User Story 4.5: As a regular user/admin user I can log in to my account by providing my username and password and clicking Login and I will be navigated to the my memories page. A username and password must be provided. If the username and/or password entered is incorrectly a relevant message will be displayed
@@ -446,7 +476,7 @@ Step 1 | [Desktop Result](football_memories/static/images/testing/index_desktop.
 ### User Story 5_4
 - User Story 5.4: Delete Memory - As a regular user I can delete a memory I created by confirming I want to delete
 ### Test case steps 5_4
-1. As a regular user , navigate to my memories filter on the memories page
+1. As a regular user, navigate to my memories filter on the memories page
 2. Delete a memory
 
 ### Expected Result 5_4
@@ -470,22 +500,34 @@ Step 1 | [Desktop Result](football_memories/static/images/testing/index_desktop.
 ### User Story 5_6
 - User Story 5.6: View Memory - As a regular user/admin user I can view a memory by clicking on a memory
 ### Test case steps 5_6
-1. 
+1. As a regular user/admin navigate to the memories page
+2. Click on a memory
 
 ### Expected Result 5_6
-1.
+1. The memories page is displayed
+2. The memory page is displayed
 
 ### Actual Result 5_6
+Step Number | Desktop | Tablet | Mobile | Result 
+------------ | ------------ | ------------- | ------------- | ------------- |
+Step 1 | [Desktop Result](football_memories/static/images/testing/all_memories_regular_desktop.png)  | [Tablet Result](football_memories/static/images/testing/all_memories_regular_tablet.png) |[Mobile Result](football_memories/static/images/testing/all_memories_regular_mobile.png) | Passed |
+Step 2 | [Desktop Result](football_memories/static/images/testing/mymemory_desktop).png)  | [Tablet Result](football_memories/static/images/testing/mymemory_tablet.png) |[Mobile Result](football_memories/static/images/testing/mymemory_mobile.png) | Passed |
 
 ### User Story 5_7
-- User Story 5.7: View Memory - As a regular user/admin user I can view the memory image, stadium in a Google map, average rating, view account, memory name, description, tournament name,  date, view count, uploaded by information and all comments for the memory, paginated if there are more than 3 comments
+- User Story 5.7: View Memory - As a regular user/admin user I can view the memory image, stadium in a Google map, average rating, view account, memory name, description, tournament name,  date, view count, uploaded by information and all comments for the memory, and the comments area is paginated if there are more than 3 comments
 ### Test case steps 5_7
-1. 
+1. As a regular user/admin navigate to the memories page
+2. Click on a memory
 
 ### Expected Result 5_7
-1.
+1. The memories page is displayed
+2. The memory page is displayed and the user can view the memory image, stadium in a Google map, average rating, view account, memory name, description, tournament name,  date, view count, uploaded by information and all comments for the memory, and the comments area is paginated if there are more than 3 comments
 
 ### Actual Result 5_7
+Step Number | Desktop | Tablet | Mobile | Result 
+------------ | ------------ | ------------- | ------------- | ------------- |
+Step 1 | [Desktop Result](football_memories/static/images/testing/all_memories_regular_desktop.png)  | [Tablet Result](football_memories/static/images/testing/all_memories_regular_tablet.png) |[Mobile Result](football_memories/static/images/testing/all_memories_regular_mobile.png) | Passed |
+Step 2 | [Desktop Result](football_memories/static/images/testing/all_memories_regular_comments_desktop.png)  | [Tablet Result](football_memories/static/images/testing/all_memories_regular_comments_tablet.png) |[Mobile Result](football_memories/static/images/testing/all_memories_regular_comments_mobile.png) | Passed |
 
 ### User Story 5_8
 - User Story 5.8: View Memory - As a regular user/admin user the view count increases when the user clicks on a memory or refreshes the memory page
@@ -494,10 +536,14 @@ Step 1 | [Desktop Result](football_memories/static/images/testing/index_desktop.
 2. As a regular user/admin user refresh the page or open the memory in a new tab 
 
 ### Expected Result 5_8
-1. The view count is displayed
-2. The view count is increased by one
+1. The view count is displayed, for this test case the view count is 46
+2. The view count is increased by one to 47
 
 ### Actual Result 5_8
+Step Number | Desktop | Tablet | Mobile | Result 
+------------ | ------------ | ------------- | ------------- | ------------- |
+Step 1 | [Desktop Result](football_memories/static/images/testing/mymemory_comments_desktop.png)  | [Tablet Result](football_memories/static/images/testing/mymemory_comments_tablet.png) |[Mobile Result](football_memories/static/images/testing/mymemory_comments_mobile.png) | Passed |
+Step 2 | [Desktop Result](football_memories/static/images/testing/mymemory2_desktop.png)  | [Tablet Result](football_memories/static/images/testing/mymemory2_tablet.png) |[Mobile Result](football_memories/static/images/testing/mymemory2_mobile.png) | Passed |
 
 ### User Story 5_9
 - User Story 5.9: View Memory - As a regular user/admin user I can add a comment to a memory
@@ -506,20 +552,33 @@ Step 1 | [Desktop Result](football_memories/static/images/testing/index_desktop.
 2. Add more than three comments to a memory
 
 ### Expected Result 5_9
-1. The comment is displayed with user details, comment and date in the form MM-YYYY
+1. The comment is displayed with user details, comment and date in the form MM-YYYY, latest comments are displayed first
 2. Pagination is displayed if there are more than 3 comments added to a memory
 
 ### Actual Result 5_9
+Step Number | Desktop | Tablet | Mobile | Result 
+------------ | ------------ | ------------- | ------------- | ------------- |
+Step 1 | [Desktop Result](football_memories/static/images/testing/add_comment1_desktop.png)  | [Tablet Result](football_memories/static/images/testing/add_comment1_tablet.png) |[Mobile Result](football_memories/static/images/testing/add_comment1_mobile.png) | Passed |
+Step 2 | [Desktop Result](football_memories/static/images/testing/add_comment2_desktop.png)  | [Tablet Result](football_memories/static/images/testing/add_comment2_tablet.png) |[Mobile Result](football_memories/static/images/testing/add_comment2_mobile.png) | Passed |
 
 ### User Story 5_10
 - User Story 5.10: View Memory - As a regular user/admin user I can add a comment to a rating to a memory, and the average rating is updated accordingly
 ### Test case steps 5_10
-1. 
+1. Click on a memory and note the average rating
+2. As an admin/regular user add a rating to a memory, for example 5
+2. As an admin/regular user add a rating to the same memory, for example 4
 
 ### Expected Result 5_10
-1.
+1. A memory that does not have a rating will have a rating of 0
+2. The average rating will update to 5
+3. The average rating will update to 4.5
 
 ### Actual Result 5_10
+Step Number | Desktop | Tablet | Mobile | Result 
+------------ | ------------ | ------------- | ------------- | ------------- |
+Step 1 | [Desktop Result](football_memories/static/images/testing/add_rating1_desktop.png)  | [Tablet Result](football_memories/static/images/testing/add_rating1_tablet.png) |[Mobile Result](football_memories/static/images/testing/add_rating1_mobile.png) | Passed |
+Step 2 | [Desktop Result](football_memories/static/images/testing/add_rating2_desktop.png)  | [Tablet Result](football_memories/static/images/testing/add_rating2_tablet.png) |[Mobile Result](football_memories/static/images/testing/add_rating2_mobile.png) | Passed |
+Step 3 | [Desktop Result](football_memories/static/images/testing/add_rating3_desktop.png)  | [Tablet Result](football_memories/static/images/testing/add_rating3_tablet.png) |[Mobile Result](football_memories/static/images/testing/add_rating3_mobile.png) | Passed |
 
 ### User Story 5_11
 - User Story 5.11: My Memories- As a regular user/admin user I can filter on memories I have created, and the page will be paginated if there are more than 3 memories
@@ -544,43 +603,70 @@ Step 1 | [Desktop Result](football_memories/static/images/testing/index_desktop.
 ### User Story 5_13
 - User Story 5.13: Search - As a regular user/admin I can search on text for the memory name and memory description, and the memories page will be updated with those filtered memories 
 ### Test case steps 5_13
-1. 
+1. On the memories page, enter text for exmaple "Ireland" in the Search box and click Search
 
 ### Expected Result 5_13
-1.
+1. The memories with "Ireland" in the memory text or memory description will be displayed
 
 ### Actual Result 5_13
+Step Number | Desktop | Tablet | Mobile | Result 
+------------ | ------------ | ------------- | ------------- | ------------- |
+Step 1 | [Desktop Result](football_memories/static/images/testing/memories_search_desktop.png)  | [Tablet Result](football_memories/static/images/testing/memories_search_tablet.png) |[Mobile Result](football_memories/static/images/testing/memories_search_mobile.png) | Passed |
 
 ## Feature 6 Tournaments
 ### User Story 6_1
-- User Story 6.1: As a regular user/admin user I can view a list of tournaments created with the tournament name and tournament image displayed
+- User Story 6.1: As a regular user I can view a list of tournaments with the tournament name and tournament image displayed, and pagination is displayed if there are more than 3 tournaments
 ### Test case steps 6_1
-1. 
+1. As a regular user navigate to the tournaments page
 
 ### Expected Result 6_1
-1.
+1. A list of tournaments with the tournament name and tournament image is displayed, and pagination is displayed if there are more than 3 tournaments
 
 ### Actual Result 6_1
+Step Number | Desktop | Tablet | Mobile | Result 
+------------ | ------------ | ------------- | ------------- | ------------- |
+Step 1 | [Desktop Result](football_memories/static/images/testing/tournament_admin_desktop.png)  | [Tablet Result](football_memories/static/images/testing/tournament_admin_tablet.png) |[Mobile Result](football_memories/static/images/testing/tournament_admin_mobile.png) | Passed |
 
 ### User Story 6_2
-- User Story 6.2: As a regular user/admin user the list of tournaments is displayed with three per page, and pagination is displayed if there are more than 3 tournaments
+- User Story 6.2: As an admin user I can view list of tournaments with the tournament name and tournament image displayed, and pagination is displayed if there are more than 3 tournaments. On the tournaments page I can also view an Add Tournament, Edit Tournament and Delete Tournament buttons
 ### Test case steps 6_2
-1. 
+1. As an admin user navigate to the tournaments page
 
 ### Expected Result 6_2
-1.
+1. A list of tournaments with the tournament name and tournament image is displayed, and pagination is displayed if there are more than 3 tournaments. On the tournaments page the admin also view an Add Tournament, Edit Tournament and Delete Tournament buttons
 
 ### Actual Result 6_2
+Step Number | Desktop | Tablet | Mobile | Result 
+------------ | ------------ | ------------- | ------------- | ------------- |
+Step 1 | [Desktop Result](football_memories/static/images/testing/tournament_regular_desktop.png)  | [Tablet Result](football_memories/static/images/testing/tournament_regular_tablet.png) |[Mobile Result](football_memories/static/images/testing/tournament_regular_mobile.png) | Passed |
 
 ### User Story 6_3
 - User Story 6.3: As an admin user I can add a new tournament with a tournament name and tournament image. Both fields are mandatory and a message is displayed accordingly. The tournament information is added in the mongo database and the tournament image is stored in an AWS S3 bucket 
 ### Test case steps 6_3
-1. 
+1. As an admin user navigate to the tournaments page and click the Add Tournament button
+2. With no fields filled in, click the Add Tournament button
+3. Add a tournament name and tournament image
+4. Click Add Tournament
+5. Login to AWS, select S3 and bucket ci-ms3-football-memories
+6. Login to Mongodb, select the MS3Cluster, select the football_memories_prod database and click on the tournaments collection
 
 ### Expected Result 6_3
-1.
+1. The Add Tournament page is displayed
+2. A message will be displayed to enter a tournament name and image in red around each field
+3. Both fields will turn green with a "Looks Good" message displayed
+4. A message will be displayed that the tournament was succesfully added and the user will be navigated to the tournaments page
+5. The image will be displayed in the S3 bucket with a unique timestamp
+6. The tournament will be created in the tournaments collection with tournament name and url to the location of the file in the AWS S3 bucket
 
 ### Actual Result 6_3
+Step Number | Desktop | Tablet | Mobile | Result 
+------------ | ------------ | ------------- | ------------- | ------------- |
+Step 1 | [Desktop Result](football_memories/static/images/testing/add_tournament_blank_desktop.png)  | [Tablet Result](football_memories/static/images/testing/add_tournament_blank_tablet.png) |[Mobile Result](football_memories/static/images/testing/add_tournament_blank_mobile.png) | Passed |
+Step 2 | [Desktop Result](football_memories/static/images/testing/add_tournament_error_desktop.png)  | [Tablet Result](football_memories/static/images/testing/add_tournament_error_tablet.png) |[Mobile Result](football_memories/static/images/testing/add_tournament_error_mobile.png) | Passed |
+Step 3 | [Desktop Result](football_memories/static/images/testing/add_tournament_good_desktop.png)  | [Tablet Result](football_memories/static/images/testing/add_tournament_good_tablet.png) |[Mobile Result](football_memories/static/images/testing/add_tournament_good_mobile.png) | Passed |
+Step 4 | [Desktop Result](football_memories/static/images/testing/add_tournament4_desktop.png)  | [Tablet Result](football_memories/static/images/testing/add_tournament4_tablet.png) |[Mobile Result](football_memories/static/images/testing/add_tournament4_mobile.png) | Passed |
+Step 5 | [Desktop Result](football_memories/static/images/testing/tournament_s3_bucket.png)  | [Tablet Result](football_memories/static/images/testing/tournament_s3_bucket.png) |[Mobile Result](football_memories/static/images/testing/tournament_s3_bucket.png) | Passed |
+Step 6 | [Desktop Result](football_memories/static/images/testing/tournament_mongodb.png)  | [Tablet Result](football_memories/static/images/testing/tournament_mongodb.png) |[Mobile Result](football_memories/static/images/testing/tournament_mongodb.png) | Passed |
 
 ### User Story 6_4
 - User Story 6.4: As an admin user I can edit an existing tournament with a tournament name and tournament image. Both fields are mandatory and a message is displayed accordingly. The tournament information is updated in the mongo database and the tournament image is stored in an AWS S3 bucket
@@ -595,22 +681,37 @@ Step 1 | [Desktop Result](football_memories/static/images/testing/index_desktop.
 ### User Story 6_5
 - User Story 6.5: As an admin user I can delete an existing tournament, once I have confirmed that it is ok to delete the tournament. The tournament information is deleted from the mongo database
 ### Test case steps 6_5
-1. 
+1. As an admin user add a tournament, for example "Test Delete"
+2. Click the delete tournament and confirm to delete the tournament "Test Delete"
+3. View the tournaments page and the tournament "Test Delete" is no longer there
+4. In mongodb check the tournaments collection in th database
 
 ### Expected Result 6_5
-1.
+1. The tournament is added and displayed
+2. The tournament is succesfully deleted
+3. The tournament is no longer displayed
+4. The tournament "Test Delete" is no longer in the tournaments collection in the mongodb database
 
 ### Actual Result 6_5
+Step Number | Desktop | Tablet | Mobile | Result 
+------------ | ------------ | ------------- | ------------- | ------------- |
+Step 1 | [Desktop Result](football_memories/static/images/testing/tournaments_desktop.png)  | [Tablet Result](football_memories/static/images/testing/tournaments_tablet.png) |[Mobile Result](football_memories/static/images/testing/tournaments_mobile.png) | Passed |
+Step 2 | [Desktop Result](football_memories/static/images/testing/delete_tournament1_desktop.png)  | [Tablet Result](football_memories/static/images/testing/delete_tournament1_tablet.png) |[Mobile Result](football_memories/static/images/testing/delete_tournament1_mobile.png) | Passed |
+Step 3 | [Desktop Result](football_memories/static/images/testing/delete_tournament2_desktop.png)  | [Tablet Result](football_memories/static/images/testing/delete_tournament2_tablet.png) |[Mobile Result](football_memories/static/images/testing/delete_tournament2_mobile.png) | Passed |
+Step 4 | [Desktop Result](football_memories/static/images/testing/delete_tournament_mongodb.PNG)  | [Tablet Result](football_memories/static/images/testing/delete_tournament_mongodb.PNG) |[Mobile Result](football_memories/static/images/testing/delete_tournament_mongodb.PNG) | Passed |
 
 ### User Story 6_6
 - User Story 6.6: As an admin user if a tournament has memories associated with it, the tournament cannot be deleted and a message is displayed
 ### Test case steps 6_6
-1. 
+1. As an admin user, attempt to delete aq tournament that has memories associated with it
 
 ### Expected Result 6_6
-1.
+1. The tournament will not be deleted and a message will be displayed to the user
 
 ### Actual Result 6_6
+Step Number | Desktop | Tablet | Mobile | Result 
+------------ | ------------ | ------------- | ------------- | ------------- |
+Step 1 | [Desktop Result](football_memories/static/images/testing/delete_tournament2_desktop.png)  | [Tablet Result](football_memories/static/images/testing/delete_tournament2_tablet.png) |[Mobile Result](football_memories/static/images/testing/delete_tournament2_mobile.png) | Passed |
 
 ### User Story 6_7
 - User Story 6.7: As an admin user if there is only one tournament in website, it cannot be deleted, a minimum of one tournament is required
@@ -640,42 +741,69 @@ Step 1 | [Desktop Result](football_memories/static/images/testing/dashboard_desk
 ### User Story 8_1
 - User Story 8.1: As a regular user/admin user I can view my profile details: Username, First Name, Last Name, Favourite Team and Country. The country is selected from a dropdown of countries
 ### Test case steps 8_1
-1. 
+1. As a regular user/admin click on the Profile link in the navigation bar
 
 ### Expected Result 8_1
-1.
+1. The users profile is displayed with the values for username(readonly field), first name, last name, favourite team and country
 
 ### Actual Result 8_1
+Step Number | Desktop | Tablet | Mobile | Result 
+------------ | ------------ | ------------- | ------------- | ------------- |
+Step 1 | [Desktop Result](football_memories/static/images/testing/profile_desktop.png)  | [Tablet Result](football_memories/static/images/testing/profile_tablet.png) |[Mobile Result](football_memories/static/images/testing/profile_mobile.png) | Passed |
 
 ### User Story 8_2
 - User Story 8.2: As a regular user/admin user I can update my profile password, but the confirm password entered must match with the password. The password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.
 ### Test case steps 8_2
-1. 
+1. As a regular user/admin click on the Profile link in the navigation bar
+2. Update the users profile, and remove some field values
+3. Ensure all fields are filled in and update the favourite team from Chelsea to Manchester United
+4. Click Save Changes
 
 ### Expected Result 8_2
-1.
+1. The users profile is displayed with the values for username(readonly field), first name, last name, favourite team and country
+2. All fields are mandatory and the confirm password entered must match with the password. The password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.
+3. All fields are highlighted green
+4. The users profile is updated with the favourite team value updated to Manchester United
 
 ### Actual Result 8_2
+Step Number | Desktop | Tablet | Mobile | Result 
+------------ | ------------ | ------------- | ------------- | ------------- |
+Step 1 | [Desktop Result](football_memories/static/images/testing/profile_desktop.png)  | [Tablet Result](football_memories/static/images/testing/profile_tablet.png) |[Mobile Result](football_memories/static/images/testing/profile_mobile.png) | Passed |
+Step 2 | [Desktop Result](football_memories/static/images/testing/edit_profile1_desktop.png)  | [Tablet Result](football_memories/static/images/testing/edit_profile1_desktop.png) |[Mobile Result](football_memories/static/images/testing/edit_profile1_desktop.png) | Passed |
+Step 3 | [Desktop Result](football_memories/static/images/testing/edit_profile2_desktop.png)  | [Tablet Result](football_memories/static/images/testing/edit_profile2_desktop.png) |[Mobile Result](football_memories/static/images/testing/edit_profile2_desktop.png) | Passed |
+Step 4 | [Desktop Result](football_memories/static/images/testing/edit_profile3_desktop.png)  | [Tablet Result](football_memories/static/images/testing/edit_profile3_desktop.png) |[Mobile Result](football_memories/static/images/testing/edit_profile3_desktop.png) | Passed |
 
 ### User Story 8_3
 - User Story 8.3: As a regular user/admin user I can update my profile details: First Name, Last Name, Favourite Team and Country
 ### Test case steps 8_3
-1. As a regular user/admin user click on the Profile page and enter values for First Name, Last Name, Favourite Team and Country
+1. As a regular user/admin user click on the Profile page
+2. Add some text to the fields First Name, Last Name, Favourite Team and Country and click "Save Changes"
 
 ### Expected Result 8_3
-1. 
+1. The users profile is displayed
+2. The users profile is updated with the update text for the fields First Name, Last Name, Favourite Team and Country
 
 ### Actual Result 8_3
+Step Number | Desktop | Tablet | Mobile | Result 
+------------ | ------------ | ------------- | ------------- | ------------- |
+Step 1 | [Desktop Result](football_memories/static/images/testing/edit_profile4_desktop.png)  | [Tablet Result](football_memories/static/images/testing/edit_profile4_desktop.png) |[Mobile Result](football_memories/static/images/testing/edit_profile4_desktop.png) | Passed |
+Step 2 | [Desktop Result](football_memories/static/images/testing/edit_profile5_desktop.png)  | [Tablet Result](football_memories/static/images/testing/edit_profile5_desktop.png) |[Mobile Result](football_memories/static/images/testing/edit_profile5_desktop.png) | Passed |
 
 ### User Story 8_4
 - User Story 8.4: As a regular user/admin user the following fields are mandatory: Username, First Name, Last Name, Favourite Team and Country
 ### Test case steps 8_4
-1. 
+1. As a regular user/admin user click on the Profile page
+2. Clear the fields First Name, Last Name, Favourite Team and Country, the username is a readonly mandatory field
 
 ### Expected Result 8_4
-1.
+1. The users profile is displayed
+2. The fields First Name, Last Name, Favourite Team and Country are mandatory and a message is displayed and the fields are displayed in red
 
 ### Actual Result 8_4
+Step Number | Desktop | Tablet | Mobile | Result 
+------------ | ------------ | ------------- | ------------- | ------------- |
+Step 1 | [Desktop Result](football_memories/static/images/testing/edit_profile4_desktop.png)  | [Tablet Result](football_memories/static/images/testing/edit_profile4_desktop.png) |[Mobile Result](football_memories/static/images/testing/edit_profile4_desktop.png) | Passed |
+Step 2 | [Desktop Result](football_memories/static/images/testing/edit_profile6_desktop.png)  | [Tablet Result](football_memories/static/images/testing/edit_profile6_desktop.png) |[Mobile Result](football_memories/static/images/testing/edit_profile6_desktop.png) | Passed |
 
 ### User Story 8_5
 - User Story 8.5: As a regular user I can delete my account. This will delete any memories I have added(including their associated comments and ratings) and will also delete any comments or ratings the regular user has added on others users memories. The user will be asked to confirm the delete account action, and will be brought to the homepage after their account is successfully deleted.
@@ -747,7 +875,9 @@ style.css | Passed, No errors found | [Results](football_memories/static/images/
 
 ## Chrome Dev tools Lighthouse 
 
-(I used Lighthouse https://developers.google.com/web/tools/lighthouse) to test the performance, seo, best practices and accessibility of the site
+- I used Lighthouse https://developers.google.com/web/tools/lighthouse) to test the performance, seo, best practices and accessibility of the site
+- Overall the results are very good. The memory pages performance is affected by the google map load times and making this load more efficient was outside of my control from a code perspective 
+
 ### Desktop
 Page | Result 
 ------------ | ------------- 
