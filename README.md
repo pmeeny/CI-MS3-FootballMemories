@@ -507,7 +507,7 @@ and tournament
 - A user can delete a memory they have created, and admin user can delete any memory
     - A pop up will appear confirming that the user wishes to delete a memory, all comments, ratings will also be deleted for the deleted memory
     ![Delete Memory](football_memories/static/images/readme/delete_memory.PNG)
-- A user can view all memories or filter on memories they have created on the Memories page. When the login/register they are navigated to the All Memories page, but when they add/edit/delete a memory, they are navigated to their memories page
+- A user can view all memories or filter on memories they have created on the Memories page. When the login/register they are navigated to the All Memories page, but when they add/edit/delete a memory, they are navigated to their memories page. Memories are sorted by the date they are added with the newest memories displayed first
 ![All Memories](football_memories/static/images/readme/all_memories.PNG)
 ![My Memories](football_memories/static/images/readme/my_memories.PNG)
 - Pagination will be displayed if there are more than 3 memories
@@ -819,7 +819,7 @@ https://stackoverflow.com/questions/9142527/can-you-require-two-form-fields-to-m
 - Pexels (https://www.pexels.com/)
     - The hero image used throughout the site is form Pexels, https://www.pexels.com/photo/aerial-view-of-soccer-field-1171084/ by user https://www.pexels.com/@mike-468229 
 
-- The 42(www.the42.ie), Irish Independant(www.irishindependant.ie), Tokyvideo(www.tokyvideo.com), Sky Sports(www.skysports.com)
+- The 42(www.the42.ie), Irish Independant(www.irishindependant.ie), Tokyvideo(www.tokyvideo.com), Sky Sports(www.skysports.com), The Guardian(www.theguardian.com), The 42(www.the42.ie), This is Anfield(www.thisisanfield.com), Joe.ie(www.joe.ie), Amazon(www.amazon.com)
     - The memory images added to the memories added to the website were taken from the above websites media galleries
 
  <br>
