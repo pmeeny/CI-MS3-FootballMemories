@@ -404,11 +404,9 @@ The website has seven distinct features, and they are described below
 #### Nav Bar Logged Out Mobile
 ![Nav Bar 2](football_memories/static/images/nav_bar/nav_bar_logged_out_mobile.PNG)
 #### Nav Bar Logged In
-![Nav Bar 3](football_memories/static/images/nav_bar/nav_bar_logged_in.PNG)
+![Nav Bar 3](football_memories/static/images/testing/memories_5_12_desktop.png)
 #### Nav Bar Logged In Mobile
-![Nav Bar 4](/football_memories/static/images/nav_bar/nav_bar_logged_in_mobile.PNG)
-
-
+![Nav Bar 4](/football_memories/static/images/testing/memories_5_12_mobile.png)
 
 #### User Stories
 - User Story 1.1: As an admin/regular user the navigation bar is displayed with a logo on all pages for easy navigation, with a burger menu on mobile devices
@@ -474,7 +472,8 @@ and tournament
 ![Register](football_memories/static/images/readme/register.PNG)
 - The user can log in into their account by clicking on the Login button on the landing page or clicking the Login link in the navigation bar. They must enter a valid username and password otherwise a relevant message will be displayed.
 ![Latest Memories](football_memories/static/images/readme/login.PNG)
-
+- A 404 page is displayed if the page the user accesses does not exist
+![404 page](football_memories/static/images/testing/404_desktop.png)
 
 #### User Stories
 - User Story 4.1: As a regular user I can register for an account by providing my username, password, confirm password, first name, last name, favourite team and country, and I will be navigated to the memories page. All fields must be provided
@@ -503,12 +502,12 @@ and tournament
     - Memory Description, a textarea, where the user can update a memory description, date(calendar date in the form dd/mm/yyyy) and stadium
     - All fields are mandatory
     - Clicking cancel will bring the user back to the Memories page, clicking Save Changes will save the changes and update the memory
-    ![Edit Memory](football_memories/static/images/readme/add_memory.PNG)
+    ![Edit Memory](football_memories/static/images/readme/edit_memory.PNG)
 - A user can delete a memory they have created, and admin user can delete any memory
     - A pop up will appear confirming that the user wishes to delete a memory, all comments, ratings will also be deleted for the deleted memory
     ![Delete Memory](football_memories/static/images/readme/delete_memory.PNG)
 - A user can view all memories or filter on memories they have created on the Memories page. When the login/register they are navigated to the All Memories page, but when they add/edit/delete a memory, they are navigated to their memories page. Memories are sorted by the date they are added with the newest memories displayed first
-![All Memories](football_memories/static/images/readme/all_memories.PNG)
+![All Memories](football_memories/static/images/readme/all_memories.PNG)  
 ![My Memories](football_memories/static/images/readme/my_memories.PNG)
 - Pagination will be displayed if there are more than 3 memories
 ![My Memories](football_memories/static/images/readme/memories_pagination.PNG)

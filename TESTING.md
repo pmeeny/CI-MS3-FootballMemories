@@ -294,7 +294,7 @@ Step 1 | [Desktop Result](football_memories/static/images/testing/all_memories_r
 The screenshots for this test case are for the desktop only and it is not possible to properly show on a tablet or mobile device
 Step Number | Desktop | Tablet | Mobile | Result 
 ------------ | ------------ | ------------- | ------------- | ------------- |
-Step 1 | [Desktop Result](football_memories/static/images/testing/social_media_links.png)  | N/A |N/A | Passed |
+Step 1 | [Desktop Result](football_memories/static/images/testing/social_media_links.PNG)  | N/A |N/A | Passed |
 
 ### User Story 2_2
 - User Story 2.2: As an admin/regular user I can view the websites terms and condition page by clicking on the link in the footer
@@ -338,9 +338,9 @@ Step 1 | [Desktop Result](football_memories/static/images/testing/privacy_policy
 ### Actual Result 2_4
 Step Number | Desktop | Tablet | Mobile | Result 
 ------------ | ------------ | ------------- | ------------- | ------------- |
-Step 1 | [Desktop Result](football_memories/static/images/testing/newsletter1_desktop.png)  | [Tablet Result](football_memories/static/images/newsletter1_tablet.png) |[Mobile Result](football_memories/static/images/testing/newsletter1_mobile.png) | Passed |
+Step 1 | [Desktop Result](football_memories/static/images/testing/newsletter1_desktop.png)  | [Tablet Result](football_memories/static/images/testing/newsletter1_tablet.png) |[Mobile Result](football_memories/static/images/testing/newsletter1_mobile.png) | Passed |
 Step 2 | [Desktop Result](football_memories/static/images/testing/newsletter2_desktop.png)  | [Tablet Result](football_memories/static/images/testing/newsletter2_tablet.png) |[Mobile Result](football_memories/static/images/testing/newsletter2_mobile.png) | Passed |
-Step 3 | [Desktop Result](football_memories/static/images/testing/newsletter_email.png)  | [Tablet Result](football_memories/static/images/testing/newsletter_email.png) |[Mobile Result](football_memories/static/images/testing/newsletter_email.png) | Passed |
+Step 3 | [Desktop Result](football_memories/static/images/testing/newsletter_email.PNG)  | [Tablet Result](football_memories/static/images/testing/newsletter_email.PNG) |[Mobile Result](football_memories/static/images/testing/newsletter_email.PNG) | Passed |
 
 ## Feature 3 Landing Home page
 ### User Story 3_1
@@ -734,7 +734,7 @@ Step 1 | [Desktop Result](football_memories/static/images/testing/memories_searc
 ### Actual Result 6_1
 Step Number | Desktop | Tablet | Mobile | Result 
 ------------ | ------------ | ------------- | ------------- | ------------- |
-Step 1 | [Desktop Result](football_memories/static/images/testing/tournament_admin_desktop.png)  | [Tablet Result](football_memories/static/images/testing/tournament_admin_tablet.png) |[Mobile Result](football_memories/static/images/testing/tournament_admin_mobile.png) | Passed |
+Step 1 | [Desktop Result](football_memories/static/images/testing/tournament_admins_desktop.png)  | [Tablet Result](football_memories/static/images/testing/tournaments_admin_tablet.png) |[Mobile Result](football_memories/static/images/testing/tournaments_admin_mobile.png) | Passed |
 
 ### User Story 6_2
 - User Story 6.2: As an admin user I can view list of tournaments with the tournament name and tournament image displayed, and pagination is displayed if there are more than 3 tournaments. On the tournaments page I can also view an Add Tournament, Edit Tournament and Delete Tournament buttons
@@ -895,9 +895,9 @@ Step 1 | [Desktop Result](football_memories/static/images/testing/profile_deskto
 Step Number | Desktop | Tablet | Mobile | Result 
 ------------ | ------------ | ------------- | ------------- | ------------- |
 Step 1 | [Desktop Result](football_memories/static/images/testing/profile_desktop.png)  | [Tablet Result](football_memories/static/images/testing/profile_tablet.png) |[Mobile Result](football_memories/static/images/testing/profile_mobile.png) | Passed |
-Step 2 | [Desktop Result](football_memories/static/images/testing/edit_profile1_desktop.png)  | [Tablet Result](football_memories/static/images/testing/edit_profile1_desktop.png) |[Mobile Result](football_memories/static/images/testing/edit_profile1_desktop.png) | Passed |
-Step 3 | [Desktop Result](football_memories/static/images/testing/edit_profile2_desktop.png)  | [Tablet Result](football_memories/static/images/testing/edit_profile2_desktop.png) |[Mobile Result](football_memories/static/images/testing/edit_profile2_desktop.png) | Passed |
-Step 4 | [Desktop Result](football_memories/static/images/testing/edit_profile3_desktop.png)  | [Tablet Result](football_memories/static/images/testing/edit_profile3_desktop.png) |[Mobile Result](football_memories/static/images/testing/edit_profile3_desktop.png) | Passed |
+Step 2 | [Desktop Result](football_memories/static/images/testing/edit_profile1_desktop.png)  | [Tablet Result](football_memories/static/images/testing/edit_profile1_tablet.png) |[Mobile Result](football_memories/static/images/testing/edit_profile1_mobile.png) | Passed |
+Step 3 | [Desktop Result](football_memories/static/images/testing/edit_profile2_desktop.png)  | [Tablet Result](football_memories/static/images/testing/edit_profile2_tablet.png) |[Mobile Result](football_memories/static/images/testing/edit_profile2_mobile.png) | Passed |
+Step 4 | [Desktop Result](football_memories/static/images/testing/edit_profile3_desktop.png)  | [Tablet Result](football_memories/static/images/testing/edit_profile3_tablet.png) |[Mobile Result](football_memories/static/images/testing/edit_profile3_mobile.png) | Passed |
 
 ### User Story 8_3
 - User Story 8.3: As a regular user/admin user I can update my profile details: First Name, Last Name, Favourite Team and Country
@@ -912,8 +912,8 @@ Step 4 | [Desktop Result](football_memories/static/images/testing/edit_profile3_
 ### Actual Result 8_3
 Step Number | Desktop | Tablet | Mobile | Result 
 ------------ | ------------ | ------------- | ------------- | ------------- |
-Step 1 | [Desktop Result](football_memories/static/images/testing/edit_profile4_desktop.png)  | [Tablet Result](football_memories/static/images/testing/edit_profile4_desktop.png) |[Mobile Result](football_memories/static/images/testing/edit_profile4_desktop.png) | Passed |
-Step 2 | [Desktop Result](football_memories/static/images/testing/edit_profile5_desktop.png)  | [Tablet Result](football_memories/static/images/testing/edit_profile5_desktop.png) |[Mobile Result](football_memories/static/images/testing/edit_profile5_desktop.png) | Passed |
+Step 1 | [Desktop Result](football_memories/static/images/testing/edit_profile4_desktop.png)  | [Tablet Result](football_memories/static/images/testing/edit_profile4_tablet.png) |[Mobile Result](football_memories/static/images/testing/edit_profile4_mobile.png) | Passed |
+Step 2 | [Desktop Result](football_memories/static/images/testing/edit_profile5_desktop.png)  | [Tablet Result](football_memories/static/images/testing/edit_profile5_tablet.png) |[Mobile Result](football_memories/static/images/testing/edit_profile5_mobile.png) | Passed |
 
 ### User Story 8_4
 - User Story 8.4: As a regular user/admin user the following fields are mandatory: Username, First Name, Last Name, Favourite Team and Country
@@ -928,8 +928,8 @@ Step 2 | [Desktop Result](football_memories/static/images/testing/edit_profile5_
 ### Actual Result 8_4
 Step Number | Desktop | Tablet | Mobile | Result 
 ------------ | ------------ | ------------- | ------------- | ------------- |
-Step 1 | [Desktop Result](football_memories/static/images/testing/edit_profile4_desktop.png)  | [Tablet Result](football_memories/static/images/testing/edit_profile4_desktop.png) |[Mobile Result](football_memories/static/images/testing/edit_profile4_desktop.png) | Passed |
-Step 2 | [Desktop Result](football_memories/static/images/testing/edit_profile6_desktop.png)  | [Tablet Result](football_memories/static/images/testing/edit_profile6_desktop.png) |[Mobile Result](football_memories/static/images/testing/edit_profile6_desktop.png) | Passed |
+Step 1 | [Desktop Result](football_memories/static/images/testing/edit_profile4_desktop.png)  | [Tablet Result](football_memories/static/images/testing/edit_profile4_tablet.png) |[Mobile Result](football_memories/static/images/testing/edit_profile4_mobile.png) | Passed |
+Step 2 | [Desktop Result](football_memories/static/images/testing/edit_profile6_desktop.png)  | [Tablet Result](football_memories/static/images/testing/edit_profile6_tablet.png) |[Mobile Result](football_memories/static/images/testing/edit_profile6_mobile.png) | Passed |
 
 ### User Story 8_5
 - User Story 8.5: As a regular user I can delete my account. This will delete any memories I have added(including their associated comments and ratings) and will also delete any comments or ratings the regular user has added on others users memories. The user will be asked to confirm the delete account action, and will be brought to the homepage after their account is successfully deleted.
