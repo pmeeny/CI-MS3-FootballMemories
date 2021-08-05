@@ -39,37 +39,37 @@ View the live site [here](https://ci-ms3-footballmemories.herokuapp.com/)
 - [Features](#features)
   * [Existing Features](#existing-features)
     + [Feature 1 Navigation Bar](#feature-1-navigation-bar)
-      - [Description](#description)
+      - [Description feature 1](#description-feature-1)
       - [Nav Bar Logged Out](#nav-bar-logged-out)
       - [Nav Bar Logged Out Mobile](#nav-bar-logged-out-mobile)
       - [Nav Bar Logged In](#nav-bar-logged-in)
       - [Nav Bar Logged In Mobile](#nav-bar-logged-in-mobile)
-      - [User Stories](#user-stories)
+      - [User Stories feature 1](#user-stories-feature-1)
     + [Feature 2 Footer](#feature-2-footer)
-      - [Description](#description-1)
+      - [Description feature 2](#description-feature-2)
       - [Footer desktop](#footer-desktop)
       - [Footer Mobile](#footer-mobile)
-      - [User Stories](#user-stories-1)
-    + [Feature 3 Landing/Home page](#feature-3-landing-home-page)
-      - [Description](#description-2)
+      - [User Stories feature 2](#user-stories-feature-2)
+    + [Feature 3 Landing Home page](#feature-3-landing-home-page)
+      - [Description feature 3](#description-feature-3)
         * [Hero image](#hero-image)
-      - [User Stories](#user-stories-2)
-    + [Feature 4 Login/Register/Logout administration](#feature-4-login-register-logout-administration)
-      - [Description](#description-3)
-      - [User Stories](#user-stories-3)
-    + [Feature 5 Memories, Memory, Add/Edit/Delete Memory](#feature-5-memories--memory--add-edit-delete-memory)
-      - [Description](#description-4)
-      - [User Stories](#user-stories-4)
+      - [User Stories feature 3](#user-stories-feature-3)
+    + [Feature 4 Login Register Logout administration](#feature-4-login-register-logout-administration)
+      - [Description feature 4](#description-feature-4)
+      - [User Stories feature 4](#user-stories-feature-4)
+    + [Feature 5 Memories Memory Add Edit Delete Memory](#feature-5-memories-memory-add-edit-delete-memory)
+      - [Description feature 5](#description-feature-5)
+      - [User Stories feature 5](#user-stories-feature-5)
     + [Feature 6 Tournaments](#feature-6-tournaments)
-      - [Description](#description-5)
-      - [User Stories](#user-stories-5)
+      - [Description feature 6](#description-feature-6)
+      - [User Stories feature 6](#user-stories-feature-6)
     + [Feature 7 Dashboard](#feature-7-dashboard)
-      - [Description](#description-6)
-      - [User Stories](#user-stories-6)
+      - [Description feature 7](#description-feature-7)
+      - [User Stories feature 7](#user-stories-feature-7)
     + [Feature 8 Profile](#feature-8-profile)
-      - [Description](#description-7)
-      - [Profile/Edit Profile](#profile-edit-profile)
-      - [User Stories](#user-stories-7)
+      - [Description feature 8](#description-feature-8)
+      - [Profile Edit Profile](#profile-edit-profile)
+      - [User Stories feature 8](#user-stories-feature-8)
   * [Features Left to Implement](#features-left-to-implement)
 - [Technologies Used](#technologies-used)
   * [Languages](#languages)
@@ -89,7 +89,6 @@ View the live site [here](https://ci-ms3-footballmemories.herokuapp.com/)
 - [Acknowledgements](#acknowledgements)
 
 <small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
-
 # Project Overview
 - This project is a website that allows users to add/edit/delete football memories for given tournament for submission as milestone project 3 as part of the Code Institute - Diploma in Software Development (Full stack) course.
 - The website is deployed using Heroku pages at the following url: [Football Memories]((https://ci-ms3-footballmemories.herokuapp.com/)
@@ -140,7 +139,7 @@ I have structured the website into 19 pages, each with clear, concise structure,
 16. Logout: This link allows the user to logout of the site
 17. Newsletter: The user can enter their email address in the site footer and subscribe to a mailing list
 18. 404: The 404 error page is displayed if the user enters an incorrect url when accessing the site.
-19. 400, 401, 405 and 500: These error page is displayed if the user encounters an error on the site
+19. 400, 401, 405 and 500: The error page is displayed if the user encounters an error on the site
 
 ### Code Structure.
 - My project is built using a Blueprints structure
@@ -385,7 +384,7 @@ The Poppins font is the main font used throughout the whole website with Sans Se
 The website has seven distinct features, and they are described below
 ## Existing Features
 ### Feature 1 Navigation Bar
-#### Description
+#### Description feature 1
 - This is the navigation bar of the website, and is displayed on all pages. The navigation bar is a bootstrap component, and is a responsive component. It becomes a burger menu on tablet and mobile devices.
 - When the user is not logged in, there are three options with a logo, Home, Login, Register
 - When the user is logged in, there are six options with a logo: Memories, Add Memory, Tournaments, Profile, Dashboard, Logout
@@ -408,7 +407,7 @@ The website has seven distinct features, and they are described below
 #### Nav Bar Logged In Mobile
 ![Nav Bar 4](/football_memories/static/images/testing/memories_5_12_mobile.png)
 
-#### User Stories
+#### User Stories feature 1
 - User Story 1.1: As an admin/regular user the navigation bar is displayed with a logo on all pages for easy navigation, with a burger menu on mobile devices
 - User Story 1.2: As an admin/regular user the navigation item selected is highlighted
 - User Story 1.3: As an admin/regular user, when logged out, the home/landing page is the default page and there are three options with a logo, Home, Login, Register displayed
@@ -416,7 +415,7 @@ The website has seven distinct features, and they are described below
 
 
 ### Feature 2 Footer
-#### Description
+#### Description feature 2
 The footer of the website is displayed on all pages. It consists of three main sections
 
 1. Logo with text and social media links
@@ -433,15 +432,15 @@ When the user enters their email address and clicks Sign-up the div is updated w
 #### Footer Mobile
 ![Footer Mobile](football_memories/static/images/footer/footer_mobile.PNG)
 
-#### User Stories
+#### User Stories feature 2
 - User Story 2.1: As an admin/regular user I can view the footers social icons(Twitter, facebook, instagram, pinterest, snapchat) and the relevant website opens in a new tab when clicked
 - User Story 2.2: As an admin/regular user I can view the websites terms and condition page by clicking on the link in the footer
 - User Story 2.3: As an admin/regular user I can view the websites' privacy policy page by clicking on the link in the footer
 - User Story 2.4: As an admin/regular user I can sign up to the football memories newsletter by entering my email and clicking SignUp. The email address entered will receive an email
 
 
-### Feature 3 Landing/Home page
-#### Description
+### Feature 3 Landing Home page
+#### Description feature 3
 The landing/home page is displayed when the user first accessing the site, and when they log out. It displays a hero image with Login/Register buttons
 
 ##### Hero image
@@ -454,18 +453,18 @@ three_latest_memories = list(mongo.db.memories.find().
 </code><br>
 ![Latest Memories](football_memories/static/images/landing_page/latest_memories.PNG)
 
-#### User Stories
+#### User Stories feature 3
 - User Story 3.1: As a regular user/admin user I can view a hero image with login and register buttons on the home/landing page
 - User Story 3.2: As a regular user/admin user I can view the last three memories added on the website, with memory name, memory image
 and tournament
 - User Story 3.3: As an admin/regular user if I encounter a route that does not exist I am navigated to a 404 error page
 
-### Feature 4 Login/Register/Logout administration
-#### Description
+### Feature 4 Login Register Logout administration
+#### Description feature 4
 - The user can register for an account on the website by entering their username, password, confirming their password, first name, last name, favourite team, country.
 - All fields are mandatory and a relevant message will be displayed and the username must be unique otherwise a message will be displayed to the user
 - The username must be a minimum of 6 characters and contain at least one lowercase letter, with no special characters
-- The password must be a minimum of 6 characters and contain least one number, one lowercase and one uppercase letter, with no special characters
+- The password must be a minimum of 6 characters and contain at least one number, one lowercase and one uppercase letter, with no special characters
 - The password must match the confirm password
 - The country is selected from a dropdown list of countries
 - Note: I have limited the functionality so that only regular users and not admin users can register on the site
@@ -475,7 +474,7 @@ and tournament
 - A 404 page is displayed if the page the user accesses does not exist
 ![404 page](football_memories/static/images/testing/404_desktop.png)
 
-#### User Stories
+#### User Stories feature 4
 - User Story 4.1: As a regular user I can register for an account by providing my username, password, confirm password, first name, last name, favourite team and country, and I will be navigated to the memories page. All fields must be provided
 - User Story 4.2: As a regular user my username must be a minimum of 6 characters, and contain at least one lowercase letter, with no special characters
 - User Story 4.3: As a regular user my password must be a minimum of 6 characters and contain at least one number, one lowercase and one uppercase letter, with no special characters
@@ -485,17 +484,17 @@ and tournament
 - User Story 4.7: As an admin/regular user, when I am logged into the site, and I click the back button I am automatically redirected to the home/landing page, and the navigation bar is updated with three options with a logo, Home, Login, Register
 
 
-### Feature 5 Memories, Memory, Add/Edit/Delete Memory
-#### Description
+### Feature 5 Memories Memory Add Edit Delete Memory
+#### Description feature 5
 - A user can add a memory by clicking on the Add Memory link and providing the following information
     - Tournament Name, a dropdown appears with a list of tournament
     - Memory Image, an image upload that the user can upload an image. The file types allowed are jpg and png, and a message is displayed if the user tried to add a memory with an image type not matching jpg or png
-    - Memory Name, a text field,. where the user can enter a memory name
+    - Memory Name, a text field, where the user can enter a memory name
     - Memory Description, a textarea, where the user can enter a memory description, date(calendar date in the form dd/mm/yyyy) and stadium
     - All fields are mandatory
     Clicking cancel will bring the user back to the Memories page, clicking Add Memory will save the changes and create the memory
     ![Add Memory](football_memories/static/images/readme/add_memory.PNG)
-- A user can edit an existing memory by clicking on the Edit Memory button on a memory(My memories) and providing the following information
+- A user can edit an existing memory by clicking on the "Edit Memory" button on a memory(My memories) and providing the following information
     - Tournament Name, the selected tournament is displayed
     - Memory Image, an image upload that the user can upload an image. The file types allowed are jpg and png, and a message is displayed if the user tried to add a memory with an image type not matching jpg or png. For security purposes a new image must be uploaded
     - Memory Name, a text field, where the user can update a memory name
@@ -504,18 +503,18 @@ and tournament
     - Clicking cancel will bring the user back to the Memories page, clicking Save Changes will save the changes and update the memory
     ![Edit Memory](football_memories/static/images/readme/edit_memory.PNG)
 - A user can delete a memory they have created, and admin user can delete any memory
-    - A pop up will appear confirming that the user wishes to delete a memory, all comments, ratings will also be deleted for the deleted memory
+    - A pop-up will appear confirming that the user wishes to delete a memory, all comments, ratings will also be deleted for the deleted memory
     ![Delete Memory](football_memories/static/images/readme/delete_memory.PNG)
-- A user can view all memories or filter on memories they have created on the Memories page. When the login/register they are navigated to the All Memories page, but when they add/edit/delete a memory, they are navigated to their memories page. Memories are sorted by the date they are added with the newest memories displayed first
+- A user can view all memories or filter on memories they have created on the Memories page. When the login/register they are navigated to the "All Memories" page, but when they add/edit/delete a memory, they are navigated to their memories page. Memories are sorted by the date they are added with the newest memories displayed first
 ![All Memories](football_memories/static/images/readme/all_memories.PNG)  
 ![My Memories](football_memories/static/images/readme/my_memories.PNG)
 - Pagination will be displayed if there are more than 3 memories
 ![My Memories](football_memories/static/images/readme/memories_pagination.PNG)
-- A user can search memories based on text on the memory name and description, the user can also reset the search. The search is not case sensitive
+- A user can search memories based on text on the memory name and description, the user can also reset the search. The search is not case-sensitive
 ![Search](football_memories/static/images/readme/search.PNG)
 - A user can click on a memory in the memories page to view detailed information about the memory
     - They can view a larger image of the memory
-    - They can view a google map of the stadium that was entered for the memory
+    - They can view a Google map of the stadium that was entered for the memory
     - They can view the memory name, memory description, tournament name, stadium, date
     - They can view the view count of the image, and this value increments when the memory is viewed
     - They can view the average rating for a memory(total of ratings/number of ratings)
@@ -524,7 +523,7 @@ and tournament
     - They can add a comment, and the comment is displayed with the comment, added by and date
     ![Memory](football_memories/static/images/readme/memory.png)
 
-#### User Stories
+#### User Stories feature 5
 - User Story 5.1: Add Memory - As a regular user/admin user I can add a memory by selecting a tournament, uploading a memory image, entering a memory name, description, date and stadium. All fields are mandatory
 - User Story 5.2: Add Memory - As a regular user/admin user the memory image I upload must be png or jpg format
 - User Story 5.2: Edit  Memory - As a regular user/admin user I can edit a memory by uploading a memory image, updating the memory name, description, date and stadium. All fields are mandatory
@@ -540,7 +539,7 @@ and tournament
 - User Story 5.10: Search - As a regular user/admin I can search on text for the memory name and memory description, and the memories page will be updated with those filtered memories 
 
 ### Feature 6 Tournaments
-#### Description
+#### Description feature 6
 - A regular user can view the tournaments they can add memories to. Three tournaments are displays per page(tournament name, tournament image), and pagination is displayed if there are more than three tournaments in the mongodb database. The tournaments are sorted and displayed by date, most recently added first
 ![Tournament Regular](football_memories/static/images/readme/tournaments_regular.PNG)
 
@@ -556,7 +555,7 @@ and tournament
     - There is a minimum of one tournament in the database after deletion
     ![Delete Tournament Message](football_memories/static/images/readme/delete_tournament_message.PNG)
 
-#### User Stories
+#### User Stories feature 6
 - User Story 6.1: As a regular user/admin user I can view a list of tournaments created with the tournament name and tournament image displayed
 - User Story 6.2: As a regular user/admin user the list of tournaments is displayed with three per page, and pagination is displayed if there are more than 3 tournaments
 - User Story 6.3: As an admin user I can add a new tournament with a tournament name and tournament image. Both fields are mandatory and a message is displayed accordingly. The tournament information is added in the mongo database and the tournament image is stored in an AWS S3 bucket 
@@ -566,7 +565,7 @@ and tournament
 - User Story 6.7: As an admin user if there is only one tournament in website, it cannot be deleted, a minimum of one tournament is required
 
 ### Feature 7 Dashboard
-#### Description
+#### Description feature 7
 The dashboard page displays the results of 5 queries against the mongo db for the number of users, number of tournaments, number of memories, number of ratings and number of comments added on the site
 ![Dashboard](football_memories/static/images/readme/dashboard.PNG)
 
@@ -575,24 +574,22 @@ The dashboard page displays the results of 5 queries against the mongo db for th
  <code>     number_of_memories = mongo.db.memories.count() </code> <br>
  <code>     number_of_comments = mongo.db.comments.count() </code> <br>
  <code>     number_of_ratings = mongo.db.ratings.count() </code>
-   
 
-#### User Stories
+#### User Stories feature 7
 - User Story 7.1: As a regular user/admin user I can view a dashboard to see the number of users, number of tournaments, number of memories, number of ratings and number of comments added on the site
 
-
 ### Feature 8 Profile
-#### Description
+#### Description feature 8
 - A user can view or edit their profile details. Their username is displayed, but it is an un-editable field. When the user clicks save changes they are brought back to the Profile page with the relevant updates made
 - A user cannot update their username, the field is read only on the profile page
 - All fields are mandatory, similar to the registration page
 
-#### Profile/Edit Profile
+#### Profile Edit Profile
 ![Profile/Edit Profile](football_memories/static/images/profile/profile.PNG)
 
 ![Edit Profile 2](football_memories/static/images/readme/edit_profile.PNG)
 
-#### User Stories
+#### User Stories feature 8
 - User Story 8.1: As a regular user/admin user I can view my profile details: Username, First Name, Last Name, Favourite Team and Country. The country is selected from a dropdown of countries
 - User Story 8.2: As a regular user/admin user I can update my profile password, but the confirm password entered must match with the password. The password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.
 - User Story 8.3: As a regular user/admin user I can update my profile details: First Name, Last Name, Favourite Team and Country
@@ -622,7 +619,7 @@ Number | Feature
     - The project uses CSS to style the relevant pages
 - Javascript (https://www.javascript.com/)
     - Javascript was used for all scripting on the site
-- Python (https://www.python.org/)
+- Python v3.9 (https://www.python.org/)
     - Python was used for server side coding on the project, a number of libraries were also used: 
         - boto, boto3, botocore, click, dnspython, Flask, flask-paginate, 
         Flask-PyMongo, itsdangerous, Jinja2, jmespath, MarkupSafe, pymongo, s3transfer,Werkzeug
@@ -647,7 +644,7 @@ Number | Feature
 - JQuery (https://jquery.com)
     - JQuery was used in some javascript files for DOM manipulation
 - TinyPNG (https://tinypng.com/)
-    - TinyPNG was used to compress images
+    - TinyPNG was used to compress images to improve performance and reduce space
  - CSS Validation Service (https://jigsaw.w3.org/css-validator/)
     - CSS validation service for validation the css in the project  
 - HTML Markup Validation Service (https://validator.w3.org/)   
