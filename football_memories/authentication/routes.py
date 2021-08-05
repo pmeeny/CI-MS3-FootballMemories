@@ -43,7 +43,7 @@ def register():
         # Insert the new user into 'session' cookie
         session["user"] = request.form.get("username").lower()
         flash("Registration Successful!")
-        return redirect(url_for("memories.get_user_memories",
+        return redirect(url_for("memories.get_memories",
                                 username=session["user"]))
 
     return render_template("authentication/register.html")
@@ -52,7 +52,7 @@ def register():
 @authentication.route("/login", methods=["GET", "POST"])
 def login():
     """
-    This function, checks the user exists and succesfully logs
+    This function, checks the user exists and successfully logs
     in the user and redirects them to their memories page.
     If the user submits and incorrect username and/or password
     they are redirected to the login page
