@@ -28,7 +28,7 @@ def get_memories():
 
     # Get all memories and the memory count
     total_memories = mongo.db.memories.find().count()
-    memories_sorted_by = mongo.db.memories.find().sort("memory_created_by", 1)
+    memories_sorted_by = mongo.db.memories.find().sort("_id", -1)
     memories_paginated = memories_sorted_by[offset: offset + per_page]
     pagination = Pagination(page=page, per_page=per_page,
                             total=total_memories, css_framework='bootstrap')
@@ -99,7 +99,7 @@ def get_user_memories():
     # Get the memories for the specific user
     total_user_memories = mongo.db.memories.find(
         {"memory_created_by": username}).count()
-    user_memories = mongo.db.memories.find({"memory_created_by": username})
+    user_memories = mongo.db.memories.find({"memory_created_by": username}).sort("_id", -1)
     user_memories_paginated = user_memories[offset: offset + per_page]
     pagination = Pagination(page=page, per_page=per_page,
                             total=total_user_memories,
