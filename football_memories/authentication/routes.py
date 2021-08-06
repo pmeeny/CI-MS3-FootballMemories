@@ -11,7 +11,7 @@ authentication = Blueprint('authentication', __name__)
 def register():
     """
     This function registers a new user(and their relevant information)
-    in the users collection and once succesful brings the user to
+    in the users collection and once successful brings the user to
     their memories page and a login session is created for the user.
     The users password is stored encrypted
     If the username already exists, the user is redirected back
@@ -89,7 +89,7 @@ def login():
 @authentication.route("/logout")
 def logout():
     """
-    This function logs the user out of the site, removes thir
+    This function logs the user out of the site, removes this
     session and redirects them to the home/landing page
     """
     # Remove user from session cookie
