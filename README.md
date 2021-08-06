@@ -815,7 +815,7 @@ https://stackoverflow.com/questions/9142527/can-you-require-two-form-fields-to-m
 - Pexels (https://www.pexels.com/)
     - The hero image used throughout the site is form Pexels, https://www.pexels.com/photo/aerial-view-of-soccer-field-1171084/ by user https://www.pexels.com/@mike-468229 
 
-- The 42(www.the42.ie), Irish Independant(www.irishindependant.ie), Tokyvideo(www.tokyvideo.com), Sky Sports(www.skysports.com), The Guardian(www.theguardian.com), The 42(www.the42.ie), This is Anfield(www.thisisanfield.com), Joe.ie(www.joe.ie), Amazon(www.amazon.com)
+- The 42(www.the42.ie), Irish Independant(www.irishindependant.ie), Tokyvideo(www.tokyvideo.com), Sky Sports(www.skysports.com), The Guardian(www.theguardian.com), The 42(www.the42.ie), This is Anfield(www.thisisanfield.com), Joe.ie(www.joe.ie), Amazon(www.amazon.com), Getty Images(www.gettyimages.co.uk), BBC(www.bbc.co.uk)
     - The memory images added to the memories added to the website were taken from the above websites media galleries
 
  <br>
