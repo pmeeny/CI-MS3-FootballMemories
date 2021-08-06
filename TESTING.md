@@ -1094,7 +1094,7 @@ football_memories/templates/tournaments/edit_tournament.html | 0 errors and 0 co
 football_memories/templates/tournaments/tournament.html | 0 errors and 0 contrast errors| [Results](football_memories/static/images/wave_validation/wave_tournaments.PNG)
 
 ## JSHint
-- JSHint was used to analyse the Javascript files
+- JSHint(https://jshint.com/) was used to analyse the Javascript files
 
 Page | Result | Test Detail/Screenshot
 ------------ | ------------- | -------------
