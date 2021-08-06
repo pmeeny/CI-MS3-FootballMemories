@@ -706,7 +706,8 @@ There are a number of applications that need to be configured to run this applic
 ![policy](football_memories/static/images/readme/policy.PNG)
 6. The s3 bucket is now updated to be accessed by your application
 7. In the util.py route update the variables s3_bucket_name and s3_bucket_url with the correct information that you have set up, for example:
-<code>s3_bucket_name = "ci-ms3-football-memories"</code>
+<br>
+<code>s3_bucket_name = "ci-ms3-football-memories"</code><br>
 <code>s3_bucket_url = "https://ci-ms3-football-memories.s3.eu-west-1.amazonaws.com/" </code>
 
 
@@ -728,20 +729,18 @@ To run this project locally, you will need to clone the repository
 3. Click the Code button and copy the HTTPS url, for example: https://github.com/pmeeny/CI-MS3-FootballMemories.git
 4. In your IDE, open a terminal and run the git clone command, for example 
 
-```git clone https://github.com/pmeeny/CI-MS3-FootballMemories.git```
+    ```git clone https://github.com/pmeeny/CI-MS3-FootballMemories.git```
 
 5. The repository will now be cloned in your workspace
-6. Create an env.py file, and add in the following code with the relevant key, value pairs, and ensure you enter the correct key values
-<code>
-import os
-os.environ.setdefault("IP", TO BE ADDED BY USER)
-os.environ.setdefault("PORT", TO BE ADDED BY USER)
-os.environ.setdefault("SECRET_KEY", TO BE ADDED BY USER)
-os.environ.setdefault("MONGO_URI", TO BE ADDED BY USER)
-os.environ.setdefault("MONGO_DBNAME", TO BE ADDED BY USER)
-os.environ.setdefault("AWS_ACCESS_KEY_ID", TO BE ADDED BY USER)
-os.environ.setdefault("AWS_SECRET_ACCESS_KEY", TO BE ADDED BY USER)
-</code>
+6. Create an env.py file in the root folder in your project, and add in the following code with the relevant key, value pairs, and ensure you enter the correct key values<br>
+<code>import os</code><br>
+<code>os.environ.setdefault("IP", TO BE ADDED BY USER)</code><br>
+<code>os.environ.setdefault("PORT", TO BE ADDED BY USER)</code><br>
+<code>os.environ.setdefault("SECRET_KEY", TO BE ADDED BY USER)</code><br>
+<code>os.environ.setdefault("MONGO_URI", TO BE ADDED BY USER)</code><br>
+<code>os.environ.setdefault("MONGO_DBNAME", TO BE ADDED BY USER)</code><br>
+<code>os.environ.setdefault("AWS_ACCESS_KEY_ID", TO BE ADDED BY USER)</code><br>
+<code>os.environ.setdefault("AWS_SECRET_ACCESS_KEY", TO BE ADDED BY USER)</code>
 7. Install the relevant packages as per the requirements.txt file
 8. Start the application by running <code>python3 app.py</code>
 
