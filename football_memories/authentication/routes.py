@@ -160,9 +160,6 @@ def delete_profile(username):
     Finally it deletes the user from the users collection and redirects the
     user to the home/landing page
     """
-    # Find the user
-    user = mongo.db.users.find_one({"username": username})
-
     # For each memory, created by a user, get the memory_id, and delete
     # and comments/ratings with that memory_id in the comments and ratings
     # collections
