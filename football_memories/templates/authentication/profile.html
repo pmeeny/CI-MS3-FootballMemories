@@ -357,27 +357,26 @@
                     <h2 id="delete_profile_text">Delete Profile</h2>
                 </div>   
                 <div id="delete_profile_btn">
-                    <!-- <a class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteUser{{username}}">Delete</a> -->
-                    <a class="btn btn-danger" href="{{ url_for('authentication.delete_profile', username=username) }}">Delete Profile</a>
+                    <a class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteUser{{username}}">Delete Profile</a>
                 </div>   
-                    <!-- Modal 
-                        <div class="modal fade" id="deleteUser{{username}}" tabindex="-1" aria-labelledby="deleteAccountLabel" aria-hidden="true">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h2 class="modal-title" id="deleteAccountLabel">Delete my account</h2>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                    </div>
-                                   <div class="modal-body">
-                                     Are you sure you want to delete your account?
-                                            </div>
-                                       <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                           <a href="{{ url_for('authentication.delete_profile', username=username) }}" class="btn btn-danger">Delete my Account</a>
-                                       </div>
-                                   </div>
-                                 </div>
-                              </div> -->
+                <!-- Delete profile modal-->
+                <div class="modal fade" id="deleteUser{{username}}" tabindex="-1" aria-labelledby="deleteAccountLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h2 class="modal-title" id="deleteAccountLabel">Delete my account</h2>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                Are you sure you want to delete your account?
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <a href="{{ url_for('authentication.delete_profile', username=username) }}" class="btn btn-danger">Delete my Account</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
             {% endif %}                                        
         </div>         
