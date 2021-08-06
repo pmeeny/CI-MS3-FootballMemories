@@ -1,16 +1,7 @@
-import pytest
-import os
-from flask import (
-    Flask, flash, render_template,
-    redirect, request, session, url_for)
-from flask_paginate import Pagination, get_page_args
 from football_memories.util import util
 
-if os.path.exists("env.py"):
-    import env
 
-
-def test_generateTimestamp():
+def test_generatetimestamp():
     """
     This test asserts the timestamp is in the
     correct format and length
@@ -21,7 +12,7 @@ def test_generateTimestamp():
     assert (timestamp.endswith("_"))
 
 
-def test_getMonthAndYear():
+def test_getmonthandyear():
     """
     This test asserts the month and year string is in the
     correct format and length
