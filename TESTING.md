@@ -934,12 +934,27 @@ Step 2 | [Desktop Result](football_memories/static/images/testing/edit_profile6_
 ### User Story 8_5
 - User Story 8.5: As a regular user I can delete my account. This will delete any memories I have added(including their associated comments and ratings) and will also delete any comments or ratings the regular user has added on others users memories. The user will be asked to confirm the delete account action, and will be brought to the homepage after their account is successfully deleted.
 ### Test case steps 8_5
-1. 
+1. As a regular user create an account and add two memories
+2. Add a rating of 1 and two comments on a memory
+3. Take a count of the records in the system
+4. Click on profile and delete profile
+5. Take a count of the records in the system
 
 ### Expected Result 8_5
-1.
+1. The account is created and the memories created
+2. The rating and comments are created on the memory
+3. The records include a count of the user, memories x 2, ratings, comments
+4. The users profile is deleted and they are navigated to the homepage
+3. The records don't include a count of the user, memories x 2, ratings, comments
 
 ### Actual Result 8_5
+Step Number | Desktop | Tablet | Mobile | Result 
+------------ | ------------ | ------------- | ------------- | ------------- |
+Step 1 | [Desktop Result](football_memories/static/images/testing/delete_account1_desktop.png)  | [Tablet Result](football_memories/static/images/testing/delete_account1_tablet.png) |[Mobile Result](football_memories/static/images/testing/delete_account1_mobile.png) | Passed |
+Step 2 | [Desktop Result](football_memories/static/images/testing/delete_account2_desktop.png)  | [Tablet Result](football_memories/static/images/testing/delete_account2_tablet.png) |[Mobile Result](football_memories/static/images/testing/delete_account2_mobile.png) | Passed |
+Step 3 | [Desktop Result](football_memories/static/images/testing/delete_account3.png)  | [Tablet Result](football_memories/static/images/testing/delete_account3.png) |[Mobile Result](football_memories/static/images/testing/delete_account3.png) | Passed |
+Step 4 | [Desktop Result](football_memories/static/images/testing/delete_account4_desktop.png)  | [Tablet Result](football_memories/static/images/testing/delete_account4_tablet.png) |[Mobile Result](football_memories/static/images/testing/delete_account4_mobile.png) | Passed |
+Step 5 | [Desktop Result](football_memories/static/images/testing/delete_account5.png)  | [Tablet Result](football_memories/static/images/testing/delete_account5.png) |[Mobile Result](football_memories/static/images/testing/delete_account5.png) | Passed |
 
 # Bugs found during the testing phase
 
