@@ -667,6 +667,10 @@ Number | Feature
     - This plugin was used to take full page screenshots for testing images
 - Python online interpreter (https://www.programiz.com/python-programming/online-compiler/)
     - For testing python code snippets
+- Pytest (https://docs.pytest.org/en/6.2.x/)
+    - For Python unit testing
+- UILicious (www.uilicious.com)
+    - For automated testing
 
 # Testing
 The testing information and results for this project are documented in [TESTING.md](TESTING.md)

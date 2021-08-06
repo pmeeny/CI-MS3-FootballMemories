@@ -203,6 +203,7 @@
 The testing approach(described in detail in this testing readme) is as follows:
 1. Manual testing using emulators and real devices
 
+## Unit testing information
 Note: 
 - I did start writing unit tests, and I wrote two tests for the util.py route.
 - Due to time constraints and getting up to speed on pytest and mocking I did not complete any more unit tests
@@ -215,6 +216,13 @@ Note:
 - Then run "coverage run -m pytest" to run coverage against the codebase
 - -To generate a report run "coverage report -m"
 ![coverage](football_memories/static/images/testing/coverage_report.PNG)
+
+## Automated testing information
+- I wrote a simple automated e2e testing on UILIcious(www.uilicious.com)
+- The test accesses all pages and ensures the simple e2e flow of accessing all pages is successful
+- Below are screenshots of the tests(steps and results) running on UILicious(Desktop, Chrome and Mozilla Firefox)
+![Chrome](football_memories/static/images/testing/chrome_automation.PNG)
+![Firefox](football_memories/static/images/testing/mozilla_automation.PNG)
 
 ## Manual testing information
 Testing was completed on the following browsers and device types
