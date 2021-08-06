@@ -173,7 +173,7 @@ def delete_profile(username):
         mongo.db.comments.delete_many({"memory_id": memory_id})
         mongo.db.ratings.delete_many({"memory_id": memory_id})
 
-    # Delete any memories created by the user in the memories colection
+    # Delete any memories created by the user in the memories collection
     mongo.db.memories.delete_many({"memory_created_by": username})
 
     # Delete all comments by user: comments.comment_created_by
@@ -182,8 +182,9 @@ def delete_profile(username):
     mongo.db.ratings.remove({"rating_created_by": username})
 
     # Delete user from users collection, where the username matches
-    # mongo.db.users.remove({"username": username})
+    mongo.db.users.remove({"username": username})
 
     # Redirect user to homepage/landing page
-    return render_template("authentication/profile.html",
-                           username=session['user'], user=user)
+    flash("Your account has been deleted and you have been logged out")
+    session.pop("user")
+    return redirect(url_for("administration.home"))
