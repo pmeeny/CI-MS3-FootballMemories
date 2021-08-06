@@ -3,10 +3,10 @@ Football memories is a website that allows users to add/edit/delete/view footbal
 It also allows users to rate and comment on football memories
 - There are two types of users, and I have set up accounts for both
     - An admin user account has been set up with username/password of administrator/Password123
-    - A regular user account has been set up with username/password of testuser/Password123
+    - A regular user account has been set up with username/password of mikemurphy/Password123
 <br>
 
-View the live site [here](https://ci-ms3-footballmemories.herokuapp.com/)
+**View the live site [here](https://ci-ms3-footballmemories.herokuapp.com/)**
 <br><br>
 ![Responsive site example](football_memories/static/images/am_i_responsive/responsive_devices.png)
 
