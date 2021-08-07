@@ -205,8 +205,7 @@ The testing approach(described in detail in this testing readme) is as follows:
 
 ## Unit testing information
 Note: 
-- I did start writing unit tests, and I wrote two tests for the util.py route.
-- Due to time constraints and getting up to speed on pytest and mocking I did not complete any more unit tests
+- I wrote two tests for the util.py route but due to time constraints and getting up to speed on pytest and mocking I did not complete any more unit tests
 - I would like to have written a full suite of unit tests for all routes and to potentially use mock objects for mongodb and aws connections
 - The unit test file I did write is stored in the "tests" folder
 - The unit test is called tests/test_util.py and contains two tests(test_generatetimestamp and test_getmonthandyear)
@@ -974,9 +973,9 @@ Step Number | Desktop | Tablet | Mobile | Result
 ------------ | ------------ | ------------- | ------------- | ------------- |
 Step 1 | [Desktop Result](football_memories/static/images/testing/delete_account1_desktop.png)  | [Tablet Result](football_memories/static/images/testing/delete_account1_tablet.png) |[Mobile Result](football_memories/static/images/testing/delete_account1_mobile.png) | Passed |
 Step 2 | [Desktop Result](football_memories/static/images/testing/delete_account2_desktop.png)  | [Tablet Result](football_memories/static/images/testing/delete_account2_tablet.png) |[Mobile Result](football_memories/static/images/testing/delete_account2_mobile.png) | Passed |
-Step 3 | [Desktop Result](football_memories/static/images/testing/delete_account3.png)  | [Tablet Result](football_memories/static/images/testing/delete_account3.png) |[Mobile Result](football_memories/static/images/testing/delete_account3.png) | Passed |
+Step 3 | [Desktop Result](football_memories/static/images/testing/delete_account3.PNG)  | [Tablet Result](football_memories/static/images/testing/delete_account3.PNG) |[Mobile Result](football_memories/static/images/testing/delete_account3.PNG) | Passed |
 Step 4 | [Desktop Result](football_memories/static/images/testing/delete_account4_desktop.png)  | [Tablet Result](football_memories/static/images/testing/delete_account4_tablet.png) |[Mobile Result](football_memories/static/images/testing/delete_account4_mobile.png) | Passed |
-Step 5 | [Desktop Result](football_memories/static/images/testing/delete_account5.png)  | [Tablet Result](football_memories/static/images/testing/delete_account5.png) |[Mobile Result](football_memories/static/images/testing/delete_account5.png) | Passed |
+Step 5 | [Desktop Result](football_memories/static/images/testing/delete_account5.PNG)  | [Tablet Result](football_memories/static/images/testing/delete_account5.PNG) |[Mobile Result](football_memories/static/images/testing/delete_account5.PNG) | Passed |
 
 # Bugs found during the testing phase
 
