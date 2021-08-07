@@ -148,18 +148,17 @@ I have structured the website into 19 pages, each with clear, concise structure,
     - https://www.youtube.com/watch?v=Wfx4YBzg16s&list=PL-osiE80TeTs4UjLw5MM6OjgkjFeUxCYH&index=11 
     - https://github.com/CoreyMSchafer/code_snippets/tree/master/Python/Flask_Blog 
 - The project is structured as follows
-    - Administration: Contains a flask route for administration code, for example a dashboard
-    - Authentication: Contains a flask route for authentication for example login, register
-    - Errors: Contains a flask route for error pages for example 404
-    - Memories: Contains a flask route for memory code, adding, editing etc
-    - Static
+    - administration: Contains a flask route for administration code, for example a dashboard
+    - authentication: Contains a flask route for authentication for example login, register
+    - errors: Contains a flask route for error pages for example 404
+    - memories: Contains a flask route for memory code, adding, editing etc
+    - static
       - css (Project style css)
-      - Images (Project and readme images)
-      - Js (Project javascript structured into individual files)
-    - Templates
-      - Html templates to match the routes for Administration, Authentication, Errors, Memories, Tournaments and a base.html file
-    - Tournaments: Contains a flask route for tournament code, adding, editing etc 
-    - Util: Utilities, common code for example aws code for writing to an aws s3 bucket
+      - images (Project and readme images)
+      - js (Project javascript structured into individual files)
+    - templates: Html templates to match the routes for Administration, Authentication, Errors, Memories, Tournaments and a base.html file
+    - tournaments: Contains a flask route for tournament code, adding, editing etc 
+    - util: Utilities, common code for example aws code for writing to an aws s3 bucket
     
 ### Database
 - The website is a data-centric one with html, javascript, css used with the bootstrap framework as a frontend
@@ -172,6 +171,8 @@ The first step in the database design was to create a conceptual data model. The
 
 #### Physical database model
 From the conceptual database model I created the physical database model. This model contains all fields stored in the database collections with their data type and mimics the structure of what is actually stored in the mongo database(mongodb)
+Note: The arrows in the diagram denote the relationship in the python code between the different collection fields and not foreign keys, for example 
+when a memory is created in the memories' collection, it also stores the tournament name from the tournament's collection.
 ![conceptual](football_memories/static/images/database_design/physical_design_model.png)
 
 #### Mongo DB database information
@@ -253,6 +254,7 @@ client = boto3.client('s3',
 <code>
 image_url = s3_bucket_url + image_to_upload
 </code>
+
 ![tournaments](football_memories/static/images/database_design/tournaments.PNG)
 ![memories](football_memories/static/images/database_design/memories.PNG)
    
@@ -405,7 +407,7 @@ The website has seven distinct features, and they are described below
 #### Nav Bar Logged In
 ![Nav Bar 3](football_memories/static/images/testing/memories_5_12_desktop.png)
 #### Nav Bar Logged In Mobile
-![Nav Bar 4](/football_memories/static/images/testing/memories_5_12_mobile.png)
+![Nav Bar 4](football_memories/static/images/testing/memories_5_12_mobile.png)
 
 #### User Stories feature 1
 - User Story 1.1: As an admin/regular user the navigation bar is displayed with a logo on all pages for easy navigation, with a burger menu on mobile devices
