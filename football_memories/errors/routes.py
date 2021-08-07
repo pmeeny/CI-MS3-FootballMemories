@@ -8,6 +8,7 @@ errors = Blueprint('errors', __name__)
 def error_404(error):
     """
     Render the 404.html template in the case of a 404 error
+    :return render_template of 404.html
     """
     return render_template('errors/404.html', error=error), 404
 
@@ -16,6 +17,7 @@ def error_404(error):
 def error_500(error):
     """
     Render the 500.html template in the case of a 500 error
+    :return render_template of 500.html
     """
     return render_template('errors/500.html', error=error), 500
 
@@ -24,6 +26,7 @@ def error_500(error):
 def error_400(error):
     """
     Render the 400.html template in the case of a 500 error
+    :return render_template of 400.html
     """
     return render_template('errors/400.html', error=error), 400
 
@@ -32,6 +35,7 @@ def error_400(error):
 def error_401(error):
     """
     Render the 401.html template in the case of a 401 error
+    :return render_template of 401.html
     """
     return render_template('errors/401.html', error=error), 401
 
@@ -40,5 +44,6 @@ def error_401(error):
 def error_405(error):
     """
     Render the 405.html template in the case of a 405 error
+    :return render_template of 405.html
     """
     return render_template('errors/405.html', error=error), 405

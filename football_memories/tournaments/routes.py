@@ -10,17 +10,18 @@ tournaments = Blueprint('tournaments', __name__)
 
 
 @tournaments.route("/get_tournaments")
-def get_tournaments():
+def get_tournaments() -> object:
     """
     This function renders the tournament template with all tournaments
     in the tournament collection, the most recent added is displayed first
+    :return render_template of tournament.html
     """
     # Check the user is logged in
     if 'user' not in session:
         return redirect(url_for("administration.home"))
 
     # Setup pagination
-    offset, per_page, page = util.setupPagination()
+    offset, per_page, page = util.setup_pagination()
 
     # Get the user information
     username = session["user"]
@@ -45,6 +46,7 @@ def get_tournaments():
 def add_tournament():
     """
     This function adds a tournament with tournament name and image
+    :return redirect to get_tournaments
     """
     # Check the user is logged in
     if 'user' not in session:
@@ -53,13 +55,13 @@ def add_tournament():
     if request.method == "POST":
 
         # Check if the file type is an allowed image file type
-        tournament_image_type, allowedImageFileTypes = \
-            util.isAllowedImageFileType('tournament_image')
+        tournament_image_type, allowed_image_file_types = \
+            util.is_image_type_allowed('tournament_image')
 
-        if (tournament_image_type) not in allowedImageFileTypes:
+        if tournament_image_type not in allowed_image_file_types:
             flash("File type " + tournament_image_type +
                   " not allowed," +
-                  " allowed file types are: jpg, JPG ,png ,PNG, gif, GIF")
+                  " allowed file types are: jpg, JPG ,png ,PNG")
             return redirect(url_for("tournaments.get_tournaments"))
 
         # Check if the tournament name already exists in db
@@ -72,7 +74,7 @@ def add_tournament():
             return redirect(url_for("tournaments.get_tournaments"))
 
         # Store the tournament image in the AWS S3 bucket
-        image_url = util.storeImageAWSS3Bucket('tournament_image')
+        image_url = util.store_image_in_aws_s3_bucket('tournament_image')
 
         # Create a tournament object with a name and image
         tournament = {
@@ -92,6 +94,8 @@ def add_tournament():
 def edit_tournament(tournament_id):
     """
     This function edits a tournament with updated tournament name and image
+    :param tournament_id: Identifier of tournament
+    :return redirect to get_tournaments
     """
     # Check the user is logged in
     if 'user' not in session:
@@ -99,13 +103,13 @@ def edit_tournament(tournament_id):
 
     if request.method == "POST":
         # Check if the file type is an allowed image file type
-        tournament_image_type, allowedImageFileTypes = \
-            util.isAllowedImageFileType('tournament_image')
+        tournament_image_type, allowed_image_file_types = \
+            util.is_image_type_allowed('tournament_image')
 
-        if (tournament_image_type) not in allowedImageFileTypes:
+        if tournament_image_type not in allowed_image_file_types:
             flash("File type " + tournament_image_type +
                   " not allowed, " +
-                  "allowed file types are: jpg, JPG ,png ,PNG, gif, GIF")
+                  "allowed file types are: jpg, JPG ,png ,PNG")
             return redirect(url_for("tournaments.get_tournaments"))
 
         # Check if tournament name already exists in db
@@ -117,7 +121,7 @@ def edit_tournament(tournament_id):
             return redirect(url_for("tournaments.get_tournaments"))
 
         # Store the tournament image in the AWS S3 bucket
-        image_url = util.storeImageAWSS3Bucket('tournament_image')
+        image_url = util.store_image_in_aws_s3_bucket('tournament_image')
 
         # Create a tournament object with a name and image
         updated_tournament = {
@@ -140,9 +144,11 @@ def edit_tournament(tournament_id):
 
 @tournaments.route("/delete_tournament/<tournament_id>",
                    methods=["GET", "POST"])
-def delete_tournament(tournament_id):
+def delete_tournament(tournament_id) -> object:
     """
     This function deletes a tournament
+    :param tournament_id: Identifier of tournament
+    :return redirect to get_tournaments
     """
     # Get the tournament information
     tournament = mongo.db.tournaments.find_one(
@@ -152,12 +158,12 @@ def delete_tournament(tournament_id):
                 {"tournament_name": tournament['tournament_name']}).count()
 
     # If the tournament has memories if cannot be deleted
-    if(number_of_memories > 0):
+    if number_of_memories > 0:
         flash("A tournament than contains memories cannot be deleted")
     else:
         # Get the count of tournaments in the tournament collection
         number_of_tournaments = mongo.db.tournaments.find().count()
-        if(number_of_tournaments == 1):
+        if number_of_tournaments == 1:
             flash("Cannot delete this tournament as a " +
                   "minimum of one tournament is required")
         else:

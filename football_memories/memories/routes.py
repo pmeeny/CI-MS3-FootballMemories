@@ -15,12 +15,13 @@ def get_memories():
     This function renders the memories template to display all memories for
     all users and displays pagination if the amount is greater
     than three memories
+    :return render_template of memories.html
     """
     # Check the user is logged in
     if 'user' not in session:
         return redirect(url_for("administration.home"))
 
-    offset, per_page, page = util.setupPagination()
+    offset, per_page, page = util.setup_pagination()
 
     # Get the users details
     username = session["user"]
@@ -47,15 +48,17 @@ def get_memory(id):
     """
     This function renders the memory template to display memory information
     for a selected memory.
+    :param id: memory identifier
+    :return render_template of memory.html
     """
     # Check the user is logged in
     if 'user' not in session:
         return redirect(url_for("administration.home"))
 
     # Get the average rating for the selected memory
-    round_av_rating = calculateAverageRating(id)
+    round_av_rating = calculate_average_rating(id)
 
-    offset, per_page, page = util.setupPagination()
+    offset, per_page, page = util.setup_pagination()
 
     # Get the memory information and associated comments
     memory = mongo.db.memories.find_one({"_id": ObjectId(id)})
@@ -87,19 +90,21 @@ def get_memory(id):
 def get_user_memories():
     """
     This function returns all memories added by a specific user
+    :return render_template of memories.html
     """
     # Check the user is logged in
     if 'user' not in session:
         return redirect(url_for("administration.home"))
 
     # Setup pagination and get the user information
-    offset, per_page, page = util.setupPagination()
+    offset, per_page, page = util.setup_pagination()
     username = session["user"]
 
     # Get the memories for the specific user
     total_user_memories = mongo.db.memories.find(
         {"memory_created_by": username}).count()
-    user_memories = mongo.db.memories.find({"memory_created_by": username}).sort("_id", -1)
+    user_memories = mongo.db.memories.find(
+                    {"memory_created_by": username}).sort("_id", -1)
     user_memories_paginated = user_memories[offset: offset + per_page]
     pagination = Pagination(page=page, per_page=per_page,
                             total=total_user_memories,
@@ -119,6 +124,7 @@ def add_memory():
     """
     This function adds a memory with the information passed down
     from the add memory template
+    :return redirect to get_user_memories
     """
     # Check the user is logged in
     if 'user' not in session:
@@ -126,10 +132,10 @@ def add_memory():
 
     if request.method == "POST":
         # Check if the file type is an allowed image file type
-        memory_image_type, allowedImageFileTypes = \
-            util.isAllowedImageFileType('memory_image')
+        memory_image_type, allowed_image_file_types = \
+            util.is_image_type_allowed('memory_image')
 
-        if (memory_image_type) not in allowedImageFileTypes:
+        if memory_image_type not in allowed_image_file_types:
             flash("File type " + memory_image_type +
                   " not allowed," +
                   " allowed file types are: jpg, JPG ,png ,PNG")
@@ -137,7 +143,7 @@ def add_memory():
 
     if request.method == "POST":
         # Store the memory image in an S3 bucket
-        image_url = util.storeImageAWSS3Bucket('memory_image')
+        image_url = util.store_image_in_aws_s3_bucket('memory_image')
 
         # Create a memory object with the memory information
         memory = {
@@ -147,7 +153,7 @@ def add_memory():
             "memory_description": request.form.get("memory_description"),
             "memory_date": request.form.get("memory_date"),
             "memory_stadium": request.form.get("memory_stadium"),
-            "memory_view_count": (0),
+            "memory_view_count": 0,
             "memory_created_by": session["user"]
         }
         # Create the memory in the memories collection in the mongodb
@@ -166,6 +172,8 @@ def edit_memory(memory_id):
     """
     This function edits a memory with the information passed down
     from the edit memory template
+    :param memory_id: memory identifier
+    :return redirect to get_user_memories
     """
     # Check the user is logged in
     if 'user' not in session:
@@ -173,16 +181,16 @@ def edit_memory(memory_id):
 
     if request.method == "POST":
         # Check if the file type is an allowed image file type
-        memory_image_type, allowedImageFileTypes = \
-            util.isAllowedImageFileType('memory_image')
+        memory_image_type, allowed_image_file_types = \
+            util.is_image_type_allowed('memory_image')
 
-        if (memory_image_type) not in allowedImageFileTypes:
+        if memory_image_type not in allowed_image_file_types:
             flash("File type " + memory_image_type +
                   " not allowed," +
                   " allowed file types are: jpg, JPG ,png ,PNG")
             return redirect(url_for("memories.get_user_memories"))
 
-        image_url = util.storeImageAWSS3Bucket('memory_image')
+        image_url = util.store_image_in_aws_s3_bucket('memory_image')
 
         # Create a memory_to_update object with the new memory information
         memory_to_update = {
@@ -193,7 +201,7 @@ def edit_memory(memory_id):
             "memory_date": request.form.get("memory_date"),
             "memory_stadium": request.form.get("memory_stadium"),
             "memory_created_by": session["user"],
-            "memory_view_count": (0)
+            "memory_view_count": 0
         }
         # Update the memory in the memories collection in the mongodb
         mongo.db.memories.update({"_id": ObjectId(memory_id)},
@@ -213,6 +221,8 @@ def edit_memory(memory_id):
 def delete_memory(memory_id):
     """
     This function deletes a memory and all associated comment and ratings
+    :param memory_id: memory identifier
+    :return redirect to get_user_memories
     """
     mongo.db.memories.remove({"_id": ObjectId(memory_id)})
     mongo.db.comments.remove({"memory_id": memory_id})
@@ -226,8 +236,9 @@ def search():
     """
     This function allows the user to search memories based on a search criteria
     The memory_name and memory_description have search indexes setup for search
+    :return render_template of memory.html
     """
-    offset, per_page, page = util.setupPagination()
+    offset, per_page, page = util.setup_pagination()
 
     # Get the users information
     username = session["user"]
@@ -257,13 +268,15 @@ def search():
 def add_comment(id):
     """
     This function adds a comment for a particular memory id
+    :param id: memory identifier
+    :return redirect to get_memory
     """
     # Check the user is logged in
     if 'user' not in session:
         return redirect(url_for("administration.home"))
 
     # Get the current month and year
-    month, year = util.getMonthAndYear()
+    month, year = util.get_month_and_year()
     # Create a comment object
     comment = {
         "memory_id": id,
@@ -282,6 +295,8 @@ def add_comment(id):
 def add_rating(id):
     """
     This function adds a rating(from 1 to 5) for a particular memory id
+    :param id: memory identifier
+    :return redirect to get_memory
     """
     # Check the user is logged in
     if 'user' not in session:
@@ -301,11 +316,13 @@ def add_rating(id):
     return redirect(url_for("memories.get_memory", id=id))
 
 
-def calculateAverageRating(id):
+def calculate_average_rating(id):
     """
     This function calculates the average rating for a memory
     Average Rating = Sum of all ratings divided by number of ratings
     The value is returned to one decimal point
+    :param id: memory identifier
+    :return round_av_rating: Rounded average rating of the memory
     """
     # Get all ratings for a memory id
     ratings = mongo.db.ratings.find({"memory_id": id})
@@ -321,6 +338,6 @@ def calculateAverageRating(id):
     # Get the average rating based on the number of ratings
     if i > 0:
         av_rating = total / i
-        round_av_rating = (round((av_rating), 2))
+        round_av_rating = (round(av_rating, 2))
     # Return the average rating to one decimal point
     return round_av_rating

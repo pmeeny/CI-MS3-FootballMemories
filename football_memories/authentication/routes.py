@@ -16,6 +16,7 @@ def register():
     The users password is stored encrypted
     If the username already exists, the user is redirected back
     to the register page
+    :return render_template of get_memories
     """
     if request.method == "POST":
         # check if username already exists in db
@@ -56,6 +57,7 @@ def login():
     in the user and redirects them to their memories page.
     If the user submits and incorrect username and/or password
     they are redirected to the login page
+    :return render_template of get_memories
     """
     if request.method == "POST":
         # Check if the username exists in db
@@ -91,6 +93,7 @@ def logout():
     """
     This function logs the user out of the site, removes this
     session and redirects them to the home/landing page
+    :return render_template of administration.home
     """
     # Remove user from session cookie
     flash("You have been logged out")
@@ -104,6 +107,8 @@ def profile(username):
     This function renders the profile page and displays
     the users profile information once the user is logged in
     and exists in the users collection
+    :param username: username of user
+    :return render_template of profile.html
     """
     # If the user is not logged in, redirect them to home/landing page
     if 'user' not in session:
@@ -120,6 +125,8 @@ def update_profile(username):
     """
     This function updates the users profile with the updated information
     they have submitted
+    :param username: username of user
+    :return render_template of profile.html
     """
     # Create an update_profile object with the updated information
     if request.method == "POST":
@@ -159,6 +166,8 @@ def delete_profile(username):
     the ratings collection
     Finally it deletes the user from the users collection and redirects the
     user to the home/landing page
+    :param username: username of user
+    :return redirect to administration.home
     """
     # For each memory, created by a user, get the memory_id, and delete
     # and comments/ratings with that memory_id in the comments and ratings

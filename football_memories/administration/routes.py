@@ -11,6 +11,7 @@ administration = Blueprint('administration', __name__)
 def home():
     """
     This function displays the last three memories on the index template
+    :return render_template of index.html
     """
     # Get the last three memories added to the memories collection
     three_latest_memories = list(mongo.db.memories.find().
@@ -23,6 +24,7 @@ def home():
 def terms_and_conditions():
     """
     This function renders the terms and conditions template
+    :return render_template of terms_and_conditions.html
     """
     return render_template("administration/terms_and_conditions.html")
 
@@ -31,6 +33,7 @@ def terms_and_conditions():
 def privacy_policy():
     """
     This function renders the privacy policy template
+    :return render_template of privacy_policy.html
     """
     return render_template("administration/privacy_policy.html")
 
@@ -41,6 +44,7 @@ def dashboard():
     This function renders the dashboard template with information
     from five queries(all counts) of the users, tournaments, memories
     comments and ratings collection
+    :return render_template of dashboard.html
     """
     # Check the user is logged in
     if 'user' not in session:
