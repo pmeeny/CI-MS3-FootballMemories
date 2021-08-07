@@ -1,11 +1,10 @@
 import os
-from typing import Tuple
-
 import boto3
 from flask import (request)
 from flask_paginate import get_page_args
 from werkzeug.utils import secure_filename
 from datetime import datetime
+from typing import Tuple
 
 if os.path.exists("env.py"):
     import env
@@ -15,7 +14,8 @@ s3_bucket_name = "ci-ms3-football-memories"
 s3_bucket_url = "https://ci-ms3-football-memories.s3.eu-west-1.amazonaws.com/"
 client = boto3.client('s3',
                       aws_access_key_id=os.environ.get("AWS_ACCESS_KEY_ID"),
-                      aws_secret_access_key=os.environ.get("AWS_SECRET_ACCESS_KEY"))
+                      aws_secret_access_key=os.environ.get
+                      ("AWS_SECRET_ACCESS_KEY"))
 
 
 def get_month_and_year() -> Tuple[str, str]:
@@ -41,8 +41,8 @@ def generate_timestamp() -> str:
 
 def setup_pagination() -> Tuple[int, int, int]:
     """
-    This function sets up pagination, so that 3 items can be displayed on a page
-    and if there are more than 3 items, pagination will be displayed
+    This function sets up pagination, so that 3 items can be displayed on
+    a page and if there are more than 3 items, pagination will be displayed
     :return offset, per_page, page: Pagination variables
     """
     page, per_page, offset = get_page_args(
@@ -72,9 +72,11 @@ def store_image_in_aws_s3_bucket(file_to_store: str) -> str:
     return image_url
 
 
-def is_image_type_allowed(file_name: str) -> str:
+def is_image_type_allowed(file_name: str) -> tuple[str, list[str]]:
     """
-    TBC
+    :param file_name: Name of file
+    :return image_type, allowed_image_file_types: Image type and list
+    of allowed file types
     """
     allowed_image_file_types = ["jpg", "JPG", "png", "PNG"]
     image = request.files[file_name]
