@@ -171,7 +171,8 @@ The first step in the database design was to create a conceptual data model. The
 
 #### Physical database model
 From the conceptual database model I created the physical database model. This model contains all fields stored in the database collections with their data type and mimics the structure of what is actually stored in the mongo database(mongodb)
-Note: The arrows in the diagram denote the relationship in the python code between the different collection fields and not foreign keys, for example 
+<br>
+Note: The lines/links in the diagram denote the relationship in the python code between the different collection fields and not foreign keys, for example 
 when a memory is created in the memories' collection, it also stores the tournament name from the tournament's collection.
 ![conceptual](football_memories/static/images/database_design/physical_design_model.png)
 
