@@ -241,20 +241,14 @@ client = boto3.client('s3',
    </code>
 6. A single function was written named storeImageAWSS3Bucket that takes one parameter, the filename to store
 7. This single function is used by the tournament and memories routes to store the images in the S3 bucket
-8. This function stores a file in an AWS S3 bucket using boto3. The filename is in the form timestamp + name of file added by the user. The timestamp ensures uniqueness for every file added to the s3 bucket allowing users to use the same filename if desired.
-<code>
+8. This function stores a file in an AWS S3 bucket using boto3. The filename is in the form timestamp + name of file added by the user. The timestamp ensures uniqueness for every file added to the s3 bucket allowing users to use the same filename if desired.<code>
    image_file = secure_filename(image.filename)
-    image_to_upload = timestamp + image_file
-</code>
+    image_to_upload = timestamp + image_file</code>
 9. The boto3 put_object method is used to store the image taking two parameters, the file name and actual file
-<code>
-   s3.Bucket(s3_bucket_name).put_object(Key=image_to_upload, Body=image)
-</code>
-10. An image url is returned, and it is the image url that is stored in the mongodb for the relevant tournament or memory
-<code>
-image_url = s3_bucket_url + image_to_upload
-</code>
-
+<code>s3.Bucket(s3_bucket_name).put_object(Key=image_to_upload, Body=image)</code>
+10. An image url is returned, and it is the image url that is stored in the mongodb for the relevant tournament or memory, described below in the two screenshots, field 
+names memory_image and tournament_image in the memory and tournament collections
+<code>image_url = s3_bucket_url + image_to_upload</code>
 ![tournaments](football_memories/static/images/database_design/tournaments.PNG)
 ![memories](football_memories/static/images/database_design/memories.PNG)
    
