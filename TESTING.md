@@ -535,14 +535,14 @@ Step 2 | [Desktop Result](football_memories/static/images/testing/logout_desktop
 ### Test case steps 5-1
 1. As a regular user/admin user navigate to the Add Memory page and click the Add Memory button
 2. Enter/select values for tournament, memory image, memory name, description, date and stadium 
-3. Click Add Memory
+3. Click Add Memory. The user is not asked to enter any information they have already entered
 4. Login to AWS, select S3 and bucket ci-ms3-football-memories
 5. Login to Mongodb, select the MS3Cluster, select the relevant database and click on the memories collection
 
 ### Expected Result 5-1
 1. An error message is displayed beside each field
 2. All fields are updated to green with the relevant Looks good message
-3. The memory is displayed in the memories page, and in the my memories filter
+3. The memory is displayed in the memories page, and in the my memories filter. The user is not asked to enter any information they have already entered
 4. The memory image is visible in the s3 bucket with a unique timestamp
 5. The memory is created and the values for tournament, memory image, memory name, description, date and stadium
 
@@ -776,7 +776,7 @@ Step 1 | [Desktop Result](football_memories/static/images/testing/tournaments_re
 1. As an admin user navigate to the tournaments page and click the Add Tournament button
 2. With no fields filled in, click the Add Tournament button
 3. Add a tournament name and tournament image
-4. Click Add Tournament
+4. Click Add Tournament. The user is not asked to enter any information they have already entered
 5. Login to AWS, select S3 and bucket ci-ms3-football-memories
 6. Login to Mongodb, select the MS3Cluster, select the relevant database and click on the tournaments collection
 
@@ -784,7 +784,8 @@ Step 1 | [Desktop Result](football_memories/static/images/testing/tournaments_re
 1. The Add Tournament page is displayed
 2. A message will be displayed to enter a tournament name and image in red around each field
 3. Both fields will turn green with a "Looks Good" message displayed
-4. A message will be displayed that the tournament was successfully added and the user will be navigated to the tournaments page
+4. A message will be displayed that the tournament was successfully added and the user will be navigated to the tournaments page and a relevant message
+displayed. The user is not asked to enter any information they have already entered
 5. The image will be displayed in the S3 bucket with a unique timestamp
 6. The tournament will be created in the tournament's collection with tournament name and url to the location of the file in the AWS S3 bucket
 
@@ -1123,3 +1124,4 @@ football_memories/authentication/routes.py | No errors/warnings | [Results](foot
 football_memories/errors/routes.py | No errors/warnings | [Results](football_memories/static/images/pep8/errors_route.PNG)
 football_memories/memories/routes.py | No errors/warnings | [Results](football_memories/static/images/pep8/memories_route.PNG)
 football_memories/tournaments/routes.py | No errors/warnings | [Results](football_memories/static/images/pep8/tournaments_route.PNG)
+football_memories/models/model.py | No errors/warnings | [Results](football_memories/static/images/pep8/model.PNG)
