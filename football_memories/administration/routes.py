@@ -8,7 +8,7 @@ administration = Blueprint('administration', __name__)
 
 @administration.route("/")
 @administration.route("/home")
-def home():
+def home() -> object:
     """
     This function displays the last three memories on the index template
     :return render_template of index.html
@@ -21,7 +21,7 @@ def home():
 
 
 @administration.route("/terms_and_conditions")
-def terms_and_conditions():
+def terms_and_conditions() -> object:
     """
     This function renders the terms and conditions template
     :return render_template of terms_and_conditions.html
@@ -30,7 +30,7 @@ def terms_and_conditions():
 
 
 @administration.route("/privacy_policy")
-def privacy_policy():
+def privacy_policy() -> object:
     """
     This function renders the privacy policy template
     :return render_template of privacy_policy.html
@@ -39,7 +39,7 @@ def privacy_policy():
 
 
 @administration.route("/dashboard")
-def dashboard():
+def dashboard() -> object:
     """
     This function renders the dashboard template with information
     from five queries(all counts) of the users, tournaments, memories

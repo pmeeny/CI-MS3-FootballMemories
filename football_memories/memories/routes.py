@@ -44,7 +44,7 @@ def get_memories():
 
 
 @memories.route("/get_memory/<id>")
-def get_memory(id):
+def get_memory(id: object) -> object:
     """
     This function renders the memory template to display memory information
     for a selected memory.
@@ -87,7 +87,7 @@ def get_memory(id):
 
 
 @memories.route("/get_user_memories")
-def get_user_memories():
+def get_user_memories() -> object:
     """
     This function returns all memories added by a specific user
     :return render_template of memories.html
@@ -120,7 +120,7 @@ def get_user_memories():
 
 
 @memories.route("/add_memory", methods=["GET", "POST"])
-def add_memory():
+def add_memory() -> object:
     """
     This function adds a memory with the information passed down
     from the add memory template
@@ -168,7 +168,7 @@ def add_memory():
 
 
 @memories.route("/edit_memory/<memory_id>", methods=["GET", "POST"])
-def edit_memory(memory_id):
+def edit_memory(memory_id: object) -> object:
     """
     This function edits a memory with the information passed down
     from the edit memory template
@@ -218,7 +218,7 @@ def edit_memory(memory_id):
 
 
 @memories.route("/delete_memory/<memory_id>")
-def delete_memory(memory_id):
+def delete_memory(memory_id: object) -> object:
     """
     This function deletes a memory and all associated comment and ratings
     :param memory_id: memory identifier
@@ -232,7 +232,7 @@ def delete_memory(memory_id):
 
 
 @memories.route("/search", methods=["GET", "POST"])
-def search():
+def search() -> object:
     """
     This function allows the user to search memories based on a search criteria
     The memory_name and memory_description have search indexes setup for search
@@ -265,7 +265,7 @@ def search():
 
 
 @memories.route("/add_comment/<id>", methods=["POST"])
-def add_comment(id):
+def add_comment(id: object) -> object:
     """
     This function adds a comment for a particular memory id
     :param id: memory identifier
@@ -292,7 +292,7 @@ def add_comment(id):
 
 
 @memories.route("/add_rating/<id>", methods=["POST"])
-def add_rating(id):
+def add_rating(id: object) -> object:
     """
     This function adds a rating(from 1 to 5) for a particular memory id
     :param id: memory identifier
@@ -316,7 +316,7 @@ def add_rating(id):
     return redirect(url_for("memories.get_memory", id=id))
 
 
-def calculate_average_rating(id):
+def calculate_average_rating(id: object) -> object:
     """
     This function calculates the average rating for a memory
     Average Rating = Sum of all ratings divided by number of ratings

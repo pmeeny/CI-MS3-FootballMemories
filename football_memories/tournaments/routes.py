@@ -43,7 +43,7 @@ def get_tournaments() -> object:
 
 
 @tournaments.route("/add_tournament", methods=["GET", "POST"])
-def add_tournament():
+def add_tournament() -> object:
     """
     This function adds a tournament with tournament name and image
     :return redirect to get_tournaments
@@ -91,7 +91,7 @@ def add_tournament():
 
 
 @tournaments.route("/edit_tournament/<tournament_id>", methods=["GET", "POST"])
-def edit_tournament(tournament_id):
+def edit_tournament(tournament_id: object) -> object:
     """
     This function edits a tournament with updated tournament name and image
     :param tournament_id: Identifier of tournament
@@ -144,7 +144,7 @@ def edit_tournament(tournament_id):
 
 @tournaments.route("/delete_tournament/<tournament_id>",
                    methods=["GET", "POST"])
-def delete_tournament(tournament_id) -> object:
+def delete_tournament(tournament_id: object) -> object:
     """
     This function deletes a tournament
     :param tournament_id: Identifier of tournament

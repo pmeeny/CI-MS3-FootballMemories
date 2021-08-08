@@ -5,7 +5,7 @@ errors = Blueprint('errors', __name__)
 
 
 @app.errorhandler(404)
-def error_404(error):
+def error_404(error: object) -> object:
     """
     Render the 404.html template in the case of a 404 error
     :return render_template of 404.html
@@ -14,7 +14,7 @@ def error_404(error):
 
 
 @app.errorhandler(500)
-def error_500(error):
+def error_500(error: object) -> object:
     """
     Render the 500.html template in the case of a 500 error
     :return render_template of 500.html
@@ -23,7 +23,7 @@ def error_500(error):
 
 
 @app.errorhandler(400)
-def error_400(error):
+def error_400(error: object) -> object:
     """
     Render the 400.html template in the case of a 500 error
     :return render_template of 400.html
@@ -32,7 +32,7 @@ def error_400(error):
 
 
 @app.errorhandler(401)
-def error_401(error):
+def error_401(error: object) -> object:
     """
     Render the 401.html template in the case of a 401 error
     :return render_template of 401.html
@@ -41,7 +41,7 @@ def error_401(error):
 
 
 @app.errorhandler(405)
-def error_405(error):
+def error_405(error: object) -> object:
     """
     Render the 405.html template in the case of a 405 error
     :return render_template of 405.html

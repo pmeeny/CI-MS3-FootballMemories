@@ -8,7 +8,7 @@ authentication = Blueprint('authentication', __name__)
 
 
 @authentication.route("/register", methods=["GET", "POST"])
-def register():
+def register() -> object:
     """
     This function registers a new user(and their relevant information)
     in the users collection and once successful brings the user to
@@ -51,7 +51,7 @@ def register():
 
 
 @authentication.route("/login", methods=["GET", "POST"])
-def login():
+def login() -> object:
     """
     This function, checks the user exists and successfully logs
     in the user and redirects them to their memories page.
@@ -89,7 +89,7 @@ def login():
 
 
 @authentication.route("/logout")
-def logout():
+def logout() -> object:
     """
     This function logs the user out of the site, removes this
     session and redirects them to the home/landing page
@@ -102,7 +102,7 @@ def logout():
 
 
 @authentication.route("/profile/<username>", methods=["GET"])
-def profile(username):
+def profile(username: object) -> object:
     """
     This function renders the profile page and displays
     the users profile information once the user is logged in
@@ -121,7 +121,7 @@ def profile(username):
 
 
 @authentication.route("/update_profile/<username>", methods=["GET", "POST"])
-def update_profile(username):
+def update_profile(username: object) -> object:
     """
     This function updates the users profile with the updated information
     they have submitted
@@ -155,7 +155,7 @@ def update_profile(username):
 
 
 @authentication.route("/delete_profile/<username>")
-def delete_profile(username):
+def delete_profile(username: object) -> object:
     """
     This function deletes all information linked to a user and their username
     It deletes all memories added by the user, and the comments/ratings linked

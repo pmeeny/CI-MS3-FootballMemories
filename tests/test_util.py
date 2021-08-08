@@ -1,7 +1,7 @@
 from football_memories.util import util
 
 
-def test_generatetimestamp():
+def test_generatetimestamp() -> object:
     """
     This test asserts the timestamp is in the
     correct format and length
@@ -12,7 +12,7 @@ def test_generatetimestamp():
     assert (timestamp.endswith("_"))
 
 
-def test_getmonthandyear():
+def test_getmonthandyear() -> object:
     """
     This test asserts the month and year string is in the
     correct format and length
