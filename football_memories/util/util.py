@@ -1,6 +1,7 @@
 import os
 import boto3
-from flask import (request)
+from botocore.exceptions import ClientError
+from flask import (request, flash)
 from flask_paginate import get_page_args
 from werkzeug.utils import secure_filename
 from datetime import datetime
@@ -63,8 +64,12 @@ def store_image_in_aws_s3_bucket(file_to_store: str) -> str:
     image = request.files[file_to_store]
     image_file = secure_filename(image.filename)
     image_to_upload = timestamp + image_file
-    s3 = boto3.resource('s3')
-    s3.Bucket(s3_bucket_name).put_object(Key=image_to_upload, Body=image)
+    try:
+        s3 = boto3.resource('s3')
+        s3.Bucket(s3_bucket_name).put_object(Key=image_to_upload, Body=image)
+    except ClientError as e:
+        raise Exception("Exception when uploading the image to AWS S3 bucket")
+
     image_url = s3_bucket_url + image_to_upload
     return image_url
 
