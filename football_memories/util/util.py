@@ -6,9 +6,6 @@ from werkzeug.utils import secure_filename
 from datetime import datetime
 from typing import Tuple
 
-if os.path.exists("env.py"):
-    import env
-
 # AWS S3 variables
 s3_bucket_name = "ci-ms3-football-memories"
 s3_bucket_url = "https://ci-ms3-football-memories.s3.eu-west-1.amazonaws.com/"
@@ -74,6 +71,8 @@ def store_image_in_aws_s3_bucket(file_to_store: str) -> str:
 
 def is_image_type_allowed(file_name: str) -> tuple[str, list[str]]:
     """
+    This function takes a filename and returns the image type an
+    allowed file types of jpg, JPG, png and PNG
     :param file_name: Name of file
     :return image_type, allowed_image_file_types: Image type and list
     of allowed file types
