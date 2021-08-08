@@ -13,3 +13,5 @@ MarkupSafe==2.0.1
 pymongo==3.11.4
 s3transfer==0.4.2
 Werkzeug==2.0.1
+
+mongoengine~=0.23.1
