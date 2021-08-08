@@ -72,18 +72,23 @@ def add_tournament() -> object:
         if existing_tournament:
             flash("Tournament name already exists")
             return redirect(url_for("tournaments.get_tournaments"))
+        try:
+            # Store the tournament image in the AWS S3 bucket
+            image_url = util.store_image_in_aws_s3_bucket('tournament_image')
 
-        # Store the tournament image in the AWS S3 bucket
-        image_url = util.store_image_in_aws_s3_bucket('tournament_image')
-
-        # Create a tournament object with a name and image
-        tournament = {
-            "tournament_name": request.form.get("tournament_name"),
-            "tournament_image": image_url
-        }
-        # Create the tournament in the tournaments collection in the mongodb
-        mongo.db.tournaments.insert_one(tournament)
-        flash("New tournament Added")
+            # Create a tournament object with a name and image
+            tournament = {
+                "tournament_name":
+                    request.form.get("tournament_name"),
+                "tournament_image": image_url
+            }
+            # Create the tournament in the tournaments collection
+            # in mongodb
+            mongo.db.tournaments.insert_one(tournament)
+            flash("New tournament Added")
+        except Exception as e:
+            flash("An exception occurred when adding a new tournament: " +
+                  getattr(e, 'message', repr(e)))
         # Redirect the user to the get tournaments route
         return redirect(url_for("tournaments.get_tournaments"))
 
@@ -120,18 +125,23 @@ def edit_tournament(tournament_id: object) -> object:
             flash("Tournament name already exists")
             return redirect(url_for("tournaments.get_tournaments"))
 
-        # Store the tournament image in the AWS S3 bucket
-        image_url = util.store_image_in_aws_s3_bucket('tournament_image')
+        try:
+            # Store the tournament image in the AWS S3 bucket
+            image_url = util.store_image_in_aws_s3_bucket('tournament_image')
 
-        # Create a tournament object with a name and image
-        updated_tournament = {
-            "tournament_name": request.form.get("tournament_name"),
-            "tournament_image": image_url
-        }
-        # Update the tournament in the tournaments collection in the mongodb
-        mongo.db.tournaments.update({"_id": ObjectId(tournament_id)},
-                                    updated_tournament)
-        flash("Tournament Successfully Updated")
+            # Create a tournament object with a name and image
+            updated_tournament = {
+                "tournament_name": request.form.get("tournament_name"),
+                "tournament_image": image_url
+            }
+            # Update the tournament in the tournaments collection
+            # in the mongodb
+            mongo.db.tournaments.update({"_id": ObjectId(tournament_id)},
+                                        updated_tournament)
+            flash("Tournament Successfully Updated")
+        except Exception as e:
+            flash("An exception occurred when editing the tournament: " +
+                  getattr(e, 'message', repr(e)))
         # Redirect the user to the get tournaments route
         return redirect(url_for("tournaments.get_tournaments"))
 
@@ -168,7 +178,11 @@ def delete_tournament(tournament_id: object) -> object:
                   "minimum of one tournament is required")
         else:
             # Delete the tournament from the tournaments collection
-            mongo.db.tournaments.remove({"_id": ObjectId(tournament_id)})
-            flash("Tournament Successfully Deleted")
+            try:
+                mongo.db.tournaments.remove({"_id": ObjectId(tournament_id)})
+                flash("Tournament Successfully Deleted")
+            except Exception as e:
+                flash("An exception occurred when deleting the tournament: " +
+                      getattr(e, 'message', repr(e)))
     # Redirect to the get tournaments page
     return redirect(url_for("tournaments.get_tournaments"))

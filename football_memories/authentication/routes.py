@@ -22,12 +22,10 @@ def register() -> object:
         # check if username already exists in db
         existing_user = mongo.db.users.find_one(
             {"username": request.form.get("username").lower()})
-
         # If the user already exists, redirect them to the register page
         if existing_user:
             flash("Username already exists")
             return redirect(url_for("authentication.register"))
-
         register = {
             "user_type": "regular_user",
             "username": request.form.get("username").lower(),
@@ -37,16 +35,17 @@ def register() -> object:
             "favourite_team": request.form.get("favourite_team"),
             "country": request.form.get("country")
         }
-
-        # Insert the register object in the users collection
-        mongo.db.users.insert_one(register)
-
-        # Insert the new user into 'session' cookie
-        session["user"] = request.form.get("username").lower()
-        flash("Registration Successful!")
+        try:
+            # Insert the register object in the users collection
+            mongo.db.users.insert_one(register)
+            # Insert the new user into 'session' cookie
+            session["user"] = request.form.get("username").lower()
+            flash("Registration Successful!")
+        except Exception as e:
+            flash("An exception occurred when adding a new user: " +
+                  getattr(e, 'message', repr(e)))
         return redirect(url_for("memories.get_memories",
                                 username=session["user"]))
-
     return render_template("authentication/register.html")
 
 
@@ -63,7 +62,6 @@ def login() -> object:
         # Check if the username exists in db
         existing_user = mongo.db.users.find_one(
             {"username": request.form.get("username").lower()})
-
         if existing_user:
             # Ensure the hashed password matches user input
             if check_password_hash(
@@ -79,12 +77,10 @@ def login() -> object:
                 # Invalid password match
                 flash("Incorrect Username and/or Password")
                 return redirect(url_for("authentication.login"))
-
         else:
             # Username doesn't exist in the users collection
             flash("Incorrect Username and/or Password")
             return redirect(url_for("authentication.login"))
-
     return render_template("authentication/login.html")
 
 
@@ -113,7 +109,6 @@ def profile(username: object) -> object:
     # If the user is not logged in, redirect them to home/landing page
     if 'user' not in session:
         return redirect(url_for("administration.home"))
-
     # Find the user in the users collection
     user = mongo.db.users.find_one({"username": username})
     return render_template("authentication/profile.html",
@@ -143,10 +138,13 @@ def update_profile(username: object) -> object:
             "favourite_team": request.form.get("favourite_team"),
             "country": request.form.get("country")
         }
-        # Update the users information in the users collection
-        mongo.db.users.update({"username": username}, update_profile)
-        flash("User Profile Successfully Updated")
-
+        try:
+            # Update the users information in the users collection
+            mongo.db.users.update({"username": username}, update_profile)
+            flash("User Profile Successfully Updated")
+        except Exception as e:
+            flash("An exception occurred when updating the user: " +
+                  getattr(e, 'message', repr(e)))
     # Search for the user and redirect them back to their profile page
     # with their updated information displayed
     user = mongo.db.users.find_one({"username": username})
@@ -172,25 +170,25 @@ def delete_profile(username: object) -> object:
     # For each memory, created by a user, get the memory_id, and delete
     # and comments/ratings with that memory_id in the comments and ratings
     # collections
-    memories_to_delete = list(mongo.db.memories.find(
-                            {"memory_created_by": username}))
-    for memory in memories_to_delete:
-        memory_id = str(memory['_id'])
-        mongo.db.comments.delete_many({"memory_id": memory_id})
-        mongo.db.ratings.delete_many({"memory_id": memory_id})
-
-    # Delete any memories created by the user in the memories collection
-    mongo.db.memories.delete_many({"memory_created_by": username})
-
-    # Delete all comments by user: comments.comment_created_by
-    mongo.db.comments.remove({"comment_created_by": username})
-    # delete all ratings by user: ratings.rating_created_by
-    mongo.db.ratings.remove({"rating_created_by": username})
-
-    # Delete user from users collection, where the username matches
-    mongo.db.users.remove({"username": username})
-
-    # Redirect user to homepage/landing page
-    flash("Your account has been deleted and you have been logged out")
-    session.pop("user")
+    try:
+        memories_to_delete = list(mongo.db.memories.find(
+                                {"memory_created_by": username}))
+        for memory in memories_to_delete:
+            memory_id = str(memory['_id'])
+            mongo.db.comments.delete_many({"memory_id": memory_id})
+            mongo.db.ratings.delete_many({"memory_id": memory_id})
+        # Delete any memories created by the user in the memories collection
+        mongo.db.memories.delete_many({"memory_created_by": username})
+        # Delete all comments by user: comments.comment_created_by
+        mongo.db.comments.remove({"comment_created_by": username})
+        # delete all ratings by user: ratings.rating_created_by
+        mongo.db.ratings.remove({"rating_created_by": username})
+        # Delete user from users collection, where the username matches
+        mongo.db.users.remove({"username": username})
+        # Redirect user to homepage/landing page
+        flash("Your account has been deleted and you have been logged out")
+        session.pop("user")
+    except Exception as e:
+        flash("An exception occurred when deleting the user: " +
+              getattr(e, 'message', repr(e)))
     return redirect(url_for("administration.home"))
