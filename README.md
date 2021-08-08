@@ -184,6 +184,11 @@ when a memory is created in the memories' collection, it also stores the tournam
 4. comments - to store comment information for a memory added by an admin/regular user
 5. ratings - to store rating information for a memory added by an admin/regular user
 
+- I created a model.py file in football_memories/models to show the structure of the database in Python code.
+- For the purpose of this project I created the database and five collections manually in the mongodb cloud instance online
+- I did not create a script to load in this model as I used the mongodb website and configured the database and collections there
+- So the file is there as an example to show I have investigated how models work in Python in a flask application
+
 #### Users
 - The users' collection is used to store user information when they register.
 - The fields stored in the collection are users username(String), password(String), first_name(String), last_name(String), favourite_team(String) and country(String) with a unique identifier(primary key) , "_id"(Object Id)
@@ -289,7 +294,7 @@ The user stories for the website user "regular user" (a potential or existing cu
 - User Story 5.11: My Memories- As a regular user I can filter on memories I have created, and the page will be paginated if there are more than 3 memories
 - User Story 5.12: All Memories - As a regular user I can filter on memories I have created, and the page will be paginated if there are more than 3 memories
 - User Story 5.13: Search - As a regular user I can search on text for the memory name and memory description, and the memories page will be updated with those filtered memories 
-User Story 6.1: As a regular user I can view a list of tournaments with the tournament name and tournament image displayed, and pagination is displayed if there are more than 3 tournaments
+- User Story 6.1: As a regular user I can view a list of tournaments with the tournament name and tournament image displayed, and pagination is displayed if there are more than 3 tournaments
 - User Story 7.1: As a regular user I can view a dashboard to see the number of users, number of tournaments, number of memories, number of ratings and number of comments added on the site
 - User Story 8.1: As a regular user I can view my profile details: Username, First Name, Last Name, Favourite Team and Country. The country is selected from a dropdown of countries
 - User Story 8.2: As a regular user I can update my profile password, but the confirm password entered must match with the password. The password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.
@@ -470,6 +475,8 @@ and tournament
 ![Latest Memories](football_memories/static/images/readme/login.PNG)
 - A 404 page is displayed if the page the user accesses does not exist
 ![404 page](football_memories/static/images/testing/404_desktop.png)
+- When the user registers or logs in to the site successfully, they are brought to the memories page
+and a welcome message is displayed, for example <code>flash("Registration Successful!")<code>
 
 #### User Stories feature 4
 - User Story 4.1: As a regular user I can register for an account by providing my username, password, confirm password, first name, last name, favourite team and country, and I will be navigated to the memories page. All fields must be provided
@@ -497,6 +504,7 @@ and tournament
     - Memory Name, a text field, where the user can update a memory name
     - Memory Description, a textarea, where the user can update a memory description, date(calendar date in the form dd/mm/yyyy) and stadium
     - All fields are mandatory
+    - A user can only edit memories they have created and not other users memories
     - Clicking cancel will bring the user back to the Memories page, clicking Save Changes will save the changes and update the memory
     ![Edit Memory](football_memories/static/images/readme/edit_memory.PNG)
 - A user can delete a memory they have created, and admin user can delete any memory
@@ -519,6 +527,10 @@ and tournament
     - They can view all comments for a memory, and the page is paginated if there are more than 3 comments
     - They can add a comment, and the comment is displayed with the comment, added by and date
     ![Memory](football_memories/static/images/readme/memory.png)
+- In all user stories, the user will not be asked for information they have already supplied, for example when the user
+is adding a memory, they will not be asked for their username
+- When the user add/edit/deletes a memory, adds a comment, adds a rating successfully, a relevant message
+is displayed, for example <code> flash("Rating Successfully Added")</code>
 
 #### User Stories feature 5
 - User Story 5.1: Add Memory - As a regular user/admin user I can add a memory by selecting a tournament, uploading a memory image, entering a memory name, description, date and stadium. All fields are mandatory
@@ -551,6 +563,10 @@ and tournament
     - If it has no memories associated
     - There is a minimum of one tournament in the database after deletion
     ![Delete Tournament Message](football_memories/static/images/readme/delete_tournament_message.PNG)
+- In all user stories, the user will not be asked for information they have already supplied, for example when the user
+is adding a tournament, they will not be asked for their username
+- When an admin user add/edits/deletes a tournament a relevant message is displayed, for example <code> flash("Tournament Successfully Added")</code>
+- Only an admin user can add/edit/delete a tournament, a regular user can not
 
 #### User Stories feature 6
 - User Story 6.1: As a regular user/admin user I can view a list of tournaments created with the tournament name and tournament image displayed
@@ -579,6 +595,8 @@ The dashboard page displays the results of 5 queries against the mongo db for th
 #### Description feature 8
 - A user can view or edit their profile details. Their username is displayed, but it is an un-editable field. When the user clicks save changes they are brought back to the Profile page with the relevant updates made
 - A user cannot update their username, the field is read only on the profile page
+- When the user selects the profile page, all their information(username, first name, last name, favourite team, country) is displayed, the user will not be asked for information they have already supplied
+- However, the user is asked to re-enter their password, this is for security purposes and the fact the users password is encrypted in the database
 - All fields are mandatory, similar to the registration page
 
 #### Profile Edit Profile
@@ -793,6 +811,8 @@ https://stackoverflow.com/questions/9142527/can-you-require-two-form-fields-to-m
 - I used html/css code, then tweaked it accordingly for the site footer: https://jsfiddle.net/bootstrapious/c7ash30w/
 
 - For the send-email functionality I used some code from the code institute module from the course
+
+- For exception handling I found this page useful: https://stackoverflow.com/questions/33239308/how-to-get-exception-message-in-python-properly
 
 # Content
 - Country list (https://www.technicalkeeda.com/html-tutorials/all-countries-drop-down-list-in-html)
