@@ -49,7 +49,6 @@ def dashboard() -> object:
     # Check the user is logged in
     if 'user' not in session:
         return redirect(url_for("administration.home"))
-
     number_of_users = mongo.db.users.count()
     number_of_tournaments = mongo.db.tournaments.count()
     number_of_memories = mongo.db.memories.count()
