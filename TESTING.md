@@ -440,7 +440,7 @@ Note: Make sure revert any updates made for testing purposes
 ### Expected Result 3-5
 1. The change is made
 2. The application starts
-3. The tournament does not add an an exception is displayed: "An exception occurred when adding a new tournament: Exception('Exception when uploading the image to AWS S3 bucket')"
+3. The tournament does not add an exception is displayed: "An exception occurred when adding a new tournament: Exception('Exception when uploading the image to AWS S3 bucket')"
 4. The application starts
 5. The memory fails to add and an error is displayed
 
@@ -449,9 +449,9 @@ Step Number | Desktop | Tablet | Mobile | Result
 ------------ | ------------ | ------------- | ------------- | ------------- |
 Step 1 | N/A | N/A | N/A | Passed |
 Step 2 | N/A | N/A | N/A | Passed |
-Step 3 | [Desktop Result](football_memories/static/images/testing/exception1_desktop.PNG)  | [Tablet Result](football_memories/static/images/testing/exception1_tablet.png) |[Mobile Result](football_memories/static/images/testing/exception1_mobile.png) | Passed |
+Step 3 | [Desktop Result](football_memories/static/images/testing/exception1_desktop.png)  | [Tablet Result](football_memories/static/images/testing/exception1_tablet.png) |[Mobile Result](football_memories/static/images/testing/exception1_mobile.png) | Passed |
 Step 4 | N/A | N/A | N/A | Passed |
-Step 5 | [Desktop Result](football_memories/static/images/testing/exception2_desktop.PNG)  | [Tablet Result](football_memories/static/images/testing/exception2_tablet.png) |[Mobile Result](football_memories/static/images/testing/exception2_mobile.png) | Passed |
+Step 5 | [Desktop Result](football_memories/static/images/testing/exception2_desktop.png)  | [Tablet Result](football_memories/static/images/testing/exception2_tablet.png) |[Mobile Result](football_memories/static/images/testing/exception2_mobile.png) | Passed |
 
 ## Feature 4 Login Register Logout administration
 ### User Story 4-1
