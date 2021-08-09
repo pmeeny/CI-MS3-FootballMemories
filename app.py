@@ -1,9 +1,6 @@
 import os
 from football_memories import create_app
 
-if os.path.exists("env.py"):
-    import env
-
 # Create an app
 app = create_app()
 
