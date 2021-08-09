@@ -67,14 +67,14 @@ def store_image_in_aws_s3_bucket(file_to_store: str) -> str:
     try:
         s3 = boto3.resource('s3')
         s3.Bucket(s3_bucket_name).put_object(Key=image_to_upload, Body=image)
-    except ClientError as e:
+    except ClientError:
         raise Exception("Exception when uploading the image to AWS S3 bucket")
 
     image_url = s3_bucket_url + image_to_upload
     return image_url
 
 
-def is_image_type_allowed(file_name: str) -> tuple[str, list[str]]:
+def is_image_type_allowed(file_name: str) -> Tuple[str, Tuple[str]]:
     """
     This function takes a filename and returns the image type an
     allowed file types of jpg, JPG, png and PNG
