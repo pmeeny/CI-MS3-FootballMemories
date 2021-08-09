@@ -91,7 +91,7 @@ It also allows users to rate and comment on football memories
 <small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
 # Project Overview
 - This project is a website that allows users to add/edit/delete football memories for given tournament for submission as milestone project 3 as part of the Code Institute - Diploma in Software Development (Full stack) course.
-- The website is deployed using Heroku pages at the following url: [Football Memories]((https://ci-ms3-footballmemories.herokuapp.com/)
+- The website is deployed using Heroku pages at the following url: [Football Memories](https://ci-ms3-footballmemories.herokuapp.com/)
 - The repository on GitHub that contains the website source code and assets is available at the following url: [Code Repository](https://github.com/pmeeny/CI-MS3-FootballMemories)
 - The website was built with a responsive look and feel for desktop, tablet and mobile devices
 
@@ -486,7 +486,7 @@ and tournament
 - A 404 page is displayed if the page the user accesses does not exist
 ![404 page](football_memories/static/images/testing/404_desktop.png)
 - When the user registers or logs in to the site successfully, they are brought to the memories page
-and a welcome message is displayed, for example <code>flash("Registration Successful!")<code>
+and a welcome message is displayed, for example <code>flash("Registration Successful!")</code>
 
 #### User Stories feature 4
 - User Story 4.1: As a regular user I can register for an account by providing my username, password, confirm password, first name, last name, favourite team and country, and I will be navigated to the memories page. All fields must be provided
