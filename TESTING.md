@@ -48,6 +48,10 @@
     + [Test case steps 3-3](#test-case-steps-3-3)
     + [Expected Result 3-3](#expected-result-3-3)
     + [Actual Result 3-3](#actual-result-3-3)
+    + [User Story 3-4](#user-story-3-4)
+    + [Test case steps 3-4](#test-case-steps-3-4)
+    + [Expected Result 3-4](#expected-result-3-4)
+    + [Actual Result 3-4](#actual-result-3-4)
   * [Feature 4 Login Register Logout administration](#feature-4-login-register-logout-administration)
     + [User Story 4-1](#user-story-4-1)
     + [Test case steps 4-1](#test-case-steps-4-1)
@@ -393,7 +397,7 @@ Step Number | Desktop | Tablet | Mobile | Result
 Step 1 | [Desktop Result](football_memories/static/images/testing/index_desktop.png)  | [Tablet Result](football_memories/static/images/testing/index_tablet.png) |[Mobile Result](football_memories/static/images/testing/index_mobile.png) | Passed |
 
 ### User Story 3-3
-- User Story 3.3: As an admin user if I encounter a route that does not exist I am navigated to a 404 error page
+- User Story 3.3: As an admin/regular user if I encounter a route that does not exist I am navigated to a 404 error page
 
 ### Test case steps 3-3
 1. Enter an url that does not exist, for example: website_url/login1
@@ -405,6 +409,49 @@ Step 1 | [Desktop Result](football_memories/static/images/testing/index_desktop.
 Step Number | Desktop | Tablet | Mobile | Result 
 ------------ | ------------ | ------------- | ------------- | ------------- |
 Step 1 | [Desktop Result](football_memories/static/images/testing/404_desktop.png)  | [Tablet Result](football_memories/static/images/testing/404_tablet.png) |[Mobile Result](football_memories/static/images/testing/404_mobile.png) | Passed |
+
+### User Story 3-4
+- User Story 3.3: As an admin/regular user if I encounter an error with the application starting up I am navigated to a 500 error page
+
+### Test case steps 3-4
+1. In your local environment in the env.py file modify the MONGO_URI to set an incorrect Password
+2. Start the application, for example python3 app.py
+
+### Expected Result 3-4
+1. The MONGO_URI entry is updated
+2. The application starts and the user is navigated to a 500 error page
+
+### Actual Result 3-4
+Step Number | Desktop | Tablet | Mobile | Result 
+------------ | ------------ | ------------- | ------------- | ------------- |
+Step 1 | [Desktop Result](football_memories/static/images/testing/500_error_desktop.PNG)  | [Tablet Result](football_memories/static/images/testing/500_error_tablet.png) |[Mobile Result](football_memories/static/images/testing/500_error_mobile.png) | Passed |
+
+### User Story 3-5
+- User Story 3.5: As an admin/regular user if I encounter an error when using the application(adding a memory or tournament for example), a message is displayed
+Note: Make sure revert any updates made for testing purposes
+
+### Test case steps 3-5
+1. In your local environment in the env.py file modify the AWS_SECRET_ACCESS_KEY to set an incorrect key
+2. Start the application, for example python3 app.py
+3. As an admin user add a tournament
+4. Revert the change in step 1, then in the memory route(route.py) update the insert code in the add_memory function from mongo to mongo1 and restart the application
+4. As a regular user add a memory
+
+### Expected Result 3-5
+1. The change is made
+2. The application starts
+3. The tournament does not add an an exception is displayed: "An exception occurred when adding a new tournament: Exception('Exception when uploading the image to AWS S3 bucket')"
+4. The application starts
+5. The memory fails to add and an error is displayed
+
+### Actual Result 3-5
+Step Number | Desktop | Tablet | Mobile | Result 
+------------ | ------------ | ------------- | ------------- | ------------- |
+Step 1 | N/A | N/A | N/A | Passed |
+Step 2 | N/A | N/A | N/A | Passed |
+Step 3 | [Desktop Result](football_memories/static/images/testing/exception1_desktop.PNG)  | [Tablet Result](football_memories/static/images/testing/exception1_tablet.png) |[Mobile Result](football_memories/static/images/testing/exception1_mobile.png) | Passed |
+Step 4 | N/A | N/A | N/A | Passed |
+Step 5 | [Desktop Result](football_memories/static/images/testing/exception2_desktop.PNG)  | [Tablet Result](football_memories/static/images/testing/exception2_tablet.png) |[Mobile Result](football_memories/static/images/testing/exception2_mobile.png) | Passed |
 
 ## Feature 4 Login Register Logout administration
 ### User Story 4-1
@@ -603,23 +650,24 @@ Step Number | Desktop | Tablet | Mobile | Result
 Step 1 | [Desktop Result](football_memories/static/images/testing/delete_memory_5_4_desktop.png)  | [Tablet Result](football_memories/static/images/testing/delete_memory_5_4_tablet.png) |[Mobile Result](football_memories/static/images/testing/delete_memory_5_4_mobile.png) | Passed |
 Step 2 | [Desktop Result](football_memories/static/images/testing/mongodb_delete_memory.PNG)  | [Tablet Result](football_memories/static/images/testing/mongodb_delete_memory.PNG) |[Mobile Result](football_memories/static/images/testing/mongodb_delete_memory.PNG) | Passed |
 
-mongodb_delete_memory
-
 ### User Story 5-5
 - User Story 5.5: Delete Memory - As an admin user I can delete a memory, created by any user
 ### Test case steps 5-5
 1. As an admin user navigate to the "All Memories" page. 
 2. Delete a memory that was created by another user and check the memories page for the memory
+3. As a regular user navigate to the "All Memories" page. 
 
 ### Expected Result 5-5
 1. The "All Memories" page is displayed and every memory will have a delete button displayed
 2. A confirmation modal is displayed and once confirmed the memory is deleted
+3. A regular user can only edit and delete memories they have created
 
 ### Actual Result 5-5
 Step Number | Desktop | Tablet | Mobile | Result 
 ------------ | ------------ | ------------- | ------------- | ------------- |
 Step 1 | [Desktop Result](football_memories/static/images/testing/delete_memory_5_5_1_desktop.png)  | [Tablet Result](football_memories/static/images/testing/delete_memory_5_5_1_tablet.png) |[Mobile Result](football_memories/static/images/testing/delete_memory_5_5_1_mobile.png) | Passed |
 Step 1 | [Desktop Result](football_memories/static/images/testing/delete_memory_5_5_2_desktop.png)  | [Tablet Result](football_memories/static/images/testing/delete_memory_5_5_2_tablet.png) |[Mobile Result](football_memories/static/images/testing/delete_memory_5_5_2_mobile.png) | Passed |
+Step 3 | [Desktop Result](football_memories/static/images/testing/all_memories_regular_desktop.png)  | [Tablet Result](football_memories/static/images/testing/all_memories_regular_tablet.png) |[Mobile Result](football_memories/static/images/testing/all_memories_regular_mobile.png) | Passed |
 
 ### User Story 5-6
 - User Story 5.6: View Memory - As a regular user/admin user I can view a memory by clicking on a memory

@@ -159,6 +159,9 @@ I have structured the website into 19 pages, each with clear, concise structure,
     - templates: Html templates to match the routes for Administration, Authentication, Errors, Memories, Tournaments and a base.html file
     - tournaments: Contains a flask route for tournament code, adding, editing etc 
     - util: Utilities, common code for example aws code for writing to an aws s3 bucket
+    - An app.py that setups, creates and runs the application
+    - A local env.py(that is not committed to source control) - This ensures passwords and security-sensitive information are stored in environment variables or in files that
+    are in .gitignore, and are never committed to the repository
     
 ### Database
 - The website is a data-centric one with html, javascript, css used with the bootstrap framework as a frontend
@@ -274,7 +277,9 @@ The user stories for the website user "regular user" (a potential or existing cu
 - User Story 2.4: As a regular user I can sign up to the football memories newsletter by entering my email and clicking SignUp. The email address entered will receive an email
 - User Story 3.1: As a regular user I can view a hero image with login and register buttons on the home/landing page
 - User Story 3.2: As a regular  user I can view the last three memories added on the website, with memory name, memory image and tournament
-- User Story 3.3: As an admin user if I encounter a route that does not exist I am navigated to a 404 error page
+- User Story 3.3: As a regular user if I encounter a route that does not exist I am navigated to a 404 error page
+- User Story 3.4: As a regular user if I encounter an error with the application starting up I am navigated to a 500 error page
+- User Story 3.5: As a regular user if I encounter an error when using the application(adding a memory or tournament for example), a message is displayed
 - User Story 4.1: As a regular user I can register for an account by providing my username, password, confirm password, first name, last name, favourite team and country, and I will be brought to the memories page. All fields must be provided
 - User Story 4.2: As a regular user my username must be a minimum of 6 characters, and contain at least one lowercase letter, with no special characters
 - User Story 4.3: As a regular user my password must be a minimum of 6 characters and contain at least one number, one lowercase and one uppercase letter, with no special characters
@@ -316,6 +321,8 @@ There is a lot of overlap between the two user types, the admin user however has
 - User Story 3.1: As an admin user I can view a hero image with login and register buttons on the home/landing page
 - User Story 3.2: As an admin user I can view the last three memories added on the website, with memory name, memory image and tournament
 - User Story 3.3: As an admin user if I encounter a route that does not exist I am navigated to a 404 error page
+- User Story 3.4: As an admin user if I encounter an error with the application starting up I am navigated to a 500 error page
+- User Story 3.5: As an admin user if I encounter an error when using the application(adding a memory or tournament for example), a message is displayed
 - User Story 4.5: As an admin user I can log in to my account by providing my username and password and clicking Login and I will be navigated to the my memories page. A username and password must be provided. If the username and/or password entered is incorrectly a relevant message will be displayed
 - User Story 4.6: As an admin user, when I am logged into the site, and I click Logout I am successfully logged out of the site, and brought to the home/landing page, and the navigation bar is updated with three options with a logo, Home, Login, Register
 - User Story 4.7: As an admin user, when I am logged into the site, and I click the back button I am automatically redirected to the home/landing page, and the navigation bar is updated with three options with a logo, Home, Login, Register
@@ -390,6 +397,7 @@ The website has seven distinct features, and they are described below
 - This is the navigation bar of the website, and is displayed on all pages. The navigation bar is a bootstrap component, and is a responsive component. It becomes a burger menu on tablet and mobile devices.
 - When the user is not logged in, there are three options with a logo, Home, Login, Register
 - When the user is logged in, there are six options with a logo: Memories, Add Memory, Tournaments, Profile, Dashboard, Logout
+- This ensures any functionality requiring log-in is available only to logged-in users
 
 - Clicking on the Logout button logs the user out of the site, and their session is ended. If they click back they are automatically re-sent back to the home/landing page
 - The following code is a check on the relevant functions in every flask route on the website
@@ -460,6 +468,8 @@ three_latest_memories = list(mongo.db.memories.find().
 - User Story 3.2: As a regular user/admin user I can view the last three memories added on the website, with memory name, memory image
 and tournament
 - User Story 3.3: As an admin/regular user if I encounter a route that does not exist I am navigated to a 404 error page
+- User Story 3.4: As an admin/regular user if I encounter an error with the application starting up I am navigated to a 500 error page
+- User Story 3.5: As an admin/regular user if I encounter an error when using the application(adding a memory or tournament for example), a message is displayed
 
 ### Feature 4 Login Register Logout administration
 #### Description feature 4
@@ -508,6 +518,7 @@ and a welcome message is displayed, for example <code>flash("Registration Succes
     - Clicking cancel will bring the user back to the Memories page, clicking Save Changes will save the changes and update the memory
     ![Edit Memory](football_memories/static/images/readme/edit_memory.PNG)
 - A user can delete a memory they have created, and admin user can delete any memory
+- A regular user can only create memories they have created
     - A pop-up will appear confirming that the user wishes to delete a memory, all comments, ratings will also be deleted for the deleted memory
     ![Delete Memory](football_memories/static/images/readme/delete_memory.PNG)
 - A user can view all memories or filter on memories they have created on the Memories page. When the login/register they are navigated to the "All Memories" page, but when they add/edit/delete a memory, they are navigated to their memories page. Memories are sorted by the date they are added with the newest memories displayed first
