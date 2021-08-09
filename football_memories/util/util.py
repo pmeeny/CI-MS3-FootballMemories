@@ -1,7 +1,7 @@
 import os
 import boto3
 from botocore.exceptions import ClientError
-from flask import (request, flash)
+from flask import request
 from flask_paginate import get_page_args
 from werkzeug.utils import secure_filename
 from datetime import datetime
