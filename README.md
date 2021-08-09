@@ -607,7 +607,7 @@ The dashboard page displays the results of 5 queries against the mongo db for th
 - A user can view or edit their profile details. Their username is displayed, but it is an un-editable field. When the user clicks save changes they are brought back to the Profile page with the relevant updates made
 - A user cannot update their username, the field is read only on the profile page
 - When the user selects the profile page, all their information(username, first name, last name, favourite team, country) is displayed, the user will not be asked for information they have already supplied
-- However, the user is asked to re-enter their password, this is for security purposes and the fact the users password is encrypted in the database
+- However, the user is asked to re-enter their password, this is for security purposes and the fact the user's password is encrypted in the database
 - All fields are mandatory, similar to the registration page
 
 #### Profile Edit Profile
