@@ -1,12 +1,8 @@
 # Football memories site
 Football memories is a website that allows users to add/edit/delete/view football memories for given tournaments. 
 It also allows users to rate and comment on football memories
-- There are two types of users, and I have set up accounts for both
-    - An admin user account has been set up with username/password of administrator/Password123
-    - A regular user account has been set up with username/password of mikemurphy/Password123
 <br>
 
-**View the live site [here](https://ci-ms3-footballmemories.herokuapp.com/)**
 <br><br>
 ![Responsive site example](football_memories/static/images/am_i_responsive/responsive_devices.png)
 
@@ -91,7 +87,6 @@ It also allows users to rate and comment on football memories
 <small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
 # Project Overview
 - This project is a website that allows users to add/edit/delete football memories for given tournament for submission as milestone project 3 as part of the Code Institute - Diploma in Software Development (Full stack) course.
-- The website is deployed using Heroku pages at the following url: [Football Memories](https://ci-ms3-footballmemories.herokuapp.com/)
 - The repository on GitHub that contains the website source code and assets is available at the following url: [Code Repository](https://github.com/pmeeny/CI-MS3-FootballMemories)
 - The website was built with a responsive look and feel for desktop, tablet and mobile devices
 
